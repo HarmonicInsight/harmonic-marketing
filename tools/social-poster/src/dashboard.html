@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Poster — HARMONIC insight</title>
+<style>
+:root {
+  --gold: #B8942F;
+  --gold-light: #D4B85A;
+  --gold-dark: #8A6F23;
+  --ivory: #FAF8F5;
+  --white: #FFFFFF;
+  --text: #1C1917;
+  --text-sub: #57534E;
+  --border: #E7E2DA;
+  --success: #16A34A;
+  --warning: #CA8A04;
+  --error: #DC2626;
+  --info: #2563EB;
+  --bg-card: #FFFFFF;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+  --radius: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+  color: #FFF;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header h1 .brand { color: var(--gold-light); }
+.header-status {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 13px;
+}
+.status-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+.status-dot.ok { background: var(--success); }
+.status-dot.ng { background: var(--error); }
+.status-dot.unknown { background: #78716C; }
+
+/* ===== Layout ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.full-width { grid-column: 1 / -1; }
+
+/* ===== Cards ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.card-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FEFDFB;
+}
+.card-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.card-body { padding: 18px; }
+
+/* ===== Stats Row ===== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+.stat-sub {
+  font-size: 11px;
+  color: #A8A29E;
+  margin-top: 2px;
+}
+
+/* ===== Form ===== */
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-group select,
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #FFF;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 148, 47, 0.1);
+}
+.form-group textarea { resize: vertical; min-height: 60px; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary {
+  background: var(--gold);
+  color: #FFF;
+}
+.btn-primary:hover:not(:disabled) { background: var(--gold-dark); }
+.btn-secondary {
+  background: #F5F5F4;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover:not(:disabled) { background: #E7E5E4; }
+.btn-success {
+  background: var(--success);
+  color: #FFF;
+}
+.btn-success:hover:not(:disabled) { background: #15803D; }
+.btn-danger {
+  background: var(--error);
+  color: #FFF;
+}
+.btn-danger:hover:not(:disabled) { background: #B91C1C; }
+.btn-group { display: flex; gap: 8px; margin-top: 12px; }
+
+/* ===== Preview ===== */
+.preview-area {
+  background: #FAFAF9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  min-height: 80px;
+}
+.preview-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+.preview-twitter {
+  background: #FFF;
+  border: 1px solid #CFD9DE;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.preview-twitter .char-count {
+  text-align: right;
+  font-size: 11px;
+  color: #A8A29E;
+  margin-top: 6px;
+}
+.preview-note-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.preview-note-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.tag {
+  background: #F5F5F4;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+.preview-note-body {
+  font-size: 13px;
+  color: var(--text-sub);
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+/* ===== Thread ===== */
+.thread-item {
+  background: #FFF;
+  border: 1px solid #CFD9DE;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 8px;
+  font-size: 13px;
+  position: relative;
+  margin-left: 20px;
+}
+.thread-item::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: -8px;
+  width: 2px;
+  height: calc(100% + 8px);
+  background: #CFD9DE;
+}
+
+/* ===== History Table ===== */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.history-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--border);
+}
+.history-table td {
+  padding: 10px;
+  border-bottom: 1px solid #F5F5F4;
+  vertical-align: middle;
+}
+.history-table tr:hover td { background: #FEFDFB; }
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-success { background: #DCFCE7; color: #166534; }
+.badge-error { background: #FEE2E2; color: #991B1B; }
+.badge-warning { background: #FEF9C3; color: #854D0E; }
+.badge-info { background: #DBEAFE; color: #1E40AF; }
+.badge-neutral { background: #F5F5F4; color: #57534E; }
+
+/* ===== Job Monitor ===== */
+.job-list { max-height: 300px; overflow-y: auto; }
+.job-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #F5F5F4;
+  font-size: 13px;
+}
+.job-item:last-child { border-bottom: none; }
+.job-type { font-weight: 600; min-width: 70px; }
+.job-time { color: var(--text-sub); font-size: 11px; }
+
+/* ===== Spinner ===== */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Editable ===== */
+.editable {
+  cursor: text;
+  border: 1px solid transparent;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+.editable:hover { border-color: var(--border); }
+.editable:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: #FFF;
+}
+
+/* ===== Toast ===== */
+.toast-container {
+  position: fixed;
+  top: 70px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toast {
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  animation: slideIn 0.3s ease;
+  max-width: 360px;
+}
+.toast-success { background: #166534; color: #FFF; }
+.toast-error { background: #991B1B; color: #FFF; }
+.toast-info { background: #1E40AF; color: #FFF; }
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+/* ===== Empty State ===== */
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #A8A29E;
+  font-size: 13px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container { grid-template-columns: 1fr; padding: 12px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>
+    <span class="brand">HARMONIC</span> Social Poster
+  </h1>
+  <div class="header-status">
+    <span><span class="status-dot unknown" id="dot-twitter"></span>Twitter</span>
+    <span><span class="status-dot unknown" id="dot-note"></span>note.com</span>
+    <button class="btn btn-secondary" onclick="runTest()" id="btn-test" style="font-size:12px;padding:5px 12px;">
+      接続テスト
+    </button>
+  </div>
+</header>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toasts"></div>
+
+<div class="container">
+
+  <!-- Stats Row -->
+  <div class="full-width stats-row" id="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-twitter-today">-</div>
+      <div class="stat-label">Twitter 今日</div>
+      <div class="stat-sub">上限 10件/日</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-note-today">-</div>
+      <div class="stat-label">note.com 今日</div>
+      <div class="stat-sub">上限 5件/日</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-total">-</div>
+      <div class="stat-label">累計投稿数</div>
+      <div class="stat-sub" id="stat-total-sub"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-uptime">-</div>
+      <div class="stat-label">稼働時間</div>
+      <div class="stat-sub" id="stat-uptime-sub"></div>
+    </div>
+  </div>
+
+  <!-- Generate Form -->
+  <div class="card">
+    <div class="card-header">
+      <h2>コンテンツ生成</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>プラットフォーム</label>
+          <select id="f-platform">
+            <option value="all">Twitter + note.com</option>
+            <option value="twitter">Twitter のみ</option>
+            <option value="note">note.com のみ</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>コンテンツ種別</label>
+          <select id="f-type">
+            <option value="tips">使い方 Tips</option>
+            <option value="product_update">製品アップデート</option>
+            <option value="case_study">活用事例</option>
+            <option value="behind_the_scenes">開発裏話</option>
+            <option value="industry_insight">業界トレンド</option>
+            <option value="comparison">競合比較</option>
+            <option value="free_plan_promo">FREE プラン訴求</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>トーン</label>
+          <select id="f-tone">
+            <option value="professional">プロフェッショナル</option>
+            <option value="casual">カジュアル</option>
+            <option value="technical">技術的</option>
+            <option value="storytelling">ストーリーテリング</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>対象製品 (カンマ区切り)</label>
+          <input id="f-products" placeholder="例: INSS, IOSH">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>トピック (自由記述)</label>
+        <textarea id="f-topic" rows="2" placeholder="例: Excel のバージョン管理で困っている人向けの投稿"></textarea>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="generate()" id="btn-generate">
+          AI で生成
+        </button>
+        <button class="btn btn-secondary" onclick="clearPreview()" id="btn-clear">
+          クリア
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Monitor -->
+  <div class="card">
+    <div class="card-header">
+      <h2>ジョブモニター</h2>
+      <span class="badge badge-neutral" id="job-count">0 件</span>
+    </div>
+    <div class="card-body">
+      <div class="job-list" id="job-list">
+        <div class="empty">ジョブはありません</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview & Post -->
+  <div class="card full-width" id="preview-card" style="display:none;">
+    <div class="card-header">
+      <h2>プレビュー</h2>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-secondary" onclick="generate()" id="btn-regenerate">再生成</button>
+        <button class="btn btn-success" onclick="post()" id="btn-post">投稿する</button>
+      </div>
+    </div>
+    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" id="preview-body">
+      <!-- Twitter Preview -->
+      <div id="preview-twitter-wrap" style="display:none;">
+        <div class="preview-label">Twitter / X</div>
+        <div class="preview-twitter">
+          <div contenteditable="true" class="editable" id="preview-twitter-text"></div>
+          <div class="char-count"><span id="preview-twitter-chars">0</span> 文字</div>
+        </div>
+        <div id="preview-twitter-thread"></div>
+      </div>
+      <!-- Note Preview -->
+      <div id="preview-note-wrap" style="display:none;">
+        <div class="preview-label">note.com</div>
+        <div class="preview-note-title editable" contenteditable="true" id="preview-note-title"></div>
+        <div class="preview-note-tags" id="preview-note-tags"></div>
+        <div style="margin-bottom:8px;">
+          <select id="preview-note-status" style="font-size:12px;padding:3px 8px;border:1px solid var(--border);border-radius:4px;">
+            <option value="draft">下書き保存</option>
+            <option value="published">公開</option>
+          </select>
+        </div>
+        <div class="preview-note-body" id="preview-note-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="card full-width">
+    <div class="card-header">
+      <h2>投稿履歴</h2>
+      <button class="btn btn-secondary" onclick="loadHistory()" style="font-size:12px;padding:5px 12px;">
+        更新
+      </button>
+    </div>
+    <div class="card-body" style="overflow-x:auto;">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>日時</th>
+            <th>種別</th>
+            <th>プラットフォーム</th>
+            <th>ステータス</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody id="history-tbody">
+          <tr><td colspan="5" class="empty">読み込み中...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// =============================================================================
+// State
+// =============================================================================
+let currentJobId = null;
+let currentContent = null;
+let pollInterval = null;
+
+const API = '';  // same origin
+
+const CONTENT_TYPE_LABELS = {
+  product_update: '製品アップデート',
+  tips: 'Tips',
+  case_study: '活用事例',
+  behind_the_scenes: '開発裏話',
+  industry_insight: '業界トレンド',
+  comparison: '競合比較',
+  free_plan_promo: 'FREE訴求',
+};
+
+// =============================================================================
+// Toast
+// =============================================================================
+function toast(msg, type = 'info') {
+  const el = document.createElement('div');
+  el.className = `toast toast-${type}`;
+  el.textContent = msg;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => el.remove(), 4000);
+}
+
+// =============================================================================
+// API helpers
+// =============================================================================
+async function api(path, opts = {}) {
+  const res = await fetch(API + path, {
+    headers: { 'Content-Type': 'application/json' },
+    ...opts,
+  });
+  return res.json();
+}
+
+// =============================================================================
+// Status polling
+// =============================================================================
+async function loadStatus() {
+  try {
+    const data = await api('/api/status');
+    document.getElementById('stat-twitter-today').textContent = data.today.twitter.posted;
+    document.getElementById('stat-note-today').textContent = data.today.note.posted;
+
+    const mins = Math.floor(data.server.uptime / 60);
+    const hrs = Math.floor(mins / 60);
+    document.getElementById('stat-uptime').textContent =
+      hrs > 0 ? `${hrs}h ${mins % 60}m` : `${mins}m`;
+    document.getElementById('stat-uptime-sub').textContent =
+      `起動: ${new Date(data.server.startedAt).toLocaleTimeString('ja-JP')}`;
+
+    // Update jobs
+    renderJobs(data.jobs);
+  } catch (e) { /* server down */ }
+}
+
+async function loadHistory() {
+  try {
+    const data = await api('/api/history?limit=30');
+    const tbody = document.getElementById('history-tbody');
+    if (!data.entries.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty">投稿履歴はありません</td></tr>';
+      document.getElementById('stat-total').textContent = '0';
+      return;
+    }
+    document.getElementById('stat-total').textContent = data.entries.length;
+    document.getElementById('stat-total-sub').textContent = '直近30件表示';
+
+    tbody.innerHTML = data.entries.map(e => {
+      const date = e.postedAt ? new Date(e.postedAt).toLocaleString('ja-JP', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }) : '-';
+      const platforms = e.results.map(r => {
+        const cls = r.success ? 'badge-success' : 'badge-error';
+        const label = r.platform === 'twitter' ? 'Twitter' : 'note.com';
+        return `<span class="badge ${cls}">${label}</span>`;
+      }).join(' ');
+      const snippet = e.content.twitter?.text?.slice(0, 50) || e.content.note?.title || '-';
+      const urls = e.results.filter(r => r.url).map(r =>
+        `<a href="${r.url}" target="_blank" style="font-size:11px;color:var(--info);">開く</a>`
+      ).join(' ');
+      return `<tr>
+        <td style="white-space:nowrap;">${date}</td>
+        <td><span class="badge badge-neutral">${CONTENT_TYPE_LABELS[e.contentType] || e.contentType}</span></td>
+        <td>${platforms}</td>
+        <td>${urls || '-'}</td>
+        <td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${snippet}</td>
+      </tr>`;
+    }).join('');
+  } catch (e) {
+    document.getElementById('history-tbody').innerHTML = '<tr><td colspan="5" class="empty">読み込みエラー</td></tr>';
+  }
+}
+
+// =============================================================================
+// Connection test
+// =============================================================================
+async function runTest() {
+  const btn = document.getElementById('btn-test');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> テスト中';
+  document.getElementById('dot-twitter').className = 'status-dot unknown';
+  document.getElementById('dot-note').className = 'status-dot unknown';
+
+  try {
+    const { jobId } = await api('/api/test', { method: 'POST' });
+    await pollJob(jobId, (job) => {
+      if (job.status === 'completed' && job.result) {
+        const tw = job.result.twitter?.text === 'connected';
+        const nt = job.result.note?.title === 'connected';
+        document.getElementById('dot-twitter').className = `status-dot ${tw ? 'ok' : 'ng'}`;
+        document.getElementById('dot-note').className = `status-dot ${nt ? 'ok' : 'ng'}`;
+        toast(
+          `接続テスト完了: Twitter=${tw ? 'OK' : 'NG'}, note=${nt ? 'OK' : 'NG'}`,
+          tw && nt ? 'success' : 'error'
+        );
+      }
+    });
+  } catch (e) {
+    toast('接続テスト失敗: ' + e.message, 'error');
+  }
+  btn.disabled = false;
+  btn.innerHTML = '接続テスト';
+}
+
+// =============================================================================
+// Job polling
+// =============================================================================
+async function pollJob(jobId, onComplete) {
+  return new Promise((resolve, reject) => {
+    const check = async () => {
+      try {
+        const job = await api(`/api/jobs/${jobId}`);
+        if (job.status === 'completed' || job.status === 'failed') {
+          if (onComplete) onComplete(job);
+          resolve(job);
+          return;
+        }
+        setTimeout(check, 800);
+      } catch (e) {
+        reject(e);
+      }
+    };
+    check();
+  });
+}
+
+// =============================================================================
+// Render jobs
+// =============================================================================
+function renderJobs(jobsArr) {
+  const el = document.getElementById('job-list');
+  const cnt = document.getElementById('job-count');
+  if (!jobsArr.length) {
+    el.innerHTML = '<div class="empty">ジョブはありません</div>';
+    cnt.textContent = '0 件';
+    return;
+  }
+  cnt.textContent = `${jobsArr.length} 件`;
+  el.innerHTML = jobsArr.map(j => {
+    const statusBadge =
+      j.status === 'completed' ? '<span class="badge badge-success">完了</span>' :
+      j.status === 'running' ? '<span class="badge badge-warning"><span class="spinner" style="width:10px;height:10px;border-width:1.5px;"></span> 実行中</span>' :
+      j.status === 'failed' ? '<span class="badge badge-error">失敗</span>' :
+      '<span class="badge badge-neutral">待機</span>';
+    const typeLabel = j.type === 'generate' ? '生成' : j.type === 'post' ? '投稿' : 'テスト';
+    const time = new Date(j.createdAt).toLocaleTimeString('ja-JP');
+    return `<div class="job-item">
+      <span class="job-type">${typeLabel}</span>
+      ${statusBadge}
+      <span class="job-time">${time}</span>
+    </div>`;
+  }).join('');
+}
+
+// =============================================================================
+// Generate
+// =============================================================================
+async function generate() {
+  const btn = document.getElementById('btn-generate');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> 生成中...';
+
+  const req = {
+    platform: document.getElementById('f-platform').value,
+    contentType: document.getElementById('f-type').value,
+    tone: document.getElementById('f-tone').value,
+    productCodes: document.getElementById('f-products').value
+      .split(',').map(s => s.trim()).filter(Boolean),
+    topic: document.getElementById('f-topic').value || undefined,
+  };
+
+  try {
+    const { jobId } = await api('/api/generate', {
+      method: 'POST',
+      body: JSON.stringify(req),
+    });
+    currentJobId = jobId;
+    toast('コンテンツを生成中...', 'info');
+    await loadStatus();
+
+    const job = await pollJob(jobId, () => {});
+    if (job.status === 'failed') {
+      toast('生成失敗: ' + job.error, 'error');
+    } else {
+      currentContent = job.result;
+      renderPreview(job.result, req.platform);
+      toast('コンテンツ生成完了', 'success');
+    }
+  } catch (e) {
+    toast('生成エラー: ' + e.message, 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'AI で生成';
+  await loadStatus();
+}
+
+// =============================================================================
+// Preview
+// =============================================================================
+function renderPreview(content, platform) {
+  const card = document.getElementById('preview-card');
+  card.style.display = 'block';
+
+  const twWrap = document.getElementById('preview-twitter-wrap');
+  const ntWrap = document.getElementById('preview-note-wrap');
+
+  const showTwitter = (platform === 'all' || platform === 'twitter') && content.twitter;
+  const showNote = (platform === 'all' || platform === 'note') && content.note;
+
+  twWrap.style.display = showTwitter ? 'block' : 'none';
+  ntWrap.style.display = showNote ? 'block' : 'none';
+
+  // Adjust grid
+  const body = document.getElementById('preview-body');
+  if (showTwitter && showNote) {
+    body.style.gridTemplateColumns = '1fr 1fr';
+  } else {
+    body.style.gridTemplateColumns = '1fr';
+  }
+
+  if (showTwitter) {
+    const textEl = document.getElementById('preview-twitter-text');
+    textEl.textContent = content.twitter.text;
+    updateCharCount();
+    textEl.oninput = updateCharCount;
+
+    const threadEl = document.getElementById('preview-twitter-thread');
+    if (content.twitter.thread?.length) {
+      threadEl.innerHTML = content.twitter.thread.map(t =>
+        `<div class="thread-item">${t}</div>`
+      ).join('');
+    } else {
+      threadEl.innerHTML = '';
+    }
+  }
+
+  if (showNote) {
+    document.getElementById('preview-note-title').textContent = content.note.title;
+    document.getElementById('preview-note-tags').innerHTML =
+      content.note.tags.map(t => `<span class="tag">#${t}</span>`).join('');
+    document.getElementById('preview-note-body').textContent =
+      content.note.body.length > 800 ? content.note.body.slice(0, 800) + '...' : content.note.body;
+  }
+
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateCharCount() {
+  const text = document.getElementById('preview-twitter-text').textContent;
+  const count = document.getElementById('preview-twitter-chars');
+  count.textContent = text.length;
+  count.style.color = text.length > 140 ? 'var(--error)' : '#A8A29E';
+}
+
+function clearPreview() {
+  document.getElementById('preview-card').style.display = 'none';
+  currentJobId = null;
+  currentContent = null;
+}
+
+// =============================================================================
+// Post
+// =============================================================================
+async function post() {
+  if (!currentJobId || !currentContent) {
+    toast('先にコンテンツを生成してください', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('btn-post');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> 投稿中...';
+
+  const platform = document.getElementById('f-platform').value;
+  const platforms = platform === 'all' ? ['twitter', 'note'] : [platform];
+
+  const editedTwitterText = document.getElementById('preview-twitter-text')?.textContent;
+  const editedNoteTitle = document.getElementById('preview-note-title')?.textContent;
+  const notePublishStatus = document.getElementById('preview-note-status')?.value;
+
+  try {
+    const { jobId } = await api('/api/post', {
+      method: 'POST',
+      body: JSON.stringify({
+        jobId: currentJobId,
+        platforms,
+        editedTwitterText,
+        editedNoteTitle,
+        notePublishStatus,
+      }),
+    });
+
+    const job = await pollJob(jobId, () => {});
+    if (job.status === 'failed') {
+      toast('投稿失敗: ' + job.error, 'error');
+    } else {
+      const results = job.postResults || [];
+      const successes = results.filter(r => r.success);
+      const failures = results.filter(r => !r.success);
+      if (successes.length) {
+        toast(`投稿成功: ${successes.map(r => r.platform).join(', ')}`, 'success');
+      }
+      if (failures.length) {
+        toast(`投稿失敗: ${failures.map(r => `${r.platform}: ${r.error}`).join(', ')}`, 'error');
+      }
+      await loadHistory();
+      await loadStatus();
+    }
+  } catch (e) {
+    toast('投稿エラー: ' + e.message, 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '投稿する';
+}
+
+// =============================================================================
+// Init
+// =============================================================================
+loadStatus();
+loadHistory();
+setInterval(loadStatus, 5000);
+</script>
+
+</body>
+</html>

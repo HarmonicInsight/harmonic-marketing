@@ -1,0 +1,25 @@
+{
+  "name": "social-poster",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "post": "tsx src/cli.ts",
+    "post:twitter": "tsx src/cli.ts --platform twitter",
+    "post:note": "tsx src/cli.ts --platform note",
+    "post:all": "tsx src/cli.ts --platform all",
+    "generate": "tsx src/cli.ts --dry-run",
+    "schedule": "tsx src/cli.ts --schedule",
+    "dashboard": "tsx src/server.ts",
+    "gui": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "twitter-api-v2": "^1.18.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
