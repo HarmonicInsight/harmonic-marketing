@@ -2,12 +2,14 @@ import React, { useState, useMemo } from 'react';
 import {
   Box, Typography, IconButton, Paper, useMediaQuery, useTheme,
   Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, MenuItem,
+  AppBar, Toolbar,
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TodayIcon from '@mui/icons-material/Today';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import CloseIcon from '@mui/icons-material/Close';
 import GroupsIcon from '@mui/icons-material/Groups';
 import FlagIcon from '@mui/icons-material/Flag';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -65,17 +67,31 @@ function getMonthDays(year: number, month: number) {
 function EventDialog({ open, event, isNew, onClose, onSave, onDelete }: {
   open: boolean; event: TaskEvent | null; isNew: boolean; onClose: () => void; onSave: (event: TaskEvent) => void; onDelete?: (id: string) => void;
 }) {
+  const evTheme = useTheme();
+  const evMobile = useMediaQuery(evTheme.breakpoints.down('sm'));
   const [form, setForm] = useState<TaskEvent | null>(null);
   React.useEffect(() => { if (event) setForm({ ...event }); }, [event]);
   if (!form) return null;
   const handleChange = (field: keyof TaskEvent, value: string | boolean) => { setForm((prev) => prev ? { ...prev, [field]: value } : prev); };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ fontSize: '0.95rem', fontWeight: 700, color: colors.brown[800], pb: 1 }}>{isNew ? 'イベント追加' : 'イベント編集'}</DialogTitle>
+    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth fullScreen={evMobile}>
+      {evMobile ? (
+        <AppBar position="static" elevation={0} sx={{ bgcolor: colors.brown[600] }}>
+          <Toolbar variant="dense" sx={{ minHeight: 48 }}>
+            <IconButton edge="start" onClick={onClose} sx={{ color: '#fff', mr: 1 }}><CloseIcon /></IconButton>
+            <Typography sx={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', flex: 1 }}>{isNew ? 'イベント追加' : 'イベント編集'}</Typography>
+            <Button onClick={() => { onSave(form); onClose(); }} disabled={!form.title.trim()} sx={{ color: '#fff', fontWeight: 700, fontSize: '0.85rem', textTransform: 'none', '&.Mui-disabled': { color: 'rgba(255,255,255,0.4)' } }}>
+              {isNew ? '追加' : '保存'}
+            </Button>
+          </Toolbar>
+        </AppBar>
+      ) : (
+        <DialogTitle sx={{ fontSize: '0.95rem', fontWeight: 700, color: colors.brown[800], pb: 1 }}>{isNew ? 'イベント追加' : 'イベント編集'}</DialogTitle>
+      )}
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: '8px !important' }}>
         <TextField label="タイトル" size="small" value={form.title} onChange={(e) => handleChange('title', e.target.value)} autoFocus required sx={{ '& .MuiInputBase-root': { fontSize: '0.85rem' } }} />
-        <Box sx={{ display: 'flex', gap: 1.5 }}>
+        <Box sx={{ display: 'flex', gap: 1.5, flexDirection: { xs: 'column', sm: 'row' } }}>
           <TextField label="日付" type="date" size="small" value={form.date} onChange={(e) => handleChange('date', e.target.value)} InputLabelProps={{ shrink: true }} sx={{ flex: 1, '& .MuiInputBase-root': { fontSize: '0.85rem' } }} />
           <TextField label="終了日（任意）" type="date" size="small" value={form.endDate || ''} onChange={(e) => handleChange('endDate', e.target.value)} InputLabelProps={{ shrink: true }} sx={{ flex: 1, '& .MuiInputBase-root': { fontSize: '0.85rem' } }} />
         </Box>
@@ -85,14 +101,19 @@ function EventDialog({ open, event, isNew, onClose, onSave, onDelete }: {
           ))}
         </TextField>
         <TextField label="説明（任意）" size="small" multiline rows={2} value={form.description} onChange={(e) => handleChange('description', e.target.value)} sx={{ '& .MuiInputBase-root': { fontSize: '0.85rem' } }} />
-      </DialogContent>
-      <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
-        {!isNew && onDelete && (
-          <Button onClick={() => { onDelete(form.id); onClose(); }} color="error" size="small" startIcon={<DeleteOutlineIcon sx={{ fontSize: 16 }} />} sx={{ mr: 'auto', fontSize: '0.78rem' }}>削除</Button>
+        {evMobile && !isNew && onDelete && (
+          <Button onClick={() => { onDelete(form.id); onClose(); }} color="error" size="small" startIcon={<DeleteOutlineIcon sx={{ fontSize: 16 }} />} sx={{ alignSelf: 'flex-start', fontSize: '0.78rem', mt: 1 }}>削除</Button>
         )}
-        <Button onClick={onClose} size="small" sx={{ fontSize: '0.78rem' }}>キャンセル</Button>
-        <Button variant="contained" onClick={() => { onSave(form); onClose(); }} disabled={!form.title.trim()} size="small" sx={{ fontSize: '0.78rem' }}>{isNew ? '追加' : '保存'}</Button>
-      </DialogActions>
+      </DialogContent>
+      {!evMobile && (
+        <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
+          {!isNew && onDelete && (
+            <Button onClick={() => { onDelete(form.id); onClose(); }} color="error" size="small" startIcon={<DeleteOutlineIcon sx={{ fontSize: 16 }} />} sx={{ mr: 'auto', fontSize: '0.78rem' }}>削除</Button>
+          )}
+          <Button onClick={onClose} size="small" sx={{ fontSize: '0.78rem' }}>キャンセル</Button>
+          <Button variant="contained" onClick={() => { onSave(form); onClose(); }} disabled={!form.title.trim()} size="small" sx={{ fontSize: '0.78rem' }}>{isNew ? '追加' : '保存'}</Button>
+        </DialogActions>
+      )}
     </Dialog>
   );
 }

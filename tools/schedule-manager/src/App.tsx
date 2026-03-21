@@ -3,7 +3,8 @@ import {
   Box, Typography, Chip, Button, ToggleButton, ToggleButtonGroup,
   TextField, InputAdornment, Table, TableHead, TableBody, TableRow,
   TableCell, Paper, TableContainer, IconButton, useMediaQuery, useTheme,
-  CssBaseline, ThemeProvider, AppBar, Toolbar,
+  CssBaseline, ThemeProvider, AppBar, Toolbar, BottomNavigation, BottomNavigationAction,
+  LinearProgress,
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -145,19 +146,21 @@ function App() {
             </Typography>
           </Box>
           <Button variant="contained" startIcon={<AddIcon />} onClick={handleNew}
-            sx={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'none', px: 2.5, py: 0.8 }}>タスク追加</Button>
+            sx={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'none', px: 2.5, py: 0.8, display: { xs: 'none', sm: 'flex' } }}>タスク追加</Button>
         </Box>
 
-        {/* View toggle */}
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
-          <ToggleButtonGroup value={view} exclusive onChange={(_, v) => v && setView(v)} size="small"
-            sx={{ '& .MuiToggleButton-root': { px: { xs: 0.75, sm: 1.5 }, py: 0.5, fontSize: '0.72rem' } }}>
-            <ToggleButton value="calendar"><CalendarMonthIcon sx={{ fontSize: 16, mr: isMobile ? 0 : 0.5 }} />{!isMobile && 'カレンダー'}</ToggleButton>
-            <ToggleButton value="timeline"><TimelineIcon sx={{ fontSize: 16, mr: isMobile ? 0 : 0.5 }} />{!isMobile && 'タイムライン'}</ToggleButton>
-            <ToggleButton value="list"><ViewListIcon sx={{ fontSize: 16, mr: isMobile ? 0 : 0.5 }} />{!isMobile && 'リスト'}</ToggleButton>
-            <ToggleButton value="kanban"><ViewKanbanIcon sx={{ fontSize: 16, mr: isMobile ? 0 : 0.5 }} />{!isMobile && 'カンバン'}</ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
+        {/* View toggle - desktop only */}
+        {!isMobile && (
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+            <ToggleButtonGroup value={view} exclusive onChange={(_, v) => v && setView(v)} size="small"
+              sx={{ '& .MuiToggleButton-root': { px: 1.5, py: 0.5, fontSize: '0.72rem' } }}>
+              <ToggleButton value="calendar"><CalendarMonthIcon sx={{ fontSize: 16, mr: 0.5 }} />カレンダー</ToggleButton>
+              <ToggleButton value="timeline"><TimelineIcon sx={{ fontSize: 16, mr: 0.5 }} />タイムライン</ToggleButton>
+              <ToggleButton value="list"><ViewListIcon sx={{ fontSize: 16, mr: 0.5 }} />リスト</ToggleButton>
+              <ToggleButton value="kanban"><ViewKanbanIcon sx={{ fontSize: 16, mr: 0.5 }} />カンバン</ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+        )}
 
         {/* KPI Strip */}
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }, gap: '1px', border: `1px solid ${colors.ivory[400]}`, borderRadius: 1, bgcolor: colors.ivory[400], overflow: 'hidden', mb: 2 }}>
@@ -207,12 +210,36 @@ function App() {
         {view === 'kanban' && <KanbanBoard tasks={filtered} members={members} onStatusChange={handleStatusChange} onTaskClick={handleEdit} />}
 
         <TaskDetailDialog task={editingTask} members={members} open={dialogOpen} onClose={() => { setDialogOpen(false); setEditingTask(null); setIsNewTask(false); }} onSave={handleSave} isNew={isNewTask} />
+
+        {/* Spacer for mobile bottom nav */}
+        {isMobile && <Box sx={{ height: 64 }} />}
       </Box>
+
+      {/* Mobile bottom navigation */}
+      {isMobile && (
+        <>
+          <IconButton onClick={handleNew}
+            sx={{ position: 'fixed', bottom: 68, right: 16, zIndex: 1100, width: 48, height: 48, bgcolor: colors.brown[600], color: '#fff', boxShadow: '0 4px 12px rgba(93,78,63,0.3)', '&:hover': { bgcolor: colors.brown[700] }, '&:active': { transform: 'scale(0.95)' } }}>
+            <AddIcon />
+          </IconButton>
+          <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1100, borderTop: `1px solid ${colors.ivory[400]}` }} elevation={3}>
+            <BottomNavigation value={view} onChange={(_, v) => setView(v)} showLabels
+              sx={{ height: 56, bgcolor: '#fff', '& .MuiBottomNavigationAction-root': { minWidth: 0, py: 0.5, '&.Mui-selected': { color: colors.brown[700] } }, '& .MuiBottomNavigationAction-label': { fontSize: '0.62rem', '&.Mui-selected': { fontSize: '0.64rem' } } }}>
+              <BottomNavigationAction label="カレンダー" value="calendar" icon={<CalendarMonthIcon sx={{ fontSize: 22 }} />} />
+              <BottomNavigationAction label="タイムライン" value="timeline" icon={<TimelineIcon sx={{ fontSize: 22 }} />} />
+              <BottomNavigationAction label="リスト" value="list" icon={<ViewListIcon sx={{ fontSize: 22 }} />} />
+              <BottomNavigationAction label="カンバン" value="kanban" icon={<ViewKanbanIcon sx={{ fontSize: 22 }} />} />
+            </BottomNavigation>
+          </Paper>
+        </>
+      )}
     </Box>
   );
 }
 
 function ListView({ tasks, members, onEdit, onDelete }: { tasks: BusinessTask[]; members: TeamMember[]; onEdit?: (task: BusinessTask) => void; onDelete?: (taskId: string) => void }) {
+  const muiTheme = useTheme();
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down('sm'));
   const getCatColor = (cat: string) => CATEGORIES.find((c) => c.name === cat)?.color ?? colors.brown[400];
   const today = new Date().toISOString().slice(0, 10);
 
@@ -228,12 +255,51 @@ function ListView({ tasks, members, onEdit, onDelete }: { tasks: BusinessTask[];
 
   const formatDue = (d: string) => {
     const diff = Math.round((new Date(d + 'T00:00:00').getTime() - new Date(today + 'T00:00:00').getTime()) / 86400000);
-    if (diff < 0) return { label: `${Math.abs(diff)}日超過`, color: '#b5453a' };
-    if (diff === 0) return { label: '本日', color: '#c17817' };
-    if (diff === 1) return { label: '明日', color: colors.brown[600] };
+    if (diff < 0) return { label: `${Math.abs(diff)}日超過`, color: '#b5453a', bg: '#b5453a' };
+    if (diff === 0) return { label: '本日', color: '#c17817', bg: '#c17817' };
+    if (diff === 1) return { label: '明日', color: colors.brown[600], bg: colors.ivory[400] };
     const m = new Date(d + 'T00:00:00');
-    return { label: `${m.getMonth() + 1}/${m.getDate()}`, color: colors.brown[500] };
+    return { label: `${m.getMonth() + 1}/${m.getDate()}`, color: colors.brown[500], bg: 'transparent' };
   };
+
+  if (isMobile) {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        {sorted.length === 0 && (
+          <Paper sx={{ textAlign: 'center', py: 4 }}><Typography sx={{ fontSize: '0.82rem', color: colors.brown[400] }}>タスクなし</Typography></Paper>
+        )}
+        {sorted.map((task) => {
+          const statusCfg = STATUS_CONFIG[task.status];
+          const catColor = getCatColor(task.category);
+          const due = formatDue(task.dueDate);
+          const isDone = task.status === 'done';
+          const showProgress = task.progress > 0 && task.progress < 100;
+          return (
+            <Paper key={task.id} onClick={() => onEdit?.(task)}
+              sx={{ borderLeft: `3px solid ${catColor}`, borderRadius: '6px', overflow: 'hidden', cursor: 'pointer', opacity: isDone ? 0.6 : 1, transition: 'all 0.15s ease', '&:active': { transform: 'scale(0.98)' } }}>
+              <Box sx={{ px: 1.5, pt: 1.25, pb: showProgress ? 0.5 : 1.25 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: 0.5 }}>
+                  <Chip label={statusCfg.label} size="small" sx={{ height: 20, fontSize: '0.65rem', fontWeight: 600, bgcolor: `${statusCfg.color}18`, color: statusCfg.color, '& .MuiChip-label': { px: 0.75 } }} />
+                  <Chip label={task.category} size="small" sx={{ height: 18, fontSize: '0.6rem', fontWeight: 600, bgcolor: `${catColor}14`, color: catColor, '& .MuiChip-label': { px: 0.5 } }} />
+                  <Box sx={{ ml: 'auto', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                    <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: task.priority === 'high' ? '#b5453a' : task.priority === 'medium' ? '#c17817' : '#4a7c59' }} />
+                    <Typography sx={{ fontSize: '0.7rem', fontWeight: 600, color: due.bg !== 'transparent' ? '#fff' : due.color, bgcolor: due.bg !== 'transparent' ? due.bg : undefined, borderRadius: '10px', px: due.bg !== 'transparent' ? 0.8 : 0, py: 0.1, fontVariantNumeric: 'tabular-nums' }}>{due.label}</Typography>
+                  </Box>
+                </Box>
+                <Typography sx={{ fontSize: '0.85rem', fontWeight: 700, color: colors.brown[800], textDecoration: isDone ? 'line-through' : 'none', lineHeight: 1.3, mb: 0.25 }}>{task.title}</Typography>
+                {showProgress && (
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mt: 0.5 }}>
+                    <LinearProgress variant="determinate" value={task.progress} sx={{ flex: 1, height: 3, borderRadius: 2, bgcolor: colors.ivory[200], '& .MuiLinearProgress-bar': { bgcolor: catColor } }} />
+                    <Typography sx={{ fontSize: '0.62rem', color: colors.brown[400], fontVariantNumeric: 'tabular-nums' }}>{task.progress}%</Typography>
+                  </Box>
+                )}
+              </Box>
+            </Paper>
+          );
+        })}
+      </Box>
+    );
+  }
 
   return (
     <Paper sx={{ overflow: 'hidden', border: `1px solid ${colors.ivory[400]}` }}>
