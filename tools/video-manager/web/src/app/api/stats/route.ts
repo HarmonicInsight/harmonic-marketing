@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readCatalog } from "@/lib/catalog";
 
 export async function GET() {
-  const catalog = readCatalog();
+  const catalog = await readCatalog();
   const videos = catalog.videos;
 
   const mainVideos = videos.filter((v) => v.type === "main");

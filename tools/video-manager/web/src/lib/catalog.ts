@@ -1,7 +1,17 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const CATALOG_PATH = join(process.cwd(), "..", "..", "content", "youtube", "catalog.json");
+// --- 環境判定 ---
+const isVercel = !!process.env.VERCEL;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
+const GITHUB_REPO = process.env.GITHUB_REPO || "HarmonicInsight/harmonic-marketing";
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
+const CATALOG_FILE_PATH = "content/youtube/catalog.json";
+
+// ローカル用パス
+const LOCAL_CATALOG_PATH = join(process.cwd(), "..", "..", "..", "content", "youtube", "catalog.json");
+
+// --- 型定義 ---
 
 export interface Video {
   id: string;
@@ -52,17 +62,117 @@ export interface Catalog {
   videos: Video[];
 }
 
-export function readCatalog(): Catalog {
-  const raw = readFileSync(CATALOG_PATH, "utf-8");
-  return JSON.parse(raw);
+// --- GitHub API ---
+
+interface GitHubFileResponse {
+  content: string;
+  sha: string;
 }
 
-export function writeCatalog(catalog: Catalog): void {
+let cachedSha: string | null = null;
+
+async function githubReadFile(): Promise<{ content: string; sha: string }> {
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${CATALOG_FILE_PATH}?ref=${GITHUB_BRANCH}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+    },
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error(`GitHub API error: ${res.status} ${await res.text()}`);
+  }
+
+  const data: GitHubFileResponse = await res.json();
+  cachedSha = data.sha;
+  const decoded = Buffer.from(data.content, "base64").toString("utf-8");
+  return { content: decoded, sha: data.sha };
+}
+
+async function githubWriteFile(content: string, message: string): Promise<void> {
+  // 書き込み前に最新のSHAを取得（競合防止）
+  if (!cachedSha) {
+    await githubReadFile();
+  }
+
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${CATALOG_FILE_PATH}`;
+  const res = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message,
+      content: Buffer.from(content).toString("base64"),
+      sha: cachedSha,
+      branch: GITHUB_BRANCH,
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    // SHA競合の場合リトライ
+    if (res.status === 409) {
+      cachedSha = null;
+      const { sha } = await githubReadFile();
+      const retryRes = await fetch(url, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          Accept: "application/vnd.github.v3+json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message,
+          content: Buffer.from(content).toString("base64"),
+          sha,
+          branch: GITHUB_BRANCH,
+        }),
+      });
+      if (!retryRes.ok) {
+        throw new Error(`GitHub API write retry failed: ${retryRes.status}`);
+      }
+    } else {
+      throw new Error(`GitHub API write error: ${res.status} ${err}`);
+    }
+  }
+
+  // 書き込み後にSHAを更新
+  cachedSha = null;
+}
+
+// --- 読み書きの統一インターフェース ---
+
+export async function readCatalog(): Promise<Catalog> {
+  if (isVercel) {
+    const { content } = await githubReadFile();
+    return JSON.parse(content);
+  } else {
+    const raw = readFileSync(LOCAL_CATALOG_PATH, "utf-8");
+    return JSON.parse(raw);
+  }
+}
+
+export async function writeCatalog(catalog: Catalog, action?: string): Promise<void> {
   catalog._meta.last_updated = new Date().toISOString().split("T")[0];
   catalog._meta.total_videos = catalog.videos.filter((v) => v.type === "main").length;
   catalog._meta.total_shorts = catalog.videos.filter((v) => v.type === "short").length;
-  writeFileSync(CATALOG_PATH, JSON.stringify(catalog, null, 2) + "\n", "utf-8");
+
+  const json = JSON.stringify(catalog, null, 2) + "\n";
+
+  if (isVercel) {
+    const message = `[video-manager] ${action || "update catalog"}`;
+    await githubWriteFile(json, message);
+  } else {
+    writeFileSync(LOCAL_CATALOG_PATH, json, "utf-8");
+  }
 }
+
+// --- ユーティリティ ---
 
 export function nextMainId(catalog: Catalog): string {
   const maxId = catalog.videos
