@@ -1,0 +1,182 @@
+[
+  {
+    "id": "cb42fce2",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "システムインフラ入門｜未経験からわかるIT基礎講座",
+    "status": "posted",
+    "sourceRef": "VID-001",
+    "createdAt": "2026-03-21T14:51:27.864Z"
+  },
+  {
+    "id": "e5f84a7e",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "トゥールミンロジック入門｜論理的に「伝わる提案」を作る思考法",
+    "status": "posted",
+    "sourceRef": "VID-002",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "7c0bd7cd",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "グラフの選び方入門｜伝わる資料に変えるチャートの使い分け",
+    "status": "posted",
+    "sourceRef": "VID-003",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "63c12382",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "やり直せる力 勉強会｜努力が報われない理由と、成果を出す正しい挑戦法",
+    "status": "posted",
+    "sourceRef": "VID-004",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "77e25d0c",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "AI導入が失敗する理由｜IPOフレームワークで解説",
+    "status": "posted",
+    "sourceRef": "VID-005",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "2b6458ac",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "資料の作り方｜コンサルが教える「伝わる資料」の基本講座",
+    "status": "posted",
+    "sourceRef": "VID-010",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "850f2708",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "建設業基幹システム導入でカスタマイズが多発する理由と対策",
+    "status": "posted",
+    "sourceRef": "VID-011",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "7cbdf425",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "その業務、本当に特殊？｜業務統合の落とし穴",
+    "status": "posted",
+    "sourceRef": "VID-013",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "73654dfd",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "video",
+    "title": "会社でChatGPT使ってませんか？それ危険です｜企業AIのセキュリティ対策",
+    "status": "posted",
+    "sourceRef": "VID-052",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "2914807a",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "【施工管理あるある】現場で「猫持ってこい」と言われて本気で探した新人の話",
+    "status": "posted",
+    "sourceRef": "VID-CAT",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "b668bbe5",
+    "date": "2026-03-13",
+    "platform": "youtube",
+    "type": "video",
+    "title": "2050年の日本はどうなる？人口減少・AI・産業変化を読む",
+    "status": "posted",
+    "sourceRef": "VID-014",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "cbe20370",
+    "date": "2026-03-17",
+    "platform": "youtube",
+    "type": "video",
+    "title": "【完全解説】Claude API設定方法｜アカウント作成〜APIキー発行まで5分",
+    "status": "posted",
+    "sourceRef": "VID-017B",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "0b0ceaf7",
+    "date": "2026-03-17",
+    "platform": "youtube",
+    "type": "video",
+    "title": "【初心者OK】Claude API設定ガイド｜5分でAIが使えるようになる方法",
+    "status": "posted",
+    "sourceRef": "VID-017A",
+    "createdAt": "2026-03-21T14:51:27.865Z"
+  },
+  {
+    "id": "8a47159b",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "AIエージェントの真実",
+    "status": "posted",
+    "sourceRef": "VID-S001",
+    "createdAt": "2026-03-21T14:51:37.723Z"
+  },
+  {
+    "id": "b66ed653",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "RAGの幻想｜検索だけでは業務は変わらない",
+    "status": "posted",
+    "sourceRef": "VID-S002",
+    "createdAt": "2026-03-21T14:51:37.723Z"
+  },
+  {
+    "id": "abeebee9",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "AI議論、実はズレてる",
+    "status": "posted",
+    "sourceRef": "VID-S003",
+    "createdAt": "2026-03-21T14:51:37.723Z"
+  },
+  {
+    "id": "97fb607b",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "AIが仕事する？実はそうでもない話",
+    "status": "posted",
+    "sourceRef": "VID-S005",
+    "createdAt": "2026-03-21T14:51:37.723Z"
+  },
+  {
+    "id": "5d533c20",
+    "date": "2026-03-12",
+    "platform": "youtube",
+    "type": "short",
+    "title": "AI議事録、便利なのに使われない理由",
+    "status": "posted",
+    "sourceRef": "VID-S006",
+    "createdAt": "2026-03-21T14:51:37.723Z"
+  }
+]

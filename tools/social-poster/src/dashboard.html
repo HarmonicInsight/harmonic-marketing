@@ -3,941 +3,808 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Poster — HARMONIC insight</title>
+<title>Content Pipeline — HARMONIC insight</title>
 <style>
 :root {
-  --gold: #B8942F;
-  --gold-light: #D4B85A;
-  --gold-dark: #8A6F23;
-  --ivory: #FAF8F5;
-  --white: #FFFFFF;
-  --text: #1C1917;
-  --text-sub: #57534E;
-  --border: #E7E2DA;
-  --success: #16A34A;
-  --warning: #CA8A04;
-  --error: #DC2626;
-  --info: #2563EB;
-  --bg-card: #FFFFFF;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+  --gold: #B8942F; --gold-light: #D4B85A; --gold-dark: #8A6F23;
+  --ivory: #FAF8F5; --text: #1C1917; --text-sub: #57534E;
+  --border: #E7E2DA; --success: #16A34A; --warning: #CA8A04;
+  --error: #DC2626; --info: #2563EB;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
   --radius: 10px;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',sans-serif; background:var(--ivory); color:var(--text); line-height:1.6; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Header */
+header { background:linear-gradient(135deg,#1C1917,#292524); color:#FFF; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+header h1 { font-size:16px; font-weight:600; }
+header .brand { color:var(--gold-light); }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
-  background: var(--ivory);
-  color: var(--text);
-  line-height: 1.6;
-}
+/* Layout */
+.main { max-width:1200px; margin:0 auto; padding:16px 24px; }
 
-/* ===== Header ===== */
-header {
-  background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
-  color: #FFF;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-header h1 {
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-header h1 .brand { color: var(--gold-light); }
-.header-status {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 13px;
-}
-.status-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 4px;
-}
-.status-dot.ok { background: var(--success); }
-.status-dot.ng { background: var(--error); }
-.status-dot.unknown { background: #78716C; }
+/* Stage Bar */
+.stage-bar { display:flex; gap:3px; margin-bottom:14px; }
+.stage-item { flex:1; background:#FFF; border:2px solid var(--border); border-radius:8px; padding:8px 6px; text-align:center; cursor:pointer; transition:all .15s; }
+.stage-item:hover { border-color:var(--gold-light); }
+.stage-item.active { border-color:var(--gold); background:#FEF9C3; }
+.stage-num { font-size:20px; font-weight:700; color:var(--gold); }
+.stage-lbl { font-size:10px; color:var(--text-sub); font-weight:600; text-transform:uppercase; }
+.stage-arrow { display:flex; align-items:center; color:#D6D3D1; font-size:14px; padding:0 2px; }
 
-/* ===== Layout ===== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.full-width { grid-column: 1 / -1; }
+/* Toolbar */
+.toolbar { display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+.toolbar input, .toolbar select { padding:6px 10px; border:1px solid var(--border); border-radius:6px; font-size:13px; }
+.toolbar input { width:180px; }
 
-/* ===== Cards ===== */
-.card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-.card-header {
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #FEFDFB;
-}
-.card-header h2 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
-.card-body { padding: 18px; }
+/* Buttons */
+.btn { padding:5px 12px; border:none; border-radius:5px; font-size:12px; font-weight:600; cursor:pointer; transition:all .15s; display:inline-flex; align-items:center; gap:4px; }
+.btn:disabled { opacity:.4; cursor:not-allowed; }
+.btn-p { background:var(--gold); color:#FFF; } .btn-p:hover { background:var(--gold-dark); }
+.btn-s { background:#F5F5F4; color:var(--text); border:1px solid var(--border); } .btn-s:hover { background:#E7E5E4; }
+.btn-g { background:var(--success); color:#FFF; } .btn-g:hover { background:#15803D; }
+.btn-d { background:var(--error); color:#FFF; font-size:10px; padding:3px 6px; }
+.btn-xs { padding:2px 7px; font-size:10px; }
 
-/* ===== Stats Row ===== */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-.stat-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  text-align: center;
-}
-.stat-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--gold);
-}
-.stat-label {
-  font-size: 12px;
-  color: var(--text-sub);
-  margin-top: 4px;
-}
-.stat-sub {
-  font-size: 11px;
-  color: #A8A29E;
-  margin-top: 2px;
-}
+/* Badge */
+.badge { display:inline-flex; padding:1px 7px; border-radius:8px; font-size:10px; font-weight:600; }
+.b-ok { background:#DCFCE7; color:#166534; } .b-warn { background:#FEF9C3; color:#854D0E; }
+.b-info { background:#DBEAFE; color:#1E40AF; } .b-mute { background:#F5F5F4; color:#57534E; }
 
-/* ===== Form ===== */
-.form-group {
-  margin-bottom: 14px;
-}
-.form-group label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-sub);
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.form-group select,
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: inherit;
-  background: #FFF;
-  color: var(--text);
-  transition: border-color 0.2s;
-}
-.form-group select:focus,
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(184, 148, 47, 0.1);
-}
-.form-group textarea { resize: vertical; min-height: 60px; }
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
+/* Pipeline Row */
+.pl-group { margin-bottom:10px; background:#FFF; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.pl-gh { padding:8px 14px; font-size:12px; font-weight:700; color:var(--text-sub); background:#FAFAF9; border-bottom:1px solid var(--border); cursor:pointer; display:flex; align-items:center; gap:6px; user-select:none; }
+.pl-gh:hover { background:#F5F5F4; }
+.pl-gh .arrow { transition:transform .2s; font-size:10px; }
+.pl-gh.shut .arrow { transform:rotate(-90deg); }
+.pl-body { }
+.pl-gh.shut + .pl-body { display:none; }
 
-/* ===== Buttons ===== */
-.btn {
-  padding: 9px 18px;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-primary {
-  background: var(--gold);
-  color: #FFF;
-}
-.btn-primary:hover:not(:disabled) { background: var(--gold-dark); }
-.btn-secondary {
-  background: #F5F5F4;
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-.btn-secondary:hover:not(:disabled) { background: #E7E5E4; }
-.btn-success {
-  background: var(--success);
-  color: #FFF;
-}
-.btn-success:hover:not(:disabled) { background: #15803D; }
-.btn-danger {
-  background: var(--error);
-  color: #FFF;
-}
-.btn-danger:hover:not(:disabled) { background: #B91C1C; }
-.btn-group { display: flex; gap: 8px; margin-top: 12px; }
+.pl-row { display:flex; align-items:center; padding:6px 14px; border-bottom:1px solid #F9F8F6; gap:6px; font-size:12px; }
+.pl-row:last-child { border-bottom:none; }
+.pl-row:hover { background:#FEFDFB; }
+.pl-id { font-family:monospace; font-size:10px; color:#A8A29E; min-width:55px; }
+.pl-title { flex:1; min-width:0; font-weight:600; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.pl-steps { display:flex; gap:1px; flex-shrink:0; }
+.pl-step { width:28px; height:18px; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:#FFF; }
+.pl-step.done { background:var(--success); } .pl-step.wip { background:var(--warning); } .pl-step.none { background:#E7E5E4; color:#A8A29E; }
+.pl-meta { font-size:10px; color:#A8A29E; min-width:50px; text-align:right; }
+.pl-acts { display:flex; gap:3px; flex-shrink:0; }
+.pl-next { font-size:10px; color:var(--info); max-width:160px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
-/* ===== Preview ===== */
-.preview-area {
-  background: #FAFAF9;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 12px;
-  min-height: 80px;
-}
-.preview-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 8px;
-}
-.preview-twitter {
-  background: #FFF;
-  border: 1px solid #CFD9DE;
-  border-radius: 12px;
-  padding: 14px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.preview-twitter .char-count {
-  text-align: right;
-  font-size: 11px;
-  color: #A8A29E;
-  margin-top: 6px;
-}
-.preview-note-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.preview-note-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-.tag {
-  background: #F5F5F4;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2px 10px;
-  font-size: 12px;
-  color: var(--text-sub);
-}
-.preview-note-body {
-  font-size: 13px;
-  color: var(--text-sub);
-  max-height: 200px;
-  overflow-y: auto;
-  white-space: pre-wrap;
-  line-height: 1.7;
-}
+/* Expand row */
+.pl-detail { padding:8px 14px 12px 70px; border-bottom:1px solid #F5F5F4; background:#FAFAF9; font-size:11px; display:none; }
+.pl-detail.open { display:block; }
+.pl-detail .dl { display:grid; grid-template-columns:70px 1fr 70px 1fr; gap:2px 10px; color:var(--text-sub); }
+.pl-detail .dl dt { font-weight:600; }
+.pl-detail .dl .span2 { grid-column: 2 / -1; }
 
-/* ===== Thread ===== */
-.thread-item {
-  background: #FFF;
-  border: 1px solid #CFD9DE;
-  border-radius: 12px;
-  padding: 12px 14px;
-  margin-top: 8px;
-  font-size: 13px;
-  position: relative;
-  margin-left: 20px;
-}
-.thread-item::before {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: -8px;
-  width: 2px;
-  height: calc(100% + 8px);
-  background: #CFD9DE;
-}
+/* Ideas section */
+.ideas-bar { background:#FFF; border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; margin-bottom:14px; }
+.idea-row { display:flex; align-items:center; gap:8px; padding:4px 0; font-size:12px; border-bottom:1px solid #F9F8F6; }
+.idea-row:last-child { border-bottom:none; }
 
-/* ===== History Table ===== */
-.history-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-.history-table th {
-  text-align: left;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-sub);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 8px 10px;
-  border-bottom: 2px solid var(--border);
-}
-.history-table td {
-  padding: 10px;
-  border-bottom: 1px solid #F5F5F4;
-  vertical-align: middle;
-}
-.history-table tr:hover td { background: #FEFDFB; }
+/* Toast */
+.toast-c { position:fixed; top:56px; right:20px; z-index:200; display:flex; flex-direction:column; gap:6px; }
+.toast { padding:10px 16px; border-radius:8px; font-size:12px; font-weight:500; box-shadow:0 4px 12px rgba(0,0,0,.1); animation:slideIn .3s ease; max-width:340px; color:#FFF; }
+.toast-success { background:#166534; } .toast-error { background:#991B1B; } .toast-info { background:#1E40AF; }
+@keyframes slideIn { from { transform:translateX(100%); opacity:0; } }
 
-/* ===== Badges ===== */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 11px;
-  font-weight: 600;
-}
-.badge-success { background: #DCFCE7; color: #166534; }
-.badge-error { background: #FEE2E2; color: #991B1B; }
-.badge-warning { background: #FEF9C3; color: #854D0E; }
-.badge-info { background: #DBEAFE; color: #1E40AF; }
-.badge-neutral { background: #F5F5F4; color: #57534E; }
+/* Modal */
+.modal-bg { position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:300; display:flex; align-items:center; justify-content:center; }
+.modal { background:#FFF; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.2); width:90%; max-width:560px; max-height:85vh; overflow-y:auto; }
+.modal-h { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.modal-h h3 { font-size:15px; font-weight:600; }
+.modal-x { background:none; border:none; font-size:18px; cursor:pointer; color:var(--text-sub); }
+.modal-b { padding:16px 18px; }
+.modal-f { padding:12px 18px; border-top:1px solid var(--border); display:flex; gap:8px; justify-content:flex-end; }
+.fg { margin-bottom:10px; }
+.fg label { display:block; font-size:11px; font-weight:600; color:var(--text-sub); margin-bottom:3px; text-transform:uppercase; letter-spacing:.5px; }
+.fg input, .fg select, .fg textarea { width:100%; padding:7px 10px; border:1px solid var(--border); border-radius:5px; font-size:13px; font-family:inherit; }
+.fg textarea { resize:vertical; min-height:60px; }
+.fr { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 
-/* ===== Job Monitor ===== */
-.job-list { max-height: 300px; overflow-y: auto; }
-.job-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 12px;
-  border-bottom: 1px solid #F5F5F4;
-  font-size: 13px;
-}
-.job-item:last-child { border-bottom: none; }
-.job-type { font-weight: 600; min-width: 70px; }
-.job-time { color: var(--text-sub); font-size: 11px; }
-
-/* ===== Spinner ===== */
-.spinner {
-  width: 16px; height: 16px;
-  border: 2px solid var(--border);
-  border-top-color: var(--gold);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ===== Editable ===== */
-.editable {
-  cursor: text;
-  border: 1px solid transparent;
-  padding: 2px 4px;
-  border-radius: 4px;
-  transition: border-color 0.2s;
-}
-.editable:hover { border-color: var(--border); }
-.editable:focus {
-  outline: none;
-  border-color: var(--gold);
-  background: #FFF;
-}
-
-/* ===== Toast ===== */
-.toast-container {
-  position: fixed;
-  top: 70px;
-  right: 24px;
-  z-index: 200;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.toast {
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  box-shadow: var(--shadow-lg);
-  animation: slideIn 0.3s ease;
-  max-width: 360px;
-}
-.toast-success { background: #166534; color: #FFF; }
-.toast-error { background: #991B1B; color: #FFF; }
-.toast-info { background: #1E40AF; color: #FFF; }
-@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-/* ===== Empty State ===== */
-.empty {
-  text-align: center;
-  padding: 30px;
-  color: #A8A29E;
-  font-size: 13px;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .container { grid-template-columns: 1fr; padding: 12px; }
-  .stats-row { grid-template-columns: repeat(2, 1fr); }
-  .form-row { grid-template-columns: 1fr; }
-}
+@media (max-width:768px) { .stage-bar { flex-wrap:wrap; } .pl-next { display:none; } }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-  <h1>
-    <span class="brand">HARMONIC</span> Social Poster
-  </h1>
-  <div class="header-status">
-    <span><span class="status-dot unknown" id="dot-twitter"></span>Twitter</span>
-    <span><span class="status-dot unknown" id="dot-note"></span>note.com</span>
-    <button class="btn btn-secondary" onclick="runTest()" id="btn-test" style="font-size:12px;padding:5px 12px;">
-      接続テスト
-    </button>
+  <h1><span class="brand">HARMONIC</span> Content Pipeline</h1>
+  <div style="font-size:12px;display:flex;gap:12px;align-items:center;">
+    <span id="conn-info" style="color:#78716C;">-</span>
   </div>
 </header>
 
-<!-- Toast Container -->
-<div class="toast-container" id="toasts"></div>
+<div class="toast-c" id="toasts"></div>
 
-<div class="container">
+<div class="main">
 
-  <!-- Stats Row -->
-  <div class="full-width stats-row" id="stats-row">
-    <div class="stat-card">
-      <div class="stat-value" id="stat-twitter-today">-</div>
-      <div class="stat-label">Twitter 今日</div>
-      <div class="stat-sub">上限 10件/日</div>
+  <!-- Stage Bar -->
+  <div class="stage-bar">
+    <div class="stage-item active" onclick="filterStage('')" id="sg-all" style="flex:1.5;">
+      <div class="stage-num" id="sn-all">-</div><div class="stage-lbl">全体</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value" id="stat-note-today">-</div>
-      <div class="stat-label">note.com 今日</div>
-      <div class="stat-sub">上限 5件/日</div>
+    <div class="stage-arrow">→</div>
+    <div class="stage-item" onclick="filterStage('idea')" id="sg-idea">
+      <div class="stage-num" id="sn-idea">-</div><div class="stage-lbl">企画</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value" id="stat-total">-</div>
-      <div class="stat-label">累計投稿数</div>
-      <div class="stat-sub" id="stat-total-sub"></div>
+    <div class="stage-arrow">→</div>
+    <div class="stage-item" onclick="filterStage('pptx')" id="sg-pptx">
+      <div class="stage-num" id="sn-pptx">-</div><div class="stage-lbl">PPTX</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value" id="stat-uptime">-</div>
-      <div class="stat-label">稼働時間</div>
-      <div class="stat-sub" id="stat-uptime-sub"></div>
+    <div class="stage-arrow">→</div>
+    <div class="stage-item" onclick="filterStage('youtube')" id="sg-youtube">
+      <div class="stage-num" id="sn-youtube">-</div><div class="stage-lbl">YouTube</div>
+    </div>
+    <div class="stage-arrow">→</div>
+    <div class="stage-item" onclick="filterStage('note')" id="sg-note">
+      <div class="stage-num" id="sn-note">-</div><div class="stage-lbl">note</div>
+    </div>
+    <div class="stage-arrow">→</div>
+    <div class="stage-item" onclick="filterStage('spread')" id="sg-spread">
+      <div class="stage-num" id="sn-spread">-</div><div class="stage-lbl">拡散</div>
     </div>
   </div>
 
-  <!-- Generate Form -->
-  <div class="card">
-    <div class="card-header">
-      <h2>コンテンツ生成</h2>
-    </div>
-    <div class="card-body">
-      <div class="form-row">
-        <div class="form-group">
-          <label>プラットフォーム</label>
-          <select id="f-platform">
-            <option value="all">Twitter + note.com</option>
-            <option value="twitter">Twitter のみ</option>
-            <option value="note">note.com のみ</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>コンテンツ種別</label>
-          <select id="f-type">
-            <option value="tips">使い方 Tips</option>
-            <option value="product_update">製品アップデート</option>
-            <option value="case_study">活用事例</option>
-            <option value="behind_the_scenes">開発裏話</option>
-            <option value="industry_insight">業界トレンド</option>
-            <option value="comparison">競合比較</option>
-            <option value="free_plan_promo">FREE プラン訴求</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>トーン</label>
-          <select id="f-tone">
-            <option value="professional">プロフェッショナル</option>
-            <option value="casual">カジュアル</option>
-            <option value="technical">技術的</option>
-            <option value="storytelling">ストーリーテリング</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>対象製品 (カンマ区切り)</label>
-          <input id="f-products" placeholder="例: INSS, IOSH">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>トピック (自由記述)</label>
-        <textarea id="f-topic" rows="2" placeholder="例: Excel のバージョン管理で困っている人向けの投稿"></textarea>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-primary" onclick="generate()" id="btn-generate">
-          AI で生成
-        </button>
-        <button class="btn btn-secondary" onclick="clearPreview()" id="btn-clear">
-          クリア
-        </button>
-      </div>
-    </div>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <input type="text" id="q" placeholder="検索..." oninput="render()">
+    <select id="f-series" onchange="render()"><option value="">全シリーズ</option></select>
+    <span style="flex:1;"></span>
+    <button class="btn btn-p" onclick="openNewProject()">+ 新規プロジェクト</button>
+    <button class="btn btn-s" onclick="load()">更新</button>
   </div>
 
-  <!-- Job Monitor -->
-  <div class="card">
-    <div class="card-header">
-      <h2>ジョブモニター</h2>
-      <span class="badge badge-neutral" id="job-count">0 件</span>
-    </div>
-    <div class="card-body">
-      <div class="job-list" id="job-list">
-        <div class="empty">ジョブはありません</div>
-      </div>
-    </div>
+  <!-- Ideas (企画段階のもの) -->
+  <div class="ideas-bar" id="ideas-bar" style="display:none;">
+    <div style="font-size:12px;font-weight:700;color:var(--text-sub);margin-bottom:6px;">企画メモ（未プロジェクト化）</div>
+    <div id="ideas-list"></div>
   </div>
 
-  <!-- Preview & Post -->
-  <div class="card full-width" id="preview-card" style="display:none;">
-    <div class="card-header">
-      <h2>プレビュー</h2>
-      <div style="display:flex;gap:8px;">
-        <button class="btn btn-secondary" onclick="generate()" id="btn-regenerate">再生成</button>
-        <button class="btn btn-success" onclick="post()" id="btn-post">投稿する</button>
-      </div>
+  <!-- Schedule Timeline (TOP) -->
+  <div style="background:#FFF;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;">
+    <div style="padding:8px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:#FAFAF9;">
+      <span style="font-size:13px;font-weight:700;">スケジュール</span>
+      <button class="btn btn-s btn-xs" onclick="shiftWeek(-1)">&lt;</button>
+      <button class="btn btn-s btn-xs" onclick="goToday()">今日</button>
+      <span style="font-size:12px;font-weight:600;min-width:120px;text-align:center;" id="sched-range-top">-</span>
+      <button class="btn btn-s btn-xs" onclick="shiftWeek(1)">&gt;</button>
+      <span style="flex:1;"></span>
+      <button class="btn btn-p btn-xs" onclick="openSched('','')">+ 追加</button>
     </div>
-    <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" id="preview-body">
-      <!-- Twitter Preview -->
-      <div id="preview-twitter-wrap" style="display:none;">
-        <div class="preview-label">Twitter / X</div>
-        <div class="preview-twitter">
-          <div contenteditable="true" class="editable" id="preview-twitter-text"></div>
-          <div class="char-count"><span id="preview-twitter-chars">0</span> 文字</div>
-        </div>
-        <div id="preview-twitter-thread"></div>
+    <div id="sched-body-top" style="padding:6px 16px;max-height:200px;overflow-y:auto;font-size:12px;">読み込み中...</div>
+  </div>
+
+  <!-- Priority Actions -->
+  <div style="background:#FFF;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;">
+    <div style="padding:8px 16px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#166534,#15803D);display:flex;align-items:center;gap:8px;">
+      <span style="font-size:13px;font-weight:700;color:#FFF;">優先アクション</span>
+    </div>
+    <div id="priority-list" style="font-size:12px;"></div>
+  </div>
+
+  <!-- Claude Code CLI Strategy Comment -->
+  <div style="background:#FFF;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;">
+    <div style="padding:8px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#1C1917,#292524);cursor:pointer;" onclick="const b=$('cc-strategy');b.style.display=b.style.display==='none'?'block':'none';">
+      <span style="font-size:12px;font-weight:700;color:var(--gold-light);">Claude Code 戦略コメント</span>
+      <span style="font-size:10px;color:#78716C;">（クリックで開閉）</span>
+      <span style="flex:1;"></span>
+      <span style="font-size:10px;color:#78716C;" id="cc-updated">-</span>
+    </div>
+    <div id="cc-strategy" style="padding:10px 16px;font-size:12px;line-height:1.7;color:var(--text-sub);white-space:pre-wrap;display:none;">コメントなし</div>
+  </div>
+
+  <!-- Workflow Help -->
+  <div style="background:#FFF;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;">
+    <div style="padding:6px 16px;display:flex;align-items:center;gap:8px;background:#FAFAF9;cursor:pointer;border-bottom:1px solid var(--border);" onclick="const b=$('help-body');b.style.display=b.style.display==='none'?'block':'none';">
+      <span style="font-size:12px;font-weight:700;color:var(--text-sub);">ワークフロー</span>
+      <span style="font-size:10px;color:#A8A29E;">（クリックで開閉）</span>
+    </div>
+    <div id="help-body" style="display:none;padding:12px 16px;font-size:12px;line-height:1.8;color:var(--text-sub);">
+      <div style="display:grid;grid-template-columns:30px 1fr;gap:4px 8px;">
+        <span style="font-weight:700;color:var(--gold);">1.</span><span><b>企画メモ登録</b> — ダッシュボード「+ 新規プロジェクト」またはClaude Code CLIでアイデアを登録</span>
+        <span style="font-weight:700;color:var(--gold);">2.</span><span><b>PPTX作成</b> — 企画メモの [CC] ボタンでコピー → <b>Claude Code WEB</b> に貼り付けてPPTXを生成</span>
+        <span style="font-weight:700;color:var(--gold);">3.</span><span><b>PPTXアップロード</b> — 下のエリアにドラッグ&ドロップ → <b>自動で以下が全部生成される:</b></span>
+        <span></span><span style="padding-left:12px;font-size:11px;">
+          ・catalog.jsonにVID登録（ステータス: slide_done）<br>
+          ・台本 → content/youtube/scripts/<br>
+          ・note記事ドラフト → content/articles/<br>
+          ・Twitter投稿文 → content/youtube/assets/VID-xxx/<br>
+          ・サムネイルプロンプト → catalog.jsonに登録
+        </span>
+        <span style="font-weight:700;color:var(--gold);">4.</span><span><b>レビュー・修正</b> — Claude Code CLIで台本・記事・Twitter文をレビュー＆修正。サムネイル候補もここで作成</span>
+        <span style="font-weight:700;color:var(--gold);">5.</span><span><b>動画収録・公開</b> — InsightCastまたはTraining StudioでPPTXを動画化 → YouTube公開 → 編集モーダルでURL登録</span>
+        <span style="font-weight:700;color:var(--gold);">6.</span><span><b>note.com公開</b> — 記事をnote.comに手動投稿 → 編集モーダルでURL登録</span>
+        <span style="font-weight:700;color:var(--gold);">7.</span><span><b>拡散</b> — Twitter投稿文を手動でXに投稿 → 編集モーダルでURL登録。ショート動画も同様</span>
       </div>
-      <!-- Note Preview -->
-      <div id="preview-note-wrap" style="display:none;">
-        <div class="preview-label">note.com</div>
-        <div class="preview-note-title editable" contenteditable="true" id="preview-note-title"></div>
-        <div class="preview-note-tags" id="preview-note-tags"></div>
-        <div style="margin-bottom:8px;">
-          <select id="preview-note-status" style="font-size:12px;padding:3px 8px;border:1px solid var(--border);border-radius:4px;">
-            <option value="draft">下書き保存</option>
-            <option value="published">公開</option>
-          </select>
-        </div>
-        <div class="preview-note-body" id="preview-note-body"></div>
+      <div style="margin-top:8px;padding:6px 10px;background:#F5F5F4;border-radius:4px;font-size:11px;">
+        <b>ポイント:</b> ステップ3でPPTXをアップロードすれば、台本・記事・Twitter・サムネプロンプトは自動生成。あとはClaude Code CLIでレビュー・修正して完成させる。
       </div>
     </div>
   </div>
 
-  <!-- History -->
-  <div class="card full-width">
-    <div class="card-header">
-      <h2>投稿履歴</h2>
-      <button class="btn btn-secondary" onclick="loadHistory()" style="font-size:12px;padding:5px 12px;">
-        更新
-      </button>
+  <!-- Slide Upload -->
+  <div style="background:#FFF;border:2px dashed var(--border);border-radius:8px;padding:14px 20px;margin-bottom:14px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:border-color .2s;" id="drop-zone" onclick="$('slide-input').click()">
+    <input type="file" id="slide-input" accept=".pptx,.ppt,.pdf,.key" style="display:none;" onchange="uploadSlide(this)">
+    <span style="font-size:22px;">📋</span>
+    <div style="flex:1;">
+      <div style="font-size:13px;font-weight:600;">スライドをアップロード</div>
+      <div style="font-size:11px;color:#A8A29E;">PPTX / PPT / PDF / KEY をドラッグ&ドロップ、またはクリック → content/youtube/slides/ に保存</div>
     </div>
-    <div class="card-body" style="overflow-x:auto;">
-      <table class="history-table">
-        <thead>
-          <tr>
-            <th>日時</th>
-            <th>種別</th>
-            <th>プラットフォーム</th>
-            <th>ステータス</th>
-            <th>内容</th>
-          </tr>
-        </thead>
-        <tbody id="history-tbody">
-          <tr><td colspan="5" class="empty">読み込み中...</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <span id="upload-status" style="font-size:12px;color:var(--success);display:none;"></span>
   </div>
+
+  <!-- Pipeline List -->
+  <div id="pl"></div>
+
 
 </div>
 
+<!-- New Project Modal -->
+<div class="modal-bg" id="m-new" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal">
+    <div class="modal-h"><h3>新規プロジェクト</h3><button class="modal-x" onclick="$('m-new').style.display='none'">&times;</button></div>
+    <div class="modal-b">
+      <div class="fg"><label>タイトル</label><input id="np-title" placeholder="動画/コンテンツのタイトル"></div>
+      <div class="fr">
+        <div class="fg"><label>シリーズ</label><select id="np-series"></select></div>
+        <div class="fg"><label>対象製品</label><input id="np-product" placeholder="INSS, IAOF..."></div>
+      </div>
+      <div class="fg"><label>タグ (カンマ区切り)</label><input id="np-tags" placeholder="AI, DX, 建設業"></div>
+      <div class="fg"><label>背景メモ / 企画意図</label><textarea id="np-memo" rows="4" placeholder="どんな記事/動画にしたいか。背景、ターゲット、キーメッセージなど。"></textarea></div>
+      <div class="fr">
+        <div class="fg"><label>ショート本数</label><input type="number" id="np-shorts" value="0" min="0" max="10"></div>
+        <div class="fg"><label>ショートタイトル (カンマ区切り)</label><input id="np-short-titles" placeholder=""></div>
+      </div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-s" onclick="$('m-new').style.display='none'">キャンセル</button>
+      <button class="btn btn-p" onclick="createProject()">作成</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Video Modal -->
+<div class="modal-bg" id="m-edit" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal">
+    <div class="modal-h"><h3>動画を編集</h3><button class="modal-x" onclick="$('m-edit').style.display='none'">&times;</button></div>
+    <div class="modal-b">
+      <input type="hidden" id="ed-id">
+      <div class="fg"><label>タイトル</label><input id="ed-title"></div>
+      <div class="fr">
+        <div class="fg"><label>ステータス</label>
+          <select id="ed-status">
+            <option value="idea">企画</option><option value="script_done">台本完了</option>
+            <option value="slide_done">スライド完了</option><option value="recording">収録中</option>
+            <option value="editing">編集中</option><option value="published">公開済み</option>
+          </select>
+        </div>
+        <div class="fg"><label>スライド</label><select id="ed-slide"><option value="">未設定</option></select></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>YouTube URL</label><input id="ed-yt-url" placeholder="https://youtu.be/..."></div>
+        <div class="fg"><label>公開日</label><input type="date" id="ed-pub-date"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>note.com URL</label><input id="ed-note-url" placeholder="https://note.com/..."></div>
+        <div class="fg"><label>再生時間</label><input id="ed-duration" placeholder="5:38"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>note記事ファイル</label><input id="ed-note-article" placeholder="例: articles/vid001_infra.md"></div>
+        <div class="fg"><label>台本ファイル</label><input id="ed-script" placeholder="例: scripts/VID-001.md"></div>
+      </div>
+      <div class="fg"><label>タグ (カンマ区切り)</label><input id="ed-tags"></div>
+      <div class="fg"><label>関連Twitter投稿URL (改行区切りで複数可)</label><textarea id="ed-twitter" rows="2" placeholder="https://x.com/...&#10;https://x.com/..."></textarea></div>
+      <div class="fg"><label>サムネイル画像プロンプト</label><textarea id="ed-thumb-prompt" rows="3" placeholder="DALL-E / Midjourney用のプロンプト。候補を複数生成する際に使用。"></textarea></div>
+      <div class="fg"><label>採用サムネイル</label><input id="ed-thumb" placeholder="例: thumb_final.png（assets/VID-xxx/ 内）"></div>
+      <div style="font-size:11px;color:#A8A29E;margin:-6px 0 10px 0;">画像候補は content/youtube/assets/[VID-ID]/ に保存。採用したファイル名を↑に設定。</div>
+      <div class="fg"><label>メモ</label><textarea id="ed-memo" rows="2"></textarea></div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-s" onclick="$('m-edit').style.display='none'">キャンセル</button>
+      <button class="btn btn-p" onclick="saveEdit()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- Article Preview Modal -->
+<div class="modal-bg" id="m-preview" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal" style="max-width:700px;">
+    <div class="modal-h">
+      <h3>記事プレビュー</h3>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:11px;color:#A8A29E;" id="preview-path"></span>
+        <button class="modal-x" onclick="$('m-preview').style.display='none'">&times;</button>
+      </div>
+    </div>
+    <div class="modal-b">
+      <pre id="preview-content" style="font-size:13px;line-height:1.7;white-space:pre-wrap;font-family:inherit;max-height:60vh;overflow-y:auto;"></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Schedule Modal -->
+<div class="modal-bg" id="m-sched" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal">
+    <div class="modal-h"><h3>スケジュール追加</h3><button class="modal-x" onclick="$('m-sched').style.display='none'">&times;</button></div>
+    <div class="modal-b">
+      <div class="fr">
+        <div class="fg"><label>日付</label><input type="date" id="sc-date"></div>
+        <div class="fg"><label>プラットフォーム</label>
+          <select id="sc-plat"><option value="youtube">YouTube</option><option value="note">note</option><option value="twitter">Twitter</option><option value="all">複数</option></select>
+        </div>
+      </div>
+      <div class="fg"><label>タイトル</label><input id="sc-title"></div>
+      <input type="hidden" id="sc-ref">
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-s" onclick="$('m-sched').style.display='none'">キャンセル</button>
+      <button class="btn btn-p" onclick="addSchedule()">追加</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// =============================================================================
-// State
-// =============================================================================
-let currentJobId = null;
-let currentContent = null;
-let pollInterval = null;
+const $ = id => document.getElementById(id);
+let DATA = [], SERIES = [], IDEAS = [], STAGE = '', SLIDES = [];
 
-const API = '';  // same origin
-
-const CONTENT_TYPE_LABELS = {
-  product_update: '製品アップデート',
-  tips: 'Tips',
-  case_study: '活用事例',
-  behind_the_scenes: '開発裏話',
-  industry_insight: '業界トレンド',
-  comparison: '競合比較',
-  free_plan_promo: 'FREE訴求',
-};
-
-// =============================================================================
 // Toast
-// =============================================================================
-function toast(msg, type = 'info') {
+function toast(msg, type='info') {
   const el = document.createElement('div');
   el.className = `toast toast-${type}`;
   el.textContent = msg;
-  document.getElementById('toasts').appendChild(el);
+  $('toasts').appendChild(el);
   setTimeout(() => el.remove(), 4000);
 }
 
-// =============================================================================
-// API helpers
-// =============================================================================
-async function api(path, opts = {}) {
-  const res = await fetch(API + path, {
-    headers: { 'Content-Type': 'application/json' },
-    ...opts,
-  });
+// API
+async function api(path, opts={}) {
+  const res = await fetch(path, { headers:{'Content-Type':'application/json'}, ...opts });
   return res.json();
 }
 
-// =============================================================================
-// Status polling
-// =============================================================================
-async function loadStatus() {
+// Load
+async function load() {
   try {
-    const data = await api('/api/status');
-    document.getElementById('stat-twitter-today').textContent = data.today.twitter.posted;
-    document.getElementById('stat-note-today').textContent = data.today.note.posted;
+    const d = await api('/api/pipeline');
+    DATA = d.items || [];
+    SERIES = d.series || [];
+    IDEAS = d.ideas || [];
 
-    const mins = Math.floor(data.server.uptime / 60);
-    const hrs = Math.floor(mins / 60);
-    document.getElementById('stat-uptime').textContent =
-      hrs > 0 ? `${hrs}h ${mins % 60}m` : `${mins}m`;
-    document.getElementById('stat-uptime-sub').textContent =
-      `起動: ${new Date(data.server.startedAt).toLocaleTimeString('ja-JP')}`;
+    $('sn-all').textContent = DATA.length;
+    $('sn-idea').textContent = d.stages.idea;
+    $('sn-pptx').textContent = d.stages.pptx;
+    $('sn-youtube').textContent = d.stages.youtube;
+    $('sn-note').textContent = d.stages.note;
+    $('sn-spread').textContent = d.stages.spread;
+    $('conn-info').textContent = `${DATA.length}本 / ${d.total_slides}スライド`;
 
-    // Update jobs
-    renderJobs(data.jobs);
-  } catch (e) { /* server down */ }
+    const se = $('f-series');
+    const cv = se.value;
+    se.innerHTML = '<option value="">全シリーズ</option>' + SERIES.map(s => `<option value="${s.id}" ${s.id===cv?'selected':''}>${esc(s.name)}</option>`).join('');
+
+    // Slides for edit modal
+    try { const sl = await api('/api/slides'); SLIDES = sl.slides || []; } catch {}
+
+    render();
+    renderIdeas();
+    loadSched();
+    loadComments();
+  } catch(e) { $('pl').innerHTML = '<div style="text-align:center;padding:40px;color:#A8A29E;">読み込みエラー</div>'; }
 }
 
-async function loadHistory() {
-  try {
-    const data = await api('/api/history?limit=30');
-    const tbody = document.getElementById('history-tbody');
-    if (!data.entries.length) {
-      tbody.innerHTML = '<tr><td colspan="5" class="empty">投稿履歴はありません</td></tr>';
-      document.getElementById('stat-total').textContent = '0';
-      return;
+function filterStage(s) {
+  STAGE = STAGE === s ? '' : s;
+  document.querySelectorAll('.stage-item').forEach(el => el.classList.remove('active'));
+  ($(STAGE ? 'sg-'+STAGE : 'sg-all')).classList.add('active');
+  render();
+}
+
+function esc(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+// Render pipeline
+function render() {
+  const q = ($('q')?.value||'').toLowerCase();
+  const sr = $('f-series')?.value||'';
+  let items = DATA;
+  if (STAGE) items = items.filter(i => i.stage === STAGE);
+  if (sr) items = items.filter(i => i.series === sr);
+  if (q) items = items.filter(i => i.title.toLowerCase().includes(q) || i.id.toLowerCase().includes(q) || (i.tags||[]).some(t=>t.toLowerCase().includes(q)));
+
+  const el = $('pl');
+  if (!items.length) { el.innerHTML = '<div style="text-align:center;padding:40px;color:#A8A29E;">該当なし</div>'; return; }
+
+  const ORDER = ['idea','pptx','youtube','note','spread'];
+  const NAMES = {idea:'企画中',pptx:'PPTX / 台本作成',youtube:'YouTube公開済',note:'note.com公開済',spread:'拡散完了'};
+  const COLORS = {idea:'#78716C',pptx:'#CA8A04',youtube:'#DC2626',note:'#16A34A',spread:'#2563EB'};
+
+  let html = '';
+  for (const stg of ORDER) {
+    const g = items.filter(i => i.stage === stg).sort((a,b) => (a.sort_order||999) - (b.sort_order||999));
+    if (!g.length) continue;
+    const shut = !STAGE && (stg==='spread'||stg==='note') ? 'shut' : '';
+    html += `<div class="pl-group"><div class="pl-gh ${shut}" onclick="this.classList.toggle('shut')" style="border-left:4px solid ${COLORS[stg]};"><span class="arrow">▼</span> ${NAMES[stg]} (${g.length})</div><div class="pl-body">`;
+
+    for (const it of g) {
+      const sP = it.has_slide||it.has_script ? 'done' : (it.stage==='idea'?'none':'wip');
+      const sY = it.status==='published' ? 'done' : (['slide_done','script_done','recording','editing'].includes(it.status)?'wip':'none');
+      const sN = it.has_note ? 'done' : 'none';
+      const sX = (it.has_twitter||it.shorts.some(s=>s.status==='published')) ? 'done' : 'none';
+      const views = it.views!=null ? it.views+'回' : '';
+      const sInfo = it.shorts.length ? 'S'+it.shorts.filter(s=>s.status==='published').length+'/'+it.shorts.length : '';
+      const sn = SERIES.find(s=>s.id===it.series)?.name||'';
+      const schedBadge = it.scheduled ? `<span class="badge b-info">${it.scheduled.date}</span>` : '';
+
+      const isWip = it.status === 'recording' || it.status === 'editing';
+      const wipMark = isWip ? '<span style="color:var(--warning);font-size:10px;font-weight:700;" title="作業中">●</span>' : '';
+
+      html += `<div class="pl-row" onclick="toggleDetail('${it.id}')" style="${isWip?'background:#FFFBEB;':''}">
+        <span class="pl-id">${wipMark} ${it.id}</span>
+        <span class="pl-title" title="${esc(it.title)}">${esc(it.title)}</span>
+        ${sn?`<span class="badge b-mute">${esc(sn)}</span>`:''}
+        ${schedBadge}
+        <span class="pl-steps">
+          <span class="pl-step ${sP}" title="PPTX">P</span>
+          <span class="pl-step ${sY}" title="YouTube">Y</span>
+          <span class="pl-step ${sN}" title="note">N</span>
+          <span class="pl-step ${sX}" title="拡散">${sInfo||'X'}</span>
+        </span>
+        <span class="pl-meta">${views}</span>
+        <span class="pl-acts" onclick="event.stopPropagation()">
+          ${stg==='pptx'||stg==='idea'?`<button class="btn btn-s btn-xs" onclick="moveItem('${it.id}',-1)" title="上へ">↑</button><button class="btn btn-s btn-xs" onclick="moveItem('${it.id}',1)" title="下へ">↓</button>`:''}
+          ${it.has_slide?`<button class="btn btn-s btn-xs" onclick="openSlide('${esc(it.slide?.replace('slides/',''))}')">PPT</button>`:''}
+          <button class="btn btn-s btn-xs" onclick="openEdit('${it.id}')">編集</button>
+          <button class="btn btn-p btn-xs" onclick="openSched('${it.id}','${esc(it.title.slice(0,50))}')">予定</button>
+          ${it.note_article?`<button class="btn btn-g btn-xs" onclick="previewArticle('${esc(it.note_article)}')">記事</button>`:''}
+          <button class="btn btn-s btn-xs" onclick="copyCC('${it.id}')">CC</button>
+        </span>
+      </div>
+      <div class="pl-detail" id="det-${it.id}">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:11px;color:var(--text-sub);">
+          <div><b>ステータス:</b> ${it.status}${it.duration?' / '+it.duration:''}</div>
+          <div><b>公開日:</b> ${it.publish_date||'-'}</div>
+          <div><b>スライド:</b> ${it.slide?esc(it.slide.replace('slides/','')):'未設定'}</div>
+          <div><b>note:</b> ${it.note_url?'<a href="'+esc(it.note_url)+'" target="_blank" style="color:var(--info);">公開済</a>':''} ${it.note_article?'<span style="color:var(--success);">記事: '+esc(it.note_article)+'</span>':'未作成'}</div>
+          <div><b>サムネイル:</b> ${it.thumbnail||'未設定'}${it.thumbnail_prompt?' (プロンプト有)':''}</div>
+          <div><b>Twitter:</b> ${it.has_twitter?'<span style="color:var(--success);">'+((DATA.find(x=>x.id===it.id)||{}).twitter_posts||[]).length+'件投稿</span>':'未投稿'}</div>
+          <div><b>ショート:</b> ${it.shorts.length?it.shorts.map(s=>'<span style="color:'+(s.status==='published'?'var(--success)':'var(--warning)')+';">S</span>'+esc(s.id)+' '+esc(s.title.slice(0,18))+(s.views!=null?' '+s.views+'回':'')).join(' / '):'なし'}</div>
+          <div><b>タグ:</b> ${(it.tags||[]).join(', ')||'-'}</div>
+        </div>
+        ${CC_COMMENTS[it.id]?'<div style="margin-top:6px;padding:6px 10px;background:#FFF8E7;border-radius:5px;border-left:3px solid var(--gold);font-size:11px;line-height:1.6;white-space:pre-wrap;">'+esc(CC_COMMENTS[it.id])+'</div>':''}
+      </div>`;
     }
-    document.getElementById('stat-total').textContent = data.entries.length;
-    document.getElementById('stat-total-sub').textContent = '直近30件表示';
-
-    tbody.innerHTML = data.entries.map(e => {
-      const date = e.postedAt ? new Date(e.postedAt).toLocaleString('ja-JP', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }) : '-';
-      const platforms = e.results.map(r => {
-        const cls = r.success ? 'badge-success' : 'badge-error';
-        const label = r.platform === 'twitter' ? 'Twitter' : 'note.com';
-        return `<span class="badge ${cls}">${label}</span>`;
-      }).join(' ');
-      const snippet = e.content.twitter?.text?.slice(0, 50) || e.content.note?.title || '-';
-      const urls = e.results.filter(r => r.url).map(r =>
-        `<a href="${r.url}" target="_blank" style="font-size:11px;color:var(--info);">開く</a>`
-      ).join(' ');
-      return `<tr>
-        <td style="white-space:nowrap;">${date}</td>
-        <td><span class="badge badge-neutral">${CONTENT_TYPE_LABELS[e.contentType] || e.contentType}</span></td>
-        <td>${platforms}</td>
-        <td>${urls || '-'}</td>
-        <td style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${snippet}</td>
-      </tr>`;
-    }).join('');
-  } catch (e) {
-    document.getElementById('history-tbody').innerHTML = '<tr><td colspan="5" class="empty">読み込みエラー</td></tr>';
+    html += '</div></div>';
   }
+  el.innerHTML = html;
 }
 
-// =============================================================================
-// Connection test
-// =============================================================================
-async function runTest() {
-  const btn = document.getElementById('btn-test');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> テスト中';
-  document.getElementById('dot-twitter').className = 'status-dot unknown';
-  document.getElementById('dot-note').className = 'status-dot unknown';
-
-  try {
-    const { jobId } = await api('/api/test', { method: 'POST' });
-    await pollJob(jobId, (job) => {
-      if (job.status === 'completed' && job.result) {
-        const tw = job.result.twitter?.text === 'connected';
-        const nt = job.result.note?.title === 'connected';
-        document.getElementById('dot-twitter').className = `status-dot ${tw ? 'ok' : 'ng'}`;
-        document.getElementById('dot-note').className = `status-dot ${nt ? 'ok' : 'ng'}`;
-        toast(
-          `接続テスト完了: Twitter=${tw ? 'OK' : 'NG'}, note=${nt ? 'OK' : 'NG'}`,
-          tw && nt ? 'success' : 'error'
-        );
-      }
-    });
-  } catch (e) {
-    toast('接続テスト失敗: ' + e.message, 'error');
-  }
-  btn.disabled = false;
-  btn.innerHTML = '接続テスト';
+function toggleDetail(id) {
+  const el = $('det-'+id);
+  if (el) el.classList.toggle('open');
 }
 
-// =============================================================================
-// Job polling
-// =============================================================================
-async function pollJob(jobId, onComplete) {
-  return new Promise((resolve, reject) => {
-    const check = async () => {
-      try {
-        const job = await api(`/api/jobs/${jobId}`);
-        if (job.status === 'completed' || job.status === 'failed') {
-          if (onComplete) onComplete(job);
-          resolve(job);
-          return;
-        }
-        setTimeout(check, 800);
-      } catch (e) {
-        reject(e);
-      }
-    };
-    check();
-  });
-}
-
-// =============================================================================
-// Render jobs
-// =============================================================================
-function renderJobs(jobsArr) {
-  const el = document.getElementById('job-list');
-  const cnt = document.getElementById('job-count');
-  if (!jobsArr.length) {
-    el.innerHTML = '<div class="empty">ジョブはありません</div>';
-    cnt.textContent = '0 件';
-    return;
-  }
-  cnt.textContent = `${jobsArr.length} 件`;
-  el.innerHTML = jobsArr.map(j => {
-    const statusBadge =
-      j.status === 'completed' ? '<span class="badge badge-success">完了</span>' :
-      j.status === 'running' ? '<span class="badge badge-warning"><span class="spinner" style="width:10px;height:10px;border-width:1.5px;"></span> 実行中</span>' :
-      j.status === 'failed' ? '<span class="badge badge-error">失敗</span>' :
-      '<span class="badge badge-neutral">待機</span>';
-    const typeLabel = j.type === 'generate' ? '生成' : j.type === 'post' ? '投稿' : 'テスト';
-    const time = new Date(j.createdAt).toLocaleTimeString('ja-JP');
-    return `<div class="job-item">
-      <span class="job-type">${typeLabel}</span>
-      ${statusBadge}
-      <span class="job-time">${time}</span>
+// Ideas
+function renderIdeas() {
+  const bar = $('ideas-bar');
+  const unlinked = IDEAS.filter(i => i.status === 'draft');
+  if (!unlinked.length) { bar.style.display = 'none'; return; }
+  bar.style.display = 'block';
+  $('ideas-list').innerHTML = unlinked.map(i => {
+    const bodyHtml = i.body ? esc(i.body).replace(/\n/g, '<br>') : '';
+    const tags = (i.tags||[]).map(t=>`<span class="badge b-mute">${esc(t)}</span>`).join(' ');
+    return `<div>
+      <div class="idea-row" style="cursor:pointer;" onclick="const d=$('idea-det-${i.id}');d.style.display=d.style.display==='none'?'block':'none';">
+        <span style="width:4px;align-self:stretch;border-radius:2px;background:${i.priority==='high'?'var(--error)':i.priority==='medium'?'var(--warning)':'#D6D3D1'};"></span>
+        <span style="flex:1;font-weight:600;">${esc(i.title)}</span>
+        <span class="badge b-mute">${i.category}</span>
+        ${tags}
+        <button class="btn btn-p btn-xs" onclick="event.stopPropagation();ideaToProject('${i.id}','${esc(i.title)}')">プロジェクト化</button>
+        <button class="btn btn-s btn-xs" onclick="event.stopPropagation();copyIdeaCC('${i.id}')">CC</button>
+      </div>
+      <div id="idea-det-${i.id}" style="display:none;padding:10px 16px 14px 20px;background:#FAFAF9;border-bottom:1px solid var(--border);font-size:12px;line-height:1.7;color:var(--text-sub);white-space:pre-wrap;">${bodyHtml || '<span style="color:#D6D3D1;">メモなし</span>'}</div>
     </div>`;
   }).join('');
 }
 
-// =============================================================================
-// Generate
-// =============================================================================
-async function generate() {
-  const btn = document.getElementById('btn-generate');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> 生成中...';
+// New Project
+function openNewProject() {
+  $('m-new').style.display = 'flex';
+  $('np-title').value = ''; $('np-product').value = ''; $('np-tags').value = '';
+  $('np-memo').value = ''; $('np-shorts').value = '0'; $('np-short-titles').value = '';
+  const se = $('np-series');
+  se.innerHTML = '<option value="">未設定</option>' + SERIES.map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('');
+}
 
-  const req = {
-    platform: document.getElementById('f-platform').value,
-    contentType: document.getElementById('f-type').value,
-    tone: document.getElementById('f-tone').value,
-    productCodes: document.getElementById('f-products').value
-      .split(',').map(s => s.trim()).filter(Boolean),
-    topic: document.getElementById('f-topic').value || undefined,
+async function createProject() {
+  const title = $('np-title').value.trim();
+  if (!title) { toast('タイトルを入力', 'error'); return; }
+
+  const videos = [{ title, type:'main', series:$('np-series').value||null, product:$('np-product').value||null, tags:$('np-tags').value.split(',').map(s=>s.trim()).filter(Boolean), memo:$('np-memo').value||null }];
+  const shortTitles = $('np-short-titles').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const shortCount = parseInt($('np-shorts').value)||0;
+  for (let i=0; i<Math.max(shortCount, shortTitles.length); i++) {
+    videos.push({ title:shortTitles[i]||`${title} ショート${i+1}`, type:'short', tags:videos[0].tags, memo:videos[0].memo });
+  }
+
+  // Also save as idea
+  try {
+    const ideaRes = await api('/api/ideas', { method:'POST', body:JSON.stringify({ title, category:'youtube', status:'ready', priority:'medium', tags:videos[0].tags, body:$('np-memo').value }) });
+    await api(`/api/ideas/${ideaRes.idea.id}/create-series`, { method:'POST', body:JSON.stringify({ videos }) });
+    toast(`${videos.length}本のプロジェクトを作成`, 'success');
+    $('m-new').style.display = 'none';
+    load();
+  } catch(e) { toast('作成失敗: '+e.message, 'error'); }
+}
+
+async function ideaToProject(ideaId, title) {
+  const t = prompt('動画タイトル:', title);
+  if (!t) return;
+  try {
+    await api(`/api/ideas/${ideaId}/create-series`, { method:'POST', body:JSON.stringify({ videos:[{title:t,type:'main',tags:[]}] }) });
+    toast('プロジェクト作成完了', 'success');
+    load();
+  } catch(e) { toast('失敗: '+e.message, 'error'); }
+}
+
+// Edit
+async function openEdit(id) {
+  try {
+    const d = await api('/api/videos');
+    const v = d.videos.find(x=>x.id===id);
+    if (!v) return;
+    $('ed-id').value = v.id;
+    $('ed-title').value = v.title;
+    $('ed-status').value = v.status;
+    $('ed-yt-url').value = v.youtube_url||'';
+    $('ed-pub-date').value = v.publish_date||'';
+    $('ed-note-url').value = v.note_url||'';
+    $('ed-duration').value = v.duration||'';
+    $('ed-tags').value = (v.tags||[]).join(', ');
+    $('ed-thumb-prompt').value = v.thumbnail_prompt||'';
+    $('ed-thumb').value = v.thumbnail||'';
+    $('ed-note-article').value = v.note_article||'';
+    $('ed-script').value = v.script||'';
+    $('ed-twitter').value = (v.twitter_posts||[]).join('\n');
+    $('ed-memo').value = v.memo||'';
+    const sl = $('ed-slide');
+    sl.innerHTML = '<option value="">未設定</option>' + SLIDES.map(s=>`<option value="slides/${s.name}" ${v.slide==='slides/'+s.name?'selected':''}>${esc(s.name)}</option>`).join('');
+    $('m-edit').style.display = 'flex';
+  } catch(e) { toast('読み込み失敗', 'error'); }
+}
+
+async function saveEdit() {
+  const id = $('ed-id').value;
+  const body = {
+    title:$('ed-title').value, status:$('ed-status').value,
+    slide:$('ed-slide').value||null, youtube_url:$('ed-yt-url').value||null,
+    publish_date:$('ed-pub-date').value||null, note_url:$('ed-note-url').value||null,
+    duration:$('ed-duration').value||null, tags:$('ed-tags').value.split(',').map(s=>s.trim()).filter(Boolean),
+    thumbnail_prompt:$('ed-thumb-prompt').value||null, thumbnail:$('ed-thumb').value||null,
+    note_article:$('ed-note-article').value||null, script:$('ed-script').value||null,
+    twitter_posts:$('ed-twitter').value.split('\n').map(s=>s.trim()).filter(Boolean),
+    memo:$('ed-memo').value||null,
   };
-
   try {
-    const { jobId } = await api('/api/generate', {
-      method: 'POST',
-      body: JSON.stringify(req),
-    });
-    currentJobId = jobId;
-    toast('コンテンツを生成中...', 'info');
-    await loadStatus();
-
-    const job = await pollJob(jobId, () => {});
-    if (job.status === 'failed') {
-      toast('生成失敗: ' + job.error, 'error');
-    } else {
-      currentContent = job.result;
-      renderPreview(job.result, req.platform);
-      toast('コンテンツ生成完了', 'success');
-    }
-  } catch (e) {
-    toast('生成エラー: ' + e.message, 'error');
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = 'AI で生成';
-  await loadStatus();
+    await api(`/api/videos/${id}`, { method:'PUT', body:JSON.stringify(body) });
+    toast('保存しました', 'success');
+    $('m-edit').style.display = 'none';
+    load();
+  } catch(e) { toast('保存失敗', 'error'); }
 }
 
-// =============================================================================
-// Preview
-// =============================================================================
-function renderPreview(content, platform) {
-  const card = document.getElementById('preview-card');
-  card.style.display = 'block';
-
-  const twWrap = document.getElementById('preview-twitter-wrap');
-  const ntWrap = document.getElementById('preview-note-wrap');
-
-  const showTwitter = (platform === 'all' || platform === 'twitter') && content.twitter;
-  const showNote = (platform === 'all' || platform === 'note') && content.note;
-
-  twWrap.style.display = showTwitter ? 'block' : 'none';
-  ntWrap.style.display = showNote ? 'block' : 'none';
-
-  // Adjust grid
-  const body = document.getElementById('preview-body');
-  if (showTwitter && showNote) {
-    body.style.gridTemplateColumns = '1fr 1fr';
-  } else {
-    body.style.gridTemplateColumns = '1fr';
-  }
-
-  if (showTwitter) {
-    const textEl = document.getElementById('preview-twitter-text');
-    textEl.textContent = content.twitter.text;
-    updateCharCount();
-    textEl.oninput = updateCharCount;
-
-    const threadEl = document.getElementById('preview-twitter-thread');
-    if (content.twitter.thread?.length) {
-      threadEl.innerHTML = content.twitter.thread.map(t =>
-        `<div class="thread-item">${t}</div>`
-      ).join('');
-    } else {
-      threadEl.innerHTML = '';
-    }
-  }
-
-  if (showNote) {
-    document.getElementById('preview-note-title').textContent = content.note.title;
-    document.getElementById('preview-note-tags').innerHTML =
-      content.note.tags.map(t => `<span class="tag">#${t}</span>`).join('');
-    document.getElementById('preview-note-body').textContent =
-      content.note.body.length > 800 ? content.note.body.slice(0, 800) + '...' : content.note.body;
-  }
-
-  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Schedule
+function openSched(videoId, title) {
+  $('m-sched').style.display = 'flex';
+  $('sc-date').value = new Date().toISOString().slice(0,10);
+  $('sc-title').value = title;
+  $('sc-ref').value = videoId;
+  $('sc-plat').value = 'youtube';
 }
 
-function updateCharCount() {
-  const text = document.getElementById('preview-twitter-text').textContent;
-  const count = document.getElementById('preview-twitter-chars');
-  count.textContent = text.length;
-  count.style.color = text.length > 140 ? 'var(--error)' : '#A8A29E';
-}
-
-function clearPreview() {
-  document.getElementById('preview-card').style.display = 'none';
-  currentJobId = null;
-  currentContent = null;
-}
-
-// =============================================================================
-// Post
-// =============================================================================
-async function post() {
-  if (!currentJobId || !currentContent) {
-    toast('先にコンテンツを生成してください', 'error');
-    return;
-  }
-
-  const btn = document.getElementById('btn-post');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> 投稿中...';
-
-  const platform = document.getElementById('f-platform').value;
-  const platforms = platform === 'all' ? ['twitter', 'note'] : [platform];
-
-  const editedTwitterText = document.getElementById('preview-twitter-text')?.textContent;
-  const editedNoteTitle = document.getElementById('preview-note-title')?.textContent;
-  const notePublishStatus = document.getElementById('preview-note-status')?.value;
-
+async function addSchedule() {
   try {
-    const { jobId } = await api('/api/post', {
-      method: 'POST',
-      body: JSON.stringify({
-        jobId: currentJobId,
-        platforms,
-        editedTwitterText,
-        editedNoteTitle,
-        notePublishStatus,
-      }),
-    });
-
-    const job = await pollJob(jobId, () => {});
-    if (job.status === 'failed') {
-      toast('投稿失敗: ' + job.error, 'error');
-    } else {
-      const results = job.postResults || [];
-      const successes = results.filter(r => r.success);
-      const failures = results.filter(r => !r.success);
-      if (successes.length) {
-        toast(`投稿成功: ${successes.map(r => r.platform).join(', ')}`, 'success');
-      }
-      if (failures.length) {
-        toast(`投稿失敗: ${failures.map(r => `${r.platform}: ${r.error}`).join(', ')}`, 'error');
-      }
-      await loadHistory();
-      await loadStatus();
-    }
-  } catch (e) {
-    toast('投稿エラー: ' + e.message, 'error');
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = '投稿する';
+    await api('/api/schedule', { method:'POST', body:JSON.stringify({
+      date:$('sc-date').value, platform:$('sc-plat').value,
+      type:'video', title:$('sc-title').value, status:'planned',
+      sourceRef:$('sc-ref').value,
+    })});
+    toast('スケジュール追加', 'success');
+    $('m-sched').style.display = 'none';
+    load();
+  } catch(e) { toast('失敗', 'error'); }
 }
 
-// =============================================================================
+// Open slide in OS
+async function openSlide(filename) {
+  try { await api(`/api/slides/open/${encodeURIComponent(filename)}`, {method:'POST'}); toast(filename+' を開いています', 'info'); }
+  catch(e) { toast('開けませんでした', 'error'); }
+}
+
+// Claude Code copy
+async function copyCC(videoId) {
+  const it = DATA.find(i=>i.id===videoId);
+  if (!it) return;
+  const text = `# 依頼: ${it.title}\nID: ${it.id}\n現在のステージ: ${it.stage}\n次のアクション: ${it.nextAction}\nタグ: ${(it.tags||[]).join(', ')}\nメモ: ${it.memo||''}\n\n上記プロジェクトの次ステップを実行してください。\nファイルは content/ 配下に保存してください。`;
+  await navigator.clipboard.writeText(text);
+  toast('Claude Code用テキストをコピーしました', 'success');
+}
+
+async function copyIdeaCC(ideaId) {
+  const idea = IDEAS.find(i=>i.id===ideaId);
+  if (!idea) return;
+  const text = `# 企画: ${idea.title}\nカテゴリ: ${idea.category}\nタグ: ${idea.tags.join(', ')}\n\n${idea.body}\n\n上記の企画を元に台本・記事を作成してください。`;
+  await navigator.clipboard.writeText(text);
+  toast('Claude Code用テキストをコピーしました', 'success');
+}
+
+// Slide Upload
+async function uploadSlide(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const status = $('upload-status');
+  status.style.display = 'inline';
+  status.textContent = 'アップロード中...';
+  status.style.color = 'var(--warning)';
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/slides/upload', { method:'POST', body:fd });
+    const d = await res.json();
+    if (d.success) {
+      if (d.auto) {
+        status.textContent = d.auto.videoId + ' 作成完了(' + d.auto.slideCount + '枚)';
+        status.style.color = 'var(--success)';
+        toast(d.auto.videoId + ': 台本・記事・Twitter文・サムネプロンプトを自動生成しました', 'success');
+      } else {
+        status.textContent = d.filename + ' 完了';
+        status.style.color = 'var(--success)';
+        toast(d.filename + ' をアップロードしました', 'success');
+      }
+      load();
+    } else {
+      status.textContent = '失敗';
+      status.style.color = 'var(--error)';
+      toast('アップロード失敗: ' + (d.error||''), 'error');
+    }
+  } catch(e) { status.textContent = 'エラー'; status.style.color = 'var(--error)'; toast('エラー: '+e.message, 'error'); }
+  input.value = '';
+  setTimeout(() => { status.style.display = 'none'; }, 3000);
+}
+
+// Drag & Drop
+document.addEventListener('DOMContentLoaded', () => {
+  const zone = $('drop-zone');
+  if (!zone) return;
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.style.borderColor = 'var(--gold)'; zone.style.background = '#FEF9C3'; });
+  zone.addEventListener('dragleave', () => { zone.style.borderColor = 'var(--border)'; zone.style.background = '#FFF'; });
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.style.borderColor = 'var(--border)'; zone.style.background = '#FFF';
+    const file = e.dataTransfer?.files[0];
+    if (file && /\.(pptx|ppt|pdf|key)$/i.test(file.name)) {
+      const dt = new DataTransfer(); dt.items.add(file);
+      $('slide-input').files = dt.files;
+      uploadSlide($('slide-input'));
+    } else { toast('PPTX / PPT / PDF / KEY のみ対応', 'error'); }
+  });
+});
+
+// Preview article
+async function previewArticle(filePath) {
+  try {
+    const d = await api(`/api/content/read?path=${encodeURIComponent(filePath)}`);
+    if (!d.content) { toast('ファイルが見つかりません', 'error'); return; }
+    $('preview-content').textContent = d.content;
+    $('preview-path').textContent = filePath;
+    $('m-preview').style.display = 'flex';
+  } catch(e) { toast('読み込み失敗', 'error'); }
+}
+
+// Claude Code Comments
+let CC_COMMENTS = {};
+async function loadComments() {
+  try {
+    const d = await api('/api/comments');
+    CC_COMMENTS = d.projects || {};
+    if (d.strategy) {
+      $('cc-strategy').textContent = d.strategy;
+      $('cc-updated').textContent = d.updatedAt ? new Date(d.updatedAt).toLocaleString('ja-JP') + ' 更新' : '';
+    }
+    // Priority Actions
+    const actions = d.priorityActions || [];
+    const pl = $('priority-list');
+    if (actions.length) {
+      pl.innerHTML = actions.map((a, idx) => {
+        const isDone = a.status === 'done';
+        const isReady = a.status === 'ready';
+        return `<div style="display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:1px solid #F5F5F4;${isDone?'background:#F0FDF4;opacity:0.6;':''}" >
+          <input type="checkbox" ${isDone?'checked':''} onchange="toggleAction(${idx})" style="width:16px;height:16px;cursor:pointer;accent-color:var(--success);">
+          <span style="font-weight:700;min-width:20px;color:${isDone?'#A8A29E':'var(--gold)'};">${a.priority}</span>
+          <span style="min-width:100px;"><span class="badge ${isDone?'b-ok':'b-info'}">${esc(a.action)}</span></span>
+          <span style="font-weight:600;flex:1;${isDone?'text-decoration:line-through;color:#A8A29E;':''}">${esc(a.title)}</span>
+          <span style="color:var(--text-sub);font-size:11px;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(a.detail)}</span>
+          <span style="font-family:monospace;font-size:10px;color:#A8A29E;">${esc(a.target)}</span>
+        </div>`;
+      }).join('');
+    }
+  } catch {}
+}
+
+// Toggle priority action checkbox
+async function toggleAction(idx) {
+  try {
+    const d = await api('/api/comments');
+    if (d.priorityActions && d.priorityActions[idx]) {
+      d.priorityActions[idx].status = d.priorityActions[idx].status === 'done' ? 'todo' : 'done';
+      d.updatedAt = new Date().toISOString();
+      await api('/api/comments', { method:'PUT', body:JSON.stringify(d) });
+      loadComments();
+    }
+  } catch(e) { toast('更新失敗', 'error'); }
+}
+
+// Schedule Timeline
+const DAYS = ['日','月','火','水','木','金','土'];
+let weekStart = getMonday(new Date());
+function getMonday(d) { const dt=new Date(d); const day=dt.getDay(); dt.setDate(dt.getDate()-day+(day===0?-6:1)); dt.setHours(0,0,0,0); return dt; }
+function fmtDate(d) { return d.toISOString().slice(0,10); }
+function shiftWeek(dir) { weekStart=new Date(weekStart.getTime()+dir*7*86400000); loadSched(); }
+function goToday() { weekStart=getMonday(new Date()); loadSched(); }
+
+async function loadSched() {
+  const from=fmtDate(weekStart);
+  const toD=new Date(weekStart.getTime()+13*86400000);
+  const to=fmtDate(toD);
+  const rangeText = `${weekStart.getMonth()+1}/${weekStart.getDate()} — ${toD.getMonth()+1}/${toD.getDate()}`;
+  if ($('sched-range-top')) $('sched-range-top').textContent = rangeText;
+  try {
+    const d = await api(`/api/schedule?from=${from}&to=${to}`);
+    const items = d.items||[];
+    const today = fmtDate(new Date());
+    let html = '';
+    for (let i=0;i<14;i++) {
+      const day=new Date(weekStart.getTime()+i*86400000);
+      const key=fmtDate(day);
+      const isToday=key===today;
+      const dayItems=items.filter(it=>it.date===key);
+      if (!dayItems.length && !isToday) continue;
+      html += `<div style="display:flex;gap:8px;padding:3px 0;${isToday?'background:#FEF9C3;margin:0 -16px;padding:3px 16px;border-radius:4px;':''}">
+        <span style="min-width:70px;font-weight:600;${isToday?'color:var(--gold);':'color:var(--text-sub);'}">${day.getDate()} ${DAYS[day.getDay()]}${isToday?' 今日':''}</span>
+        <span style="flex:1;">`;
+      if (dayItems.length) {
+        html += dayItems.map(it => {
+          const pColor = {twitter:'#1DA1F2',note:'var(--success)',youtube:'#FF0000',all:'var(--gold)'}[it.platform]||'#78716C';
+          return `<span style="display:inline-flex;align-items:center;gap:4px;margin-right:12px;"><span style="width:6px;height:6px;border-radius:50%;background:${pColor};"></span>${esc(it.title.slice(0,30))}</span>`;
+        }).join('');
+      } else { html += '<span style="color:#D6D3D1;">-</span>'; }
+      html += '</span></div>';
+    }
+    if ($('sched-body-top')) $('sched-body-top').innerHTML = html || '<div style="color:#D6D3D1;text-align:center;padding:10px;">予定なし</div>';
+  } catch(e) { if ($('sched-body-top')) $('sched-body-top').innerHTML = 'エラー'; }
+}
+
+// Move item (reorder)
+async function moveItem(id, dir) {
+  // Find items in same stage, reorder
+  const item = DATA.find(i => i.id === id);
+  if (!item) return;
+  const group = DATA.filter(i => i.stage === item.stage).sort((a,b) => (a.sort_order||999) - (b.sort_order||999));
+  const idx = group.findIndex(i => i.id === id);
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= group.length) return;
+  // Swap
+  [group[idx], group[newIdx]] = [group[newIdx], group[idx]];
+  const ids = group.map(i => i.id);
+  try {
+    await api('/api/videos/reorder', { method:'PUT', body:JSON.stringify({ ids }) });
+    load();
+  } catch(e) { toast('並べ替え失敗', 'error'); }
+}
+
 // Init
-// =============================================================================
-loadStatus();
-loadHistory();
-setInterval(loadStatus, 5000);
+load();
 </script>
-
 </body>
 </html>

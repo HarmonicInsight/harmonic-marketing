@@ -3,40 +3,71 @@
   "_meta": {
     "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
     "last_updated": "2026-03-21",
-    "total_videos": 2,
-    "total_shorts": 1,
-    "channel_url": ""
+    "total_videos": 29,
+    "total_shorts": 14,
+    "channel_url": "",
+    "source_dir": "C:\\dev\\Demo\\動画集"
   },
   "series": [
+    {
+      "id": "foundation",
+      "name": "ビジネス基礎",
+      "description": "インフラ入門・ロジック・プレゼン等の基礎スキル"
+    },
+    {
+      "id": "ai-practical",
+      "name": "AI実務活用",
+      "description": "AI議事録・RAG・Claude API等の実務での使い方"
+    },
+    {
+      "id": "consulting",
+      "name": "コンサル論",
+      "description": "SIPO・建設業DX・基幹システム等の業務改革フレームワーク"
+    },
     {
       "id": "product",
       "name": "製品紹介",
       "description": "HARMONIC insight 各製品の機能紹介・デモ"
     },
     {
-      "id": "ai-practical",
-      "name": "AI実務活用",
-      "description": "AI議事録・検索・要約の実務での使い方"
-    },
-    {
-      "id": "dx-myths",
-      "name": "DXの誤解",
-      "description": "DX＝システム導入等の誤解を解くコンテンツ"
-    },
-    {
       "id": "video-production",
       "name": "動画化実務",
-      "description": "Training Studio（INMV）の活用法"
+      "description": "Training Studio（INMV）の活用法・PPTXから動画化"
     },
     {
-      "id": "consulting",
-      "name": "コンサル論",
-      "description": "SIPO・4層モデル等の業務改革フレームワーク"
+      "id": "ai-shorts",
+      "name": "AIショート",
+      "description": "AIに関する短編コンテンツ（エージェント・RAG・セキュリティ等）"
     },
     {
-      "id": "tools",
-      "name": "ツール紹介",
-      "description": "HARMONIC tools 個別ツールの紹介"
+      "id": "local-series",
+      "name": "ローカルシリーズ",
+      "description": "クラウドvsローカル・業務ドリブン・密結合UI等"
+    },
+    {
+      "id": "llm",
+      "name": "LLM比較",
+      "description": "日本語LLM比較分析・コスト・用途別おすすめ"
+    },
+    {
+      "id": "security",
+      "name": "AIセキュリティ",
+      "description": "企業AI活用のセキュリティ課題と解決策"
+    },
+    {
+      "id": "zundamon",
+      "name": "ずんだもんシリーズ",
+      "description": "ずんだもんキャラクターによる製品紹介・解説"
+    },
+    {
+      "id": "hr",
+      "name": "人事・研修",
+      "description": "オンボーディング・マニュアル作成等"
+    },
+    {
+      "id": "misc",
+      "name": "その他",
+      "description": "分類外・特別コンテンツ"
     }
   ],
   "tags_master": {
@@ -48,43 +79,589 @@
       "オフィスツール"
     ],
     "by_series": {
+      "foundation": [
+        "ビジネススキル",
+        "プレゼン",
+        "ロジック",
+        "グラフ"
+      ],
+      "ai-practical": [
+        "AI議事録",
+        "RAG",
+        "Claude API",
+        "自動要約"
+      ],
+      "consulting": [
+        "コンサルティング",
+        "建設業DX",
+        "バックオフィス改革",
+        "SIPO",
+        "基幹システム"
+      ],
       "product": [
         "SaaS",
         "AIツール",
         "オフィス自動化",
         "業務効率化"
       ],
-      "ai-practical": [
-        "AI議事録",
-        "文書管理",
-        "AI検索",
-        "自動要約"
-      ],
-      "dx-myths": [
-        "DX推進",
-        "デジタルトランスフォーメーション",
-        "経営改革"
-      ],
       "video-production": [
         "PowerPoint",
         "研修動画",
         "動画制作",
-        "eラーニング"
+        "eラーニング",
+        "Training Studio"
       ],
-      "consulting": [
-        "コンサルティング",
-        "建設業DX",
-        "バックオフィス改革",
-        "SIPO"
+      "ai-shorts": [
+        "AIエージェント",
+        "RAG",
+        "議事録AI"
       ],
-      "tools": [
-        "無料ツール",
-        "業務ツール",
-        "RPA"
+      "local-series": [
+        "ローカルアプリ",
+        "クラウド",
+        "UI設計"
+      ],
+      "llm": [
+        "LLM",
+        "日本語AI",
+        "コスト分析"
+      ],
+      "security": [
+        "セキュリティ",
+        "情報漏洩",
+        "企業AI"
+      ],
+      "zundamon": [
+        "ずんだもん",
+        "AI Office",
+        "Training Studio"
+      ],
+      "hr": [
+        "人事",
+        "オンボーディング",
+        "マニュアル"
+      ],
+      "misc": [
+        "英語",
+        "未来年表",
+        "API"
       ]
     }
   },
   "videos": [
+    {
+      "id": "VID-001",
+      "type": "main",
+      "title": "システムインフラ入門｜未経験からわかるIT基礎講座【クラウド・API・Web・アーキテクチャ】",
+      "series": "foundation",
+      "product": null,
+      "status": "published",
+      "duration": "13:28",
+      "script": null,
+      "slide": "slides/VID-001_システムインフラ入門.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "システムインフラ",
+        "IT基礎"
+      ],
+      "performance": {
+        "views": 16,
+        "likes": 1,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "01.システムインフラ入門_up",
+      "shorts": [],
+      "source_dir": "01.システムインフラ入門_up"
+    },
+    {
+      "id": "VID-002",
+      "type": "main",
+      "title": "トゥールミンロジック入門｜論理的に「伝わる提案」を作る思考法【コンサル・提案書・報告書】",
+      "series": "foundation",
+      "product": null,
+      "status": "published",
+      "duration": "4:51",
+      "script": null,
+      "slide": "slides/VID-002_トゥールミンロジック.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "ロジック",
+        "トゥールミン",
+        "プレゼン"
+      ],
+      "performance": {
+        "views": 6,
+        "likes": 1,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "02.トゥールミンロジック_勉強会資料_ナレーション付き_up",
+      "shorts": [],
+      "source_dir": "02.トゥールミンロジック_勉強会資料_ナレーション付き_up"
+    },
+    {
+      "id": "VID-003",
+      "type": "main",
+      "title": "グラフの選び方入門｜伝わる資料に変えるチャートの使い分け【棒・線・円・散布図】",
+      "series": "foundation",
+      "product": null,
+      "status": "published",
+      "duration": "4:28",
+      "script": null,
+      "slide": "slides/VID-003_グラフの選び方.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "グラフ",
+        "データ可視化",
+        "プレゼン"
+      ],
+      "performance": {
+        "views": 5,
+        "likes": 1,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "03.グラフの選び方_up",
+      "shorts": [],
+      "source_dir": "03.グラフの選び方_up"
+    },
+    {
+      "id": "VID-004",
+      "type": "main",
+      "title": "やり直せる力 勉強会｜努力が報われない理由と、成果を出す正しい挑戦法",
+      "series": "foundation",
+      "product": null,
+      "status": "published",
+      "duration": "13:19",
+      "script": null,
+      "slide": "slides/VID-004_やり直せる力.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "チャレンジ",
+        "マインドセット"
+      ],
+      "performance": {
+        "views": 66,
+        "likes": 2,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "04.正しいチャレンジの仕方_up",
+      "shorts": [],
+      "source_dir": "04.正しいチャレンジの仕方_up"
+    },
+    {
+      "id": "VID-005",
+      "type": "main",
+      "title": "AI導入が失敗する理由｜IPOフレームワークで解説",
+      "series": "ai-practical",
+      "product": null,
+      "status": "published",
+      "duration": "3:29",
+      "script": null,
+      "slide": "slides/VID-005_AI業務活用の本質.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AI",
+        "業務活用",
+        "実務"
+      ],
+      "performance": {
+        "views": 25,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "05.AIの業務活用_up",
+      "shorts": [],
+      "source_dir": "05.AIの業務活用_up"
+    },
+    {
+      "id": "VID-010",
+      "type": "main",
+      "title": "資料の作り方｜コンサルが教える「伝わる資料」の基本講座【提案書・報告書・論点整理】",
+      "series": "foundation",
+      "product": null,
+      "status": "published",
+      "duration": "9:21",
+      "script": null,
+      "slide": "slides/VID-010_資料の作り方.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "資料作成",
+        "PowerPoint",
+        "プレゼン"
+      ],
+      "performance": {
+        "views": 18,
+        "likes": 1,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "10.資料の作り方_up",
+      "shorts": [],
+      "source_dir": "10.資料の作り方_up"
+    },
+    {
+      "id": "VID-011",
+      "type": "main",
+      "title": "建設業基幹システム導入でカスタマイズが多発する理由と対策",
+      "series": "consulting",
+      "product": null,
+      "status": "published",
+      "duration": "7:09",
+      "script": null,
+      "slide": "slides/VID-011_建設業基幹システム_カスタマイズ.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "建設業",
+        "基幹システム",
+        "カスタマイズ"
+      ],
+      "performance": {
+        "views": 8,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "11.建設業基幹システムカスタマイズ地獄_up",
+      "shorts": [],
+      "source_dir": "11.建設業基幹システムカスタマイズ地獄_up"
+    },
+    {
+      "id": "VID-012",
+      "type": "main",
+      "title": "基幹システム導入で失敗する会社の特徴",
+      "series": "consulting",
+      "product": null,
+      "status": "slide_done",
+      "duration": "4:48",
+      "script": null,
+      "slide": "slides/VID-012_基幹システム変革.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "基幹システム",
+        "変革",
+        "DX"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "ドラフト状態 / 未公開",
+      "shorts": [],
+      "source_dir": "12.基幹システム変革",
+      "sort_order": 0
+    },
+    {
+      "id": "VID-013",
+      "type": "main",
+      "title": "その業務、本当に特殊？｜業務統合の落とし穴",
+      "series": "consulting",
+      "product": null,
+      "status": "published",
+      "duration": "6:05",
+      "script": null,
+      "slide": "slides/VID-013_建設業の組織統合.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "建設業",
+        "合併",
+        "組織統合",
+        "PCO"
+      ],
+      "performance": {
+        "views": 1,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "13.建設業合併時の考慮_PCO_up / v2含む2版あり",
+      "shorts": [],
+      "source_dir": "13.建設業合併時の考慮_PCO_up"
+    },
+    {
+      "id": "VID-014",
+      "type": "main",
+      "title": "2050年の日本はどうなる？人口減少・AI・産業変化を読む",
+      "series": "consulting",
+      "product": null,
+      "status": "published",
+      "duration": "9:48",
+      "script": null,
+      "slide": "slides/VID-014_未来年表.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-13",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "未来年表",
+        "コンサルティング",
+        "トレンド"
+      ],
+      "performance": {
+        "views": 14,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "14.未来年表",
+      "shorts": [],
+      "source_dir": "14.未来年表"
+    },
+    {
+      "id": "VID-015",
+      "type": "main",
+      "title": "英語の発音上達法",
+      "series": "misc",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-015_英語発音上達.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "英語",
+        "発音",
+        "スキルアップ"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "15.英語の発音上達法 / MP4未作成 / v9,v10の2版あり",
+      "shorts": [],
+      "source_dir": "15.英語の発音上達法",
+      "sort_order": 1
+    },
+    {
+      "id": "VID-016",
+      "type": "main",
+      "title": "RAGで業務変わりましたか",
+      "series": "ai-practical",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-016_RAG業務活用.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "RAG",
+        "AI",
+        "業務活用"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "16.Ragで業務変わりましたか / MP4未作成",
+      "shorts": [],
+      "source_dir": "16.Ragで業務変わりましたか",
+      "sort_order": 2
+    },
+    {
+      "id": "VID-017A",
+      "type": "main",
+      "title": "【初心者OK】Claude API設定ガイド｜5分でAIが使えるようになる方法",
+      "series": "ai-practical",
+      "product": null,
+      "status": "published",
+      "duration": "5:38",
+      "script": null,
+      "slide": "slides/VID-017A_Claude-api-setup-guide.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-17",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "Claude API",
+        "セットアップ",
+        "AI"
+      ],
+      "performance": {
+        "views": 4,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "17.CLAUDEAPI / セットアップ編",
+      "shorts": [],
+      "source_dir": "17.CLAUDEAPI"
+    },
+    {
+      "id": "VID-017B",
+      "type": "main",
+      "title": "【完全解説】Claude API設定方法｜アカウント作成〜APIキー発行まで5分",
+      "series": "ai-practical",
+      "product": null,
+      "status": "published",
+      "duration": "6:54",
+      "script": null,
+      "slide": "slides/VID-017B_Claude-api-pricing-guide.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-17",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "Claude API",
+        "料金",
+        "コスト"
+      ],
+      "performance": {
+        "views": 2,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "17.CLAUDEAPI / プライシング編",
+      "shorts": [],
+      "source_dir": "17.CLAUDEAPI"
+    },
+    {
+      "id": "VID-018",
+      "type": "main",
+      "title": "マニュアル作っておいて",
+      "series": "hr",
+      "product": "INMV",
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-018_マニュアル作り.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "マニュアル",
+        "Training Studio",
+        "業務効率化"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "18.マニュアル作り / InsightTrainingStudio.pptxも含む",
+      "shorts": [],
+      "source_dir": "18.マニュアル作り"
+    },
+    {
+      "id": "VID-019",
+      "type": "main",
+      "title": "人事オンボーディング 入社手続きガイド",
+      "series": "hr",
+      "product": "INMV",
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-019_人事オンボード.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "人事",
+        "オンボーディング",
+        "研修"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "19.人事オンボード / 3版のPPTXあり / MP4未作成",
+      "shorts": [],
+      "source_dir": "19.人事オンボード",
+      "sort_order": 3
+    },
+    {
+      "id": "VID-020",
+      "type": "main",
+      "title": "PPTXから動画の作り方（Training Studio）",
+      "series": "video-production",
+      "product": "INMV",
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-020_TrainingStudio起動レコーディング.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "Training Studio",
+        "動画制作",
+        "PowerPoint"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21.PPTXから動画の作り方 / 複数MP4あり",
+      "shorts": [],
+      "source_dir": "21.PPTXから動画の作り方"
+    },
     {
       "id": "VID-021",
       "type": "main",
@@ -113,61 +690,786 @@
         "likes": null
       },
       "memo": "16スライド構成、note記事と連動",
-      "shorts": []
+      "shorts": [],
+      "sort_order": 4
     },
     {
       "id": "VID-022",
       "type": "main",
-      "parent_id": null,
-      "title": "AI議事録の限界と正しい使い方",
-      "series": "ai-practical",
-      "product": "IAOF",
-      "status": "idea",
+      "title": "日本語LLM比較分析 2026",
+      "series": "llm",
+      "product": null,
+      "status": "slide_done",
       "duration": null,
-      "script": "scripts/VID-022_ai.md",
-      "slide": null,
+      "script": null,
+      "slide": "slides/VID-022_日本語LLM比較分析.pptx",
       "thumbnail": null,
       "youtube_url": null,
       "publish_date": null,
       "note_status": "未",
       "note_url": null,
-      "tags": [],
+      "tags": [
+        "LLM",
+        "日本語AI",
+        "比較分析"
+      ],
       "performance": {
         "views": null,
         "ctr": null,
         "avg_watch_time": null,
         "likes": null
       },
-      "memo": null,
+      "memo": "22_LLM比較 / youtube-metadata.mdあり / ナレーション版含む",
       "shorts": [
-        "VID-1001"
-      ]
+        "VID-2201",
+        "VID-2202",
+        "VID-2203"
+      ],
+      "source_dir": "22_LLM比較",
+      "sort_order": 5
     },
     {
-      "id": "VID-1001",
-      "type": "short",
-      "parent_id": "VID-022",
-      "title": "議事録は作って終わりじゃない",
-      "series": null,
+      "id": "VID-023",
+      "type": "main",
+      "title": "AI時代のセキュリティ 課題と解決策",
+      "series": "security",
       "product": null,
-      "status": "idea",
+      "status": "slide_done",
       "duration": null,
-      "script": "shorts/VID-1001_VID-1001.md",
-      "slide": null,
+      "script": null,
+      "slide": "slides/VID-023_AI時代のセキュリティ.pptx",
       "thumbnail": null,
       "youtube_url": null,
       "publish_date": null,
       "note_status": "未",
       "note_url": null,
-      "tags": [],
+      "tags": [
+        "セキュリティ",
+        "AI",
+        "企業"
+      ],
       "performance": {
         "views": null,
         "ctr": null,
         "avg_watch_time": null,
         "likes": null
       },
-      "memo": null,
-      "shorts": []
+      "memo": "23.AI時代のセキュリティ / MP4未作成",
+      "shorts": [],
+      "source_dir": "23.AI時代のセキュリティ",
+      "sort_order": 6
+    },
+    {
+      "id": "VID-030",
+      "type": "main",
+      "title": "Claude API 登録・購入手順マニュアル",
+      "series": "ai-practical",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-030_Claude_API_登録購入手順.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "Claude API",
+        "登録",
+        "手順"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "30.APIの取得 / MP4未作成",
+      "shorts": [],
+      "source_dir": "30.APIの取得",
+      "sort_order": 7
+    },
+    {
+      "id": "VID-050",
+      "type": "main",
+      "title": "ずんだもん AI Office紹介",
+      "series": "zundamon",
+      "product": "IAOF",
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-050_AI_Office.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "ずんだもん",
+        "AI Office",
+        "製品紹介"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "50.ずんだもん_AI Office / 2本のMP4あり",
+      "shorts": [],
+      "source_dir": "50.ずんだもん_AI Office"
+    },
+    {
+      "id": "VID-051",
+      "type": "main",
+      "title": "ずんだもん Training Studio紹介",
+      "series": "zundamon",
+      "product": "INMV",
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-051_TrainingStudio.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "ずんだもん",
+        "Training Studio",
+        "製品紹介"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "51.ずんだもん_TrainingStudio",
+      "shorts": [],
+      "source_dir": "51.ずんだもん_TrainingStudio"
+    },
+    {
+      "id": "VID-052",
+      "type": "main",
+      "title": "会社でChatGPT使ってませんか？それ危険です｜企業AIのセキュリティ対策",
+      "series": "zundamon",
+      "product": null,
+      "status": "published",
+      "duration": "3:19",
+      "script": null,
+      "slide": "slides/VID-052_AIセキュリティ_ずんだもん.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "ずんだもん",
+        "セキュリティ",
+        "AI"
+      ],
+      "performance": {
+        "views": 7,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "52.AIのセキュリティ / 2版PPTX、2本MP4あり",
+      "shorts": [],
+      "source_dir": "52.AIのセキュリティ"
+    },
+    {
+      "id": "VID-100",
+      "type": "main",
+      "title": "契約書から入金・支払予定表の作り方",
+      "series": "misc",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "契約書",
+        "Excel",
+        "Python",
+        "自動化"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "100.契約書から入金・支払予定表の作り方 / PPTXなし、Pythonスクリプトで構成",
+      "shorts": [],
+      "source_dir": "100.契約書から入金・支払予定表の作り方",
+      "sort_order": 8
+    },
+    {
+      "id": "VID-S001",
+      "type": "short",
+      "parent_id": null,
+      "title": "AIエージェントの真実",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S001_AIエージェントの真実.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AIエージェント",
+        "ショート"
+      ],
+      "performance": {
+        "views": 1306,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/1",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-S002",
+      "type": "short",
+      "parent_id": null,
+      "title": "RAGの幻想｜検索だけでは業務は変わらない",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S002_RAGの幻想.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "RAG",
+        "AI",
+        "ショート"
+      ],
+      "performance": {
+        "views": 327,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/2",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-S003",
+      "type": "short",
+      "parent_id": null,
+      "title": "AI議論、実はズレてる",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S003_AIエージェント議論ズレ.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AIエージェント",
+        "議論",
+        "ショート"
+      ],
+      "performance": {
+        "views": 1418,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/3",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-S004",
+      "type": "short",
+      "parent_id": null,
+      "title": "AIコンサルのウソ",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S004_AIコンサルのウソ.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AIコンサル",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/3.AIコンサルのウソ / MP4未作成",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-S005",
+      "type": "short",
+      "parent_id": null,
+      "title": "AIが仕事する？実はそうでもない話",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S005_AIが仕事を自動化する.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AI",
+        "自動化",
+        "ショート"
+      ],
+      "performance": {
+        "views": 483,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/4.AIで仕事がなくなる、のウソ",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-S006",
+      "type": "short",
+      "parent_id": null,
+      "title": "AI議事録、便利なのに使われない理由",
+      "series": "ai-shorts",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-S006_議事録AIの顛末.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "議事録",
+        "AI",
+        "ショート"
+      ],
+      "performance": {
+        "views": 340,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "20.Short動画/4.議事録AIの顛末",
+      "shorts": [],
+      "source_dir": "20.Short動画"
+    },
+    {
+      "id": "VID-L001",
+      "type": "main",
+      "title": "クラウドvsローカル",
+      "series": "local-series",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L001_cloud-vs-local-main.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "クラウド",
+        "ローカル",
+        "比較"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/01",
+      "shorts": [
+        "VID-L001S"
+      ],
+      "source_dir": "21_ローカルシリーズ"
+    },
+    {
+      "id": "VID-L001S",
+      "type": "short",
+      "parent_id": "VID-L001",
+      "title": "クラウドvsローカル（ショート）",
+      "series": "local-series",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L001S_cloud-vs-local-shorts.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "クラウド",
+        "ローカル",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/01-shorts",
+      "shorts": [],
+      "source_dir": "21_ローカルシリーズ"
+    },
+    {
+      "id": "VID-L002",
+      "type": "main",
+      "title": "業務ドリブン",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L002_business-driven-main.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "業務ドリブン",
+        "ローカル"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/02 / MP4未作成",
+      "shorts": [
+        "VID-L002S"
+      ],
+      "source_dir": "21_ローカルシリーズ",
+      "sort_order": 9
+    },
+    {
+      "id": "VID-L002S",
+      "type": "short",
+      "parent_id": "VID-L002",
+      "title": "業務ドリブン（ショート）",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L002S_business-driven-shorts.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "業務ドリブン",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/02-shorts",
+      "shorts": [],
+      "source_dir": "21_ローカルシリーズ"
+    },
+    {
+      "id": "VID-L003",
+      "type": "main",
+      "title": "密結合UI",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L003_dense-ui-main.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "UI設計",
+        "密結合",
+        "ローカル"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/03 / MP4未作成",
+      "shorts": [
+        "VID-L003S"
+      ],
+      "source_dir": "21_ローカルシリーズ",
+      "sort_order": 10
+    },
+    {
+      "id": "VID-L003S",
+      "type": "short",
+      "parent_id": "VID-L003",
+      "title": "密結合UI（ショート）",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L003S_dense-ui-shorts.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "UI設計",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/03-shorts",
+      "shorts": [],
+      "source_dir": "21_ローカルシリーズ"
+    },
+    {
+      "id": "VID-L004",
+      "type": "main",
+      "title": "AI時代のローカル",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L004_ai-era-local-main.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AI時代",
+        "ローカル"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/04 / MP4未作成",
+      "shorts": [
+        "VID-L004S"
+      ],
+      "source_dir": "21_ローカルシリーズ",
+      "sort_order": 11
+    },
+    {
+      "id": "VID-L004S",
+      "type": "short",
+      "parent_id": "VID-L004",
+      "title": "AI時代のローカル（ショート）",
+      "series": "local-series",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-L004S_ai-era-local-shorts.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "AI時代",
+        "ローカル",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "21_ローカルシリーズ/04-shorts",
+      "shorts": [],
+      "source_dir": "21_ローカルシリーズ"
+    },
+    {
+      "id": "VID-2201",
+      "type": "short",
+      "parent_id": "VID-022",
+      "title": "RakutenAI3 使える",
+      "series": "llm",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-2201_Shorts_RakutenAI3.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "RakutenAI",
+        "LLM",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "22_LLM比較/Shorts1",
+      "shorts": [],
+      "source_dir": "22_LLM比較"
+    },
+    {
+      "id": "VID-2202",
+      "type": "short",
+      "parent_id": "VID-022",
+      "title": "LLMコスト50倍の差",
+      "series": "llm",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-2202_Shorts_LLMコスト50倍.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "LLM",
+        "コスト",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "22_LLM比較/Shorts2",
+      "shorts": [],
+      "source_dir": "22_LLM比較"
+    },
+    {
+      "id": "VID-2203",
+      "type": "short",
+      "parent_id": "VID-022",
+      "title": "用途別おすすめLLM",
+      "series": "llm",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/VID-2203_Shorts_用途別おすすめLLM.pptx",
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "LLM",
+        "おすすめ",
+        "ショート"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "22_LLM比較/Shorts3",
+      "shorts": [],
+      "source_dir": "22_LLM比較"
+    },
+    {
+      "id": "VID-CAT",
+      "type": "short",
+      "parent_id": null,
+      "title": "【施工管理あるある】現場で「猫持ってこい」と言われて本気で探した新人の話",
+      "series": "misc",
+      "product": null,
+      "status": "published",
+      "duration": "2:07",
+      "script": null,
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": "2026-03-12",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "施工管理",
+        "あるある",
+        "ショート"
+      ],
+      "performance": {
+        "views": 1,
+        "likes": 0,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "猫フォルダ / InsightCast.mp4 + Const_Neko.pptx",
+      "shorts": [],
+      "source_dir": "猫"
     }
   ]
 }

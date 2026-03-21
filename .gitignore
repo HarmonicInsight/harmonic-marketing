@@ -3,3 +3,12 @@
 node_modules/
 dist/
 *.log
+
+# PPTX/動画はローカル管理
+content/youtube/slides/*.pptx
+content/youtube/slides/*.ppt
+content/youtube/slides/*.pdf
+content/youtube/slides/*.key
+content/youtube/assets/
+*.mp4
+*.mov

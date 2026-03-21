@@ -16,6 +16,10 @@ import type {
 
 let anthropic: Anthropic | null = null;
 
+export function getGeneratorClient(): Anthropic {
+  return getClient();
+}
+
 function getClient(): Anthropic {
   if (!anthropic) {
     anthropic = new Anthropic({ apiKey: env.anthropicApiKey });
