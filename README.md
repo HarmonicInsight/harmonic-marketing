@@ -6,14 +6,32 @@ HARMONIC insight のマーケティングツール・コンテンツ管理リポ
 
 ```
 harmonic-marketing/
-├── tools/
-│   └── social-poster/    # SNS 自動投稿ツール（Twitter/X + note.com）
 ├── content/
-│   ├── articles/         # note.com 記事ストック
-│   ├── tweets/           # ツイートテンプレート・過去投稿
-│   └── know-how/         # マーケティングノウハウ
-└── assets/               # 画像・バナー素材
+│   ├── CONTENT-INDEX.md          # コンテンツ一覧・ステータス管理
+│   ├── note/
+│   │   ├── articles/             # note.com 単発記事
+│   │   └── series/               # note.com シリーズ記事（動画紹介等）
+│   ├── youtube/
+│   │   ├── scripts/              # 動画スクリプト・スライド構成
+│   │   └── thumbnails/           # サムネイル素材
+│   ├── twitter/
+│   │   ├── templates/            # ツイートテンプレート
+│   │   └── threads/              # スレッド形式の投稿
+│   ├── seminars/                 # セミナー・ウェビナー資料
+│   ├── templates/                # コンテンツ作成テンプレート
+│   └── strategy/                 # マーケティング戦略・ノウハウ
+├── tools/
+│   └── social-poster/            # SNS 自動投稿ツール（Twitter/X + note.com）
+└── assets/                       # 画像・バナー素材
 ```
+
+## コンテンツ管理
+
+- **CONTENT-INDEX.md** でコンテンツの一覧とステータスを管理
+- ステータス: `idea` → `draft` → `review` → `ready` → `published`
+- チャネル別にフォルダを分離（note / youtube / twitter / seminars）
+- テンプレートは `templates/` に集約
+- 戦略ドキュメントは `strategy/` に集約
 
 ## Social Poster
 
