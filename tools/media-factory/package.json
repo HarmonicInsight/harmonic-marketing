@@ -1,0 +1,24 @@
+{
+  "name": "@harmonic/media-factory",
+  "version": "0.1.0",
+  "description": "Insight Media Factory — コンテンツ企画→台本→パワポ→動画→マルチチャネル配信の統合パイプライン",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/cli.ts",
+    "create": "tsx src/cli.ts create",
+    "status": "tsx src/cli.ts status",
+    "dashboard": "tsx src/cli.ts dashboard",
+    "pipeline": "tsx src/cli.ts pipeline"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "twitter-api-v2": "^1.19.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
