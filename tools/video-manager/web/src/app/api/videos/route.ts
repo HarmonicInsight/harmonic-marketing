@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { readCatalog, writeCatalog, nextMainId, nextShortId, type Video } from "@/lib/catalog";
 
 export async function GET(req: NextRequest) {
-  const catalog = readCatalog();
+  const catalog = await readCatalog();
   const params = req.nextUrl.searchParams;
 
   let videos = catalog.videos;
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const catalog = readCatalog();
+  const catalog = await readCatalog();
 
   const vtype = body.type || "main";
   const newId = vtype === "short" ? nextShortId(catalog) : nextMainId(catalog);
@@ -70,13 +70,13 @@ export async function POST(req: NextRequest) {
     if (parent) parent.shorts.push(newId);
   }
 
-  writeCatalog(catalog);
+  await writeCatalog(catalog, `add ${video.id} ${video.title}`);
   return NextResponse.json(video, { status: 201 });
 }
 
 export async function PATCH(req: NextRequest) {
   const body = await req.json();
-  const catalog = readCatalog();
+  const catalog = await readCatalog();
 
   const video = catalog.videos.find((v) => v.id === body.id);
   if (!video) {
@@ -99,13 +99,14 @@ export async function PATCH(req: NextRequest) {
     Object.assign(video.performance, body.performance);
   }
 
-  writeCatalog(catalog);
+  const changes = Object.keys(body).filter((k) => k !== "id").join(", ");
+  await writeCatalog(catalog, `update ${body.id} (${changes})`);
   return NextResponse.json(video);
 }
 
 export async function DELETE(req: NextRequest) {
   const body = await req.json();
-  const catalog = readCatalog();
+  const catalog = await readCatalog();
 
   const idx = catalog.videos.findIndex((v) => v.id === body.id);
   if (idx === -1) {
@@ -123,6 +124,6 @@ export async function DELETE(req: NextRequest) {
   }
 
   catalog.videos.splice(idx, 1);
-  writeCatalog(catalog);
+  await writeCatalog(catalog, `delete ${body.id}`);
   return NextResponse.json({ deleted: body.id });
 }
