@@ -28,7 +28,7 @@ const QUICK_PROMPTS = [
   '安全管理のチェックポイント',
 ];
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = process.env.REACT_APP_API_URL || '';
 
 const AIConcierge: React.FC<AIConciergeProps> = ({ open, onClose, tasks }) => {
   const theme = useTheme();
@@ -103,13 +103,13 @@ const AIConcierge: React.FC<AIConciergeProps> = ({ open, onClose, tasks }) => {
     } catch (error) {
       const errMsg = error instanceof Error ? error.message : 'エラーが発生しました';
       setMessages(prev => {
-        // If last message is empty assistant, replace it
+        const errorContent = `⚠️ ${errMsg}\n\nANTHROPIC_API_KEY が設定されているか確認してください。\nローカル開発: \`npm run dev\` で起動`;
         if (prev.length > 0 && prev[prev.length - 1].role === 'assistant' && prev[prev.length - 1].content === '') {
           const updated = [...prev];
-          updated[updated.length - 1] = { role: 'assistant', content: `⚠️ ${errMsg}\n\nAPIサーバーが起動しているか確認してください。\n\`npm run server\` で起動できます。` };
+          updated[updated.length - 1] = { role: 'assistant', content: errorContent };
           return updated;
         }
-        return [...prev, { role: 'assistant', content: `⚠️ ${errMsg}` }];
+        return [...prev, { role: 'assistant', content: errorContent }];
       });
     } finally {
       setIsStreaming(false);
