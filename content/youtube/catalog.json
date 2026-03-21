@@ -1,0 +1,173 @@
+{
+  "$schema": "./catalog-schema.json",
+  "_meta": {
+    "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
+    "last_updated": "2026-03-21",
+    "total_videos": 2,
+    "total_shorts": 1,
+    "channel_url": ""
+  },
+  "series": [
+    {
+      "id": "product",
+      "name": "製品紹介",
+      "description": "HARMONIC insight 各製品の機能紹介・デモ"
+    },
+    {
+      "id": "ai-practical",
+      "name": "AI実務活用",
+      "description": "AI議事録・検索・要約の実務での使い方"
+    },
+    {
+      "id": "dx-myths",
+      "name": "DXの誤解",
+      "description": "DX＝システム導入等の誤解を解くコンテンツ"
+    },
+    {
+      "id": "video-production",
+      "name": "動画化実務",
+      "description": "Training Studio（INMV）の活用法"
+    },
+    {
+      "id": "consulting",
+      "name": "コンサル論",
+      "description": "SIPO・4層モデル等の業務改革フレームワーク"
+    },
+    {
+      "id": "tools",
+      "name": "ツール紹介",
+      "description": "HARMONIC tools 個別ツールの紹介"
+    }
+  ],
+  "tags_master": {
+    "common": [
+      "HARMONIC insight",
+      "AI",
+      "業務改善",
+      "DX",
+      "オフィスツール"
+    ],
+    "by_series": {
+      "product": [
+        "SaaS",
+        "AIツール",
+        "オフィス自動化",
+        "業務効率化"
+      ],
+      "ai-practical": [
+        "AI議事録",
+        "文書管理",
+        "AI検索",
+        "自動要約"
+      ],
+      "dx-myths": [
+        "DX推進",
+        "デジタルトランスフォーメーション",
+        "経営改革"
+      ],
+      "video-production": [
+        "PowerPoint",
+        "研修動画",
+        "動画制作",
+        "eラーニング"
+      ],
+      "consulting": [
+        "コンサルティング",
+        "建設業DX",
+        "バックオフィス改革",
+        "SIPO"
+      ],
+      "tools": [
+        "無料ツール",
+        "業務ツール",
+        "RPA"
+      ]
+    }
+  },
+  "videos": [
+    {
+      "id": "VID-021",
+      "type": "main",
+      "title": "建設業バックオフィス改革 SIPOフレームワーク解説",
+      "series": "consulting",
+      "product": null,
+      "status": "script_done",
+      "duration": "15:00-20:00",
+      "script": "scripts/VID-021_sipo-framework.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "建設業DX",
+        "SIPO",
+        "バックオフィス改革",
+        "ハウジング業"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "16スライド構成、note記事と連動",
+      "shorts": []
+    },
+    {
+      "id": "VID-022",
+      "type": "main",
+      "parent_id": null,
+      "title": "AI議事録の限界と正しい使い方",
+      "series": "ai-practical",
+      "product": "IAOF",
+      "status": "idea",
+      "duration": null,
+      "script": "scripts/VID-022_ai.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": null,
+      "shorts": [
+        "VID-1001"
+      ]
+    },
+    {
+      "id": "VID-1001",
+      "type": "short",
+      "parent_id": "VID-022",
+      "title": "議事録は作って終わりじゃない",
+      "series": null,
+      "product": null,
+      "status": "idea",
+      "duration": null,
+      "script": "shorts/VID-1001_VID-1001.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": null,
+      "shorts": []
+    }
+  ]
+}
