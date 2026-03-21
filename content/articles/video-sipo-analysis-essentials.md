@@ -4,6 +4,11 @@
 想定尺: 12〜15分
 想定媒体: YouTube / note.com 埋め込み
 ターゲット: 建設業・ハウジング業の経営者、管理部門責任者、業務改善担当者、コンサルタント
+パイプライン: Insight Media Factory (`tools/media-factory`)
+フォーマット: long_video (16:9)
+シリーズ: 建設業バックオフィス改革（Episode 1）
+ソースドキュメント: `content/know-how/sipo-backoffice-framework.md`
+ワークフロー: 台本 → パワポ(16:9) → INMV動画化 → YouTube + note.com 同時配信 → Twitter告知
 
 ---
 
