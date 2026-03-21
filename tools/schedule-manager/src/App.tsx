@@ -14,6 +14,7 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SearchIcon from '@mui/icons-material/Search';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { theme, colors } from './theme';
 import {
   CATEGORIES, STATUS_CONFIG, type TaskStatus, type BusinessTask,
@@ -24,6 +25,7 @@ import KanbanBoard from './components/KanbanBoard';
 import TimelineView from './components/TimelineView';
 import CalendarView from './components/CalendarView';
 import TaskDetailDialog from './components/TaskDetailDialog';
+import AIConcierge from './components/AIConcierge';
 
 type ViewMode = 'calendar' | 'timeline' | 'list' | 'kanban';
 type KpiFilter = null | 'active' | 'overdue' | 'dueToday' | 'inProgress';
@@ -40,6 +42,7 @@ function App() {
   const [kpiFilter, setKpiFilter] = useState<KpiFilter>(null);
   const [editingTask, setEditingTask] = useState<BusinessTask | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [conciergeOpen, setConciergeOpen] = useState(false);
   const [isNewTask, setIsNewTask] = useState(false);
 
   const today = new Date().toISOString().slice(0, 10);
@@ -132,7 +135,11 @@ function App() {
           <Typography sx={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', letterSpacing: '0.03em' }}>
             HARMONIC スケジュール管理
           </Typography>
-          <Typography sx={{ fontSize: '0.65rem', color: colors.ivory[400], ml: 1.5 }}>Marketing & Business Task Manager</Typography>
+          <Typography sx={{ fontSize: '0.65rem', color: colors.ivory[400], ml: 1.5, display: { xs: 'none', sm: 'block' } }}>Marketing & Business Task Manager</Typography>
+          <Box sx={{ flex: 1 }} />
+          <IconButton onClick={() => setConciergeOpen(true)} sx={{ color: '#fff', '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' } }}>
+            <SmartToyIcon sx={{ fontSize: 20 }} />
+          </IconButton>
         </Toolbar>
       </AppBar>
 
@@ -210,6 +217,7 @@ function App() {
         {view === 'kanban' && <KanbanBoard tasks={filtered} members={members} onStatusChange={handleStatusChange} onTaskClick={handleEdit} />}
 
         <TaskDetailDialog task={editingTask} members={members} open={dialogOpen} onClose={() => { setDialogOpen(false); setEditingTask(null); setIsNewTask(false); }} onSave={handleSave} isNew={isNewTask} />
+        <AIConcierge open={conciergeOpen} onClose={() => setConciergeOpen(false)} tasks={tasks} />
 
         {/* Spacer for mobile bottom nav */}
         {isMobile && <Box sx={{ height: 64 }} />}

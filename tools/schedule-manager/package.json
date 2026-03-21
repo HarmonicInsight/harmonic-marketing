@@ -4,10 +4,13 @@
   "private": true,
   "description": "HARMONIC insight スケジュール・タスク管理ツール",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-scripts": "5.0.1",
@@ -16,8 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "server": "node server.js",
+    "dev": "npx concurrently \"npm run server\" \"npm start\""
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app"
