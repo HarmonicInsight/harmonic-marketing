@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "YouTube Video Catalog",
+  "description": "HARMONIC insight YouTube動画カタログのスキーマ定義",
+  "type": "object",
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "last_updated": { "type": "string", "format": "date" },
+        "total_videos": { "type": "integer" },
+        "total_shorts": { "type": "integer" },
+        "channel_url": { "type": "string" }
+      }
+    },
+    "series": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "required": ["id", "name"]
+      }
+    },
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^VID-\\d{3,4}$",
+            "description": "動画ID（VID-001〜VID-9999）"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["main", "short"],
+            "description": "main=本編（通常動画）, short=ショート動画"
+          },
+          "parent_id": {
+            "type": ["string", "null"],
+            "description": "ショート動画の場合、親となる本編のID"
+          },
+          "title": { "type": "string" },
+          "series": {
+            "type": ["string", "null"],
+            "description": "シリーズID（series配列のidに対応）"
+          },
+          "product": {
+            "type": ["string", "null"],
+            "enum": [null, "IAOF", "INSS", "IOSH", "IOSD", "INBT", "INMV", "INAG", "INCA", "INPY"],
+            "description": "対象製品コード"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["idea", "script_wip", "script_done", "slide_wip", "slide_done", "recording", "editing", "review", "ready", "published", "unlisted", "archived"],
+            "description": "制作ステータス"
+          },
+          "duration": {
+            "type": ["string", "null"],
+            "description": "動画の長さ（例: 15:00, 0:58）"
+          },
+          "script": {
+            "type": ["string", "null"],
+            "description": "スクリプトファイルのパス（content/youtube/からの相対パス）"
+          },
+          "slide": {
+            "type": ["string", "null"],
+            "description": "スライドファイルのパス"
+          },
+          "thumbnail": {
+            "type": ["string", "null"],
+            "description": "サムネイルファイルのパス"
+          },
+          "youtube_url": {
+            "type": ["string", "null"],
+            "description": "YouTube動画URL"
+          },
+          "publish_date": {
+            "type": ["string", "null"],
+            "format": "date"
+          },
+          "note_status": {
+            "type": "string",
+            "enum": ["未", "draft", "済"],
+            "description": "note.com連携ステータス"
+          },
+          "note_url": {
+            "type": ["string", "null"]
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "performance": {
+            "type": "object",
+            "properties": {
+              "views": { "type": ["integer", "null"] },
+              "ctr": { "type": ["number", "null"], "description": "クリック率（%）" },
+              "avg_watch_time": { "type": ["string", "null"], "description": "平均視聴時間" },
+              "likes": { "type": ["integer", "null"] }
+            }
+          },
+          "memo": { "type": ["string", "null"] },
+          "shorts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "この本編に紐づくショート動画のID一覧"
+          }
+        },
+        "required": ["id", "type", "title", "status"]
+      }
+    }
+  }
+}

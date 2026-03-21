@@ -12,9 +12,24 @@
 
 ## YouTube 動画
 
-| # | ファイル | タイトル | 尺 | ステータス | 公開日 |
-|---|---------|---------|-----|-----------|--------|
-| 1 | `youtube/scripts/sipo-training-video-script.md` | 建設業バックオフィス改革 SIPOフレームワーク解説 | 15-20分 | draft | - |
+**YouTube動画は `youtube/catalog.json` で管理しています。**
+数百本規模のため、JSON形式のデータベースで一元管理。
+
+```bash
+# 一覧表示
+./tools/video-manager/manage.sh list
+./tools/video-manager/manage.sh list --status published
+./tools/video-manager/manage.sh list --type short
+
+# 統計
+./tools/video-manager/manage.sh stats
+
+# 検索
+./tools/video-manager/manage.sh search "SIPO"
+
+# エクスポート（Markdown/CSV）
+./tools/video-manager/manage.sh export --format md
+```
 
 ## Twitter/X
 
