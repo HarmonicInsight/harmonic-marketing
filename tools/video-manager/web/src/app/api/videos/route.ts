@@ -91,7 +91,7 @@ export async function PATCH(req: NextRequest) {
 
   for (const key of updatable) {
     if (key in body) {
-      (video as Record<string, unknown>)[key] = body[key];
+      (video as unknown as Record<string, unknown>)[key] = body[key];
     }
   }
 
