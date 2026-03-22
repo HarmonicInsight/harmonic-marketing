@@ -200,5 +200,71 @@
     "status": "planned",
     "sourceRef": "VID-004",
     "createdAt": "2026-03-21T16:35:57.658Z"
+  },
+  {
+    "id": "cf84796c",
+    "date": "2026-03-23",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: 資料作成15分→1分にした方法（VID-004切出）",
+    "status": "planned",
+    "sourceRef": "SHORT_VID-004",
+    "createdAt": "2026-03-22T04:36:56.853Z"
+  },
+  {
+    "id": "c94fe4a2",
+    "date": "2026-03-24",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: 建設業のDXが止まる本当の理由（SIPO①）",
+    "status": "planned",
+    "sourceRef": "SHORT_SIPO_01",
+    "createdAt": "2026-03-22T04:36:56.853Z"
+  },
+  {
+    "id": "abe27a9a",
+    "date": "2026-03-25",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: AIは再現性がなければ属人芸（VID-005切出）",
+    "status": "planned",
+    "sourceRef": "SHORT_VID-005",
+    "createdAt": "2026-03-22T04:36:56.853Z"
+  },
+  {
+    "id": "f2239154",
+    "date": "2026-03-26",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: IPOでは足りない。SIPOで見ろ（SIPO②）",
+    "status": "planned",
+    "sourceRef": "SHORT_SIPO_02",
+    "createdAt": "2026-03-22T04:36:56.853Z"
+  },
+  {
+    "id": "033d80d5",
+    "date": "2026-03-27",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: 資料が分かりづらいと言われる理由（VID-010切出）",
+    "status": "planned",
+    "sourceRef": "SHORT_VID-010",
+    "createdAt": "2026-03-22T04:36:56.853Z"
+  },
+  {
+    "id": "49c9b305",
+    "date": "2026-03-28",
+    "time": "12:00",
+    "platform": "youtube",
+    "type": "short",
+    "title": "ショート: AI時代の業務分析はSが8割（SIPO③）",
+    "status": "planned",
+    "sourceRef": "SHORT_SIPO_03",
+    "createdAt": "2026-03-22T04:36:56.853Z"
   }
 ]

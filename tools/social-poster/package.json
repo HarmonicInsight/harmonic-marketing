@@ -16,6 +16,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "adm-zip": "^0.5.16",
+    "pptxgenjs": "^4.0.1",
     "twitter-api-v2": "^1.18.2"
   },
   "devDependencies": {
