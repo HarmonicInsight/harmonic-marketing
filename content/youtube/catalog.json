@@ -273,7 +273,8 @@
       "thumbnail_prompt": "YouTube thumbnail: Person at desk crumpling paper and throwing it away, fresh blank paper ready to start over. Clean modern office, warm side lighting. Gold (#B8942F) accent on dark charcoal. Photorealistic, dramatic. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration - hand erasing sketch and redrawing cleanly. Left=messy draft, Right=clean version. Gold and ivory palette on dark bg. Flat vector, Japanese business aesthetic. No text.",
       "twitter_draft": "3時間かけた資料を「捨てられますか？」\n\n多くの人は「修正で何とかしよう」とする。\nでもデッサンが狂った絵は、色を塗っても良い絵にならない。\n\nやり直しのコストをゼロにする方法を書きました。\n\n#仕事術 #資料作成 #スキルアップ\nhttps://note.com/harmonic_insight/n/ne6d4b362919c",
       "twitter_posts": [],
-      "pdf": "pdf/VID-004_やり直せる力.pdf"
+      "pdf": "pdf/VID-004_やり直せる力.pdf",
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K6NYN7-2026-03-22-165616"
     },
     {
       "id": "VID-005",
@@ -307,7 +308,8 @@
       "note_article": "note/articles/vid005_ai_business_ipo.md",
       "thumbnail_prompt": "note header: Split composition - Left(chaos): floating AI chat bubbles, tangled arrows, scattered docs, confused silhouette, gray/red tones. Right(order): clean IPO flow diagram (Input>Process>Output), neat docs, confident silhouette, gold #B8942F and white on dark bg. Center dividing line. Modern flat illustration, minimal, Japanese business aesthetic. No text. 16:9.",
       "twitter_draft": "ChatGPTを導入した会社に3ヶ月後に聞くと、だいたいこうなってる。\n\n「一部の詳しい人しか使っていない」\n「結局、前と同じやり方に戻った」\n\n原因はツールじゃない。設計の問題。\nAIは便利。でも再現性がなければ、ただの属人芸。\n\n#AI活用 #DX #業務効率化\nhttps://note.com/harmonic_insight/n/nc7762849da71",
-      "pdf": "pdf/VID-005_AI業務活用の本質.pdf"
+      "pdf": "pdf/VID-005_AI業務活用の本質.pdf",
+      "speakerdeck_url": "https://speakerdeck.com/harmonicinsight"
     },
     {
       "id": "VID-010",
@@ -341,7 +343,8 @@
       "note_article": "note/articles/vid010_shiryou_tsukurikata.md",
       "thumbnail_prompt": "YouTube thumbnail: Business consultant presenting polished documents to impressed executives in a modern meeting room. Clean desk with organized reports. Gold (#B8942F) accent lighting on dark background. Photorealistic, professional. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration of document quality - Left side shows messy scattered papers with red marks. Right side shows clean organized documents with checkmarks. Split composition. Gold and ivory palette on dark background. Flat vector, Japanese business aesthetic. No text. 16:9.",
       "twitter_draft": "「資料が分かりづらい」と言われる原因は、だいたい5つに絞れる。\n\n・相手の階層で資料を変えていない\n・段取りをすっ飛ばしている\n・日本語が冗長\n・行動経済学を知らない\n・事実と意見が混ざっている\n\nnoteに書きました。\n\n#資料作成 #仕事術 #コンサル\nhttps://note.com/harmonic_insight/n/ne8d0a183029d",
-      "pdf": "pdf/VID-010_資料の作り方.pdf"
+      "pdf": "pdf/VID-010_資料の作り方.pdf",
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K1QJQ3-shiryou-tsukurikata"
     },
     {
       "id": "VID-011",
@@ -753,7 +756,8 @@
       ],
       "source_dir": "22_LLM比較",
       "sort_order": 5,
-      "pdf": "pdf/VID-022_日本語LLM比較分析.pdf"
+      "pdf": "pdf/VID-022_日本語LLM比較分析.pdf",
+      "speakerdeck_url": "https://speakerdeck.com/harmonicinsight/ri-ben-yu-llmbi-jiao-fen-xi-2026-rakuten-ai-3-dot-0claudegptgemini"
     },
     {
       "id": "VID-023",
