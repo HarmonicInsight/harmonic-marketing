@@ -89,23 +89,23 @@
   <!-- ========== SOCIAL PROOF ========== -->
   <section class="social-proof">
     <div class="container">
-      <p class="social-proof__text">BPO・コンサルティング企業を中心に導入拡大中</p>
+      <p class="social-proof__text">BPO・コンサルティング企業を中心に導入検討が進んでいます</p>
       <div class="social-proof__stats">
         <div class="stat">
-          <span class="stat__number">200<small>+</small></span>
-          <span class="stat__label">導入企業数</span>
+          <span class="stat__number">1/10</span>
+          <span class="stat__label">制作コスト</span>
         </div>
         <div class="stat">
-          <span class="stat__number">15,000<small>本</small></span>
-          <span class="stat__label">動画生成実績</span>
+          <span class="stat__number">3<small>分</small></span>
+          <span class="stat__label">最短変換時間</span>
         </div>
         <div class="stat">
-          <span class="stat__number">98<small>%</small></span>
-          <span class="stat__label">継続利用率</span>
+          <span class="stat__number">80<small>%</small></span>
+          <span class="stat__label">研修工数削減</span>
         </div>
         <div class="stat">
-          <span class="stat__number">4.8<small>/5</small></span>
-          <span class="stat__label">顧客満足度</span>
+          <span class="stat__number">13<small>言語</small></span>
+          <span class="stat__label">ナレーション対応</span>
         </div>
       </div>
     </div>
@@ -135,6 +135,22 @@
           <div class="problem-card__icon">🌏</div>
           <h3>クライアント向け<br>マニュアル動画の需要増</h3>
           <p>BPO先やコンサル先から動画マニュアルを求められるが、対応しきれない。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEMO VIDEO ========== -->
+  <section id="demo" class="demo">
+    <div class="container">
+      <h2 class="section-title"><em>3分</em>でわかるInsight Training Studio</h2>
+      <p class="section-subtitle">PPTXから動画への変換フローをご覧ください</p>
+      <div class="demo__video-wrapper">
+        <div class="demo__video-placeholder" id="demoVideoPlaceholder">
+          <div class="demo__play-btn">
+            <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#c8a96e"></path><path d="M45 24L27 14v20" fill="#fff"></path></svg>
+          </div>
+          <p class="demo__placeholder-text">デモ動画を再生</p>
         </div>
       </div>
     </div>
@@ -532,6 +548,23 @@
           if (item !== parent) item.removeAttribute('open');
         });
       });
+    });
+
+    // Scroll animations (Intersection Observer)
+    const animTargets = document.querySelectorAll(
+      '.problem-card, .feature-row, .benefit-card, .usecase-card, .step-card, .pricing-card, .demo__video-wrapper, .stat'
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    animTargets.forEach(el => {
+      el.classList.add('anim-fade-up');
+      observer.observe(el);
     });
   </script>
 
