@@ -1480,6 +1480,40 @@
       "memo": "猫フォルダ / InsightCast.mp4 + Const_Neko.pptx",
       "shorts": [],
       "source_dir": "猫"
+    },
+    {
+      "id": "VID-S010",
+      "type": "short",
+      "parent_id": null,
+      "title": "AI入れても無駄です。まずこれ見てください",
+      "series": "ai-practical",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": "scripts/SHORT_SIPO_01_dx_tomaranai.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": "https://youtube.com/shorts/43DHqsv1cvw",
+      "publish_date": "2026-03-22",
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "DX",
+        "AI活用",
+        "SIPO",
+        "業務改善"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "SIPOシリーズ ショート①",
+      "shorts": [],
+      "twitter_posts": [
+        "https://x.com/Harmonic_jp"
+      ]
     }
   ]
 }
