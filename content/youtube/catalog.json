@@ -4,7 +4,7 @@
     "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
     "last_updated": "2026-03-22",
     "total_videos": 29,
-    "total_shorts": 14,
+    "total_shorts": 15,
     "channel_url": "",
     "source_dir": "C:\\dev\\Demo\\動画集"
   },
@@ -68,6 +68,11 @@
       "id": "misc",
       "name": "その他",
       "description": "分類外・特別コンテンツ"
+    },
+    {
+      "id": "career-2050",
+      "name": "2050年キャリアサバイバル",
+      "description": "2050年の業界・年収・地域・世代の変化を予測し、今やるべきことを解説"
     }
   ],
   "tags_master": {
@@ -406,7 +411,7 @@
       "memo": "ドラフト状態 / 未公開",
       "shorts": [],
       "source_dir": "12.基幹システム変革",
-      "sort_order": 0,
+      "sort_order": 9,
       "pdf": "pdf/VID-012_基幹システム変革.pdf"
     },
     {
@@ -532,7 +537,7 @@
       "memo": "16.Ragで業務変わりましたか / MP4未作成",
       "shorts": [],
       "source_dir": "16.Ragで業務変わりましたか",
-      "sort_order": 2,
+      "sort_order": 10,
       "pdf": "pdf/VID-016_RAG業務活用.pdf"
     },
     {
@@ -657,7 +662,7 @@
       "memo": "19.人事オンボード / 3版のPPTXあり / MP4未作成",
       "shorts": [],
       "source_dir": "19.人事オンボード",
-      "sort_order": 3,
+      "sort_order": 11,
       "pdf": "pdf/VID-019_人事オンボード.pdf"
     },
     {
@@ -720,7 +725,7 @@
       },
       "memo": "16スライド構成、note記事と連動",
       "shorts": [],
-      "sort_order": 4
+      "sort_order": 0
     },
     {
       "id": "VID-022",
@@ -755,14 +760,14 @@
         "VID-2203"
       ],
       "source_dir": "22_LLM比較",
-      "sort_order": 5,
+      "sort_order": 2,
       "pdf": "pdf/VID-022_日本語LLM比較分析.pdf",
       "speakerdeck_url": "https://speakerdeck.com/harmonicinsight/ri-ben-yu-llmbi-jiao-fen-xi-2026-rakuten-ai-3-dot-0claudegptgemini"
     },
     {
       "id": "VID-023",
       "type": "main",
-      "title": "AI時代のセキュリティ 課題と解決策",
+      "title": "AI時代のセキュリティ 課題と解決策  更新中",
       "series": "security",
       "product": null,
       "status": "slide_done",
@@ -788,8 +793,14 @@
       "memo": "23.AI時代のセキュリティ / MP4未作成",
       "shorts": [],
       "source_dir": "23.AI時代のセキュリティ",
-      "sort_order": 6,
-      "pdf": "pdf/VID-023_AI時代のセキュリティ.pdf"
+      "sort_order": 3,
+      "pdf": "pdf/VID-023_AI時代のセキュリティ.pdf",
+      "thumbnail_prompt": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
     },
     {
       "id": "VID-030",
@@ -820,7 +831,7 @@
       "memo": "30.APIの取得 / MP4未作成",
       "shorts": [],
       "source_dir": "30.APIの取得",
-      "sort_order": 7
+      "sort_order": 4
     },
     {
       "id": "VID-050",
@@ -945,7 +956,7 @@
       "memo": "100.契約書から入金・支払予定表の作り方 / PPTXなし、Pythonスクリプトで構成",
       "shorts": [],
       "source_dir": "100.契約書から入金・支払予定表の作り方",
-      "sort_order": 8
+      "sort_order": 5
     },
     {
       "id": "VID-S001",
@@ -1232,7 +1243,7 @@
         "VID-L002S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 9,
+      "sort_order": 6,
       "pdf": "pdf/VID-L002_business-driven-main.pdf"
     },
     {
@@ -1297,7 +1308,7 @@
         "VID-L003S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 10,
+      "sort_order": 7,
       "pdf": "pdf/VID-L003_dense-ui-main.pdf"
     },
     {
@@ -1361,7 +1372,7 @@
         "VID-L004S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 11,
+      "sort_order": 8,
       "pdf": "pdf/VID-L004_ai-era-local-main.pdf"
     },
     {
@@ -1556,6 +1567,228 @@
       "twitter_posts": [
         "https://x.com/Harmonic_jp"
       ]
+    },
+    {
+      "id": "VID-031",
+      "type": "main",
+      "title": "あなたの業界は生き残れるか？業界別AI代替率ランキング 2025-2050",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck1_業界別AI代替率.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.1",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
+    },
+    {
+      "id": "VID-032",
+      "type": "main",
+      "title": "2050年、同じ会社で12倍の格差が生まれる｜平均年収の罠",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck2_平均年収の罠.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.2",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
+    },
+    {
+      "id": "VID-033",
+      "type": "main",
+      "title": "住む場所で年収が2.7倍変わる時代｜東京vs地方 2050年",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck3_東京vs地方.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.3",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
+    },
+    {
+      "id": "VID-034",
+      "type": "main",
+      "title": "2050年、あなたは55歳。30代が今やるべき3つのこと",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck4_30代がやるべきこと.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.4",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
+    },
+    {
+      "id": "VID-035",
+      "type": "main",
+      "title": "Z世代vsα世代 2050年の勝ち組はどっちだ？",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck5_Z世代vsα世代.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.5",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
+    },
+    {
+      "id": "VID-036",
+      "type": "main",
+      "title": "子どもの将来の夢を「動詞」で語ろう｜2050年、職業名は消える",
+      "series": "career-2050",
+      "product": null,
+      "status": "slide_done",
+      "duration": null,
+      "script": null,
+      "slide": "slides/deck6_動詞で夢を語ろう.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "2050年",
+        "キャリア",
+        "AI",
+        "年収",
+        "未来予測"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "2050年キャリアサバイバルシリーズ Vol.6",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": null
     }
   ]
 }

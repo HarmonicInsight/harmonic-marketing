@@ -5,87 +5,102 @@
 
 ---
 
-## SHORT_LLM_01: 楽天AI 3.0、業務で使えるの？
+## SHORT_LLM_01: 「楽天AIすごい！」って言ってる人、使ったことある？
 
-### スライド1（フック）
+### スライド1（フック — 煽り）
 ```
-A dramatic split image. Left side: a glowing golden trophy or medal with "No.1" written on it, representing the top benchmark score. Right side: a locked door or "Access Denied" screen, representing no API access. Dark background, dramatic lighting. Vertical 9:16 format. No text.
-```
-
-### スライド2（すごいところ）
-```
-A futuristic server room with massive GPU racks glowing in warm gold and orange light. Clean, impressive, high-tech atmosphere. Japanese data center aesthetic. Vertical 9:16. No text.
+A crowd of silhouettes all pointing excitedly at a giant glowing screen showing a "#1" ranking badge. But their backs are turned — none of them are actually using a computer or device. Hype without action. Dark background, gold and red accent lighting. Vertical 9:16. No text.
 ```
 
-### スライド3（APIがない）
+### スライド2（ベンチマーク vs 現実）
 ```
-A person standing in front of a beautiful sports car in a showroom, but the car has a large chain and padlock on the door. The car is stunning but unusable. Dark background with gold accent lighting. Vertical 9:16. No text.
-```
-
-### スライド4（Claude比較）
-```
-A clean, minimal illustration of a simple API connection: a laptop on the left, a glowing cloud/server on the right, connected by a smooth golden arrow. Bright, accessible, "it just works" feeling. Dark background. Vertical 9:16. No text.
+A giant gleaming trophy or award certificate behind a glass wall. A business person pressing their hand against the glass, unable to reach it. The gap between "impressive" and "accessible". Dark background, cold blue glass, warm gold trophy. Vertical 9:16. No text.
 ```
 
-### スライド5（結論）
+### スライド3（すごいAI ≠ 使えるAI）
 ```
-A balance scale. Left side: a heavy golden bar labeled implicitly as "performance" (no text). Right side: a simple key or plug representing "usability", which outweighs the gold. Dark background, gold accent. Vertical 9:16. No text, purely visual metaphor.
-```
-
----
-
-## SHORT_LLM_02: RAGを入れた会社の本音
-
-### スライド1（フック）
-```
-A business person looking at a laptop screen with a confused/disappointed expression. The screen shows scattered, messy search results. Modern office setting, muted colors. Vertical 9:16. No text.
+Split image with a sharp diagonal divide. Left: a futuristic, glowing AI brain — beautiful but floating in space, unreachable. Right: a simple laptop with a glowing cursor, grounded on a desk, ready to work. Contrast between impressive and practical. Dark background. Vertical 9:16. No text.
 ```
 
-### スライド2（期待）
+### スライド4（フェラーリの例え）
 ```
-A bright, optimistic illustration: a glowing AI search bar with perfectly organized document folders floating around it. Clean, futuristic, hopeful feeling. Blue and gold tones. Vertical 9:16. No text.
-```
-
-### スライド3（現実）
-```
-The same search bar from slide 2, but now broken/cracked. Documents are scattered, mismatched, and some have red X marks. Frustrated person silhouette in background. Gray and red tones. Vertical 9:16. No text.
+A stunning red Ferrari parked in a suburban residential street next to a crowded commuter train station. The car is gorgeous but absurdly out of place for daily commuting. Morning light, slightly humorous contrast. Dark background tones. Vertical 9:16. No text.
 ```
 
-### スライド4（なぜ）
+### スライド5（カタログスペックで車を買う人）
 ```
-A garbage can with messy, unorganized documents being poured into it, and the same messy documents coming out the other side through a funnel. "Garbage in, garbage out" visual metaphor. Dark background. Vertical 9:16. No text.
+A person buried under a mountain of glossy product catalogs and spec sheets, overwhelmed. In the background, a simple car drives smoothly down an open road. Contrast between overthinking specs vs. just using what works. Dark background, gold highlights. Vertical 9:16. No text.
 ```
 
-### スライド5（核心）
+### スライド6（CTA）
 ```
-Split image. Left: a pile of messy, unstructured data/documents. Right: the same documents neatly organized in folders with labels. An arrow connects them, with a golden highlight on the "organized" side. Dark background. Vertical 9:16. No text.
+A clean, minimal dark background with a single golden compass pointing forward. Sense of direction and clarity. Subtle HARMONIC insight brand feeling. Professional, calm, decisive. Vertical 9:16. No text.
 ```
 
 ---
 
-## SHORT_LLM_03: 日本語LLM開発に意味はあるか
+## SHORT_LLM_02: RAG導入して半年後、誰も使ってない
 
-### スライド1（フック）
+### スライド1（フック — 共感）
 ```
-Multiple Japanese company logos/buildings (abstract, no real logos) building their own robots/AI, each working independently. Sense of duplication and redundancy. Dark background, muted colors. Vertical 9:16. No text.
-```
-
-### スライド2（日本企業）
-```
-Four abstract AI robots or towers of different sizes standing in a row, each with a Japanese flag element. They look impressive but isolated. Dark background. Vertical 9:16. No text.
+An empty modern office with a large screen displaying an AI search interface. All the chairs are turned away from it. Dust particles visible in the light. The AI is on, but nobody is using it. Lonely, abandoned feeling. Dark muted tones. Vertical 9:16. No text.
 ```
 
-### スライド3（グローバル）
+### スライド2（導入前の期待）
 ```
-A single, sleek, powerful AI entity (abstract globe or connected network) with smooth connections reaching everywhere. Gold and blue tones. Feeling of "already working, already global". Dark background. Vertical 9:16. No text.
-```
-
-### スライド4（コスト差）
-```
-Two stacks of coins. Left stack is enormous/towering (representing self-hosting costs). Right stack is tiny (representing API costs). Dramatic size difference. Gold coins on dark background. Vertical 9:16. No text.
+A bright, golden conference room. Business people standing and clapping, looking up at a radiant AI interface floating above the table. Euphoric, hopeful atmosphere. Warm gold and white tones on dark background. Vertical 9:16. No text.
 ```
 
-### スライド5（結論）
+### スライド3（半年後の現実）
 ```
-A blueprint/architectural drawing of a business workflow (abstract boxes and arrows representing SIPO: Source→Input→Process→Output). Gold lines on dark background. The focus is on the DESIGN, not the AI model. Clean, professional. Vertical 9:16. No text.
+The same conference room from slide 2, but now dim and gray. The AI screen is still glowing but shows garbled, messy results. One person sitting alone, head in hands. Stark contrast with the previous optimism. Gray and muted red tones. Vertical 9:16. No text.
+```
+
+### スライド4（ゴミを入れればゴミが出る）
+```
+A dramatic visual: a conveyor belt feeding messy, crumpled papers into a sleek AI machine. The machine outputs the same crumpled papers, now moving faster on a high-speed belt. "Garbage in, garbage out" — but faster. Dark background, industrial lighting. Vertical 9:16. No text.
+```
+
+### スライド5（高速でゴミが出るだけ）
+```
+A firehose blasting out crumpled documents and scattered data at high pressure. Chaotic, overwhelming. The mess is now industrialized. Dark background, dramatic red and orange lighting. Vertical 9:16. No text.
+```
+
+### スライド6（CTA）
+```
+A calm, ordered scene: a single neat stack of clean documents on a dark desk, illuminated by a warm golden spotlight. Sense of "start here — organize first". Minimal, professional. Vertical 9:16. No text.
+```
+
+---
+
+## SHORT_LLM_03: 「国産AIを作れ！」という人に聞きたい
+
+### スライド1（フック — 挑発）
+```
+A dramatic podium scene: a silhouette figure shouting into a megaphone, with abstract Japanese corporate buildings in the background each building their own separate AI robot. Redundancy and waste. Dark background, muted blue and gray. Vertical 9:16. No text.
+```
+
+### スライド2（50倍のコスト）
+```
+Two paths diverging. Left path: a massive, expensive highway with toll gates, construction crews, and heavy machinery (self-hosting). Right path: a simple, clean footpath with a single golden arrow (API call). Dramatic scale difference. Dark background. Vertical 9:16. No text.
+```
+
+### スライド3（日本語もう使える）
+```
+A laptop screen showing perfectly written Japanese text, with global AI brand icons (abstract, no real logos) floating around it harmoniously. The message: global AI already handles Japanese just fine. Clean, modern, confident feeling. Dark background, gold accents. Vertical 9:16. No text.
+```
+
+### スライド4（作る競争 vs 使って勝つ）
+```
+Split image. Left: engineers in a lab, building an AI model brick by brick — slow, laborious. Right: a business person at a desk, using AI through a simple interface, with completed outputs stacking up rapidly. The builder is behind; the user is winning. Dark background. Vertical 9:16. No text.
+```
+
+### スライド5（何をさせるかが重要）
+```
+A golden blueprint/architectural diagram showing a clean workflow: Source → Input → Process → Output. The AI model is just a small gear inside "Process" — the real structure is the business design around it. Dark background, gold lines, professional. Vertical 9:16. No text.
+```
+
+### スライド6（CTA）
+```
+A single golden key hovering above a clean, dark desk. The key represents "business design" — the one thing that matters. Minimal, elegant, decisive. Vertical 9:16. No text.
 ```
