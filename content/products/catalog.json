@@ -1,0 +1,497 @@
+{
+  "_meta": {
+    "description": "HARMONIC insight 製品カタログ — 開発・リリース・販売の一元管理",
+    "last_updated": "2026-03-22",
+    "releases_repo": "https://github.com/HarmonicInsight/cross-releases.git",
+    "releases_local": "C:devcross-releases"
+  },
+  "products": [
+    {
+      "id": "IAOF",
+      "name": "Insight AI Office",
+      "description": "AI + Office 編集の統合プラットフォーム。フリーミアム。",
+      "category": "platform",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-slide",
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800,
+        "ent": "個別見積"
+      },
+      "status": "active",
+      "current_version": "1.0.2",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INSS",
+      "name": "Insight Deck Quality Gate",
+      "description": "PPTX 品質管理・比較・AI アシスタント搭載",
+      "category": "tool",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-slide",
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800,
+        "ent": "個別見積"
+      },
+      "status": "active",
+      "current_version": "1.0.2",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "IOSH",
+      "name": "Insight Performance Management",
+      "description": "経営数値管理・Excel AI 分析",
+      "category": "tool",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-sheet",
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800,
+        "ent": "個別見積"
+      },
+      "status": "active",
+      "current_version": "1.0.2",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "IOSD",
+      "name": "Insight AI Doc Factory",
+      "description": "文書変換・加工・量産エンジン。IPO設計ベース。",
+      "category": "tool",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-doc",
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800,
+        "ent": "個別見積"
+      },
+      "status": "active",
+      "current_version": "1.0.2",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INBT",
+      "name": "InsightBot",
+      "description": "AI エディタ搭載 RPA + Orchestrator",
+      "category": "automation",
+      "tech": "C# WPF / .NET 8",
+      "repo": null,
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800,
+        "ent": "個別見積"
+      },
+      "status": "active",
+      "current_version": "1.0.0",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INMV",
+      "name": "Insight Training Studio",
+      "description": "PPTX → 動画変換",
+      "category": "tool",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-cast",
+      "stores_url": null,
+      "pricing": {
+        "free": false,
+        "personal": 9800,
+        "biz": 49800
+      },
+      "status": "active",
+      "current_version": "1.0.3",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INAG",
+      "name": "InsightAgent",
+      "description": "AI プライベートエージェント（B2C あり）",
+      "category": "ai",
+      "tech": "C# WPF / .NET 8",
+      "repo": "C:\\dev\\win-app-insight-agent",
+      "stores_url": null,
+      "pricing": {
+        "free": false,
+        "personal": 9800,
+        "biz": 49800
+      },
+      "status": "active",
+      "current_version": null,
+      "last_release": null,
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INCA",
+      "name": "InsightNoCodeAnalyzer",
+      "description": "RPA マイグレーション自動化",
+      "category": "automation",
+      "tech": "C# WPF / .NET 8",
+      "repo": null,
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800
+      },
+      "status": "active",
+      "current_version": "1.0.0",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "INPY",
+      "name": "InsightPy",
+      "description": "Python 実行基盤",
+      "category": "platform",
+      "tech": "C# WPF / .NET 8",
+      "repo": null,
+      "stores_url": null,
+      "pricing": {
+        "free": true,
+        "biz": 49800
+      },
+      "status": "active",
+      "current_version": "1.0.0",
+      "last_release": "2026-03-15",
+      "channels": [
+        {
+          "store": "STORES",
+          "url": null,
+          "status": "pending",
+          "published": false
+        },
+        {
+          "store": "GitHub Releases",
+          "url": "https://github.com/HarmonicInsight/cross-releases/releases",
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "IAOF-AND",
+      "name": "HARMONIC insight (Android)",
+      "description": "Android版モバイルアプリ。無料。",
+      "category": "mobile",
+      "tech": "Android",
+      "repo": null,
+      "stores_url": null,
+      "store_type": "Google Play",
+      "pricing": {
+        "free": true
+      },
+      "status": "active",
+      "current_version": null,
+      "last_release": null,
+      "channels": [
+        {
+          "store": "Google Play",
+          "url": null,
+          "status": "active",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "IAOF-IOS",
+      "name": "HARMONIC insight (iOS)",
+      "description": "iPhone/iPad版モバイルアプリ。無料。",
+      "category": "mobile",
+      "tech": "iOS",
+      "repo": null,
+      "stores_url": null,
+      "store_type": "App Store",
+      "pricing": {
+        "free": true
+      },
+      "status": "active",
+      "current_version": null,
+      "last_release": null,
+      "channels": [
+        {
+          "store": "App Store",
+          "url": null,
+          "status": "active",
+          "published": true
+        }
+      ]
+    }
+  ],
+  "tickets": [],
+  "releases": [
+    {
+      "id": "REL-001",
+      "product": "IAOF",
+      "version": "1.0.2",
+      "date": "2026-03-10",
+      "type": "patch",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-002",
+      "product": "INSS",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-003",
+      "product": "INSS",
+      "version": "1.0.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-004",
+      "product": "INSS",
+      "version": "1.0.2",
+      "date": "2026-03-14",
+      "type": "patch",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-005",
+      "product": "IOSH",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-006",
+      "product": "IOSH",
+      "version": "1.0.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-007",
+      "product": "IOSH",
+      "version": "1.0.2",
+      "date": "2026-03-14",
+      "type": "patch",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-008",
+      "product": "IOSD",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-009",
+      "product": "IOSD",
+      "version": "1.0.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-010",
+      "product": "IOSD",
+      "version": "1.0.2",
+      "date": "2026-03-14",
+      "type": "patch",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-011",
+      "product": "INBT",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-012",
+      "product": "INMV",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-013",
+      "product": "INMV",
+      "version": "1.0.1",
+      "date": "2026-03-12",
+      "type": "patch",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-014",
+      "product": "INMV",
+      "version": "1.0.2",
+      "date": "2026-03-14",
+      "type": "patch",
+      "notes": "",
+      "stores_published": false
+    },
+    {
+      "id": "REL-015",
+      "product": "INMV",
+      "version": "1.0.3",
+      "date": "2026-03-16",
+      "type": "patch",
+      "notes": "最新版",
+      "stores_published": true
+    },
+    {
+      "id": "REL-016",
+      "product": "INPY",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "最新版",
+      "stores_published": false
+    },
+    {
+      "id": "REL-017",
+      "product": "INCA",
+      "version": "1.0.0",
+      "date": "2026-03-10",
+      "type": "major",
+      "notes": "最新版",
+      "stores_published": false
+    }
+  ],
+  "pipeline_comments": {
+    "strategy": "",
+    "products": {},
+    "priorityActions": [],
+    "updatedAt": null
+  }
+}

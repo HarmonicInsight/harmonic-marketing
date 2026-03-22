@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Pipeline — HARMONIC insight</title>
+<style>
+:root { --gold:#B8942F; --gold-light:#D4B85A; --gold-dark:#8A6F23; --ivory:#FAF8F5; --text:#1C1917; --text-sub:#57534E; --border:#E7E2DA; --success:#16A34A; --warning:#CA8A04; --error:#DC2626; --info:#2563EB; --radius:10px; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',sans-serif;background:var(--ivory);color:var(--text);line-height:1.6;}
+header{background:linear-gradient(135deg,#1C1917,#292524);color:#FFF;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+header h1{font-size:16px;font-weight:600;} header .brand{color:var(--gold-light);}
+header a{color:var(--gold-light);text-decoration:none;font-size:12px;} header a:hover{text-decoration:underline;}
+.main{max-width:1200px;margin:0 auto;padding:16px 24px;}
+.btn{padding:5px 12px;border:none;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:4px;}
+.btn-p{background:var(--gold);color:#FFF;} .btn-p:hover{background:var(--gold-dark);}
+.btn-s{background:#F5F5F4;color:var(--text);border:1px solid var(--border);} .btn-s:hover{background:#E7E5E4;}
+.btn-g{background:var(--success);color:#FFF;}
+.btn-xs{padding:2px 7px;font-size:10px;}
+.badge{display:inline-flex;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:600;}
+.b-ok{background:#DCFCE7;color:#166534;} .b-warn{background:#FEF9C3;color:#854D0E;} .b-info{background:#DBEAFE;color:#1E40AF;} .b-mute{background:#F5F5F4;color:#57534E;} .b-err{background:#FEE2E2;color:#991B1B;}
+.card{background:#FFF;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;}
+.card-h{padding:10px 16px;border-bottom:1px solid var(--border);background:#FAFAF9;display:flex;align-items:center;justify-content:space-between;}
+.card-h h2{font-size:14px;font-weight:700;}
+
+/* Stage bar */
+.stage-bar{display:flex;gap:3px;margin-bottom:14px;}
+.sg{flex:1;background:#FFF;border:2px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;cursor:pointer;transition:all .15s;}
+.sg:hover{border-color:var(--gold-light);} .sg.active{border-color:var(--gold);background:#FEF9C3;}
+.sg-n{font-size:20px;font-weight:700;color:var(--gold);} .sg-l{font-size:10px;color:var(--text-sub);font-weight:600;}
+.sg-a{display:flex;align-items:center;color:#D6D3D1;font-size:14px;padding:0 2px;}
+
+/* Product grid */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:16px;}
+.prod-card{background:#FFF;border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:box-shadow .15s;}
+.prod-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.prod-name{font-size:14px;font-weight:700;margin-bottom:2px;}
+.prod-desc{font-size:11px;color:var(--text-sub);margin-bottom:8px;}
+.prod-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
+.prod-ver{font-family:monospace;font-size:11px;color:var(--info);}
+.prod-acts{display:flex;gap:4px;}
+
+/* Ticket row */
+.tk-row{display:flex;align-items:center;padding:6px 14px;border-bottom:1px solid #F9F8F6;gap:8px;font-size:12px;}
+.tk-row:hover{background:#FEFDFB;}
+.tk-id{font-family:monospace;font-size:10px;color:#A8A29E;min-width:50px;}
+.tk-title{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* Release row */
+.rel-row{display:flex;align-items:center;padding:6px 14px;border-bottom:1px solid #F9F8F6;gap:8px;font-size:12px;}
+.rel-row:hover{background:#FEFDFB;}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;display:flex;align-items:center;justify-content:center;}
+.modal{background:#FFF;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.2);width:90%;max-width:500px;max-height:85vh;overflow-y:auto;}
+.modal-h{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.modal-h h3{font-size:15px;font-weight:600;}
+.modal-x{background:none;border:none;font-size:18px;cursor:pointer;color:var(--text-sub);}
+.modal-b{padding:16px 18px;}
+.modal-f{padding:12px 18px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;}
+.fg{margin-bottom:10px;}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--text-sub);margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:5px;font-size:13px;font-family:inherit;}
+.fg textarea{resize:vertical;min-height:60px;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+/* Toast */
+.toast-c{position:fixed;top:56px;right:20px;z-index:200;display:flex;flex-direction:column;gap:6px;}
+.toast{padding:10px 16px;border-radius:8px;font-size:12px;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,.1);animation:si .3s ease;max-width:340px;color:#FFF;}
+.toast-success{background:#166534;}.toast-error{background:#991B1B;}.toast-info{background:#1E40AF;}
+@keyframes si{from{transform:translateX(100%);opacity:0;}}
+
+/* Strategy */
+.strategy{padding:10px 16px;font-size:12px;line-height:1.7;color:var(--text-sub);white-space:pre-wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span class="brand">HARMONIC</span> Product Pipeline</h1>
+  <div style="display:flex;gap:16px;align-items:center;">
+    <a href="/">Marketing Pipeline</a>
+    <span style="font-size:12px;color:#78716C;" id="info">-</span>
+  </div>
+</header>
+
+<div class="toast-c" id="toasts"></div>
+
+<div class="main">
+
+  <!-- Strategy -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="card-h" style="background:linear-gradient(135deg,#1C1917,#292524);cursor:pointer;" onclick="const b=$('strat');b.style.display=b.style.display==='none'?'block':'none';">
+      <span style="font-size:12px;font-weight:700;color:var(--gold-light);">Claude Code 戦略コメント <span style="font-size:10px;color:#78716C;">（クリックで開閉）</span></span>
+    </div>
+    <div id="strat" class="strategy" style="display:none;">コメントなし</div>
+  </div>
+
+  <!-- Priority Actions -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="card-h" style="background:linear-gradient(135deg,#166534,#15803D);">
+      <span style="font-size:13px;font-weight:700;color:#FFF;">優先アクション</span>
+    </div>
+    <div id="pactions"></div>
+  </div>
+
+  <!-- Stage bar -->
+  <div class="stage-bar">
+    <div class="sg active" onclick="filt('')" id="sg-all" style="flex:1.5;"><div class="sg-n" id="sn-all">-</div><div class="sg-l">全製品</div></div>
+    <div class="sg-a">|</div>
+    <div class="sg" onclick="filt('desktop')" id="sg-desktop"><div class="sg-n" id="sn-desktop">-</div><div class="sg-l">デスクトップ</div></div>
+    <div class="sg" onclick="filt('mobile')" id="sg-mobile"><div class="sg-n" id="sn-mobile">-</div><div class="sg-l">モバイル</div></div>
+    <div class="sg-a">|</div>
+    <div class="sg" onclick="filt('free')" id="sg-free"><div class="sg-n" id="sn-free">-</div><div class="sg-l">FREE</div></div>
+    <div class="sg" onclick="filt('paid')" id="sg-paid"><div class="sg-n" id="sn-paid">-</div><div class="sg-l">有料</div></div>
+  </div>
+
+  <!-- Products -->
+  <div class="card">
+    <div class="card-h">
+      <h2>製品一覧</h2>
+      <div style="display:flex;gap:8px;"><button class="btn btn-s btn-xs" onclick="load()">更新</button></div>
+    </div>
+    <div class="prod-grid" id="prods" style="padding:12px;"></div>
+  </div>
+
+  <!-- Tickets -->
+  <div class="card">
+    <div class="card-h">
+      <h2>開発チケット</h2>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <select id="tk-filt" onchange="renderTk()" style="padding:4px 8px;font-size:11px;border:1px solid var(--border);border-radius:4px;">
+          <option value="">全ステータス</option>
+          <option value="backlog">Backlog</option>
+          <option value="todo">Todo</option>
+          <option value="in_progress">進行中</option>
+          <option value="review">レビュー</option>
+          <option value="done">完了</option>
+        </select>
+        <button class="btn btn-p btn-xs" onclick="openTk()">+ チケット</button>
+      </div>
+    </div>
+    <div id="tklist"></div>
+  </div>
+
+  <!-- Releases -->
+  <div class="card">
+    <div class="card-h">
+      <h2>リリース履歴</h2>
+      <button class="btn btn-p btn-xs" onclick="openRel()">+ リリース</button>
+    </div>
+    <div id="rellist"></div>
+  </div>
+
+</div>
+
+<!-- Ticket Modal -->
+<div class="modal-bg" id="m-tk" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal">
+    <div class="modal-h"><h3>チケット</h3><button class="modal-x" onclick="$('m-tk').style.display='none'">&times;</button></div>
+    <div class="modal-b">
+      <input type="hidden" id="tk-edit-id">
+      <div class="fr">
+        <div class="fg"><label>製品</label><select id="tk-prod"></select></div>
+        <div class="fg"><label>種別</label><select id="tk-type"><option value="feature">Feature</option><option value="bug">Bug</option><option value="enhancement">Enhancement</option><option value="task">Task</option></select></div>
+      </div>
+      <div class="fg"><label>タイトル</label><input id="tk-title"></div>
+      <div class="fr">
+        <div class="fg"><label>優先度</label><select id="tk-pri"><option value="high">高</option><option value="medium" selected>中</option><option value="low">低</option></select></div>
+        <div class="fg"><label>ステータス</label><select id="tk-st"><option value="backlog">Backlog</option><option value="todo">Todo</option><option value="in_progress">進行中</option><option value="review">レビュー</option><option value="done">完了</option></select></div>
+      </div>
+      <div class="fg"><label>説明</label><textarea id="tk-desc" rows="3"></textarea></div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-s" onclick="$('m-tk').style.display='none'">キャンセル</button>
+      <button class="btn btn-p" onclick="saveTk()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- Release Modal -->
+<div class="modal-bg" id="m-rel" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal">
+    <div class="modal-h"><h3>リリース登録</h3><button class="modal-x" onclick="$('m-rel').style.display='none'">&times;</button></div>
+    <div class="modal-b">
+      <div class="fr">
+        <div class="fg"><label>製品</label><select id="rel-prod"></select></div>
+        <div class="fg"><label>バージョン</label><input id="rel-ver" placeholder="1.2.0"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>日付</label><input type="date" id="rel-date"></div>
+        <div class="fg"><label>種別</label><select id="rel-type"><option value="major">Major</option><option value="minor">Minor</option><option value="patch">Patch</option><option value="hotfix">Hotfix</option></select></div>
+      </div>
+      <div class="fg"><label>リリースノート</label><textarea id="rel-notes" rows="3"></textarea></div>
+      <div class="fg"><label><input type="checkbox" id="rel-stores"> STORES公開済み</label></div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-s" onclick="$('m-rel').style.display='none'">キャンセル</button>
+      <button class="btn btn-p" onclick="saveRel()">保存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let DATA={products:[],tickets:[],releases:[],pipeline_comments:{}};
+let FILT='';
+
+function toast(m,t='info'){const e=document.createElement('div');e.className='toast toast-'+t;e.textContent=m;$('toasts').appendChild(e);setTimeout(()=>e.remove(),4000);}
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+async function api(p,o={}){const r=await fetch(p,{headers:{'Content-Type':'application/json'},...o});return r.json();}
+
+async function load(){
+  try{
+    const d=await api('/api/products');
+    DATA=d;
+    const prods=d.products||[];
+    const desktop=prods.filter(p=>p.category!=='mobile');
+    const mobile=prods.filter(p=>p.category==='mobile');
+    const free=prods.filter(p=>p.pricing?.free);
+    const paid=prods.filter(p=>!p.pricing?.free);
+    $('sn-all').textContent=prods.length;
+    $('sn-desktop').textContent=desktop.length;
+    $('sn-mobile').textContent=mobile.length;
+    $('sn-free').textContent=free.length;
+    $('sn-paid').textContent=paid.length;
+    $('info').textContent=prods.length+'製品 / '+(d.tickets||[]).length+'チケット / '+(d.releases||[]).length+'リリース';
+
+    // Strategy
+    const pc=d.pipeline_comments||{};
+    if(pc.strategy)$('strat').textContent=pc.strategy;
+
+    // Priority actions
+    const pa=pc.priorityActions||[];
+    $('pactions').innerHTML=pa.length?pa.map((a,i)=>{
+      const done=a.status==='done';
+      return`<div style="display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:1px solid #F5F5F4;${done?'background:#F0FDF4;opacity:.6':''}">
+        <input type="checkbox" ${done?'checked':''} onchange="togglePA(${i})" style="width:16px;height:16px;cursor:pointer;accent-color:var(--success);">
+        <span style="font-weight:700;min-width:20px;color:${done?'#A8A29E':'var(--gold)'};">${a.priority}</span>
+        <span><span class="badge b-info">${esc(a.action)}</span></span>
+        <span style="font-weight:600;flex:1;${done?'text-decoration:line-through;color:#A8A29E;':''}">${esc(a.title)}</span>
+        <span style="font-size:10px;color:#A8A29E;">${esc(a.target||'')}</span>
+      </div>`;
+    }).join(''):'<div style="padding:12px 16px;font-size:12px;color:#A8A29E;">アクションなし</div>';
+
+    renderProds();
+    renderTk();
+    renderRel();
+  }catch(e){console.error(e);}
+}
+
+function filt(f){FILT=FILT===f?'':f;document.querySelectorAll('.sg').forEach(e=>e.classList.remove('active'));$(FILT?'sg-'+FILT:'sg-all').classList.add('active');renderProds();}
+
+function renderProds(){
+  let prods=DATA.products||[];
+  if(FILT==='desktop')prods=prods.filter(p=>p.category!=='mobile');
+  if(FILT==='mobile')prods=prods.filter(p=>p.category==='mobile');
+  if(FILT==='free')prods=prods.filter(p=>p.pricing?.free);
+  if(FILT==='paid')prods=prods.filter(p=>!p.pricing?.free);
+
+  $('prods').innerHTML=prods.map(p=>{
+    const catBadge={platform:'b-info',tool:'b-ok',automation:'b-warn',ai:'b-mute',mobile:'b-info'}[p.category]||'b-mute';
+    const catName={platform:'Platform',tool:'Tool',automation:'Automation',ai:'AI',mobile:'Mobile'}[p.category]||p.category;
+    const price=p.pricing?.free?'FREE':'¥'+(p.pricing?.personal||p.pricing?.biz||'?').toLocaleString();
+    const storeType=p.store_type||'STORES';
+    const tickets=(DATA.tickets||[]).filter(t=>t.product===p.id&&t.status!=='done');
+    const lastRel=(DATA.releases||[]).filter(r=>r.product===p.id).sort((a,b)=>b.date.localeCompare(a.date))[0];
+
+    return`<div class="prod-card">
+      <div class="prod-name">${esc(p.name)}</div>
+      <div class="prod-desc">${esc(p.description)}</div>
+      <div class="prod-meta">
+        <span class="badge ${catBadge}">${catName}</span>
+        <span class="badge ${p.pricing?.free?'b-ok':'b-warn'}">${price}</span>
+        ${p.stores_url?`<a href="${esc(p.stores_url)}" target="_blank" style="font-size:10px;color:var(--info);">${storeType}</a>`:`<span style="font-size:10px;color:#D6D3D1;">${storeType}未公開</span>`}
+        ${p.current_version?`<span class="prod-ver">v${esc(p.current_version)}</span>`:''}
+        ${lastRel?`<span style="font-size:10px;color:#A8A29E;">${lastRel.date}</span>`:''}
+      </div>
+      <div style="font-size:10px;color:var(--text-sub);margin-bottom:6px;display:flex;gap:6px;flex-wrap:wrap;">
+        ${(p.channels||[]).map(ch=>{
+          const icon={STORES:'🏪','Google Play':'▶','App Store':'🍎','GitHub Releases':'🐙'}[ch.store]||'📦';
+          return ch.published
+            ?`<span>${icon} <a href="${ch.url||'#'}" target="_blank" style="font-size:10px;color:var(--success);">${ch.store}</a></span>`
+            :`<span style="color:#D6D3D1;">${icon} ${ch.store}</span>`;
+        }).join('')}
+        ${tickets.length?` | <span style="color:var(--warning);">${tickets.length}件チケット</span>`:''}
+      </div>
+      <div class="prod-acts">
+        <button class="btn btn-s btn-xs" onclick="openTk(null,'${p.id}')">+ チケット</button>
+        <button class="btn btn-g btn-xs" onclick="openRel(null,'${p.id}')">+ リリース</button>
+      </div>
+    </div>`;
+  }).join('')||'<div style="padding:20px;color:#A8A29E;text-align:center;">製品がありません</div>';
+}
+
+function renderTk(){
+  const filt=$('tk-filt')?.value||'';
+  let tks=DATA.tickets||[];
+  if(filt)tks=tks.filter(t=>t.status===filt);
+  tks.sort((a,b)=>b.updated.localeCompare(a.updated));
+
+  const el=$('tklist');
+  if(!tks.length){el.innerHTML='<div style="padding:12px 16px;font-size:12px;color:#A8A29E;">チケットなし</div>';return;}
+  const stBadge={backlog:'b-mute',todo:'b-info',in_progress:'b-warn',review:'b-info',done:'b-ok'};
+  const stName={backlog:'Backlog',todo:'Todo',in_progress:'進行中',review:'レビュー',done:'完了'};
+  const priBadge={high:'b-err',medium:'b-warn',low:'b-mute'};
+
+  el.innerHTML=tks.map(t=>`<div class="tk-row">
+    <span class="tk-id">${t.id}</span>
+    <span class="badge ${priBadge[t.priority]||'b-mute'}">${t.priority}</span>
+    <span class="badge b-mute">${t.product}</span>
+    <span class="tk-title">${esc(t.title)}</span>
+    <span class="badge ${stBadge[t.status]||'b-mute'}">${stName[t.status]||t.status}</span>
+    <button class="btn btn-s btn-xs" onclick="editTk('${t.id}')">編集</button>
+  </div>`).join('');
+}
+
+function renderRel(){
+  const rels=(DATA.releases||[]).sort((a,b)=>b.date.localeCompare(a.date));
+  const el=$('rellist');
+  if(!rels.length){el.innerHTML='<div style="padding:12px 16px;font-size:12px;color:#A8A29E;">リリースなし</div>';return;}
+  el.innerHTML=rels.map(r=>`<div class="rel-row">
+    <span class="badge b-mute">${r.product}</span>
+    <span style="font-family:monospace;font-size:12px;font-weight:600;color:var(--info);min-width:60px;">v${esc(r.version)}</span>
+    <span style="font-size:11px;min-width:80px;">${r.date}</span>
+    <span class="badge ${r.type==='major'?'b-err':r.type==='minor'?'b-warn':'b-mute'}">${r.type}</span>
+    <span style="flex:1;font-size:11px;color:var(--text-sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(r.notes)}</span>
+    ${r.stores_published?'<span class="badge b-ok">STORES公開</span>':'<span class="badge b-mute">未公開</span>'}
+  </div>`).join('');
+}
+
+// Ticket modal
+function openTk(ticket=null,defaultProd=''){
+  $('m-tk').style.display='flex';
+  const se=$('tk-prod');
+  se.innerHTML=(DATA.products||[]).map(p=>`<option value="${p.id}">${p.id} ${esc(p.name)}</option>`).join('');
+  if(ticket){
+    $('tk-edit-id').value=ticket.id;$('tk-prod').value=ticket.product;$('tk-type').value=ticket.type;
+    $('tk-title').value=ticket.title;$('tk-pri').value=ticket.priority;$('tk-st').value=ticket.status;
+    $('tk-desc').value=ticket.description;
+  }else{
+    $('tk-edit-id').value='';$('tk-title').value='';$('tk-desc').value='';
+    $('tk-pri').value='medium';$('tk-st').value='backlog';$('tk-type').value='feature';
+    if(defaultProd)$('tk-prod').value=defaultProd;
+  }
+}
+async function saveTk(){
+  const id=$('tk-edit-id').value;
+  const body={product:$('tk-prod').value,type:$('tk-type').value,title:$('tk-title').value.trim(),priority:$('tk-pri').value,status:$('tk-st').value,description:$('tk-desc').value};
+  if(!body.title){toast('タイトル入力','error');return;}
+  try{
+    if(id){await api(`/api/products/tickets/${id}`,{method:'PUT',body:JSON.stringify(body)});}
+    else{await api('/api/products/tickets',{method:'POST',body:JSON.stringify(body)});}
+    toast('保存しました','success');$('m-tk').style.display='none';load();
+  }catch(e){toast('失敗','error');}
+}
+function editTk(id){const t=(DATA.tickets||[]).find(x=>x.id===id);if(t)openTk(t);}
+
+// Release modal
+function openRel(rel=null,defaultProd=''){
+  $('m-rel').style.display='flex';
+  const se=$('rel-prod');
+  se.innerHTML=(DATA.products||[]).map(p=>`<option value="${p.id}">${p.id} ${esc(p.name)}</option>`).join('');
+  $('rel-ver').value='';$('rel-date').value=new Date().toISOString().slice(0,10);$('rel-type').value='minor';$('rel-notes').value='';$('rel-stores').checked=false;
+  if(defaultProd)$('rel-prod').value=defaultProd;
+}
+async function saveRel(){
+  const body={product:$('rel-prod').value,version:$('rel-ver').value.trim(),date:$('rel-date').value,type:$('rel-type').value,notes:$('rel-notes').value,stores_published:$('rel-stores').checked};
+  if(!body.version){toast('バージョン入力','error');return;}
+  try{
+    await api('/api/products/releases',{method:'POST',body:JSON.stringify(body)});
+    toast('リリース登録','success');$('m-rel').style.display='none';load();
+  }catch(e){toast('失敗','error');}
+}
+
+// Toggle priority action
+async function togglePA(idx){
+  try{
+    const d=await api('/api/products');
+    const pc=d.pipeline_comments||{};
+    if(pc.priorityActions&&pc.priorityActions[idx]){
+      pc.priorityActions[idx].status=pc.priorityActions[idx].status==='done'?'todo':'done';
+      await api('/api/products/comments',{method:'PUT',body:JSON.stringify(pc)});
+      load();
+    }
+  }catch(e){toast('更新失敗','error');}
+}
+
+load();
+</script>
+</body>
+</html>

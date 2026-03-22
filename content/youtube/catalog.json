@@ -2,7 +2,7 @@
   "$schema": "./catalog-schema.json",
   "_meta": {
     "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
-    "last_updated": "2026-03-21",
+    "last_updated": "2026-03-22",
     "total_videos": 29,
     "total_shorts": 14,
     "channel_url": "",
@@ -249,10 +249,10 @@
       "script": null,
       "slide": "slides/VID-004_やり直せる力.pptx",
       "thumbnail": null,
-      "youtube_url": null,
+      "youtube_url": "https://youtu.be/BSmWoR0t86Y",
       "publish_date": "2026-03-12",
-      "note_status": "未",
-      "note_url": null,
+      "note_status": "published",
+      "note_url": "https://note.com/harmonic_insight/n/nc7762849da71",
       "tags": [
         "チャレンジ",
         "マインドセット"
@@ -265,7 +265,10 @@
       },
       "memo": "04.正しいチャレンジの仕方_up",
       "shorts": [],
-      "source_dir": "04.正しいチャレンジの仕方_up"
+      "source_dir": "04.正しいチャレンジの仕方_up",
+      "note_article": "note/articles/vid004_yarinaosu_chikara.md",
+      "thumbnail_prompt": "YouTube thumbnail: Person at desk crumpling paper and throwing it away, fresh blank paper ready to start over. Clean modern office, warm side lighting. Gold (#B8942F) accent on dark charcoal. Photorealistic, dramatic. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration - hand erasing sketch and redrawing cleanly. Left=messy draft, Right=clean version. Gold and ivory palette on dark bg. Flat vector, Japanese business aesthetic. No text.",
+      "twitter_draft": "3���Ԃ������������u�̂Ă��܂����H�v\n\n�����̐l�́u�C���ŉ��Ƃ����悤�v�Ƃ���B\n�ł��f�b�T�����������G�́A�F��h���Ă��ǂ��G�ɂȂ�Ȃ��B\n\n��蒼���̃R�X�g���[���ɂ�����@�������܂����B\n\n#�d���p #�����쐬 #�X�L���A�b�v\nhttps://note.com/harmonic_insight/n/nc7762849da71"
     },
     {
       "id": "VID-005",
@@ -280,8 +283,8 @@
       "thumbnail": null,
       "youtube_url": null,
       "publish_date": "2026-03-12",
-      "note_status": "未",
-      "note_url": null,
+      "note_status": "published",
+      "note_url": "https://note.com/harmonic_insight/n/ne6d4b362919c",
       "tags": [
         "AI",
         "業務活用",
@@ -295,7 +298,10 @@
       },
       "memo": "05.AIの業務活用_up",
       "shorts": [],
-      "source_dir": "05.AIの業務活用_up"
+      "source_dir": "05.AIの業務活用_up",
+      "note_article": "note/articles/vid005_ai_business_ipo.md",
+      "thumbnail_prompt": "note header: Split composition - Left(chaos): floating AI chat bubbles, tangled arrows, scattered docs, confused silhouette, gray/red tones. Right(order): clean IPO flow diagram (Input>Process>Output), neat docs, confident silhouette, gold #B8942F and white on dark bg. Center dividing line. Modern flat illustration, minimal, Japanese business aesthetic. No text. 16:9.",
+      "twitter_draft": "ChatGPT�𓱓�������Ђ�3������ɕ����ƁA�������������Ȃ��Ă�B\n\n�u�ꕔ�̏ڂ����l�����g���Ă��Ȃ��v\n�u���ǁA�O�Ɠ��������ɖ߂����v\n\n�����̓c�[������Ȃ��B�݌v�̖��B\nAI�͕֗��B�ł��Č������Ȃ���΁A�����̑��l�|�B\n\n#AI���p #DX #�Ɩ�������\nhttps://note.com/harmonic_insight/n/ne6d4b362919c"
     },
     {
       "id": "VID-010",

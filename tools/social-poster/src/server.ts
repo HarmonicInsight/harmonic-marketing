@@ -915,7 +915,7 @@ JSON で出力してください:
     const catalog = loadCatalog();
     const idx = catalog.videos.findIndex((v: any) => v.id === id);
     if (idx === -1) { json(res, { error: 'Video not found' }, 404); return; }
-    const allowed = ['title', 'series', 'product', 'status', 'duration', 'slide', 'thumbnail', 'thumbnail_prompt', 'youtube_url', 'publish_date', 'note_status', 'note_url', 'tags', 'memo', 'note_article', 'twitter_posts', 'related_content', 'script', 'performance', 'sort_order'];
+    const allowed = ['title', 'series', 'product', 'status', 'duration', 'slide', 'thumbnail', 'thumbnail_prompt', 'youtube_url', 'publish_date', 'note_status', 'note_url', 'tags', 'memo', 'note_article', 'twitter_draft', 'twitter_posts', 'related_content', 'script', 'performance', 'sort_order'];
     for (const key of allowed) {
       if (body[key] !== undefined) catalog.videos[idx][key] = body[key];
     }
@@ -1073,6 +1073,112 @@ JSON で出力してください:
       'Content-Length': data.length,
     });
     res.end(data);
+    return;
+  }
+
+  // =========================================================================
+  // 製品パイプライン
+  // =========================================================================
+
+  const PRODUCTS_FILE = join(CONTENT_ROOT, 'products', 'catalog.json');
+
+  // GET /products — 製品ダッシュボードHTML
+  if (path === '/products' && method === 'GET') {
+    const html = readFileSync(resolve(__dirname, 'products.html'), 'utf-8');
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(html);
+    return;
+  }
+
+  // GET /api/products — 製品一覧
+  if (path === '/api/products' && method === 'GET') {
+    if (!existsSync(PRODUCTS_FILE)) { json(res, { products: [] }); return; }
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    json(res, data);
+    return;
+  }
+
+  // PUT /api/products/:id — 製品情報更新
+  if (path.startsWith('/api/products/') && !path.includes('/tickets') && !path.includes('/releases') && method === 'PUT') {
+    const id = path.slice('/api/products/'.length);
+    const body = JSON.parse(await readBody(req));
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    const idx = data.products.findIndex((p: any) => p.id === id);
+    if (idx === -1) { json(res, { error: 'Product not found' }, 404); return; }
+    const allowed = ['name', 'description', 'status', 'current_version', 'last_release', 'stores_url', 'store_type', 'pricing', 'repo', 'memo'];
+    for (const key of allowed) { if (body[key] !== undefined) data.products[idx][key] = body[key]; }
+    data._meta.last_updated = new Date().toISOString().slice(0, 10);
+    writeFileSync(PRODUCTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    json(res, { product: data.products[idx] });
+    return;
+  }
+
+  // POST /api/products/tickets — チケット追加
+  if (path === '/api/products/tickets' && method === 'POST') {
+    const body = JSON.parse(await readBody(req));
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    const ticket = {
+      id: `TK-${String(data.tickets.length + 1).padStart(3, '0')}`,
+      product: body.product,
+      type: body.type || 'feature',
+      title: body.title || '',
+      description: body.description || '',
+      priority: body.priority || 'medium',
+      status: body.status || 'backlog',
+      target_version: body.target_version || null,
+      created: new Date().toISOString(),
+      updated: new Date().toISOString(),
+    };
+    data.tickets.push(ticket);
+    writeFileSync(PRODUCTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    json(res, { ticket }, 201);
+    return;
+  }
+
+  // PUT /api/products/tickets/:id — チケット更新
+  if (path.match(/^\/api\/products\/tickets\/TK-/) && method === 'PUT') {
+    const id = path.slice('/api/products/tickets/'.length);
+    const body = JSON.parse(await readBody(req));
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    const idx = data.tickets.findIndex((t: any) => t.id === id);
+    if (idx === -1) { json(res, { error: 'Ticket not found' }, 404); return; }
+    const allowed = ['title', 'description', 'priority', 'status', 'target_version', 'product', 'type'];
+    for (const key of allowed) { if (body[key] !== undefined) data.tickets[idx][key] = body[key]; }
+    data.tickets[idx].updated = new Date().toISOString();
+    writeFileSync(PRODUCTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    json(res, { ticket: data.tickets[idx] });
+    return;
+  }
+
+  // POST /api/products/releases — リリース追加
+  if (path === '/api/products/releases' && method === 'POST') {
+    const body = JSON.parse(await readBody(req));
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    const release = {
+      id: `REL-${String(data.releases.length + 1).padStart(3, '0')}`,
+      product: body.product,
+      version: body.version || '',
+      date: body.date || new Date().toISOString().slice(0, 10),
+      type: body.type || 'minor',
+      notes: body.notes || '',
+      stores_published: body.stores_published || false,
+    };
+    data.releases.push(release);
+    // Update product current_version
+    const prod = data.products.find((p: any) => p.id === body.product);
+    if (prod) { prod.current_version = release.version; prod.last_release = release.date; }
+    writeFileSync(PRODUCTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    json(res, { release }, 201);
+    return;
+  }
+
+  // PUT /api/products/comments — 戦略コメント保存
+  if (path === '/api/products/comments' && method === 'PUT') {
+    const body = JSON.parse(await readBody(req));
+    const data = JSON.parse(readFileSync(PRODUCTS_FILE, 'utf-8'));
+    data.pipeline_comments = { ...body, updatedAt: new Date().toISOString() };
+    writeFileSync(PRODUCTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    json(res, { success: true });
     return;
   }
 

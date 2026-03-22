@@ -161,7 +161,7 @@ Aspect ratio: 16:9, 1280x720px.`;
 
 export function saveGeneratedContent(result: AutoGenerateResult, catalogPath: string): void {
   const scriptsDir = join(YOUTUBE_DIR, 'scripts');
-  const articlesDir = join(CONTENT_ROOT, 'articles');
+  const articlesDir = join(CONTENT_ROOT, 'note', 'articles');
   const assetsDir = join(YOUTUBE_DIR, 'assets', result.videoId);
 
   if (!existsSync(scriptsDir)) mkdirSync(scriptsDir, { recursive: true });
@@ -181,7 +181,7 @@ export function saveGeneratedContent(result: AutoGenerateResult, catalogPath: st
   const video = catalog.videos.find((v: any) => v.id === result.videoId);
   if (video) {
     video.script = `scripts/${scriptFile}`;
-    video.note_article = `articles/${articleFile}`;
+    video.note_article = `note/articles/${articleFile}`;
     video.thumbnail_prompt = result.thumbnailPrompt;
     if (!video.twitter_posts) video.twitter_posts = [];
     // Save twitter text as draft in a file

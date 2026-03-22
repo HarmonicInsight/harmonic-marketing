@@ -31,70 +31,70 @@
     "VID-L003": "PPTX/台本は完了。収録→公開を進める段階。\nローカルシリーズ。4本セットで再生リスト化を推奨。",
     "VID-L004": "PPTX/台本は完了。収録→公開を進める段階。\n[優先] AIトレンド関連テーマ。早期収録で旬を逃さない。\nローカルシリーズ。4本セットで再生リスト化を推奨。"
   },
-  "updatedAt": "2026-03-21T16:03:02.707Z",
+  "updatedAt": "2026-03-22T03:04:08.941Z",
   "priorityActions": [
     {
       "priority": 1,
-      "action": "note記事化",
-      "target": "VID-004",
-      "title": "やり直せる力 勉強会（66回再生）",
-      "detail": "再生数最多。Claude Codeで記事を執筆 → note.comに投稿 → Twitter連動",
-      "status": "todo"
+      "action": "note公開",
+      "target": "VID-004, VID-005",
+      "title": "やり直せる力 + AI導入が失敗する理由（記事完成済み）",
+      "detail": "3/22 12:00に公開予定。スケジュール登録済み。",
+      "status": "done"
     },
     {
       "priority": 2,
-      "action": "note記事化",
-      "target": "VID-005",
-      "title": "AI導入が失敗する理由｜IPO（25回再生）",
-      "detail": "AI系で需要あり。SIPO企画との連動も可能",
-      "status": "todo"
+      "action": "Twitter連動投稿",
+      "target": "VID-004, VID-005",
+      "title": "note公開に合わせてTwitter投稿",
+      "detail": "note公開と同時刻に投稿。投稿文を事前に作成しておく。",
+      "status": "done"
     },
     {
       "priority": 3,
       "action": "note記事化",
       "target": "VID-010",
       "title": "資料の作り方（18回再生）",
-      "detail": "ビジネス基礎シリーズ。SEO検索「資料 作り方」で流入見込み",
+      "detail": "ビジネス基礎シリーズ。SEO「資料 作り方」で流入見込み。PPTXから記事作成。",
       "status": "todo"
     },
     {
       "priority": 4,
-      "action": "note記事化 + Twitter",
+      "action": "note記事化",
       "target": "VID-001",
       "title": "システムインフラ入門（16回再生）",
-      "detail": "記事は作成済(vid001_system_infra_intro.md)。レビュー→投稿",
-      "status": "ready"
+      "detail": "記事ドラフトはcontent/articles/に存在（移動要）。レビュー→公開。",
+      "status": "todo"
     },
     {
       "priority": 5,
-      "action": "ショート切り出し",
-      "target": "VID-004, VID-005, VID-010",
-      "title": "再生数上位3本からショート化",
-      "detail": "ショートは本編の20〜80倍リーチ。30-45秒のハイライト版を作成",
+      "action": "note記事化",
+      "target": "VID-014",
+      "title": "2050年の日本はどうなる？（14回再生）",
+      "detail": "トレンドテーマ。検索流入も見込める。",
       "status": "todo"
     },
     {
       "priority": 6,
-      "action": "YouTube新規収録",
-      "target": "VID-016",
-      "title": "RAGで業務変わりましたか",
-      "detail": "AIトレンド系。PPTX完了済み、収録するだけ",
+      "action": "ショート切り出し",
+      "target": "VID-004, VID-005, VID-010",
+      "title": "再生数上位3本からショート化",
+      "detail": "ショートは本編の20〜80倍リーチ。PPTX既存なのでClaude Code WEBで縦版作成。",
       "status": "todo"
     },
     {
       "priority": 7,
-      "action": "YouTube新規収録",
-      "target": "VID-022",
-      "title": "日本語LLM比較分析 2026",
-      "detail": "ショート3本のPPTXも完了。まとめて収録推奨",
+      "action": "YouTube収録",
+      "target": "VID-016",
+      "title": "RAGで業務変わりましたか",
+      "detail": "AIトレンド系。PPTX完了済み。収録するだけ。",
       "status": "todo"
     },
     {
       "priority": 8,
-      "action": "YouTube新規収録",
-      "target": "VID-023",
-      "title": "AI時代のセキュリティ",
-      "detail": "ずんだもん版(VID-052)は公開済み。本格版を収録",
+      "action": "YouTube収録",
+      "target": "VID-022",
+      "title": "日本語LLM比較分析 2026",
+      "detail": "ショート3本のPPTXも完了。まとめて収録推奨。",
       "status": "todo"
     },
     {
@@ -102,7 +102,7 @@
       "action": "プロジェクト化",
       "target": "SIPO企画",
       "title": "AIエージェント×建設業 SIPOシリーズ",
-      "detail": "企画メモ完成済み。Claude Code WEBでPPTX作成 → アップロード",
+      "detail": "企画メモ完成済み。Claude Code WEBでPPTX作成 → アップロード。",
       "status": "todo"
     }
   ]

@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsx:*)",
+      "Bash(find C:devcross-lib-insight-commondocs -type f -name *.md)",
+      "Bash(grep -E \"\\\\.\\(json|ts\\)$\")",
+      "Bash(grep -E \"\\\\.\\(ts|json\\)$\")",
+      "Bash(node -e \":*)",
+      "Bash(curl:*)",
+      "Bash(npx playwright:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)",
+      "Bash(npm run:*)",
+      "Bash(start:*)",
+      "Bash(find /c/dev/harmonic-marketing/content -name *.md -o -name *.json)",
+      "Bash(npx kill-port:*)",
+      "Bash(find /c/dev/harmonic-marketing -name *.pptx)",
+      "Bash(python3 -m json.tool)",
+      "Bash(sed 's|^|  |')",
+      "Bash(done)",
+      "Bash(python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\(f''''Slides: {len\\(d[slides]\\)}''''\\)\")",
+      "Bash(python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);v=d[''''videos''''];print\\(f''''Videos: {len\\(v\\)} \\(main: {len\\([x for x in v if x[type]==main]\\)}, short: {len\\([x for x in v if x[type]==short]\\)}\\)''''\\)\")",
+      "Bash(node:*)",
+      "Bash(grep -ri \"pptx\\\\|powerpoint\\\\|generate.*slide\\\\|create.*presentation\\\\|InsightCast\\\\|InsightSlide\" --include=*.ts --include=*.json tools/social-poster/)",
+      "Bash(node -e \"process.stdin.on\\(''''data'''',d=>console.log\\(JSON.parse\\(d\\).video?.id\\)\\)\")",
+      "Bash(ls:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(node -e \"process.stdin.on\\(''''data'''',d=>{const j=JSON.parse\\(d\\);console.log\\(''''Products:'''',j.products.length,''''Releases:'''',j.releases.length\\);j.products.forEach\\(p=>console.log\\('''' '''',p.id.padEnd\\(8\\),''''v''''+\\(p.current_version||''''-''''\\).padEnd\\(6\\),p.name\\)\\)}\\)\")"
+    ]
+  }
+}

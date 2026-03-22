@@ -178,5 +178,27 @@
     "status": "posted",
     "sourceRef": "VID-S006",
     "createdAt": "2026-03-21T14:51:37.723Z"
+  },
+  {
+    "id": "f8af1100",
+    "date": "2026-03-22",
+    "time": "12:00",
+    "platform": "note",
+    "type": "article",
+    "title": "note記事公開: 努力が報われない人に足りない「やり直せる力」とは",
+    "status": "ready",
+    "sourceRef": "VID-004",
+    "createdAt": "2026-03-21T16:35:57.572Z"
+  },
+  {
+    "id": "6f208dc3",
+    "date": "2026-03-22",
+    "time": "12:00",
+    "platform": "twitter",
+    "type": "post",
+    "title": "Twitter連動投稿: やり直せる力（VID-004 note記事公開に合わせて）",
+    "status": "planned",
+    "sourceRef": "VID-004",
+    "createdAt": "2026-03-21T16:35:57.658Z"
   }
 ]

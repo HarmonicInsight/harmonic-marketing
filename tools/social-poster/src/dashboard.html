@@ -113,6 +113,7 @@ header .brand { color:var(--gold-light); }
 <header>
   <h1><span class="brand">HARMONIC</span> Content Pipeline</h1>
   <div style="font-size:12px;display:flex;gap:12px;align-items:center;">
+    <a href="/products" style="color:var(--gold-light);text-decoration:none;font-size:12px;">Product Pipeline</a>
     <span id="conn-info" style="color:#78716C;">-</span>
   </div>
 </header>
@@ -296,7 +297,8 @@ header .brand { color:var(--gold-light); }
         <div class="fg"><label>台本ファイル</label><input id="ed-script" placeholder="例: scripts/VID-001.md"></div>
       </div>
       <div class="fg"><label>タグ (カンマ区切り)</label><input id="ed-tags"></div>
-      <div class="fg"><label>関連Twitter投稿URL (改行区切りで複数可)</label><textarea id="ed-twitter" rows="2" placeholder="https://x.com/...&#10;https://x.com/..."></textarea></div>
+      <div class="fg"><label>Twitter投稿文（下書き）</label><textarea id="ed-twitter-draft" rows="4" placeholder="投稿文をここに書く。パターン複数ある場合は --- で区切り。"></textarea></div>
+      <div class="fg"><label>Twitter投稿済みURL (改行区切りで複数可)</label><textarea id="ed-twitter" rows="2" placeholder="https://x.com/...&#10;https://x.com/..."></textarea></div>
       <div class="fg"><label>サムネイル画像プロンプト</label><textarea id="ed-thumb-prompt" rows="3" placeholder="DALL-E / Midjourney用のプロンプト。候補を複数生成する際に使用。"></textarea></div>
       <div class="fg"><label>採用サムネイル</label><input id="ed-thumb" placeholder="例: thumb_final.png（assets/VID-xxx/ 内）"></div>
       <div style="font-size:11px;color:#A8A29E;margin:-6px 0 10px 0;">画像候補は content/youtube/assets/[VID-ID]/ に保存。採用したファイル名を↑に設定。</div>
@@ -566,6 +568,7 @@ async function openEdit(id) {
     $('ed-thumb').value = v.thumbnail||'';
     $('ed-note-article').value = v.note_article||'';
     $('ed-script').value = v.script||'';
+    $('ed-twitter-draft').value = v.twitter_draft||'';
     $('ed-twitter').value = (v.twitter_posts||[]).join('\n');
     $('ed-memo').value = v.memo||'';
     const sl = $('ed-slide');
@@ -583,6 +586,7 @@ async function saveEdit() {
     duration:$('ed-duration').value||null, tags:$('ed-tags').value.split(',').map(s=>s.trim()).filter(Boolean),
     thumbnail_prompt:$('ed-thumb-prompt').value||null, thumbnail:$('ed-thumb').value||null,
     note_article:$('ed-note-article').value||null, script:$('ed-script').value||null,
+    twitter_draft:$('ed-twitter-draft').value||null,
     twitter_posts:$('ed-twitter').value.split('\n').map(s=>s.trim()).filter(Boolean),
     memo:$('ed-memo').value||null,
   };
