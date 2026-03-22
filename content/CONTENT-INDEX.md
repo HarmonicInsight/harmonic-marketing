@@ -65,4 +65,5 @@
 | AI実務活用 | note, YouTube | AI議事録・検索・要約の実務での使い方 |
 | 動画化実務 | note, YouTube | Training Studio（INMV）の活用法 |
 | コンサル論 | note, YouTube | SIPO、4層モデル等の業務改革フレームワーク |
+| ニュース速報分析 | YouTube Shorts, YouTube, note, Twitter | ニュース発表日を起点に独自分析・アンチテーゼを提供 |
 | ツール紹介 | Twitter, note | HARMONIC tools 個別ツールの紹介 |
