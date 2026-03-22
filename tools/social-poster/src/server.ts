@@ -852,6 +852,7 @@ JSON で出力してください:
         tags: v.tags || [], memo: v.memo,
         thumbnail: v.thumbnail, thumbnail_prompt: v.thumbnail_prompt,
         note_article: v.note_article, script: v.script,
+        pdf: v.pdf, speakerdeck_url: v.speakerdeck_url, docswell_url: v.docswell_url,
         sort_order: v.sort_order ?? 999,
         scheduled: scheduled.length > 0 ? scheduled[0] : null,
       };
@@ -915,7 +916,7 @@ JSON で出力してください:
     const catalog = loadCatalog();
     const idx = catalog.videos.findIndex((v: any) => v.id === id);
     if (idx === -1) { json(res, { error: 'Video not found' }, 404); return; }
-    const allowed = ['title', 'series', 'product', 'status', 'duration', 'slide', 'thumbnail', 'thumbnail_prompt', 'youtube_url', 'publish_date', 'note_status', 'note_url', 'tags', 'memo', 'note_article', 'twitter_draft', 'twitter_posts', 'related_content', 'script', 'performance', 'sort_order'];
+    const allowed = ['title', 'series', 'product', 'status', 'duration', 'slide', 'thumbnail', 'thumbnail_prompt', 'youtube_url', 'publish_date', 'note_status', 'note_url', 'tags', 'memo', 'note_article', 'twitter_draft', 'twitter_posts', 'related_content', 'script', 'performance', 'sort_order', 'speakerdeck_url', 'docswell_url', 'pdf'];
     for (const key of allowed) {
       if (body[key] !== undefined) catalog.videos[idx][key] = body[key];
     }

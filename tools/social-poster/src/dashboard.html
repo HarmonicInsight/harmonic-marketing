@@ -297,6 +297,10 @@ header .brand { color:var(--gold-light); }
         <div class="fg"><label>台本ファイル</label><input id="ed-script" placeholder="例: scripts/VID-001.md"></div>
       </div>
       <div class="fg"><label>タグ (カンマ区切り)</label><input id="ed-tags"></div>
+      <div class="fr">
+        <div class="fg"><label>SpeakerDeck URL</label><input id="ed-speakerdeck" placeholder="https://speakerdeck.com/..."></div>
+        <div class="fg"><label>Docswell URL</label><input id="ed-docswell" placeholder="https://www.docswell.com/..."></div>
+      </div>
       <div class="fg"><label>Twitter投稿文（下書き）</label><textarea id="ed-twitter-draft" rows="4" placeholder="投稿文をここに書く。パターン複数ある場合は --- で区切り。"></textarea></div>
       <div class="fg"><label>Twitter投稿済みURL (改行区切りで複数可)</label><textarea id="ed-twitter" rows="2" placeholder="https://x.com/...&#10;https://x.com/..."></textarea></div>
       <div class="fg"><label>サムネイル画像プロンプト</label><textarea id="ed-thumb-prompt" rows="3" placeholder="DALL-E / Midjourney用のプロンプト。候補を複数生成する際に使用。"></textarea></div>
@@ -451,6 +455,7 @@ function render() {
           <span class="pl-step ${sP}" title="PPTX">P</span>
           <span class="pl-step ${sY}" title="YouTube">Y</span>
           <span class="pl-step ${sN}" title="note">N</span>
+          <span class="pl-step ${it.speakerdeck_url||it.docswell_url?'done':'none'}" title="スライド共有">SD</span>
           <span class="pl-step ${sX}" title="拡散">${sInfo||'X'}</span>
         </span>
         <span class="pl-meta">${views}</span>
@@ -470,6 +475,9 @@ function render() {
           <div><b>スライド:</b> ${it.slide?esc(it.slide.replace('slides/','')):'未設定'}</div>
           <div><b>note:</b> ${it.note_url?'<a href="'+esc(it.note_url)+'" target="_blank" style="color:var(--info);">公開済</a>':''} ${it.note_article?'<span style="color:var(--success);">記事: '+esc(it.note_article)+'</span>':'未作成'}</div>
           <div><b>サムネイル:</b> ${it.thumbnail||'未設定'}${it.thumbnail_prompt?' (プロンプト有)':''}</div>
+          <div><b>PDF:</b> ${it.pdf||'未変換'}</div>
+          <div><b>SpeakerDeck:</b> ${it.speakerdeck_url?'<a href="'+esc(it.speakerdeck_url)+'" target="_blank" style="color:var(--info);">公開済</a>':'未公開'}</div>
+          <div><b>Docswell:</b> ${it.docswell_url?'<a href="'+esc(it.docswell_url)+'" target="_blank" style="color:var(--info);">公開済</a>':'未公開'}</div>
           <div><b>Twitter:</b> ${it.has_twitter?'<span style="color:var(--success);">'+((DATA.find(x=>x.id===it.id)||{}).twitter_posts||[]).length+'件投稿</span>':'未投稿'}</div>
           <div><b>ショート:</b> ${it.shorts.length?it.shorts.map(s=>'<span style="color:'+(s.status==='published'?'var(--success)':'var(--warning)')+';">S</span>'+esc(s.id)+' '+esc(s.title.slice(0,18))+(s.views!=null?' '+s.views+'回':'')).join(' / '):'なし'}</div>
           <div><b>タグ:</b> ${(it.tags||[]).join(', ')||'-'}</div>
@@ -568,6 +576,8 @@ async function openEdit(id) {
     $('ed-thumb').value = v.thumbnail||'';
     $('ed-note-article').value = v.note_article||'';
     $('ed-script').value = v.script||'';
+    $('ed-speakerdeck').value = v.speakerdeck_url||'';
+    $('ed-docswell').value = v.docswell_url||'';
     $('ed-twitter-draft').value = v.twitter_draft||'';
     $('ed-twitter').value = (v.twitter_posts||[]).join('\n');
     $('ed-memo').value = v.memo||'';
@@ -586,6 +596,8 @@ async function saveEdit() {
     duration:$('ed-duration').value||null, tags:$('ed-tags').value.split(',').map(s=>s.trim()).filter(Boolean),
     thumbnail_prompt:$('ed-thumb-prompt').value||null, thumbnail:$('ed-thumb').value||null,
     note_article:$('ed-note-article').value||null, script:$('ed-script').value||null,
+    speakerdeck_url:$('ed-speakerdeck').value||null,
+    docswell_url:$('ed-docswell').value||null,
     twitter_draft:$('ed-twitter-draft').value||null,
     twitter_posts:$('ed-twitter').value.split('\n').map(s=>s.trim()).filter(Boolean),
     memo:$('ed-memo').value||null,

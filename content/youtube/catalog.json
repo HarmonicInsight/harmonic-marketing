@@ -176,7 +176,8 @@
       },
       "memo": "01.システムインフラ入門_up",
       "shorts": [],
-      "source_dir": "01.システムインフラ入門_up"
+      "source_dir": "01.システムインフラ入門_up",
+      "pdf": "pdf/VID-001_システムインフラ入門.pdf"
     },
     {
       "id": "VID-002",
@@ -206,7 +207,8 @@
       },
       "memo": "02.トゥールミンロジック_勉強会資料_ナレーション付き_up",
       "shorts": [],
-      "source_dir": "02.トゥールミンロジック_勉強会資料_ナレーション付き_up"
+      "source_dir": "02.トゥールミンロジック_勉強会資料_ナレーション付き_up",
+      "pdf": "pdf/VID-002_トゥールミンロジック.pdf"
     },
     {
       "id": "VID-003",
@@ -236,7 +238,8 @@
       },
       "memo": "03.グラフの選び方_up",
       "shorts": [],
-      "source_dir": "03.グラフの選び方_up"
+      "source_dir": "03.グラフの選び方_up",
+      "pdf": "pdf/VID-003_グラフの選び方.pdf"
     },
     {
       "id": "VID-004",
@@ -269,7 +272,8 @@
       "note_article": "note/articles/vid004_yarinaosu_chikara.md",
       "thumbnail_prompt": "YouTube thumbnail: Person at desk crumpling paper and throwing it away, fresh blank paper ready to start over. Clean modern office, warm side lighting. Gold (#B8942F) accent on dark charcoal. Photorealistic, dramatic. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration - hand erasing sketch and redrawing cleanly. Left=messy draft, Right=clean version. Gold and ivory palette on dark bg. Flat vector, Japanese business aesthetic. No text.",
       "twitter_draft": "3時間かけた資料を「捨てられますか？」\n\n多くの人は「修正で何とかしよう」とする。\nでもデッサンが狂った絵は、色を塗っても良い絵にならない。\n\nやり直しのコストをゼロにする方法を書きました。\n\n#仕事術 #資料作成 #スキルアップ\nhttps://note.com/harmonic_insight/n/ne6d4b362919c",
-      "twitter_posts": []
+      "twitter_posts": [],
+      "pdf": "pdf/VID-004_やり直せる力.pdf"
     },
     {
       "id": "VID-005",
@@ -302,7 +306,8 @@
       "source_dir": "05.AIの業務活用_up",
       "note_article": "note/articles/vid005_ai_business_ipo.md",
       "thumbnail_prompt": "note header: Split composition - Left(chaos): floating AI chat bubbles, tangled arrows, scattered docs, confused silhouette, gray/red tones. Right(order): clean IPO flow diagram (Input>Process>Output), neat docs, confident silhouette, gold #B8942F and white on dark bg. Center dividing line. Modern flat illustration, minimal, Japanese business aesthetic. No text. 16:9.",
-      "twitter_draft": "ChatGPTを導入した会社に3ヶ月後に聞くと、だいたいこうなってる。\n\n「一部の詳しい人しか使っていない」\n「結局、前と同じやり方に戻った」\n\n原因はツールじゃない。設計の問題。\nAIは便利。でも再現性がなければ、ただの属人芸。\n\n#AI活用 #DX #業務効率化\nhttps://note.com/harmonic_insight/n/nc7762849da71"
+      "twitter_draft": "ChatGPTを導入した会社に3ヶ月後に聞くと、だいたいこうなってる。\n\n「一部の詳しい人しか使っていない」\n「結局、前と同じやり方に戻った」\n\n原因はツールじゃない。設計の問題。\nAIは便利。でも再現性がなければ、ただの属人芸。\n\n#AI活用 #DX #業務効率化\nhttps://note.com/harmonic_insight/n/nc7762849da71",
+      "pdf": "pdf/VID-005_AI業務活用の本質.pdf"
     },
     {
       "id": "VID-010",
@@ -335,7 +340,8 @@
       "source_dir": "10.資料の作り方_up",
       "note_article": "note/articles/vid010_shiryou_tsukurikata.md",
       "thumbnail_prompt": "YouTube thumbnail: Business consultant presenting polished documents to impressed executives in a modern meeting room. Clean desk with organized reports. Gold (#B8942F) accent lighting on dark background. Photorealistic, professional. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration of document quality - Left side shows messy scattered papers with red marks. Right side shows clean organized documents with checkmarks. Split composition. Gold and ivory palette on dark background. Flat vector, Japanese business aesthetic. No text. 16:9.",
-      "twitter_draft": "「資料が分かりづらい」と言われる原因は、だいたい5つに絞れる。\n\n・相手の階層で資料を変えていない\n・段取りをすっ飛ばしている\n・日本語が冗長\n・行動経済学を知らない\n・事実と意見が混ざっている\n\nnoteに書きました。\n\n#資料作成 #仕事術 #コンサル\nhttps://note.com/harmonic_insight/n/ne8d0a183029d"
+      "twitter_draft": "「資料が分かりづらい」と言われる原因は、だいたい5つに絞れる。\n\n・相手の階層で資料を変えていない\n・段取りをすっ飛ばしている\n・日本語が冗長\n・行動経済学を知らない\n・事実と意見が混ざっている\n\nnoteに書きました。\n\n#資料作成 #仕事術 #コンサル\nhttps://note.com/harmonic_insight/n/ne8d0a183029d",
+      "pdf": "pdf/VID-010_資料の作り方.pdf"
     },
     {
       "id": "VID-011",
@@ -365,7 +371,8 @@
       },
       "memo": "11.建設業基幹システムカスタマイズ地獄_up",
       "shorts": [],
-      "source_dir": "11.建設業基幹システムカスタマイズ地獄_up"
+      "source_dir": "11.建設業基幹システムカスタマイズ地獄_up",
+      "pdf": "pdf/VID-011_建設業基幹システム_カスタマイズ.pdf"
     },
     {
       "id": "VID-012",
@@ -396,7 +403,8 @@
       "memo": "ドラフト状態 / 未公開",
       "shorts": [],
       "source_dir": "12.基幹システム変革",
-      "sort_order": 0
+      "sort_order": 0,
+      "pdf": "pdf/VID-012_基幹システム変革.pdf"
     },
     {
       "id": "VID-013",
@@ -457,7 +465,8 @@
       },
       "memo": "14.未来年表",
       "shorts": [],
-      "source_dir": "14.未来年表"
+      "source_dir": "14.未来年表",
+      "pdf": "pdf/VID-014_未来年表.pdf"
     },
     {
       "id": "VID-015",
@@ -488,7 +497,8 @@
       "memo": "15.英語の発音上達法 / MP4未作成 / v9,v10の2版あり",
       "shorts": [],
       "source_dir": "15.英語の発音上達法",
-      "sort_order": 1
+      "sort_order": 1,
+      "pdf": "pdf/VID-015_英語発音上達.pdf"
     },
     {
       "id": "VID-016",
@@ -519,7 +529,8 @@
       "memo": "16.Ragで業務変わりましたか / MP4未作成",
       "shorts": [],
       "source_dir": "16.Ragで業務変わりましたか",
-      "sort_order": 2
+      "sort_order": 2,
+      "pdf": "pdf/VID-016_RAG業務活用.pdf"
     },
     {
       "id": "VID-017A",
@@ -549,7 +560,8 @@
       },
       "memo": "17.CLAUDEAPI / セットアップ編",
       "shorts": [],
-      "source_dir": "17.CLAUDEAPI"
+      "source_dir": "17.CLAUDEAPI",
+      "pdf": "pdf/VID-017A_Claude-api-setup-guide.pdf"
     },
     {
       "id": "VID-017B",
@@ -579,7 +591,8 @@
       },
       "memo": "17.CLAUDEAPI / プライシング編",
       "shorts": [],
-      "source_dir": "17.CLAUDEAPI"
+      "source_dir": "17.CLAUDEAPI",
+      "pdf": "pdf/VID-017B_Claude-api-pricing-guide.pdf"
     },
     {
       "id": "VID-018",
@@ -609,7 +622,8 @@
       },
       "memo": "18.マニュアル作り / InsightTrainingStudio.pptxも含む",
       "shorts": [],
-      "source_dir": "18.マニュアル作り"
+      "source_dir": "18.マニュアル作り",
+      "pdf": "pdf/VID-018_マニュアル作り.pdf"
     },
     {
       "id": "VID-019",
@@ -640,7 +654,8 @@
       "memo": "19.人事オンボード / 3版のPPTXあり / MP4未作成",
       "shorts": [],
       "source_dir": "19.人事オンボード",
-      "sort_order": 3
+      "sort_order": 3,
+      "pdf": "pdf/VID-019_人事オンボード.pdf"
     },
     {
       "id": "VID-020",
@@ -670,7 +685,8 @@
       },
       "memo": "21.PPTXから動画の作り方 / 複数MP4あり",
       "shorts": [],
-      "source_dir": "21.PPTXから動画の作り方"
+      "source_dir": "21.PPTXから動画の作り方",
+      "pdf": "pdf/VID-020_TrainingStudio起動レコーディング.pdf"
     },
     {
       "id": "VID-021",
@@ -736,7 +752,8 @@
         "VID-2203"
       ],
       "source_dir": "22_LLM比較",
-      "sort_order": 5
+      "sort_order": 5,
+      "pdf": "pdf/VID-022_日本語LLM比較分析.pdf"
     },
     {
       "id": "VID-023",
@@ -767,7 +784,8 @@
       "memo": "23.AI時代のセキュリティ / MP4未作成",
       "shorts": [],
       "source_dir": "23.AI時代のセキュリティ",
-      "sort_order": 6
+      "sort_order": 6,
+      "pdf": "pdf/VID-023_AI時代のセキュリティ.pdf"
     },
     {
       "id": "VID-030",
@@ -828,7 +846,8 @@
       },
       "memo": "50.ずんだもん_AI Office / 2本のMP4あり",
       "shorts": [],
-      "source_dir": "50.ずんだもん_AI Office"
+      "source_dir": "50.ずんだもん_AI Office",
+      "pdf": "pdf/VID-050_AI_Office.pdf"
     },
     {
       "id": "VID-051",
@@ -858,7 +877,8 @@
       },
       "memo": "51.ずんだもん_TrainingStudio",
       "shorts": [],
-      "source_dir": "51.ずんだもん_TrainingStudio"
+      "source_dir": "51.ずんだもん_TrainingStudio",
+      "pdf": "pdf/VID-051_TrainingStudio.pdf"
     },
     {
       "id": "VID-052",
@@ -888,7 +908,8 @@
       },
       "memo": "52.AIのセキュリティ / 2版PPTX、2本MP4あり",
       "shorts": [],
-      "source_dir": "52.AIのセキュリティ"
+      "source_dir": "52.AIのセキュリティ",
+      "pdf": "pdf/VID-052_AIセキュリティ_ずんだもん.pdf"
     },
     {
       "id": "VID-100",
@@ -950,7 +971,8 @@
       },
       "memo": "20.Short動画/1",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S001_AIエージェントの真実.pdf"
     },
     {
       "id": "VID-S002",
@@ -981,7 +1003,8 @@
       },
       "memo": "20.Short動画/2",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S002_RAGの幻想.pdf"
     },
     {
       "id": "VID-S003",
@@ -1012,7 +1035,8 @@
       },
       "memo": "20.Short動画/3",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S003_AIエージェント議論ズレ.pdf"
     },
     {
       "id": "VID-S004",
@@ -1042,7 +1066,8 @@
       },
       "memo": "20.Short動画/3.AIコンサルのウソ / MP4未作成",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S004_AIコンサルのウソ.pdf"
     },
     {
       "id": "VID-S005",
@@ -1073,7 +1098,8 @@
       },
       "memo": "20.Short動画/4.AIで仕事がなくなる、のウソ",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S005_AIが仕事を自動化する.pdf"
     },
     {
       "id": "VID-S006",
@@ -1104,7 +1130,8 @@
       },
       "memo": "20.Short動画/4.議事録AIの顛末",
       "shorts": [],
-      "source_dir": "20.Short動画"
+      "source_dir": "20.Short動画",
+      "pdf": "pdf/VID-S006_議事録AIの顛末.pdf"
     },
     {
       "id": "VID-L001",
@@ -1136,7 +1163,8 @@
       "shorts": [
         "VID-L001S"
       ],
-      "source_dir": "21_ローカルシリーズ"
+      "source_dir": "21_ローカルシリーズ",
+      "pdf": "pdf/VID-L001_cloud-vs-local-main.pdf"
     },
     {
       "id": "VID-L001S",
@@ -1167,7 +1195,8 @@
       },
       "memo": "21_ローカルシリーズ/01-shorts",
       "shorts": [],
-      "source_dir": "21_ローカルシリーズ"
+      "source_dir": "21_ローカルシリーズ",
+      "pdf": "pdf/VID-L001S_cloud-vs-local-shorts.pdf"
     },
     {
       "id": "VID-L002",
@@ -1199,7 +1228,8 @@
         "VID-L002S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 9
+      "sort_order": 9,
+      "pdf": "pdf/VID-L002_business-driven-main.pdf"
     },
     {
       "id": "VID-L002S",
@@ -1229,7 +1259,8 @@
       },
       "memo": "21_ローカルシリーズ/02-shorts",
       "shorts": [],
-      "source_dir": "21_ローカルシリーズ"
+      "source_dir": "21_ローカルシリーズ",
+      "pdf": "pdf/VID-L002S_business-driven-shorts.pdf"
     },
     {
       "id": "VID-L003",
@@ -1262,7 +1293,8 @@
         "VID-L003S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 10
+      "sort_order": 10,
+      "pdf": "pdf/VID-L003_dense-ui-main.pdf"
     },
     {
       "id": "VID-L003S",
@@ -1292,7 +1324,8 @@
       },
       "memo": "21_ローカルシリーズ/03-shorts",
       "shorts": [],
-      "source_dir": "21_ローカルシリーズ"
+      "source_dir": "21_ローカルシリーズ",
+      "pdf": "pdf/VID-L003S_dense-ui-shorts.pdf"
     },
     {
       "id": "VID-L004",
@@ -1324,7 +1357,8 @@
         "VID-L004S"
       ],
       "source_dir": "21_ローカルシリーズ",
-      "sort_order": 11
+      "sort_order": 11,
+      "pdf": "pdf/VID-L004_ai-era-local-main.pdf"
     },
     {
       "id": "VID-L004S",
@@ -1355,7 +1389,8 @@
       },
       "memo": "21_ローカルシリーズ/04-shorts",
       "shorts": [],
-      "source_dir": "21_ローカルシリーズ"
+      "source_dir": "21_ローカルシリーズ",
+      "pdf": "pdf/VID-L004S_ai-era-local-shorts.pdf"
     },
     {
       "id": "VID-2201",
@@ -1386,7 +1421,8 @@
       },
       "memo": "22_LLM比較/Shorts1",
       "shorts": [],
-      "source_dir": "22_LLM比較"
+      "source_dir": "22_LLM比較",
+      "pdf": "pdf/VID-2201_Shorts_RakutenAI3.pdf"
     },
     {
       "id": "VID-2202",
@@ -1417,7 +1453,8 @@
       },
       "memo": "22_LLM比較/Shorts2",
       "shorts": [],
-      "source_dir": "22_LLM比較"
+      "source_dir": "22_LLM比較",
+      "pdf": "pdf/VID-2202_Shorts_LLMコスト50倍.pdf"
     },
     {
       "id": "VID-2203",
@@ -1448,7 +1485,8 @@
       },
       "memo": "22_LLM比較/Shorts3",
       "shorts": [],
-      "source_dir": "22_LLM比較"
+      "source_dir": "22_LLM比較",
+      "pdf": "pdf/VID-2203_Shorts_用途別おすすめLLM.pdf"
     },
     {
       "id": "VID-CAT",

@@ -30,7 +30,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(node -e \"process.stdin.on\\(''''data'''',d=>{const j=JSON.parse\\(d\\);console.log\\(''''Products:'''',j.products.length,''''Releases:'''',j.releases.length\\);j.products.forEach\\(p=>console.log\\('''' '''',p.id.padEnd\\(8\\),''''v''''+\\(p.current_version||''''-''''\\).padEnd\\(6\\),p.name\\)\\)}\\)\")"
+      "Bash(node -e \"process.stdin.on\\(''''data'''',d=>{const j=JSON.parse\\(d\\);console.log\\(''''Products:'''',j.products.length,''''Releases:'''',j.releases.length\\);j.products.forEach\\(p=>console.log\\('''' '''',p.id.padEnd\\(8\\),''''v''''+\\(p.current_version||''''-''''\\).padEnd\\(6\\),p.name\\)\\)}\\)\")",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(where soffice:*)"
     ]
   }
 }
