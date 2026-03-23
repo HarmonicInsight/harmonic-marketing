@@ -279,7 +279,8 @@
       "twitter_draft": "3時間かけた資料を「捨てられますか？」\n\n多くの人は「修正で何とかしよう」とする。\nでもデッサンが狂った絵は、色を塗っても良い絵にならない。\n\nやり直しのコストをゼロにする方法を書きました。\n\n#仕事術 #資料作成 #スキルアップ\nhttps://note.com/harmonic_insight/n/ne6d4b362919c",
       "twitter_posts": [],
       "pdf": "pdf/VID-004_やり直せる力.pdf",
-      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K6NYN7-2026-03-22-165616"
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K6NYN7-2026-03-22-165616",
+      "note_performance": { "views": 33, "likes": 1, "comments": 0, "date": "2026-03-23" }
     },
     {
       "id": "VID-005",
@@ -314,7 +315,8 @@
       "thumbnail_prompt": "note header: Split composition - Left(chaos): floating AI chat bubbles, tangled arrows, scattered docs, confused silhouette, gray/red tones. Right(order): clean IPO flow diagram (Input>Process>Output), neat docs, confident silhouette, gold #B8942F and white on dark bg. Center dividing line. Modern flat illustration, minimal, Japanese business aesthetic. No text. 16:9.",
       "twitter_draft": "ChatGPTを導入した会社に3ヶ月後に聞くと、だいたいこうなってる。\n\n「一部の詳しい人しか使っていない」\n「結局、前と同じやり方に戻った」\n\n原因はツールじゃない。設計の問題。\nAIは便利。でも再現性がなければ、ただの属人芸。\n\n#AI活用 #DX #業務効率化\nhttps://note.com/harmonic_insight/n/nc7762849da71",
       "pdf": "pdf/VID-005_AI業務活用の本質.pdf",
-      "speakerdeck_url": "https://speakerdeck.com/harmonicinsight"
+      "speakerdeck_url": "https://speakerdeck.com/harmonicinsight",
+      "note_performance": { "views": 17, "likes": 1, "comments": 0, "date": "2026-03-23" }
     },
     {
       "id": "VID-010",
@@ -349,7 +351,8 @@
       "thumbnail_prompt": "YouTube thumbnail: Business consultant presenting polished documents to impressed executives in a modern meeting room. Clean desk with organized reports. Gold (#B8942F) accent lighting on dark background. Photorealistic, professional. No text, space on right for Japanese overlay. 16:9 1280x720.\n\nnote header: Minimalist illustration of document quality - Left side shows messy scattered papers with red marks. Right side shows clean organized documents with checkmarks. Split composition. Gold and ivory palette on dark background. Flat vector, Japanese business aesthetic. No text. 16:9.",
       "twitter_draft": "「資料が分かりづらい」と言われる原因は、だいたい5つに絞れる。\n\n・相手の階層で資料を変えていない\n・段取りをすっ飛ばしている\n・日本語が冗長\n・行動経済学を知らない\n・事実と意見が混ざっている\n\nnoteに書きました。\n\n#資料作成 #仕事術 #コンサル\nhttps://note.com/harmonic_insight/n/ne8d0a183029d",
       "pdf": "pdf/VID-010_資料の作り方.pdf",
-      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K1QJQ3-shiryou-tsukurikata"
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K1QJQ3-shiryou-tsukurikata",
+      "note_performance": { "views": 10, "likes": 0, "comments": 0, "date": "2026-03-23" }
     },
     {
       "id": "VID-011",
@@ -1571,22 +1574,22 @@
     {
       "id": "VID-031",
       "type": "main",
-      "title": "あなたの業界は生き残れるか？業界別AI代替率ランキング 2025-2050",
+      "title": "あなたの仕事、消えます。業界別AI代替率ランキング【2025→2050】",
       "series": "career-2050",
       "product": null,
-      "status": "slide_done",
+      "status": "published",
       "duration": null,
       "script": null,
       "slide": "slides/deck1_業界別AI代替率.pptx",
       "thumbnail": null,
       "thumbnail_prompt": null,
-      "youtube_url": null,
-      "publish_date": null,
-      "note_status": "未",
-      "note_url": null,
-      "note_article": null,
+      "youtube_url": "https://youtu.be/HuStzTJv074",
+      "publish_date": "2026-03-23",
+      "note_status": "公開済",
+      "note_url": "https://note.com/harmonic_insight/n/n2997340ef4c2",
+      "note_article": "note/articles/vid031_ai_replacement_by_industry.md",
       "twitter_draft": null,
-      "twitter_posts": [],
+      "twitter_posts": ["2026-03-23"],
       "tags": [
         "2050年",
         "キャリア",
@@ -1603,27 +1606,28 @@
       "memo": "2050年キャリアサバイバルシリーズ Vol.1",
       "shorts": [],
       "speakerdeck_url": null,
-      "docswell_url": null
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/KJWLW3-ai-industry-replacement-2050",
+      "note_performance": { "views": 4, "likes": 0, "comments": 0, "date": "2026-03-23" }
     },
     {
       "id": "VID-032",
       "type": "main",
-      "title": "2050年、同じ会社で12倍の格差が生まれる｜平均年収の罠",
+      "title": "同じ会社なのに年収12倍…平均年収の\"罠\"を解説【2050年】",
       "series": "career-2050",
       "product": null,
-      "status": "slide_done",
+      "status": "published",
       "duration": null,
       "script": null,
       "slide": "slides/deck2_平均年収の罠.pptx",
       "thumbnail": null,
       "thumbnail_prompt": null,
-      "youtube_url": null,
-      "publish_date": null,
-      "note_status": "未",
-      "note_url": null,
-      "note_article": null,
+      "youtube_url": "https://youtu.be/2vXqIY036A0",
+      "publish_date": "2026-03-23",
+      "note_status": "公開済",
+      "note_url": "https://note.com/harmonic_insight/n/n23fd378e6e39",
+      "note_article": "note/articles/vid032_average_salary_trap.md",
       "twitter_draft": null,
-      "twitter_posts": [],
+      "twitter_posts": ["2026-03-23"],
       "tags": [
         "2050年",
         "キャリア",
@@ -1640,7 +1644,8 @@
       "memo": "2050年キャリアサバイバルシリーズ Vol.2",
       "shorts": [],
       "speakerdeck_url": null,
-      "docswell_url": null
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K4NQND-tokyo-vs-local-2050",
+      "note_performance": { "views": 4, "likes": 0, "comments": 0, "date": "2026-03-23" }
     },
     {
       "id": "VID-033",
@@ -1789,6 +1794,44 @@
       "shorts": [],
       "speakerdeck_url": null,
       "docswell_url": null
+    },
+    {
+      "id": "VID-037",
+      "type": "main",
+      "title": "AI時代の承認プロセス｜\"設計しないAI導入\"が失敗する理由",
+      "series": "news-analysis",
+      "product": null,
+      "status": "published",
+      "duration": null,
+      "script": "scripts/video_anthropic_81k_analysis.md",
+      "slide": "slides/AI時代の承認プロセス.pptx",
+      "thumbnail": null,
+      "thumbnail_prompt": null,
+      "youtube_url": "https://youtu.be/dgFh5MvG2kU",
+      "publish_date": "2026-03-23",
+      "note_status": "未",
+      "note_url": null,
+      "note_article": null,
+      "twitter_draft": null,
+      "twitter_posts": [],
+      "tags": [
+        "AI",
+        "DX",
+        "Anthropic",
+        "承認プロセス",
+        "自律性",
+        "81000人調査"
+      ],
+      "performance": {
+        "views": null,
+        "ctr": null,
+        "avg_watch_time": null,
+        "likes": null
+      },
+      "memo": "Anthropic 81,000人調査の分析。自律性ギャップ・光と影・日本への示唆",
+      "shorts": [],
+      "speakerdeck_url": null,
+      "docswell_url": "https://www.docswell.com/s/HARMONICinsight/KWR1GX-ai-approval-process-framework"
     }
   ]
 }
