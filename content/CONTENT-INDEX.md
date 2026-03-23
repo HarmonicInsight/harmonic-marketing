@@ -9,6 +9,7 @@
 | # | ファイル | タイトル | シリーズ | ステータス | 公開日 |
 |---|---------|---------|---------|-----------|--------|
 | 1 | `note/articles/sipo-backoffice-reform-construction.md` | 建設業・ハウジング業のバックオフィスが重い本当の理由 | コンサル論 | draft | - |
+| 2 | `note/articles/construction-reconciliation-dx.md` | 建設業の「消し込み」が回らない本当の理由 — DXの前に整えるべき3つのこと | コンサル論 | draft | - |
 
 ## YouTube 動画
 
