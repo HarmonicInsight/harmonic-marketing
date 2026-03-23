@@ -425,7 +425,72 @@ for i, (label, desc, color) in enumerate(analogies):
 
 
 # ============================================================
-# Slide 8: まとめ ― DX成功の方程式
+# Slide 8: 管理会計の落とし穴 ― ダッシュボードは見られない
+# ============================================================
+slide = prs.slides.add_slide(prs.slide_layouts[6])
+add_bg(slide)
+add_accent_line(slide, Inches(0), Inches(0), prs.slide_width, COLOR_RED)
+
+add_textbox(slide, Inches(0.8), Inches(0.4), Inches(10), Inches(0.8),
+            "管理会計の落とし穴 ― ダッシュボードは見られない", font_size=34, bold=True)
+
+add_textbox(slide, Inches(0.8), Inches(1.2), Inches(11), Inches(0.5),
+            "分析するのは経営企画の一部だけ。ダッシュボードを作っても、自発的に見る人はほぼいない。",
+            font_size=16, color=COLOR_ACCENT2)
+
+# Left: NG pattern
+ng_card = add_shape_bg(slide, Inches(0.8), Inches(2.0), Inches(5.8), Inches(4.5), RGBColor(0x2E, 0x1A, 0x1A), 0.04)
+add_shape_bg(slide, Inches(0.8), Inches(2.0), Inches(5.8), Pt(6), COLOR_RED, 0)
+add_textbox(slide, Inches(1.2), Inches(2.3), Inches(5.0), Inches(0.5),
+            "ありがちな失敗パターン", font_size=24, bold=True, color=COLOR_RED)
+
+ng_items = [
+    ("ダッシュボードを構築", "BIツールで立派なダッシュボードを作成", COLOR_RED),
+    ("「いつでも見られます」", "全社に公開して自主的な閲覧を期待", COLOR_RED),
+    ("誰も見ない", "経営企画の一部以外、アクセスゼロ", COLOR_RED),
+    ("データが陳腐化", "更新もされず、投資が無駄に終わる", COLOR_RED),
+]
+
+for i, (step, desc, color) in enumerate(ng_items):
+    y = Inches(3.0 + i * 0.85)
+    add_textbox(slide, Inches(1.2), y, Inches(0.4), Inches(0.4),
+                str(i + 1), font_size=16, bold=True, color=COLOR_RED)
+    add_textbox(slide, Inches(1.7), y, Inches(2.0), Inches(0.4),
+                step, font_size=15, bold=True, color=COLOR_LIGHT_GRAY)
+    add_textbox(slide, Inches(3.8), y, Inches(2.5), Inches(0.4),
+                desc, font_size=13, color=COLOR_GRAY)
+
+# Right: OK pattern
+ok_card = add_shape_bg(slide, Inches(6.9), Inches(2.0), Inches(5.8), Inches(4.5), RGBColor(0x1A, 0x2E, 0x1A), 0.04)
+add_shape_bg(slide, Inches(6.9), Inches(2.0), Inches(5.8), Pt(6), COLOR_GREEN, 0)
+add_textbox(slide, Inches(7.3), Inches(2.3), Inches(5.0), Inches(0.5),
+            "あるべき進め方", font_size=24, bold=True, color=COLOR_GREEN)
+
+ok_items = [
+    ("既存の定例会議に組み込む", "取締役会・経営会議・部門定例に\nDX効果のレビュー枠を追加", COLOR_GREEN),
+    ("議題として強制的に扱う", "アジェンダに「DX効果報告」を\n固定枠として設定する", COLOR_GREEN),
+    ("報告フォーマットを統一", "売上・利益への影響を\n毎回同じ形式で報告する", COLOR_GREEN),
+    ("意思決定と直結させる", "数値が悪ければ改善策を決議、\n良ければ横展開を決定する", COLOR_GREEN),
+]
+
+for i, (step, desc, color) in enumerate(ok_items):
+    y = Inches(3.0 + i * 0.85)
+    add_textbox(slide, Inches(7.3), y, Inches(0.4), Inches(0.4),
+                str(i + 1), font_size=16, bold=True, color=COLOR_GREEN)
+    add_textbox(slide, Inches(7.8), y, Inches(2.2), Inches(0.6),
+                step, font_size=14, bold=True, color=COLOR_LIGHT_GRAY)
+    add_textbox(slide, Inches(10.1), y, Inches(2.4), Inches(0.6),
+                desc, font_size=12, color=COLOR_GRAY)
+
+# Bottom insight with analogy
+key_box = add_shape_bg(slide, Inches(0.8), Inches(6.8), Inches(11.7), Inches(0.5), RGBColor(0x0A, 0x2A, 0x3E), 0.03)
+add_textbox(slide, Inches(1.2), Inches(6.85), Inches(11.0), Inches(0.4),
+            "体重計を買っても乗らない → パーソナルジムで毎週トレーナーに計測される → だから続く。DXも同じ。",
+            font_size=15, bold=True, color=COLOR_ACCENT2, alignment=PP_ALIGN.CENTER)
+
+
+# ============================================================
+# Slide 9: まとめ ― DX成功の方程式
 # ============================================================
 slide = prs.slides.add_slide(prs.slide_layouts[6])
 add_bg(slide)
