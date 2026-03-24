@@ -9,6 +9,7 @@
 | # | ファイル | タイトル | シリーズ | ステータス | 公開日 |
 |---|---------|---------|---------|-----------|--------|
 | 1 | `note/articles/sipo-backoffice-reform-construction.md` | 建設業・ハウジング業のバックオフィスが重い本当の理由 | コンサル論 | draft | - |
+| 2 | `note/articles/note_08_personal_story.md` | 劣等感を抱えたまま30年走り続けたら、マネージングダイレクターになっていた | パーソナル | draft | - |
 
 ## YouTube 動画
 
@@ -67,3 +68,4 @@
 | コンサル論 | note, YouTube | SIPO、4層モデル等の業務改革フレームワーク |
 | ニュース速報分析 | YouTube Shorts, YouTube, note, Twitter | ニュース発表日を起点に独自分析・アンチテーゼを提供 |
 | ツール紹介 | Twitter, note | HARMONIC tools 個別ツールの紹介 |
+| パーソナル | note, LinkedIn | 個人の経験やキャリアに関するエッセイ |
