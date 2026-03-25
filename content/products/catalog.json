@@ -256,13 +256,15 @@
     {
       "id": "INPY",
       "name": "InsightPy",
-      "description": "Python 実行基盤",
+      "description": "Python 実行基盤 — プログラミング不要でPython自動化。Excel業務・ファイル整理・データ変換をノーコードで実現。",
       "category": "platform",
       "tech": "C# WPF / .NET 8",
       "repo": null,
       "stores_url": null,
+      "target": "individual",
       "pricing": {
         "free": true,
+        "personal": 9800,
         "biz": 49800
       },
       "status": "active",
@@ -272,8 +274,8 @@
         {
           "store": "STORES",
           "url": null,
-          "status": "pending",
-          "published": false
+          "status": "active",
+          "published": true
         },
         {
           "store": "GitHub Releases",
@@ -281,7 +283,8 @@
           "status": "active",
           "published": true
         }
-      ]
+      ],
+      "landing_page": "landing-pages/insight-py/"
     },
     {
       "id": "IAOF-AND",
@@ -475,8 +478,8 @@
       "version": "1.0.0",
       "date": "2026-03-10",
       "type": "major",
-      "notes": "最新版",
-      "stores_published": false
+      "notes": "最新版 — 個人向けSTORES販売開始",
+      "stores_published": true
     },
     {
       "id": "REL-017",

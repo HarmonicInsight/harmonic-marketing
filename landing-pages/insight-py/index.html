@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsightPy | プログラミング不要でPython自動化</title>
+  <meta name="description" content="InsightPyは、プログラミング不要でPython自動化を実現するデスクトップツール。Excel業務の効率化、データ処理、ファイル整理をノーコードで自動化できます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__logo">
+        <span class="header__logo-mark">Py</span>
+        <span class="header__logo-text">Insight<span class="header__logo-sub">Py</span></span>
+      </div>
+      <nav class="header__nav">
+        <a href="#features">機能</a>
+        <a href="#problems">こんな悩みに</a>
+        <a href="#usecases">活用例</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="#download" class="btn btn--primary">無料ダウンロード</a>
+      </div>
+      <button class="header__mobile-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__label">ノーコード Python 自動化ツール</p>
+        <h1 class="hero__title">
+          Pythonの力を、<br>
+          <em>プログラミング不要で。</em>
+        </h1>
+        <p class="hero__subtitle">
+          Excelの集計、ファイル整理、データ変換。<br>
+          毎日の面倒な作業を、Pythonが自動でこなす。<br>
+          <strong>コードを書く必要は、一切ありません。</strong>
+        </p>
+        <div class="hero__cta">
+          <a href="#download" class="btn btn--primary btn--lg">無料で始める</a>
+          <a href="#demo" class="btn btn--ghost btn--lg">どんなことができる？</a>
+        </div>
+        <p class="hero__note">Free版は永久無料 / インストールするだけ / Python環境の構築不要</p>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__mockup">
+          <div class="mockup__window">
+            <div class="mockup__titlebar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="mockup__title">InsightPy v1.0</span>
+            </div>
+            <div class="mockup__body">
+              <div class="mockup__step mockup__step--1">
+                <div class="mockup__icon">📋</div>
+                <div class="mockup__label">やりたいことを選ぶ</div>
+              </div>
+              <div class="mockup__arrow">&rarr;</div>
+              <div class="mockup__step mockup__step--2">
+                <div class="mockup__icon">⚡</div>
+                <div class="mockup__label">自動で実行</div>
+              </div>
+              <div class="mockup__arrow">&rarr;</div>
+              <div class="mockup__step mockup__step--3">
+                <div class="mockup__icon">✅</div>
+                <div class="mockup__label">完了</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL PROOF ========== -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="social-proof__text">毎日の繰り返し作業から解放された方が増えています</p>
+      <div class="social-proof__stats">
+        <div class="stat">
+          <span class="stat__number">0</span>
+          <span class="stat__label">必要なコード知識</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">90<small>%</small></span>
+          <span class="stat__label">作業時間削減</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">50<small>+</small></span>
+          <span class="stat__label">テンプレート数</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">1<small>クリック</small></span>
+          <span class="stat__label">で実行</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEMS ========== -->
+  <section id="problems" class="problems">
+    <div class="container">
+      <h2 class="section-title">こんな<em>悩み</em>はありませんか？</h2>
+      <div class="problems__grid">
+        <div class="problem-card">
+          <div class="problem-card__icon">📊</div>
+          <h3>Excelの集計作業に<br>毎回時間がかかる</h3>
+          <p>毎月同じ手順で集計・転記・グラフ作成。1つ1つは簡単だけど、量が多くて時間を取られる。</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">📁</div>
+          <h3>ファイルの整理が<br>追いつかない</h3>
+          <p>大量のファイルのリネーム、フォルダ分け、PDF結合。手作業では限界がある。</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">🐍</div>
+          <h3>Pythonが便利なのは知ってるけど<br>プログラミングは無理</h3>
+          <p>「Python使えば自動化できるよ」と言われたけど、環境構築もコードも分からない。</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">🔄</div>
+          <h3>同じ作業を<br>毎日繰り返している</h3>
+          <p>コピペ、変換、転記、メール添付...。「これ自動化できないかな」とずっと思っている。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION ========== -->
+  <section class="solution-intro">
+    <div class="container">
+      <h2 class="section-title">InsightPyなら、<em>全部解決</em></h2>
+      <p class="section-subtitle">Pythonの強力な自動化能力を、クリックだけで使えます。<br>環境構築不要。コード不要。インストールするだけ。</p>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features" class="features">
+    <div class="container">
+
+      <div class="feature-row">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 01</span>
+          <h3 class="feature-row__title">テンプレートを選んで<br>実行するだけ</h3>
+          <p>「Excel集計」「ファイルリネーム」「PDF結合」など、よく使う自動化テンプレートを50種以上搭載。やりたいことを選んで、対象ファイルを指定して、実行ボタンを押すだけ。</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">📊 Excel月次集計</div>
+              <div class="batch-item">📁 ファイル一括リネーム</div>
+              <div class="batch-item batch-item--processing">📄 PDF結合・分割</div>
+              <div class="batch-item batch-item--pending">🔄 CSVデータ変換</div>
+              <div class="batch-item batch-item--pending">📧 メール添付自動化</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--reverse">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 02</span>
+          <h3 class="feature-row__title">Excel業務を<br>まるごと自動化</h3>
+          <p>複数ブックの集計、シート間の転記、ピボット作成、グラフ生成。手作業で30分かかっていたExcel業務が、ワンクリックで完了します。</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__file">📊 売上データ_202603.xlsx</div>
+            <div class="feature-demo__arrow">⬇</div>
+            <div class="feature-demo__result">📈 月次レポート完成!</div>
+            <div class="feature-demo__time">処理時間: 約10秒</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 03</span>
+          <h3 class="feature-row__title">Python環境の<br>構築は一切不要</h3>
+          <p>InsightPyにはPython実行環境が内蔵されています。Pythonのインストールも、パッケージ管理も、コマンドラインも不要。ダウンロードしてすぐ使えます。</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item"><s>Python インストール</s> → 不要</div>
+              <div class="batch-item"><s>pip install ...</s> → 不要</div>
+              <div class="batch-item"><s>コマンドライン操作</s> → 不要</div>
+              <div class="batch-item batch-item--processing">InsightPyをインストール → これだけ!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--reverse">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 04</span>
+          <h3 class="feature-row__title">慣れてきたら<br>自分でカスタマイズも</h3>
+          <p>テンプレートだけでは足りなくなったら、ビジュアルエディタで処理フローを自由にカスタマイズ。Pythonを少し覚えれば、スクリプトを直接編集することも可能です。</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">Level 1: テンプレートそのまま使う</div>
+              <div class="batch-item batch-item--processing">Level 2: フローをカスタマイズ</div>
+              <div class="batch-item batch-item--pending">Level 3: Pythonスクリプト編集</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== USE CASES ========== -->
+  <section id="usecases" class="usecases">
+    <div class="container">
+      <h2 class="section-title">こんな<em>使い方</em>ができます</h2>
+      <div class="usecases__grid">
+        <div class="usecase-card">
+          <div class="usecase-card__icon">📊</div>
+          <h3>経理・事務</h3>
+          <p>請求書の集計、入金データの突合、経費精算の自動化。Excelのルーティン作業を一括処理。</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">📁</div>
+          <h3>ファイル管理</h3>
+          <p>大量ファイルのリネーム、フォルダ整理、PDF結合・分割。手作業では1時間かかる整理を数秒で。</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">🔄</div>
+          <h3>データ変換</h3>
+          <p>CSV→Excel変換、文字コード変換、フォーマット統一。異なるシステム間のデータ連携に。</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">📝</div>
+          <h3>レポート作成</h3>
+          <p>データから自動でグラフ・表を生成。定型レポートの作成時間をゼロに近づけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STEPS ========== -->
+  <section class="steps">
+    <div class="container">
+      <h2 class="section-title">かんたん<em>3ステップ</em></h2>
+      <div class="steps__grid">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <h3>ダウンロード</h3>
+          <p>InsightPyをダウンロードしてインストール。Python環境は自動でセットアップされます。</p>
+        </div>
+        <div class="step-card__connector"></div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <h3>テンプレートを選ぶ</h3>
+          <p>やりたいことに合ったテンプレートを選択。対象のファイルやフォルダを指定します。</p>
+        </div>
+        <div class="step-card__connector"></div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <h3>実行!</h3>
+          <p>ボタンを押して完了を待つだけ。結果はすぐに確認できます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2 class="section-title"><em>料金</em>プラン</h2>
+      <p class="section-subtitle">まずは無料で使ってみてください</p>
+      <div class="pricing__grid">
+        <div class="pricing-card">
+          <div class="pricing-card__header">
+            <h3>Free</h3>
+            <p class="pricing-card__desc">まずは試してみたい方</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount">¥0</span>
+            <span class="pricing-card__period">/ 永久無料</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>基本テンプレート10種</li>
+            <li>Excel自動化（基本機能）</li>
+            <li>ファイル整理・リネーム</li>
+            <li>CSV変換</li>
+          </ul>
+          <a href="#download" class="btn btn--outline btn--full">無料ダウンロード</a>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">おすすめ</div>
+          <div class="pricing-card__header">
+            <h3>Personal</h3>
+            <p class="pricing-card__desc">本格的に自動化したい方</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount">¥9,800</span>
+            <span class="pricing-card__period">/ 買い切り（税別）</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>全テンプレート50種以上</li>
+            <li>Excel自動化（全機能）</li>
+            <li>ビジュアルフローエディタ</li>
+            <li>スクリプト直接編集</li>
+            <li>スケジュール実行</li>
+            <li>メールサポート</li>
+          </ul>
+          <a href="#download" class="btn btn--primary btn--full">購入する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section id="download" class="cta-section">
+    <div class="container cta-section__inner">
+      <h2>まずは<em>無料</em>で試してみてください</h2>
+      <p>Free版は永久無料。基本的な自動化はすべて使えます。<br>「こんなこともできるんだ」をぜひ体験してください。</p>
+      <div class="cta-section__buttons">
+        <a href="#" class="btn btn--white btn--lg">Free版をダウンロード</a>
+        <a href="#pricing" class="btn btn--ghost-white btn--lg">Personal版を購入</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-title">よくある<em>質問</em></h2>
+      <div class="faq__list">
+        <details class="faq-item">
+          <summary>本当にプログラミング不要ですか？</summary>
+          <p>はい。テンプレートを選んで実行するだけで使えます。Pythonの知識は一切不要です。慣れてきてカスタマイズしたい場合は、ビジュアルエディタやスクリプト編集も可能です。</p>
+        </details>
+        <details class="faq-item">
+          <summary>Pythonを別途インストールする必要はありますか？</summary>
+          <p>不要です。InsightPyにPython実行環境が内蔵されていますので、ダウンロードしてすぐにお使いいただけます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>Free版とPersonal版の違いは？</summary>
+          <p>Free版は基本テンプレート10種と基本機能が永久無料で使えます。Personal版はテンプレート50種以上、ビジュアルフローエディタ、スケジュール実行など全機能が使えます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>どのOSに対応していますか？</summary>
+          <p>Windows 10/11に対応しています。.NET 8ランタイム環境で動作します。</p>
+        </details>
+        <details class="faq-item">
+          <summary>会社のPCでも使えますか？</summary>
+          <p>はい。デスクトップアプリなのでインストールするだけで使えます。法人でのご利用にはビジネスライセンスもご用意しています。お気軽にお問い合わせください。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="header__logo-mark">Py</span>
+        <span class="header__logo-text">Insight<span class="header__logo-sub">Py</span></span>
+        <p class="footer__copy">プログラミング不要で、Pythonの力を手に入れる。</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>プロダクト</h4>
+          <a href="#features">機能一覧</a>
+          <a href="#pricing">料金プラン</a>
+          <a href="#usecases">活用例</a>
+          <a href="#faq">よくある質問</a>
+        </div>
+        <div class="footer__col">
+          <h4>サポート</h4>
+          <a href="#">操作ガイド</a>
+          <a href="#">お問い合わせ</a>
+          <a href="#">テンプレート一覧</a>
+        </div>
+        <div class="footer__col">
+          <h4>関連</h4>
+          <a href="#">HARMONIC insight</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">特定商取引法</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 HARMONIC insight. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.header__mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('is-open');
+      this.classList.toggle('is-active');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      document.querySelector('.header').classList.toggle('header--scrolled', window.scrollY > 50);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item summary').forEach(summary => {
+      summary.addEventListener('click', function() {
+        const parent = this.parentElement;
+        document.querySelectorAll('.faq-item[open]').forEach(item => {
+          if (item !== parent) item.removeAttribute('open');
+        });
+      });
+    });
+
+    // Scroll animations
+    const animTargets = document.querySelectorAll(
+      '.problem-card, .feature-row, .benefit-card, .usecase-card, .step-card, .pricing-card, .stat'
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    animTargets.forEach(el => {
+      el.classList.add('anim-fade-up');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
