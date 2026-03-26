@@ -1,696 +1,548 @@
 """
-ニュース速報分析シリーズ - Shorts用PPTX生成スクリプト
-既存デザイン（ダーク背景 + ゴールドアクセント）を踏襲しつつ、
-日付ラベルやデータビジュアルを追加したグラフィカルなスライドを生成。
+ニュース速報分析シリーズ - Shorts用PPTX v3 (Ivory + Gold)
+
+デザイン方針:
+- Ivory背景 (#FAF8F5) + Gold (#B8942F) アクセント
+- ダークブラウン (#1C1917) テキスト
+- 1スライド1メッセージ、余白たっぷり
+- 左アクセントバーで視線誘導
+- データは大きくドンと表示
+
+コンテンツ方針:
+- 「レポートによると」「調査が示した」で権威性を付与
+- 「世界159か国」「81,000人」で規模感を強調
+- 出典を毎回明示
 """
 
 from pptx import Presentation
-from pptx.util import Pt, Emu, Inches
+from pptx.util import Pt, Emu
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
+from pptx.oxml.ns import qn
 import os
 
-# ── 定数 ──
-SLIDE_W = Emu(4114800)  # 4.5 inches
-SLIDE_H = Emu(7315200)  # 8.0 inches
+# ━━━ サイズ ━━━
+SW = Emu(4114800)   # 4.5 in
+SH = Emu(7315200)   # 8.0 in
 
-# カラーパレット
-BG_DARK = RGBColor(0x1C, 0x19, 0x17)
-GOLD = RGBColor(0xB8, 0x94, 0x2F)
-WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-WARM_GRAY = RGBColor(0x57, 0x53, 0x4E)
-LIGHT_GRAY = RGBColor(0xA8, 0xA2, 0x9E)
-RED_ACCENT = RGBColor(0xE5, 0x39, 0x35)
-BLUE_ACCENT = RGBColor(0x42, 0xA5, 0xF5)
-GREEN_ACCENT = RGBColor(0x66, 0xBB, 0x6A)
-ORANGE_ACCENT = RGBColor(0xFF, 0xA7, 0x26)
-TEAL_ACCENT = RGBColor(0x26, 0xC6, 0xDA)
-DARK_SURFACE = RGBColor(0x2C, 0x27, 0x23)
-PURPLE_ACCENT = RGBColor(0xAB, 0x47, 0xBC)
+# ━━━ カラー（Ivory + Gold ブランド） ━━━
+IVORY     = RGBColor(0xFA, 0xF8, 0xF5)   # メイン背景
+WARM_WH   = RGBColor(0xFF, 0xFF, 0xFF)   # カード白
+GOLD      = RGBColor(0xB8, 0x94, 0x2F)   # ブランドゴールド
+GOLD_LITE = RGBColor(0xD4, 0xBB, 0x72)   # ゴールド薄
+DARK      = RGBColor(0x1C, 0x19, 0x17)   # テキスト（ほぼ黒）
+BROWN     = RGBColor(0x5D, 0x4E, 0x3F)   # サブテキスト
+MID       = RGBColor(0x7A, 0x66, 0x52)   # 補助テキスト
+LIGHT_BRN = RGBColor(0xBF, 0xAD, 0x9C)   # 薄い装飾
+PALE      = RGBColor(0xED, 0xE6, 0xDF)   # カード背景
+RED       = RGBColor(0xB5, 0x45, 0x3A)   # 警告・強調（落ち着いた赤）
+NAVY      = RGBColor(0x1B, 0x3A, 0x5C)   # データ色・知的
+TEAL      = RGBColor(0x2A, 0x7A, 0x6E)   # データ色・グリーン系
+AMBER     = RGBColor(0xC1, 0x78, 0x17)   # データ色・オレンジ系
 
-FONT_NAME = "Hiragino Sans"
-FONT_NAME_FALLBACK = "Yu Gothic"
+FONT = "Hiragino Sans"
 
-MARGIN_X = Emu(274320)
-CONTENT_W = Emu(3566160)
-TOP_BAR_H = Emu(54864)
-BRAND_Y = Emu(6675120)
-BRAND_H = Emu(365760)
-
-OUTPUT_DIR = "content/youtube/shorts"
+# ━━━ レイアウト ━━━
+MX = Emu(365760)             # 左右マージン（広め）
+CW = SW - MX * 2             # コンテンツ幅
+BAR_W = Emu(32000)           # 左アクセントバー幅
 
 
-def _set_bg(slide, color=BG_DARK):
-    bg = slide.background
-    fill = bg.fill
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ヘルパー
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def _slide(prs, bg=None):
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    fill = s.background.fill
     fill.solid()
-    fill.fore_color.rgb = color
+    fill.fore_color.rgb = bg or IVORY
+    return s
 
 
-def _add_top_bar(slide, color=GOLD):
-    bar = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, SLIDE_W, TOP_BAR_H)
-    bar.fill.solid()
-    bar.fill.fore_color.rgb = color
-    bar.line.fill.background()
+def _bar(slide, y, h, color=GOLD):
+    """左サイドのアクセントバー"""
+    b = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, Emu(y), BAR_W, Emu(h))
+    b.fill.solid()
+    b.fill.fore_color.rgb = color
+    b.line.fill.background()
 
 
-def _add_brand(slide):
-    txBox = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, MARGIN_X, BRAND_Y, CONTENT_W, BRAND_H
-    )
-    txBox.fill.background()
-    txBox.line.fill.background()
-    tf = txBox.text_frame
+def _full_band(slide, y, h, color=GOLD):
+    """フルウィドスの帯"""
+    b = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, Emu(y), SW, Emu(h))
+    b.fill.solid()
+    b.fill.fore_color.rgb = color
+    b.line.fill.background()
+
+
+def _text(slide, lines, y, size, color=DARK, bold=True,
+          align=PP_ALIGN.LEFT, spacing=1.3, x=None, w=None):
+    """テキストブロック"""
+    tx = x if x is not None else MX
+    tw = w or CW
+    est_h = int(len(lines) * size * 914.4 * spacing * 1.5)
+    box = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, tx, Emu(y), tw, Emu(est_h))
+    box.fill.background()
+    box.line.fill.background()
+    tf = box.text_frame
     tf.word_wrap = True
-    p = tf.paragraphs[0]
-    p.text = "HARMONIC insight"
-    p.alignment = PP_ALIGN.LEFT
-    run = p.runs[0]
-    run.font.name = FONT_NAME
-    run.font.size = Pt(9)
-    run.font.color.rgb = GOLD
 
-
-def _add_date_label(slide, date_text, source_text, x=None, y=None):
-    """赤い日付ラベル + ソース名"""
-    lbl_x = x or Emu(137160)
-    lbl_y = y or Emu(274320)
-    lbl_w = Emu(1920240)
-    lbl_h = Emu(365760)
-
-    label = slide.shapes.add_shape(
-        MSO_SHAPE.ROUNDED_RECTANGLE, lbl_x, lbl_y, lbl_w, lbl_h
-    )
-    label.fill.solid()
-    label.fill.fore_color.rgb = RED_ACCENT
-    label.line.fill.background()
-    # Adjust corner rounding
-    label.adjustments[0] = 0.25
-
-    tf = label.text_frame
-    tf.word_wrap = False
-    p = tf.paragraphs[0]
-    p.text = date_text
-    p.alignment = PP_ALIGN.CENTER
-    run = p.runs[0]
-    run.font.name = FONT_NAME
-    run.font.size = Pt(12)
-    run.font.bold = True
-    run.font.color.rgb = WHITE
-
-    # Source name next to label
-    src_x = lbl_x + lbl_w + Emu(91440)
-    src = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, src_x, lbl_y, Emu(1554480), lbl_h
-    )
-    src.fill.background()
-    src.line.fill.background()
-    tf2 = src.text_frame
-    tf2.word_wrap = False
-    p2 = tf2.paragraphs[0]
-    p2.text = source_text
-    p2.alignment = PP_ALIGN.LEFT
-    run2 = p2.runs[0]
-    run2.font.name = FONT_NAME
-    run2.font.size = Pt(11)
-    run2.font.color.rgb = LIGHT_GRAY
-
-
-def _add_text_block(slide, texts, y, h, font_size, color=WHITE, bold=True, align=PP_ALIGN.LEFT):
-    """メインテキストブロック"""
-    txBox = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, MARGIN_X, Emu(y), CONTENT_W, Emu(h)
-    )
-    txBox.fill.background()
-    txBox.line.fill.background()
-    tf = txBox.text_frame
-    tf.word_wrap = True
-    tf.auto_size = None
-
-    for i, text in enumerate(texts):
-        if i == 0:
-            p = tf.paragraphs[0]
-        else:
-            p = tf.add_paragraph()
-        p.text = text
+    for i, line in enumerate(lines):
+        p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.alignment = align
-        p.space_after = Pt(4)
-        run = p.runs[0]
-        run.font.name = FONT_NAME
-        run.font.size = Pt(font_size)
+
+        # 行間設定
+        pPr = p._p.get_or_add_pPr()
+        lnSpc = pPr.makeelement(qn('a:lnSpc'), {})
+        spcPct = lnSpc.makeelement(qn('a:spcPct'), {'val': str(int(spacing * 100000))})
+        lnSpc.append(spcPct)
+        pPr.append(lnSpc)
+
+        txt, c = (line, color) if isinstance(line, str) else line
+        run = p.add_run()
+        run.text = txt
+        run.font.name = FONT
+        run.font.size = Pt(size)
         run.font.bold = bold
-        run.font.color.rgb = color
+        run.font.color.rgb = c
+
+    return box
 
 
-def _add_sub_text(slide, texts, y, h, font_size=12, color=WARM_GRAY):
-    _add_text_block(slide, texts, y, h, font_size, color, bold=False)
-
-
-def _add_horizontal_bar(slide, label, value, max_val, y, color, width_ratio=0.85):
-    """水平バーチャート（1本）"""
-    bar_x = MARGIN_X
-    bar_y = Emu(y)
-    bar_h = Emu(320040)
-    max_w = int(CONTENT_W * width_ratio)
-    bar_w = int(max_w * (value / max_val))
-
-    # Label
-    lbl = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, bar_x, Emu(y - 228600), CONTENT_W, Emu(228600)
+def _badge(slide, text, y, color=RED):
+    """角丸バッジ"""
+    badge = slide.shapes.add_shape(
+        MSO_SHAPE.ROUNDED_RECTANGLE, MX, Emu(y), Emu(1737360), Emu(274320)
     )
-    lbl.fill.background()
-    lbl.line.fill.background()
-    tf = lbl.text_frame
-    p = tf.paragraphs[0]
-    p.text = label
-    p.alignment = PP_ALIGN.LEFT
-    run = p.runs[0]
-    run.font.name = FONT_NAME
-    run.font.size = Pt(11)
-    run.font.color.rgb = LIGHT_GRAY
-
-    # Bar background
-    bg_bar = slide.shapes.add_shape(
-        MSO_SHAPE.ROUNDED_RECTANGLE, bar_x, bar_y, Emu(max_w), bar_h
-    )
-    bg_bar.fill.solid()
-    bg_bar.fill.fore_color.rgb = DARK_SURFACE
-    bg_bar.line.fill.background()
-    bg_bar.adjustments[0] = 0.15
-
-    # Bar fill
-    if bar_w > 0:
-        fill_bar = slide.shapes.add_shape(
-            MSO_SHAPE.ROUNDED_RECTANGLE, bar_x, bar_y, Emu(bar_w), bar_h
-        )
-        fill_bar.fill.solid()
-        fill_bar.fill.fore_color.rgb = color
-        fill_bar.line.fill.background()
-        fill_bar.adjustments[0] = 0.15
-
-    # Value
-    val_x = Emu(bar_x + max_w + 68580)
-    val = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, val_x, bar_y, Emu(548640), bar_h
-    )
-    val.fill.background()
-    val.line.fill.background()
-    tf2 = val.text_frame
-    tf2.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p2 = tf2.paragraphs[0]
-    p2.text = f"{value}%"
-    p2.alignment = PP_ALIGN.LEFT
-    run2 = p2.runs[0]
-    run2.font.name = FONT_NAME
-    run2.font.size = Pt(13)
-    run2.font.bold = True
-    run2.font.color.rgb = color
-
-
-def _add_big_number(slide, number, unit, description, y, color=GOLD):
-    """大きな数字表示"""
-    # Number
-    num_box = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, MARGIN_X, Emu(y), CONTENT_W, Emu(640080)
-    )
-    num_box.fill.background()
-    num_box.line.fill.background()
-    tf = num_box.text_frame
-    tf.word_wrap = False
+    badge.fill.solid()
+    badge.fill.fore_color.rgb = color
+    badge.line.fill.background()
+    badge.adjustments[0] = 0.35
+    tf = badge.text_frame
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
     p = tf.paragraphs[0]
     p.alignment = PP_ALIGN.CENTER
-
-    run_num = p.add_run()
-    run_num.text = str(number)
-    run_num.font.name = FONT_NAME
-    run_num.font.size = Pt(52)
-    run_num.font.bold = True
-    run_num.font.color.rgb = color
-
-    run_unit = p.add_run()
-    run_unit.text = unit
-    run_unit.font.name = FONT_NAME
-    run_unit.font.size = Pt(20)
-    run_unit.font.bold = True
-    run_unit.font.color.rgb = color
-
-    # Description
-    if description:
-        desc_box = slide.shapes.add_shape(
-            MSO_SHAPE.RECTANGLE, MARGIN_X, Emu(y + 640080), CONTENT_W, Emu(320040)
-        )
-        desc_box.fill.background()
-        desc_box.line.fill.background()
-        tf2 = desc_box.text_frame
-        p2 = tf2.paragraphs[0]
-        p2.text = description
-        p2.alignment = PP_ALIGN.CENTER
-        run2 = p2.runs[0]
-        run2.font.name = FONT_NAME
-        run2.font.size = Pt(12)
-        run2.font.color.rgb = LIGHT_GRAY
+    r = p.add_run()
+    r.text = text
+    r.font.name = FONT
+    r.font.size = Pt(10)
+    r.font.bold = True
+    r.font.color.rgb = WARM_WH
 
 
-def _add_vs_block(slide, left_val, left_label, right_val, right_label, y, left_color, right_color):
-    """VS比較ブロック"""
-    block_y = Emu(y)
-    half_w = int(CONTENT_W / 2) - Emu(45720)
+def _hero_num(slide, num, unit, y, color=GOLD, num_size=58, unit_size=24):
+    """巨大数字"""
+    h = int(num_size * 914.4 * 1.6)
+    box = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, MX, Emu(y), CW, Emu(h))
+    box.fill.background()
+    box.line.fill.background()
+    tf = box.text_frame
+    p = tf.paragraphs[0]
+    p.alignment = PP_ALIGN.LEFT
 
-    # Left box
-    left_box = slide.shapes.add_shape(
-        MSO_SHAPE.ROUNDED_RECTANGLE, MARGIN_X, block_y, Emu(half_w), Emu(960120)
+    r1 = p.add_run()
+    r1.text = str(num)
+    r1.font.name = FONT
+    r1.font.size = Pt(num_size)
+    r1.font.bold = True
+    r1.font.color.rgb = color
+
+    r2 = p.add_run()
+    r2.text = " " + unit
+    r2.font.name = FONT
+    r2.font.size = Pt(unit_size)
+    r2.font.bold = True
+    r2.font.color.rgb = color
+
+
+def _line(slide, y, w=914400, color=GOLD):
+    """区切り線（短め）"""
+    ln = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, MX, Emu(y), Emu(w), Emu(13716))
+    ln.fill.solid()
+    ln.fill.fore_color.rgb = color
+    ln.line.fill.background()
+
+
+def _source(slide, text, y=6400000):
+    _text(slide, [text], y, 7, LIGHT_BRN, bold=False)
+
+
+def _brand(slide, y=6720000):
+    _text(slide, ["HARMONIC insight"], y, 9, GOLD, bold=False)
+
+
+def _stat(slide, value, label, y, color=GOLD):
+    """データ行：大きい数字＋ラベル"""
+    _text(slide, [value], y, 32, color, bold=True)
+    _text(slide, [label], y + 430000, 12, MID, bold=False)
+
+
+def _card(slide, y, h):
+    """白カードパネル"""
+    c = slide.shapes.add_shape(
+        MSO_SHAPE.ROUNDED_RECTANGLE, MX, Emu(y), CW, Emu(h)
     )
-    left_box.fill.solid()
-    left_box.fill.fore_color.rgb = DARK_SURFACE
-    left_box.line.fill.background()
-    left_box.adjustments[0] = 0.08
-
-    tf_l = left_box.text_frame
-    tf_l.word_wrap = True
-    tf_l.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p_val = tf_l.paragraphs[0]
-    p_val.alignment = PP_ALIGN.CENTER
-    run_v = p_val.add_run()
-    run_v.text = left_val
-    run_v.font.name = FONT_NAME
-    run_v.font.size = Pt(36)
-    run_v.font.bold = True
-    run_v.font.color.rgb = left_color
-
-    p_lbl = tf_l.add_paragraph()
-    p_lbl.alignment = PP_ALIGN.CENTER
-    run_l = p_lbl.add_run()
-    run_l.text = left_label
-    run_l.font.name = FONT_NAME
-    run_l.font.size = Pt(10)
-    run_l.font.color.rgb = LIGHT_GRAY
-
-    # VS circle
-    vs_x = Emu(int(MARGIN_X + half_w + 45720 / 2 - 182880))
-    vs_circle = slide.shapes.add_shape(
-        MSO_SHAPE.OVAL, vs_x, Emu(y + 320040), Emu(365760), Emu(365760)
-    )
-    vs_circle.fill.solid()
-    vs_circle.fill.fore_color.rgb = RED_ACCENT
-    vs_circle.line.fill.background()
-    tf_vs = vs_circle.text_frame
-    tf_vs.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p_vs = tf_vs.paragraphs[0]
-    p_vs.alignment = PP_ALIGN.CENTER
-    run_vs = p_vs.add_run()
-    run_vs.text = "VS"
-    run_vs.font.name = FONT_NAME
-    run_vs.font.size = Pt(11)
-    run_vs.font.bold = True
-    run_vs.font.color.rgb = WHITE
-
-    # Right box
-    right_x = Emu(int(MARGIN_X + half_w + 91440))
-    right_box = slide.shapes.add_shape(
-        MSO_SHAPE.ROUNDED_RECTANGLE, right_x, block_y, Emu(half_w), Emu(960120)
-    )
-    right_box.fill.solid()
-    right_box.fill.fore_color.rgb = DARK_SURFACE
-    right_box.line.fill.background()
-    right_box.adjustments[0] = 0.08
-
-    tf_r = right_box.text_frame
-    tf_r.word_wrap = True
-    tf_r.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p_val2 = tf_r.paragraphs[0]
-    p_val2.alignment = PP_ALIGN.CENTER
-    run_v2 = p_val2.add_run()
-    run_v2.text = right_val
-    run_v2.font.name = FONT_NAME
-    run_v2.font.size = Pt(36)
-    run_v2.font.bold = True
-    run_v2.font.color.rgb = right_color
-
-    p_lbl2 = tf_r.add_paragraph()
-    p_lbl2.alignment = PP_ALIGN.CENTER
-    run_l2 = p_lbl2.add_run()
-    run_l2.text = right_label
-    run_l2.font.name = FONT_NAME
-    run_l2.font.size = Pt(10)
-    run_l2.font.color.rgb = LIGHT_GRAY
+    c.fill.solid()
+    c.fill.fore_color.rgb = WARM_WH
+    c.line.fill.background()
+    c.adjustments[0] = 0.03
+    # ドロップシャドウ（xml直接操作）
+    spPr = c._element.spPr
+    effectLst = spPr.makeelement(qn('a:effectLst'), {})
+    outerShdw = effectLst.makeelement(qn('a:outerShdw'), {
+        'blurRad': '76200', 'dist': '25400', 'dir': '5400000',
+        'rotWithShape': '0'
+    })
+    srgbClr = outerShdw.makeelement(qn('a:srgbClr'), {'val': '1C1917'})
+    alpha = srgbClr.makeelement(qn('a:alpha'), {'val': '12000'})
+    srgbClr.append(alpha)
+    outerShdw.append(srgbClr)
+    effectLst.append(outerShdw)
+    spPr.append(effectLst)
+    return c
 
 
-def _add_divider(slide, y, color=GOLD):
-    """区切り線"""
-    line = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, MARGIN_X, Emu(y), CONTENT_W, Emu(18288)
-    )
-    line.fill.solid()
-    line.fill.fore_color.rgb = color
-    line.line.fill.background()
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PPTX 1: 8万人に聞いた。生産性じゃなく自由
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-
-def _new_slide(prs):
-    layout = prs.slide_layouts[6]  # blank
-    slide = prs.slides.add_slide(layout)
-    _set_bg(slide)
-    _add_top_bar(slide)
-    _add_brand(slide)
-    return slide
-
-
-def _add_icon_text_row(slide, icon_char, text, y, icon_color=GOLD, text_color=WHITE):
-    """アイコン + テキスト行"""
-    # Icon
-    icon_box = slide.shapes.add_shape(
-        MSO_SHAPE.OVAL, MARGIN_X, Emu(y), Emu(320040), Emu(320040)
-    )
-    icon_box.fill.solid()
-    icon_box.fill.fore_color.rgb = DARK_SURFACE
-    icon_box.line.fill.background()
-    tf_i = icon_box.text_frame
-    tf_i.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p_i = tf_i.paragraphs[0]
-    p_i.alignment = PP_ALIGN.CENTER
-    run_i = p_i.add_run()
-    run_i.text = icon_char
-    run_i.font.name = FONT_NAME
-    run_i.font.size = Pt(14)
-    run_i.font.bold = True
-    run_i.font.color.rgb = icon_color
-
-    # Text
-    txt_box = slide.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, Emu(MARGIN_X + 388620), Emu(y), Emu(CONTENT_W - 388620), Emu(320040)
-    )
-    txt_box.fill.background()
-    txt_box.line.fill.background()
-    tf_t = txt_box.text_frame
-    tf_t.vertical_anchor = MSO_ANCHOR.MIDDLE
-    p_t = tf_t.paragraphs[0]
-    p_t.text = text
-    run_t = p_t.runs[0]
-    run_t.font.name = FONT_NAME
-    run_t.font.size = Pt(13)
-    run_t.font.color.rgb = text_color
-
-
-# ============================================================
-# PPTX 1: Anthropic 81,000人調査 - 生産性じゃなく自由
-# ============================================================
-def create_anthropic_freedom():
+def create_short_01():
     prs = Presentation()
-    prs.slide_width = SLIDE_W
-    prs.slide_height = SLIDE_H
+    prs.slide_width = SW
+    prs.slide_height = SH
 
-    # ── Slide 1: タイトル + 日付ラベル ──
-    s = _new_slide(prs)
-    _add_date_label(s, "3月18日 発表", "Anthropic")
-    _add_big_number(s, "81,000", "人", "159か国 · 70言語", 1143000)
-    _add_text_block(s, [
-        "AIに何を求めるか？",
-        "史上最大の調査",
-    ], 2514600, 1371600, 28, WHITE, True)
-    _add_sub_text(s, [
-        "答えは「生産性」じゃなかった",
-    ], 4114800, 640080, 15, GOLD)
+    # ── S1: フック ──
+    s = _slide(prs)
+    _badge(s, "3月18日 Anthropic発表", 548640)
+    _text(s, [
+        "8万人に聞いた。",
+    ], 1371600, 28, DARK)
+    _text(s, [
+        "AIに求めるもの、",
+        "生産性じゃ",
+        "なかった。",
+    ], 2057400, 30, GOLD)
+    _line(s, 4114800)
+    _text(s, [
+        "世界159か国・70言語。",
+        "AI分野で史上最大の調査レポート",
+    ], 4343400, 11, MID, bold=False)
+    _brand(s)
 
-    # ── Slide 2: 9つのビジョン トップ4 バーチャート ──
-    s2 = _new_slide(prs)
-    _add_date_label(s2, "3月18日 発表", "Anthropic")
-    _add_text_block(s2, [
-        "AIに求めるもの",
-        "トップ4",
-    ], 822960, 731520, 24, WHITE, True)
+    # ── S2: 権威性＋数字 ──
+    s2 = _slide(prs)
+    _bar(s2, 457200, 5943600)
+    _text(s2, [
+        "Anthropic社が発表した",
+        "研究レポートの数字",
+    ], 640080, 14, MID, bold=False)
+    _hero_num(s2, "81,000", "人", 1371600)
+    _text(s2, [
+        "「魔法の杖があったら",
+        "  AIに何をさせたい？」",
+    ], 2514600, 20, DARK)
+    _text(s2, [
+        "この問いへの回答が",
+        "9つのビジョンに分類された",
+    ], 3429000, 13, MID, bold=False)
+    _source(s2, "出典: Anthropic \"What 81,000 people want from AI\" 2026.3.18")
+    _brand(s2)
 
-    _add_horizontal_bar(s2, "職業的卓越性", 18.8, 25, 2057400, BLUE_ACCENT)
-    _add_horizontal_bar(s2, "個人的変容", 13.7, 25, 2743200, ORANGE_ACCENT)
-    _add_horizontal_bar(s2, "生活管理", 13.5, 25, 3429000, GREEN_ACCENT)
-    _add_horizontal_bar(s2, "時間的自由", 11.1, 25, 4114800, TEAL_ACCENT)
+    # ── S3: データ ──
+    s3 = _slide(prs)
+    _text(s3, [
+        "レポートが示した",
+        "回答トップ4",
+    ], 548640, 18, BROWN, bold=False)
+    _line(s3, 1143000)
 
-    _add_sub_text(s2, [
-        "上位3つで46%。どれも単純な",
-        "「生産性向上」には収まらない",
-    ], 5029200, 640080, 12, WARM_GRAY)
+    _stat(s3, "19%", "職業的卓越性", 1371600, NAVY)
+    _stat(s3, "14%", "個人的変容・成長", 2286000, AMBER)
+    _stat(s3, "14%", "認知的負担の軽減", 3200400, TEAL)
+    _stat(s3, "11%", "家族と過ごす時間", 4114800, GOLD)
 
-    # ── Slide 3: 深く聞くと変わる ──
-    s3 = _new_slide(prs)
-    _add_text_block(s3, [
-        "「なぜそれが",
-        "  欲しいの？」",
-        "と深く聞くと…",
-    ], 1143000, 1828800, 24, WHITE, True)
-    _add_divider(s3, 3200400, GOLD)
-    _add_icon_text_row(s3, "14%", "自分自身の成長", 3429000, ORANGE_ACCENT, WHITE)
-    _add_icon_text_row(s3, "14%", "認知的負担を減らしたい", 3886200, GREEN_ACCENT, WHITE)
-    _add_icon_text_row(s3, "11%", "家族と過ごす時間", 4343400, TEAL_ACCENT, WHITE)
+    _text(s3, [
+        "「生産性」と答えたのに、",
+        "中身は全部「自由」だった",
+    ], 5257800, 14, GOLD, bold=True)
+    _brand(s3)
 
-    _add_sub_text(s3, [
-        "メキシコのエンジニア：",
-        "「AIのおかげで定時に帰れる。",
-        "  子どもの迎えに行ける」",
-    ], 5029200, 914400, 12, WARM_GRAY)
+    # ── S4: エピソード ──
+    s4 = _slide(prs)
+    _bar(s4, 914400, 3657600)
+    _text(s4, [
+        "レポートに登場する",
+        "メキシコのエンジニアの声",
+    ], 914400, 13, MID, bold=False)
+    _text(s4, [
+        "「AIのおかげで",
+        "  定時に帰れる。",
+    ], 1600200, 22, DARK)
+    _text(s4, [
+        "  子どもの迎えに",
+        "  行けるように",
+        "  なった」",
+    ], 2514600, 22, GOLD)
+    _line(s4, 4343400)
+    _text(s4, [
+        "世界中で同じ声が上がっている。",
+        "AIの価値は「速さ」ではなく",
+        "「人生の時間を取り戻すこと」",
+    ], 4571040, 12, MID, bold=False, spacing=1.5)
+    _brand(s4)
 
-    # ── Slide 4: 結論 ──
-    s4 = _new_slide(prs)
-    _add_text_block(s4, [
-        "人は",
-        "「生産性」と",
-        "答えた",
-    ], 1371600, 1600200, 28, WHITE, True)
-    _add_divider(s4, 3200400, GOLD)
-    _add_text_block(s4, [
-        "本当に",
-        "求めていたのは",
-        "「自由」だった",
-    ], 3429000, 1600200, 28, GOLD, True)
-
-    # ── Slide 5: 締め ──
-    s5 = _new_slide(prs)
-    _add_text_block(s5, [
-        "生産性は手段。",
+    # ── S5: 結論 ──
+    s5 = _slide(prs)
+    _text(s5, [
+        "生産性は",
+        "手段。",
+    ], 1828800, 32, DARK)
+    _text(s5, [
         "目的は、",
-        "人生を取り戻す",
-        "こと。",
-    ], 2057400, 2286000, 28, WHITE, True)
-    _add_sub_text(s5, [
-        "出典: Anthropic \"81,000 Interviews\" 2026",
-    ], 5486400, 457200, 9, WARM_GRAY)
+        "人生を",
+        "取り戻すこと。",
+    ], 3200400, 32, GOLD)
+    _source(s5, "Anthropic \"81,000 Interviews\" 2026年3月18日")
+    _brand(s5)
 
     path = os.path.join(OUTPUT_DIR, "SHORT_NEWS_01_anthropic_freedom.pptx")
     prs.save(path)
     print(f"Created: {path}")
 
 
-# ============================================================
-# PPTX 2: Anthropic 自律性ギャップ 47% vs 14%
-# ============================================================
-def create_anthropic_autonomy():
-    prs = Presentation()
-    prs.slide_width = SLIDE_W
-    prs.slide_height = SLIDE_H
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PPTX 2: 自律性ギャップ 47% vs 14%
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-    # ── Slide 1: タイトル ──
-    s = _new_slide(prs)
-    _add_date_label(s, "3月18日 発表", "Anthropic")
-    _add_text_block(s, [
+def create_short_02():
+    prs = Presentation()
+    prs.slide_width = SW
+    prs.slide_height = SH
+
+    # ── S1: フック ──
+    s = _slide(prs)
+    _badge(s, "3月18日 Anthropic発表", 548640)
+    _text(s, [
         "AIの恩恵、",
+    ], 1371600, 26, DARK)
+    _text(s, [
         "会社員と",
         "フリーランスで",
-    ], 1143000, 1600200, 24, WHITE, True)
-    _add_text_block(s, [
-        "3倍違う",
-    ], 2971800, 731520, 36, RED_ACCENT, True)
-    _add_sub_text(s, [
-        "81,000人調査が示した決定的な差",
-    ], 4114800, 457200, 12, WARM_GRAY)
+        "3倍違う。",
+    ], 2057400, 30, RED)
+    _line(s, 4114800)
+    _text(s, [
+        "159か国 81,000人の調査が示した",
+        "「自律性」という決定的な差",
+    ], 4343400, 11, MID, bold=False)
+    _brand(s)
 
-    # ── Slide 2: VS比較 ──
-    s2 = _new_slide(prs)
-    _add_date_label(s2, "3月18日 発表", "Anthropic")
-    _add_text_block(s2, [
+    # ── S2: データ ──
+    s2 = _slide(prs)
+    _text(s2, [
+        "レポートの衝撃的なデータ",
+    ], 457200, 14, MID, bold=False)
+    _text(s2, [
         "AIで経済的恩恵を",
         "感じている人の割合",
-    ], 822960, 731520, 18, LIGHT_GRAY, False)
+    ], 822960, 18, DARK)
+    _line(s2, 1371600)
 
-    _add_vs_block(s2,
-        "47%", "独立事業者", "14%", "企業従業員",
-        1828800, GREEN_ACCENT, RED_ACCENT
-    )
+    _card(s2, 1600200, 1143000)
+    _hero_num(s2, "47", "%", 1737360, TEAL, 54, 26)
+    _text(s2, ["独立事業者・フリーランス"], 2286000, 12, MID, bold=False)
 
-    _add_text_block(s2, [
-        "3.4倍の差",
-    ], 3200400, 548640, 24, GOLD, True, PP_ALIGN.CENTER)
+    _card(s2, 2971800, 1143000)
+    _hero_num(s2, "14", "%", 3109000, RED, 54, 26)
+    _text(s2, ["企業の従業員"], 3657600, 12, MID, bold=False)
 
-    _add_divider(s2, 3886200, GOLD)
-    _add_text_block(s2, [
-        "副業持ち会社員",
-    ], 4114800, 365760, 14, LIGHT_GRAY, False)
-    _add_text_block(s2, [
-        "58%",
-    ], 4480560, 548640, 36, ORANGE_ACCENT, True, PP_ALIGN.CENTER)
+    _text(s2, ["3.4倍の差"], 4343400, 22, GOLD, bold=True)
+    _source(s2, "出典: Anthropic \"What 81,000 people want from AI\"")
+    _brand(s2)
 
-    # ── Slide 3: 問題提起 ──
-    s3 = _new_slide(prs)
-    _add_text_block(s3, [
-        "AIの恩恵は",
-        "能力で決まらない",
-    ], 1371600, 1371600, 24, WHITE, True)
-    _add_divider(s3, 2971800, GOLD)
-    _add_text_block(s3, [
-        "自律性で決まる",
-    ], 3200400, 914400, 28, GOLD, True)
-    _add_sub_text(s3, [
-        "承認プロセス・セキュリティポリシー…",
-        "「まず上に確認します」の間に、",
-        "フリーランスはAIで終わらせている",
-    ], 4571040, 914400, 12, WARM_GRAY)
+    # ── S3: 副業データ ──
+    s3 = _slide(prs)
+    _bar(s3, 914400, 3886200)
+    _text(s3, [
+        "レポートはさらに",
+        "面白い数字を出している",
+    ], 1143000, 14, MID, bold=False)
+    _text(s3, [
+        "副業を持つ",
+        "会社員",
+    ], 1828800, 26, DARK)
+    _hero_num(s3, "58", "%", 2743200, AMBER, 58, 28)
+    _line(s3, 3886200)
+    _text(s3, [
+        "同じ会社員でも、",
+        "「自分の裁量」があるだけで",
+        "恩恵が4倍に跳ね上がる",
+    ], 4114800, 14, DARK, bold=True, spacing=1.5)
+    _brand(s3)
 
-    # ── Slide 4: 日本企業への示唆 ──
-    s4 = _new_slide(prs)
-    _add_text_block(s4, [
+    # ── S4: 日本企業への示唆 ──
+    s4 = _slide(prs)
+    _text(s4, [
         "日本企業の",
-        "79.3%が",
-    ], 1143000, 1143000, 24, WHITE, True)
-    _add_text_block(s4, [
-        "「人材不足」",
-    ], 2286000, 731520, 28, RED_ACCENT, True, PP_ALIGN.CENTER)
-    _add_text_block(s4, [
-        "と答えた",
-    ], 2971800, 548640, 20, WHITE, True, PP_ALIGN.CENTER)
-    _add_divider(s4, 3657600, GOLD)
-    _add_text_block(s4, [
-        "本当の問題は",
-        "人材がいないことじゃなく",
-        "裁量を渡していないこと",
-    ], 3886200, 1371600, 18, GOLD, True)
+    ], 1143000, 22, DARK)
+    _text(s4, [
+        "DXが",
+        "進まない理由、",
+    ], 1828800, 28, DARK)
+    _text(s4, [
+        "ここにある。",
+    ], 2971800, 28, RED)
+    _line(s4, 3657600)
+    _text(s4, [
+        "ツールの問題じゃない。",
+        "「承認プロセス」の問題。",
+        "「まず上に確認します」の間に、",
+        "フリーランスはAIで終わらせている。",
+    ], 3886200, 12, MID, bold=False, spacing=1.6)
+    _brand(s4)
 
-    # ── Slide 5: 締め ──
-    s5 = _new_slide(prs)
-    _add_text_block(s5, [
-        "自律性を",
-        "渡さない組織は、",
-        "AIの恩恵を",
-        "受けられない。",
-    ], 2057400, 2286000, 28, WHITE, True)
-    _add_sub_text(s5, [
-        "出典: Anthropic \"81,000 Interviews\" 2026",
-    ], 5486400, 457200, 9, WARM_GRAY)
+    # ── S5: 結論 ──
+    s5 = _slide(prs)
+    _text(s5, [
+        "AIの恩恵は",
+        "能力で",
+        "決まらない。",
+    ], 1600200, 30, DARK)
+    _text(s5, [
+        "自律性で",
+        "決まる。",
+    ], 3429000, 32, GOLD)
+    _source(s5, "Anthropic \"81,000 Interviews\" 2026年3月18日")
+    _brand(s5)
 
     path = os.path.join(OUTPUT_DIR, "SHORT_NEWS_02_anthropic_autonomy.pptx")
     prs.save(path)
     print(f"Created: {path}")
 
 
-# ============================================================
-# PPTX 3: Anthropic 光と影
-# ============================================================
-def create_anthropic_light_shade():
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PPTX 3: 光と影
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def create_short_03():
     prs = Presentation()
-    prs.slide_width = SLIDE_W
-    prs.slide_height = SLIDE_H
+    prs.slide_width = SW
+    prs.slide_height = SH
 
-    # ── Slide 1: タイトル ──
-    s = _new_slide(prs)
-    _add_date_label(s, "3月18日 発表", "Anthropic")
-    _add_text_block(s, [
-        "AIを一番",
-        "使っている人が、",
-    ], 1371600, 1143000, 24, WHITE, True)
-    _add_text_block(s, [
-        "一番AIを",
-        "恐れている",
-    ], 2743200, 1143000, 28, RED_ACCENT, True)
-    _add_sub_text(s, [
-        "81,000人が語った「光と影」",
-    ], 4343400, 457200, 13, WARM_GRAY)
+    # ── S1: フック ──
+    s = _slide(prs)
+    _badge(s, "3月18日 Anthropic発表", 548640)
+    _text(s, [
+        "AIを",
+        "一番使っている",
+        "人が、",
+    ], 1371600, 26, DARK)
+    _text(s, [
+        "一番",
+        "AIを恐れている。",
+    ], 2971800, 30, RED)
+    _line(s, 4114800)
+    _text(s, [
+        "81,000人のインタビューが",
+        "明らかにした「光と影」",
+    ], 4343400, 11, MID, bold=False)
+    _brand(s)
 
-    # ── Slide 2: 3倍データ ──
-    s2 = _new_slide(prs)
-    _add_date_label(s2, "3月18日 発表", "Anthropic")
-    _add_text_block(s2, [
+    # ── S2: データ ──
+    s2 = _slide(prs)
+    _text(s2, [
+        "レポートが示した",
+        "矛盾するデータ",
+    ], 457200, 14, MID, bold=False)
+    _line(s2, 1005840)
+    _text(s2, [
         "AIに感情的に",
-        "助けられた人は",
-    ], 1143000, 914400, 20, WHITE, True)
-    _add_text_block(s2, [
-        "依存を恐れる率",
-    ], 2286000, 548640, 18, LIGHT_GRAY, False, PP_ALIGN.CENTER)
-    _add_big_number(s2, "3", "倍", "", 2743200, RED_ACCENT)
-
-    _add_divider(s2, 3886200, GOLD)
-
-    _add_text_block(s2, [
+        "助けられた人ほど",
+    ], 1143000, 20, DARK)
+    _text(s2, ["AI依存を恐れる率"], 1828800, 14, MID, bold=False)
+    _hero_num(s2, "3", "倍", 2286000, RED, 64, 28)
+    _line(s2, 3429000)
+    _text(s2, [
         "教師が学生の思考力低下を",
-        "目撃する率",
-    ], 4114800, 731520, 14, LIGHT_GRAY, False)
-    _add_text_block(s2, [
-        "平均の2.5倍",
-    ], 4800600, 548640, 24, ORANGE_ACCENT, True)
+        "目撃する頻度",
+    ], 3657600, 13, MID, bold=False)
+    _hero_num(s2, "2.5", "倍", 4343400, AMBER, 48, 24)
+    _source(s2, "出典: Anthropic \"What 81,000 people want from AI\"")
+    _brand(s2)
 
-    # ── Slide 3: 弁護士の声 ──
-    s3 = _new_slide(prs)
+    # ── S3: 引用 ──
+    s3 = _slide(prs)
+    _bar(s3, 914400, 3886200)
+    _text(s3, [
+        "レポートに登場する",
+        "イスラエルの弁護士の声",
+    ], 914400, 13, MID, bold=False)
+    _text(s3, [
+        "「AIで",
+        "  契約書レビューの",
+        "  時間を節約",
+        "  している。",
+    ], 1600200, 22, DARK, spacing=1.4)
+    _text(s3, [
+        "  でも同時に",
+        "  恐れている。",
+        "  自分で読む力を",
+        "  失っているの",
+        "  ではないか」",
+    ], 3200400, 22, AMBER, spacing=1.4)
+    _text(s3, [
+        "── 実名で語られたリアルな声",
+    ], 5486400, 10, LIGHT_BRN, bold=False)
+    _brand(s3)
 
-    # Quote decoration
-    quote_bar = slide = s3
-    qbar = s3.shapes.add_shape(
-        MSO_SHAPE.RECTANGLE, Emu(137160), Emu(1371600), Emu(36576), Emu(2057400)
-    )
-    qbar.fill.solid()
-    qbar.fill.fore_color.rgb = GOLD
-    qbar.line.fill.background()
+    # ── S4: 懸念トップ3 ──
+    s4 = _slide(prs)
+    _text(s4, [
+        "調査が明らかにした",
+        "3つの懸念",
+    ], 457200, 18, BROWN, bold=False)
+    _line(s4, 1143000)
 
-    _add_text_block(s3, [
-        "AIで契約書レビューの",
-        "時間を節約している。",
-    ], 1371600, 1143000, 18, WHITE, True)
-    _add_text_block(s3, [
-        "でも同時に恐れている。",
-        "自分で読む力を",
-        "失っているのでは",
-        "ないか。",
-    ], 2514600, 1371600, 18, ORANGE_ACCENT, True)
-    _add_sub_text(s3, [
-        "── イスラエルの弁護士",
-    ], 4114800, 365760, 12, WARM_GRAY)
+    _stat(s4, "27%", "AIの信頼性（ハルシネーション）", 1371600, RED)
+    _stat(s4, "22%", "雇用と経済への影響", 2286000, AMBER)
+    _stat(s4, "22%", "人間の自律性の喪失", 3200400, NAVY)
 
-    # ── Slide 4: 懸念トップ3 ──
-    s4 = _new_slide(prs)
-    _add_text_block(s4, [
-        "懸念トップ3",
-    ], 822960, 548640, 22, GOLD, True)
+    _line(s4, 4343400)
+    _text(s4, [
+        "レポートの指摘：",
+        "恩恵は「実体験」として語られ、",
+        "懸念は「まだ来ていない未来」として",
+        "語られた。この非対称性が重要。",
+    ], 4571040, 11, MID, bold=False, spacing=1.5)
+    _brand(s4)
 
-    _add_horizontal_bar(s4, "1. 信頼性（ハルシネーション）", 26.7, 35, 1828800, RED_ACCENT)
-    _add_horizontal_bar(s4, "2. 雇用と経済への影響", 22.3, 35, 2514600, ORANGE_ACCENT)
-    _add_horizontal_bar(s4, "3. 人間の自律性の喪失", 21.9, 35, 3200400, PURPLE_ACCENT)
-
-    _add_divider(s4, 4114800, GOLD)
-
-    _add_sub_text(s4, [
-        "恩恵は「実体験」として語られた。",
-        "懸念の多くは「まだ起きていないが",
-        "起きるかもしれない」という予測。",
-    ], 4343400, 914400, 12, WARM_GRAY)
-
-    # ── Slide 5: 締め ──
-    s5 = _new_slide(prs)
-    _add_text_block(s5, [
+    # ── S5: 結論 ──
+    s5 = _slide(prs)
+    _text(s5, [
         "光と影は、",
-        "同じ人の中に",
-        "ある。",
-    ], 1600200, 1600200, 28, WHITE, True)
-    _add_divider(s5, 3429000, GOLD)
-    _add_text_block(s5, [
+        "同じ人の",
+        "中にある。",
+    ], 1600200, 30, DARK)
+    _text(s5, [
         "だからAIは",
         "設計して使う。",
-    ], 3657600, 1143000, 28, GOLD, True)
-    _add_sub_text(s5, [
-        "出典: Anthropic \"81,000 Interviews\" 2026",
-    ], 5486400, 457200, 9, WARM_GRAY)
+    ], 3429000, 30, GOLD)
+    _source(s5, "Anthropic \"81,000 Interviews\" 2026年3月18日")
+    _brand(s5)
 
     path = os.path.join(OUTPUT_DIR, "SHORT_NEWS_03_anthropic_light_shade.pptx")
     prs.save(path)
     print(f"Created: {path}")
 
 
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OUTPUT_DIR = "content/youtube/shorts"
+
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    create_anthropic_freedom()
-    create_anthropic_autonomy()
-    create_anthropic_light_shade()
-    print("\nAll 3 PPTX files created successfully!")
+    create_short_01()
+    create_short_02()
+    create_short_03()
+    print("\nAll 3 PPTX created (Ivory + Gold).")
