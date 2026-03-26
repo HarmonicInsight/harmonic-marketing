@@ -1,0 +1,28 @@
+{
+  "name": "agent-orchestrator",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "HARMONIC Agent Orchestrator — 4\u5929\u4f7f\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u30c1\u30fc\u30e0\u7d71\u62ec\u30b7\u30b9\u30c6\u30e0",
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "michael": "tsx src/cli.ts michael",
+    "raphael": "tsx src/cli.ts raphael",
+    "gabriel": "tsx src/cli.ts gabriel",
+    "uriel": "tsx src/cli.ts uriel",
+    "dry": "tsx src/cli.ts --dry-run",
+    "dry:michael": "tsx src/cli.ts --dry-run michael",
+    "dry:raphael": "tsx src/cli.ts --dry-run raphael",
+    "dry:gabriel": "tsx src/cli.ts --dry-run gabriel",
+    "dry:uriel": "tsx src/cli.ts --dry-run uriel",
+    "list": "tsx src/cli.ts --list"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
