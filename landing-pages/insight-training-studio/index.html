@@ -111,30 +111,96 @@
     </div>
   </section>
 
+  <!-- ========== COMPARISON ========== -->
+  <section class="comparison">
+    <div class="container">
+      <h2 class="section-title">動画マニュアルツール、<em>比べてみてください</em></h2>
+      <p class="section-subtitle">クラウド型SaaSとは設計思想が根本的に違います</p>
+      <div class="comparison__table-wrap">
+        <table class="comparison__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="comparison__th--self">Insight<br>Training Studio</th>
+              <th>TeachMe Biz</th>
+              <th>tebiki</th>
+              <th>VideoStep</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="comparison__feature">データの処理場所</td>
+              <td class="comparison__self"><strong>完全ローカル</strong></td>
+              <td>クラウド</td>
+              <td>クラウド</td>
+              <td>クラウド</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">機密データの取り扱い</td>
+              <td class="comparison__self"><strong>外部送信なし</strong></td>
+              <td>サーバーにアップロード</td>
+              <td>サーバーにアップロード</td>
+              <td>サーバーにアップロード</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">料金体系</td>
+              <td class="comparison__self"><strong>固定月額</strong></td>
+              <td>ユーザー数課金</td>
+              <td>ユーザー数課金</td>
+              <td>ユーザー数課金</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">PPTX一括変換</td>
+              <td class="comparison__self"><strong>数百本を一括処理</strong></td>
+              <td>非対応</td>
+              <td>非対応</td>
+              <td>非対応</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">既存PPTX資産の活用</td>
+              <td class="comparison__self"><strong>ドロップするだけ</strong></td>
+              <td>再作成が必要</td>
+              <td>撮影が前提</td>
+              <td>再作成が必要</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">AIナレーション</td>
+              <td class="comparison__self"><strong>13言語対応</strong></td>
+              <td>非対応</td>
+              <td>自動字幕のみ</td>
+              <td>非対応</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== PROBLEMS ========== -->
   <section id="problems" class="problems">
     <div class="container">
-      <h2 class="section-title">こんな<em>課題</em>はありませんか？</h2>
+      <h2 class="section-title">動画マニュアルツール、<em>導入したけど</em></h2>
+      <p class="section-subtitle">「研修を動画化したい」で検索すれば、ツールはいくらでも出てくる。<br>でもBPO・コンサルの現場では、こんな壁にぶつかっていませんか？</p>
       <div class="problems__grid">
         <div class="problem-card">
-          <div class="problem-card__icon">⏰</div>
-          <h3>研修動画の制作に<br>時間がかかりすぎる</h3>
-          <p>外注すれば1本30万円、社内制作でも1週間。コンテンツの更新が追いつかない。</p>
+          <div class="problem-card__icon">🔒</div>
+          <h3>クライアントの機密資料を<br>SaaSに上げられない</h3>
+          <p>クラウド型ツールはデータが外部サーバーに送信される。NDA付き案件や金融・医療系クライアントでは情報セキュリティ上、利用が許可されない。</p>
         </div>
         <div class="problem-card">
-          <div class="problem-card__icon">👤</div>
-          <h3>研修品質が<br>講師に依存している</h3>
-          <p>拠点ごと・担当者ごとに研修内容がバラバラ。品質の標準化ができていない。</p>
+          <div class="problem-card__icon">💸</div>
+          <h3>ユーザー課金で<br>コストが爆発する</h3>
+          <p>BPOは現場スタッフ数百名が閲覧する。1ユーザー月額制のSaaSでは、クライアントごとに利用料が積み上がり採算が合わない。</p>
         </div>
         <div class="problem-card">
-          <div class="problem-card__icon">📚</div>
-          <h3>既存のPPTX資産が<br>活かせていない</h3>
-          <p>すでに大量のPowerPoint研修資料があるのに、動画化するリソースがない。</p>
+          <div class="problem-card__icon">📁</div>
+          <h3>既存PPTXを数百本<br>一括変換できない</h3>
+          <p>手持ちのPowerPointは何百ファイルもある。1本ずつ手動で動画化するツールでは、既存資産の活用に何ヶ月もかかる。</p>
         </div>
         <div class="problem-card">
-          <div class="problem-card__icon">🌏</div>
-          <h3>クライアント向け<br>マニュアル動画の需要増</h3>
-          <p>BPO先やコンサル先から動画マニュアルを求められるが、対応しきれない。</p>
+          <div class="problem-card__icon">📦</div>
+          <h3>クライアント納品物として<br>ブランド統一できない</h3>
+          <p>コンサル先ごとにロゴ・テンプレートが違う。汎用ツールではクライアントブランドに合わせた動画納品ができない。</p>
         </div>
       </div>
     </div>
@@ -148,7 +214,7 @@
       <div class="demo__video-wrapper">
         <div class="demo__video-placeholder" id="demoVideoPlaceholder">
           <div class="demo__play-btn">
-            <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#c8a96e"></path><path d="M45 24L27 14v20" fill="#fff"></path></svg>
+            <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#E8600A"></path><path d="M45 24L27 14v20" fill="#fff"></path></svg>
           </div>
           <p class="demo__placeholder-text">デモ動画を再生</p>
         </div>
@@ -159,8 +225,8 @@
   <!-- ========== SOLUTION INTRO ========== -->
   <section class="solution-intro">
     <div class="container">
-      <h2 class="section-title">Insight Training Studio が<em>すべて解決</em></h2>
-      <p class="section-subtitle">既存のPowerPoint資料をそのまま動画に変換。<br>専門スキル不要で、誰でも研修動画を量産できます。</p>
+      <h2 class="section-title"><em>完全ローカル処理</em>のPPTX動画変換</h2>
+      <p class="section-subtitle">データは一切外部に送信されません。デスクトップで完結するから、<br>NDA案件でも安心。ユーザー数無制限、一括変換にも対応。</p>
     </div>
   </section>
 
