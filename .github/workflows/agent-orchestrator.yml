@@ -1,0 +1,45 @@
+name: Agent Orchestrator
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: "実行するエージェント"
+        required: true
+        type: choice
+        options:
+          - michael
+          - raphael
+          - gabriel
+          - uriel
+      dry_run:
+        description: "ドライラン"
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/agent-orchestrator
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Agent
+        run: |
+          ARGS="${{ inputs.agent }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="--dry-run $ARGS"
+          fi
+          npx tsx src/cli.ts $ARGS
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
