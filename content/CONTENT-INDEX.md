@@ -10,6 +10,7 @@
 |---|---------|---------|---------|-----------|--------|
 | 1 | `note/articles/sipo-backoffice-reform-construction.md` | 建設業・ハウジング業のバックオフィスが重い本当の理由 | コンサル論 | draft | - |
 | 2 | `note/articles/note_08_personal_story.md` | 劣等感を抱えたまま30年走り続けたら、マネージングダイレクターになっていた | パーソナル | draft | - |
+| 3 | `note/articles/rpa-vs-ai-backoffice.md` | RPAとAIの本質的な違い──バックオフィスで「AIは使えない」と言われる本当の理由 | コンサル論 | draft | - |
 
 ## YouTube 動画
 

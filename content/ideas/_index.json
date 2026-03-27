@@ -36,5 +36,32 @@
     "deliverables": [],
     "createdAt": "2026-03-21T16:00:00.000Z",
     "updatedAt": "2026-03-21T16:00:00.000Z"
+  },
+  {
+    "id": "c3d8f5a1",
+    "title": "RPAとAIの本質的な違い──バックオフィスでAIが使えないと言われる理由とIPO分析による正しいAI活用",
+    "category": "multi-channel",
+    "status": "draft",
+    "priority": "high",
+    "tags": [
+      "RPA",
+      "AI",
+      "バックオフィス",
+      "IPO分析",
+      "業務改善",
+      "ハウジング業",
+      "SIPO",
+      "コンサルティング"
+    ],
+    "body": "【背景】\nハウジング会社のバックオフィス業務コンサルを通じて、AIが現場で「使えない」と判断される構造的原因が見えてきた。\nバックオフィスはExcelや複数システムを作業手順に従って処理する業務であり、RPAはその手順をそのまま自動化できたため相性が良かった。\n一方AIは作業手順をスキップして結論を出そうとするため、途中工程が見えず、現場が検証できず、結果として「使えない」となる。\n\n【核心メッセージ】\n・RPAは「手順の自動化」、AIは「判断の自動化」── 対象が根本的に違う\n・バックオフィスは手順遵守が価値。AIの「手順飛ばし」は現場にとって不安・不信\n・正しいアプローチ：IPO分析でProcess（P）を特定し、そのPの中でAIを活用する\n・AIは万能ツールではなく、業務分析で特定された処理工程に対して使うべきもの\n・SIPO分析を行えば、AIが効くポイントとRPAが効くポイントが明確に分離できる\n\n【コンテンツ展開計画】\n・note.com記事: RPAとAIの違いを体系的に論じる長文記事\n・YouTube本編: 図解とナレーションで「なぜAIがバックオフィスで嫌われるか」を解説\n・YouTubeショート3本: フック重視の短尺動画\n・PowerPoint: セミナー・講演用スライド\n・書籍企画: 「AI時代のバックオフィス改革」の章立て案\n\n【検討メモ】\n・「AIは使えない」ではなく「AIの使い方が間違っている」が正しい表現\n・RPAベンダーとAIベンダーの売り方の違いも論点にできる\n・現場担当者の「見える化」「手順の安心感」を軽視してはいけない\n・IPOのI（入力）とO（出力）は人間が定義し、P（処理）をAIに任せるモデル\n・SIPOのS（情報源）を加えれば、さらに根本から設計できる",
+    "deliverables": [
+      "note/articles/rpa-vs-ai-backoffice.md",
+      "youtube/scripts/VID-022_rpa-vs-ai-backoffice.md",
+      "youtube/shorts/SHORT_RPAI_01_rpa-vs-ai.md",
+      "youtube/shorts/SHORT_RPAI_02_ai-tejun.md",
+      "youtube/shorts/SHORT_RPAI_03_ipo-katsuyo.md"
+    ],
+    "createdAt": "2026-03-27T15:30:00.000Z",
+    "updatedAt": "2026-03-27T15:30:00.000Z"
   }
 ]
