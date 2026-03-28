@@ -15,6 +15,7 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SearchIcon from '@mui/icons-material/Search';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { theme, colors } from './theme';
 import {
   CATEGORIES, STATUS_CONFIG, type TaskStatus, type BusinessTask,
@@ -26,8 +27,9 @@ import TimelineView from './components/TimelineView';
 import CalendarView from './components/CalendarView';
 import TaskDetailDialog from './components/TaskDetailDialog';
 import AIConcierge from './components/AIConcierge';
+import ReminderDashboard from './components/ReminderDashboard';
 
-type ViewMode = 'calendar' | 'timeline' | 'list' | 'kanban';
+type ViewMode = 'calendar' | 'timeline' | 'list' | 'kanban' | 'reminder';
 type KpiFilter = null | 'active' | 'overdue' | 'dueToday' | 'inProgress';
 
 function App() {
@@ -165,6 +167,7 @@ function App() {
               <ToggleButton value="timeline"><TimelineIcon sx={{ fontSize: 16, mr: 0.5 }} />タイムライン</ToggleButton>
               <ToggleButton value="list"><ViewListIcon sx={{ fontSize: 16, mr: 0.5 }} />リスト</ToggleButton>
               <ToggleButton value="kanban"><ViewKanbanIcon sx={{ fontSize: 16, mr: 0.5 }} />カンバン</ToggleButton>
+              <ToggleButton value="reminder"><NotificationsActiveIcon sx={{ fontSize: 16, mr: 0.5 }} />督促</ToggleButton>
             </ToggleButtonGroup>
           </Box>
         )}
@@ -215,6 +218,7 @@ function App() {
         {view === 'timeline' && <TimelineView tasks={filtered} members={members} onTaskClick={handleEdit} />}
         {view === 'list' && <ListView tasks={filtered} members={members} onEdit={handleEdit} onDelete={handleDelete} />}
         {view === 'kanban' && <KanbanBoard tasks={filtered} members={members} onStatusChange={handleStatusChange} onTaskClick={handleEdit} />}
+        {view === 'reminder' && <ReminderDashboard tasks={tasks} members={members} />}
 
         <TaskDetailDialog task={editingTask} members={members} open={dialogOpen} onClose={() => { setDialogOpen(false); setEditingTask(null); setIsNewTask(false); }} onSave={handleSave} isNew={isNewTask} />
         <AIConcierge open={conciergeOpen} onClose={() => setConciergeOpen(false)} tasks={tasks} />
@@ -237,6 +241,7 @@ function App() {
               <BottomNavigationAction label="タイムライン" value="timeline" icon={<TimelineIcon sx={{ fontSize: 22 }} />} />
               <BottomNavigationAction label="リスト" value="list" icon={<ViewListIcon sx={{ fontSize: 22 }} />} />
               <BottomNavigationAction label="カンバン" value="kanban" icon={<ViewKanbanIcon sx={{ fontSize: 22 }} />} />
+              <BottomNavigationAction label="督促" value="reminder" icon={<NotificationsActiveIcon sx={{ fontSize: 22 }} />} />
             </BottomNavigation>
           </Paper>
         </>
