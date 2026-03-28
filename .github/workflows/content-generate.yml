@@ -1,0 +1,64 @@
+name: Content Generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      products:
+        description: "対象プロダクト (例: INAG, INBT)"
+        required: false
+        type: string
+        default: ""
+      topic:
+        description: "生成トピック"
+        required: false
+        type: string
+        default: ""
+      type:
+        description: "コンテンツタイプ"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/social-poster
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build CLI arguments
+        id: args
+        run: |
+          ARGS="--dry-run"
+          if [ -n "${{ inputs.products }}" ]; then
+            ARGS="$ARGS --products ${{ inputs.products }}"
+          fi
+          if [ -n "${{ inputs.topic }}" ]; then
+            ARGS="$ARGS --topic ${{ inputs.topic }}"
+          fi
+          if [ -n "${{ inputs.type }}" ]; then
+            ARGS="$ARGS --type ${{ inputs.type }}"
+          fi
+          echo "cli_args=$ARGS" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Content (dry-run)
+        run: npx tsx src/cli.ts ${{ steps.args.outputs.cli_args }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Upload generated artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generated-content-${{ github.run_number }}
+          path: tools/social-poster/output/
+          retention-days: 30
