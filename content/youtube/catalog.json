@@ -2,8 +2,8 @@
   "$schema": "./catalog-schema.json",
   "_meta": {
     "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
-    "last_updated": "2026-03-22",
-    "total_videos": 29,
+    "last_updated": "2026-03-28",
+    "total_videos": 37,
     "total_shorts": 15,
     "channel_url": "",
     "source_dir": "C:\\dev\\Demo\\動画集"
@@ -280,7 +280,12 @@
       "twitter_posts": [],
       "pdf": "pdf/VID-004_やり直せる力.pdf",
       "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K6NYN7-2026-03-22-165616",
-      "note_performance": { "views": 33, "likes": 1, "comments": 0, "date": "2026-03-23" }
+      "note_performance": {
+        "views": 33,
+        "likes": 1,
+        "comments": 0,
+        "date": "2026-03-23"
+      }
     },
     {
       "id": "VID-005",
@@ -316,7 +321,12 @@
       "twitter_draft": "ChatGPTを導入した会社に3ヶ月後に聞くと、だいたいこうなってる。\n\n「一部の詳しい人しか使っていない」\n「結局、前と同じやり方に戻った」\n\n原因はツールじゃない。設計の問題。\nAIは便利。でも再現性がなければ、ただの属人芸。\n\n#AI活用 #DX #業務効率化\nhttps://note.com/harmonic_insight/n/nc7762849da71",
       "pdf": "pdf/VID-005_AI業務活用の本質.pdf",
       "speakerdeck_url": "https://speakerdeck.com/harmonicinsight",
-      "note_performance": { "views": 17, "likes": 1, "comments": 0, "date": "2026-03-23" }
+      "note_performance": {
+        "views": 17,
+        "likes": 1,
+        "comments": 0,
+        "date": "2026-03-23"
+      }
     },
     {
       "id": "VID-010",
@@ -352,7 +362,12 @@
       "twitter_draft": "「資料が分かりづらい」と言われる原因は、だいたい5つに絞れる。\n\n・相手の階層で資料を変えていない\n・段取りをすっ飛ばしている\n・日本語が冗長\n・行動経済学を知らない\n・事実と意見が混ざっている\n\nnoteに書きました。\n\n#資料作成 #仕事術 #コンサル\nhttps://note.com/harmonic_insight/n/ne8d0a183029d",
       "pdf": "pdf/VID-010_資料の作り方.pdf",
       "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K1QJQ3-shiryou-tsukurikata",
-      "note_performance": { "views": 10, "likes": 0, "comments": 0, "date": "2026-03-23" }
+      "note_performance": {
+        "views": 10,
+        "likes": 0,
+        "comments": 0,
+        "date": "2026-03-23"
+      }
     },
     {
       "id": "VID-011",
@@ -1589,7 +1604,9 @@
       "note_url": "https://note.com/harmonic_insight/n/n2997340ef4c2",
       "note_article": "note/articles/vid031_ai_replacement_by_industry.md",
       "twitter_draft": null,
-      "twitter_posts": ["2026-03-23"],
+      "twitter_posts": [
+        "2026-03-23"
+      ],
       "tags": [
         "2050年",
         "キャリア",
@@ -1607,7 +1624,12 @@
       "shorts": [],
       "speakerdeck_url": null,
       "docswell_url": "https://www.docswell.com/s/HARMONICinsight/KJWLW3-ai-industry-replacement-2050",
-      "note_performance": { "views": 4, "likes": 0, "comments": 0, "date": "2026-03-23" }
+      "note_performance": {
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "date": "2026-03-23"
+      }
     },
     {
       "id": "VID-032",
@@ -1627,7 +1649,9 @@
       "note_url": "https://note.com/harmonic_insight/n/n23fd378e6e39",
       "note_article": "note/articles/vid032_average_salary_trap.md",
       "twitter_draft": null,
-      "twitter_posts": ["2026-03-23"],
+      "twitter_posts": [
+        "2026-03-23"
+      ],
       "tags": [
         "2050年",
         "キャリア",
@@ -1645,7 +1669,12 @@
       "shorts": [],
       "speakerdeck_url": null,
       "docswell_url": "https://www.docswell.com/s/HARMONICinsight/K4NQND-tokyo-vs-local-2050",
-      "note_performance": { "views": 4, "likes": 0, "comments": 0, "date": "2026-03-23" }
+      "note_performance": {
+        "views": 4,
+        "likes": 0,
+        "comments": 0,
+        "date": "2026-03-23"
+      }
     },
     {
       "id": "VID-033",
@@ -1832,6 +1861,42 @@
       "shorts": [],
       "speakerdeck_url": null,
       "docswell_url": "https://www.docswell.com/s/HARMONICinsight/KWR1GX-ai-approval-process-framework"
+    },
+    {
+      "id": "VID-053",
+      "type": "main",
+      "title": "業界分析を「力の磨き方」として使いこなす｜売上・原価・競合を消費者目線で読み解く",
+      "series": "consulting",
+      "product": null,
+      "status": "script_done",
+      "duration": null,
+      "script": "scripts/VID-053_industry-analysis-skill.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "未",
+      "note_url": null,
+      "tags": [
+        "業界分析",
+        "マーケティング",
+        "競合分析",
+        "行動経済学",
+        "消費者行動",
+        "売上構造",
+        "原価",
+        "コンサル"
+      ],
+      "performance": {
+        "views": null,
+        "likes": null,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "業界分析の3視点（売上・原価・競合）を消費者目線で解説する講座動画",
+      "shorts": [],
+      "source_dir": null,
+      "pdf": null
     }
   ]
 }
