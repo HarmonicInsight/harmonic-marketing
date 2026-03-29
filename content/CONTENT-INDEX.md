@@ -13,6 +13,7 @@
 | 3 | `note/articles/construction-reconciliation-dx.md` | 建設業の「消し込み」が回らない本当の理由 — DXの前に整えるべき3つのこと | コンサル論 | draft | - |
 | 4 | `note/articles/rpa-lessons-for-ai-era.md` | RPAの失敗から学べ｜AI時代でも変わらない自動化の鉄則 | コンサル論 / AI実務活用 | draft | - |
 | 5 | `note/articles/agile-myth-construction-industry.md` | 建設業に「アジャイル」は本当に必要か｜RPAもDXも同じ轍を踏んでいる | コンサル論 | draft | - |
+| 6 | `note/articles/is-your-dev-really-agile.md` | あなたのその開発、アジャイルですか？｜よくある5つの誤解と原典が語る本当の意味 | コンサル論 | draft | - |
 
 ## YouTube 動画
 
