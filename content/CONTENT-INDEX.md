@@ -11,6 +11,7 @@
 | 1 | `note/articles/sipo-backoffice-reform-construction.md` | 建設業・ハウジング業のバックオフィスが重い本当の理由 | コンサル論 | draft | - |
 | 2 | `note/articles/note_08_personal_story.md` | 劣等感を抱えたまま30年走り続けたら、マネージングダイレクターになっていた | パーソナル | draft | - |
 | 3 | `note/articles/construction-reconciliation-dx.md` | 建設業の「消し込み」が回らない本当の理由 — DXの前に整えるべき3つのこと | コンサル論 | draft | - |
+| 4 | `note/articles/rpa-lessons-for-ai-era.md` | RPAの失敗から学べ｜AI時代でも変わらない自動化の鉄則 | コンサル論 / AI実務活用 | draft | - |
 
 ## YouTube 動画
 
