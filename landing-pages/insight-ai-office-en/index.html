@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight AI Office | AI-Powered Office Productivity Platform</title>
+  <meta name="description" content="Meeting minutes, document editing, and workflow automation — powered by AI. One desktop app, zero cloud dependency. Fully offline, fully private.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header__logo">
+        <span class="header__logo-mark">H</span>
+        <span class="header__logo-text">HARMONIC <span class="header__logo-sub">insight</span></span>
+      </div>
+      <nav class="header__nav">
+        <a href="#features">Features</a>
+        <a href="#problems">Problems</a>
+        <a href="#usecases">Use Cases</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="header__actions">
+        <a href="#contact" class="btn btn--outline">Contact Sales</a>
+        <a href="#download" class="btn btn--primary">Download Free</a>
+      </div>
+      <button class="header__mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__label">AI-Powered Office Productivity Platform</p>
+        <h1 class="hero__title">
+          Your AI-powered office.<br>
+          <em>All in one place.</em>
+        </h1>
+        <p class="hero__subtitle">
+          Meeting minutes, document editing, and workflow automation — powered by AI.<br>
+          One desktop app, zero cloud dependency.
+        </p>
+        <div class="hero__cta">
+          <a href="#download" class="btn btn--primary btn--lg">Download Free</a>
+          <a href="#demo" class="btn btn--ghost btn--lg">Request Demo</a>
+        </div>
+        <p class="hero__note">No account required. Works offline from day one.</p>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__mockup">
+          <div class="mockup__window">
+            <div class="mockup__titlebar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="mockup__title">Insight AI Office v1.0</span>
+            </div>
+            <div class="mockup__body">
+              <div class="mockup__step mockup__step--1">
+                <div class="mockup__icon">🎙️</div>
+                <div class="mockup__label">Record Meeting</div>
+              </div>
+              <div class="mockup__arrow">→</div>
+              <div class="mockup__step mockup__step--2">
+                <div class="mockup__icon">🤖</div>
+                <div class="mockup__label">AI Processes</div>
+              </div>
+              <div class="mockup__arrow">→</div>
+              <div class="mockup__step mockup__step--3">
+                <div class="mockup__icon">📋</div>
+                <div class="mockup__label">Minutes &amp; Actions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL PROOF ========== -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="social-proof__text">Trusted by IT, legal, and operations teams worldwide</p>
+      <div class="social-proof__stats">
+        <div class="stat">
+          <span class="stat__number">90<small>%</small></span>
+          <span class="stat__label">Time saved on meeting notes</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">5<small> min</small></span>
+          <span class="stat__label">Avg. document processing</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">100<small>%</small></span>
+          <span class="stat__label">Offline capable</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">13</span>
+          <span class="stat__label">Languages supported</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEMS ========== -->
+  <section id="problems" class="problems">
+    <div class="container">
+      <h2 class="section-title">Sound <em>familiar?</em></h2>
+      <p class="section-subtitle">AI office tools promise productivity gains, but the reality is often different.<br>These are the problems teams face every day.</p>
+      <div class="problems__grid">
+        <div class="problem-card">
+          <div class="problem-card__icon">⏱️</div>
+          <h3>Your meeting notes take longer<br>than the meeting itself</h3>
+          <p>Manually transcribing and summarizing meetings wastes hours every week. Action items get lost, and follow-ups fall through the cracks.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">☁️</div>
+          <h3>AI tools require uploading<br>sensitive data to the cloud</h3>
+          <p>Most AI productivity tools send your data to external servers. For industries handling confidential information, this is a non-starter.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">💸</div>
+          <h3>Per-user pricing makes enterprise<br>adoption expensive</h3>
+          <p>At $20-30 per user per month, rolling out AI tools across a 500-person organization becomes a six-figure annual expense.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon">🔀</div>
+          <h3>Switching between 5 different AI<br>tools for basic office work</h3>
+          <p>One tool for transcription, another for documents, another for summaries. Context-switching kills productivity and fragments your workflow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON ========== -->
+  <section class="comparison">
+    <div class="container">
+      <h2 class="section-title">See how IAOF <em>compares</em></h2>
+      <p class="section-subtitle">A fundamentally different approach to AI-powered office productivity</p>
+      <div class="comparison__table-wrap">
+        <table class="comparison__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="comparison__th--self">Insight<br>AI Office</th>
+              <th>Microsoft<br>Copilot</th>
+              <th>Notion AI</th>
+              <th>Otter.ai</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="comparison__feature">Data processing</td>
+              <td class="comparison__self"><strong>Fully local</strong></td>
+              <td>Cloud</td>
+              <td>Cloud</td>
+              <td>Cloud</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">Privacy guarantee</td>
+              <td class="comparison__self"><strong>No data leaves device</strong></td>
+              <td>Data sent to Microsoft servers</td>
+              <td>Data sent to Notion servers</td>
+              <td>Data sent to Otter servers</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">Pricing model</td>
+              <td class="comparison__self"><strong>Flat annual fee</strong></td>
+              <td>Per-user / month</td>
+              <td>Per-user / month</td>
+              <td>Per-user / month</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">Offline capability</td>
+              <td class="comparison__self"><strong>100% offline</strong></td>
+              <td>Requires internet</td>
+              <td>Requires internet</td>
+              <td>Requires internet</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">Integrated Office editing</td>
+              <td class="comparison__self"><strong>Built-in editor</strong></td>
+              <td>Requires M365 license</td>
+              <td>Notion-only format</td>
+              <td>No editing</td>
+            </tr>
+            <tr>
+              <td class="comparison__feature">Multi-language support</td>
+              <td class="comparison__self"><strong>13 languages</strong></td>
+              <td>Limited</td>
+              <td>Limited</td>
+              <td>English-focused</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION INTRO ========== -->
+  <section class="solution-intro">
+    <div class="container">
+      <h2 class="section-title"><em>One app</em> for your entire AI office</h2>
+      <p class="section-subtitle">All AI processing runs locally on your machine. No data ever leaves your device.<br>No subscriptions per user. No internet required.</p>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features" class="features">
+    <div class="container">
+
+      <div class="feature-row">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 01</span>
+          <h3 class="feature-row__title">AI Meeting Minutes</h3>
+          <p>Real-time transcription and summarization of meetings. Automatically extracts action items, decisions, and key discussion points. Just hit record and let AI handle the rest.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">🎙️ Recording in progress...</div>
+              <div class="batch-item">📝 Transcribing speech to text</div>
+              <div class="batch-item">🧠 Generating summary &amp; action items</div>
+              <div class="batch-item">✅ Meeting minutes ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--reverse">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 02</span>
+          <h3 class="feature-row__title">Smart Document Editing</h3>
+          <p>AI-assisted document creation and editing with built-in intelligence. Draft, rewrite, translate, and format documents without leaving the app. Supports DOCX, PDF, and plain text.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">📄 Open any document format</div>
+              <div class="batch-item">✏️ AI-assisted writing &amp; editing</div>
+              <div class="batch-item">🌐 One-click translation</div>
+              <div class="batch-item">💾 Export as DOCX, PDF, or TXT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 03</span>
+          <h3 class="feature-row__title">Batch Document Processing</h3>
+          <p>Process hundreds of documents at once. Summarize, extract data, classify, or translate entire folders of files overnight. Perfect for operations teams handling large volumes of paperwork.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">📄 Q4_Report_Final.docx → ✅</div>
+              <div class="batch-item">📄 Contract_2026_Draft.pdf → ✅</div>
+              <div class="batch-item">📄 Meeting_Notes_Mar.txt → ✅</div>
+              <div class="batch-item batch-item--processing">📄 Policy_Update_v3.docx → ⏳</div>
+              <div class="batch-item batch-item--pending">📄 Budget_Proposal.xlsx → ⋯</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row feature-row--reverse">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 04</span>
+          <h3 class="feature-row__title">Complete Privacy</h3>
+          <p>All processing happens locally on your machine. No data is ever sent to the cloud. No accounts, no telemetry, no tracking. Your documents and meetings stay yours — always.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__batch">
+              <div class="batch-item">🔒 All AI models run locally</div>
+              <div class="batch-item">🚫 Zero cloud dependency</div>
+              <div class="batch-item">🛡️ No data leaves your device</div>
+              <div class="batch-item">✅ GDPR &amp; HIPAA friendly</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-row__content">
+          <span class="feature-row__badge">FEATURE 05</span>
+          <h3 class="feature-row__title">Multi-language Support</h3>
+          <p>Transcribe, translate, and process documents in 13 languages. Ideal for global enterprises with distributed teams. Switch languages on the fly without separate tools or plugins.</p>
+        </div>
+        <div class="feature-row__visual">
+          <div class="feature-demo">
+            <div class="feature-demo__langs">
+              <span class="lang-tag">🇺🇸 English</span>
+              <span class="lang-tag">🇯🇵 Japanese</span>
+              <span class="lang-tag">🇩🇪 German</span>
+              <span class="lang-tag">🇫🇷 French</span>
+              <span class="lang-tag">🇪🇸 Spanish</span>
+              <span class="lang-tag">🇨🇳 Chinese</span>
+              <span class="lang-tag lang-tag--more">+7 more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== USE CASES ========== -->
+  <section id="usecases" class="usecases">
+    <div class="container">
+      <h2 class="section-title">Built for <em>your team</em></h2>
+      <div class="usecases__grid">
+        <div class="usecase-card">
+          <div class="usecase-card__icon">🖥️</div>
+          <h3>IT Departments</h3>
+          <p>Deploy across the organization without cloud security reviews. No data leaves the network, no per-user licensing headaches, and full compatibility with existing infrastructure.</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">⚙️</div>
+          <h3>Operations Teams</h3>
+          <p>Batch-process reports, contracts, and internal documents. Automate repetitive document workflows and free your team to focus on high-value work.</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">⚖️</div>
+          <h3>Legal &amp; Compliance</h3>
+          <p>Handle sensitive legal documents with complete confidence. Summarize contracts, extract clauses, and generate reports — all without data ever leaving your machine.</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-card__icon">🌍</div>
+          <h3>Global Enterprises</h3>
+          <p>Support 13 languages natively for distributed teams. Translate meeting minutes, process documents across regions, and maintain consistency worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="steps">
+    <div class="container">
+      <h2 class="section-title">Up and running in <em>3 steps</em></h2>
+      <div class="steps__grid">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <h3>Download &amp; Install</h3>
+          <p>Download the desktop app for Windows or macOS. No account creation, no cloud setup. Install and launch in under a minute.</p>
+        </div>
+        <div class="step-card__connector"></div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <h3>Start Working</h3>
+          <p>Record meetings, open documents, or drop files for batch processing. AI runs locally and delivers results in seconds.</p>
+        </div>
+        <div class="step-card__connector"></div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <h3>Export &amp; Share</h3>
+          <p>Export meeting minutes, edited documents, and processed files in standard formats. Share via email, intranet, or any platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2 class="section-title"><em>Simple</em> pricing</h2>
+      <p class="section-subtitle">No per-user fees. No hidden costs. Scale across your entire organization.</p>
+      <div class="pricing__grid">
+        <div class="pricing-card">
+          <div class="pricing-card__header">
+            <h3>Free</h3>
+            <p class="pricing-card__desc">For individuals and evaluation</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount">$0</span>
+            <span class="pricing-card__period">forever</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>AI meeting minutes (5/month)</li>
+            <li>Smart document editing</li>
+            <li>3 languages</li>
+            <li>100% offline</li>
+            <li>Community support</li>
+          </ul>
+          <a href="#download" class="btn btn--outline btn--full">Download Free</a>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">Best Value</div>
+          <div class="pricing-card__header">
+            <h3>Business</h3>
+            <p class="pricing-card__desc">For teams and enterprises</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount">$299</span>
+            <span class="pricing-card__period">/year per machine</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>Unlimited meeting minutes</li>
+            <li>Smart document editing</li>
+            <li>Batch document processing</li>
+            <li>All 13 languages</li>
+            <li>100% offline</li>
+            <li>Priority support</li>
+            <li>Enterprise deployment tools</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--full">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section id="download" class="cta-section">
+    <div class="container cta-section__inner">
+      <h2>Ready to reclaim your <em>productivity?</em></h2>
+      <p>Download for free. No account required. No data leaves your machine.<br>See the difference AI-powered local processing makes.</p>
+      <div class="cta-section__buttons">
+        <a href="#" class="btn btn--white btn--lg">Download Free</a>
+        <a href="#demo" class="btn btn--ghost-white btn--lg">Request Demo</a>
+        <a href="#contact" class="btn btn--ghost-white btn--lg">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked <em>questions</em></h2>
+      <div class="faq__list">
+        <details class="faq-item">
+          <summary>Does Insight AI Office really work 100% offline?</summary>
+          <p>Yes. All AI models are bundled with the desktop application and run entirely on your local machine. No internet connection is needed for any feature — transcription, summarization, document editing, and batch processing all work offline. An optional internet connection is only needed for downloading software updates.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does IAOF protect my data privacy?</summary>
+          <p>Your data never leaves your device. There are no cloud servers, no accounts, and no telemetry. All processing is performed locally using on-device AI models. This makes IAOF suitable for environments with strict compliance requirements, including GDPR, HIPAA, and confidential legal or financial work.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What file formats are supported?</summary>
+          <p>Insight AI Office supports a wide range of formats. For documents: DOCX, PDF, TXT, RTF, and XLSX. For meeting recordings: WAV, MP3, M4A, and direct microphone input. Export options include DOCX, PDF, TXT, and CSV for structured data extraction.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do enterprise deployments work?</summary>
+          <p>The Business plan includes enterprise deployment tools such as MSI/PKG installers for silent deployment, group policy support, and centralized license management. Your IT team can deploy IAOF across hundreds of machines using existing endpoint management tools like SCCM, Intune, or Jamf — no cloud infrastructure required.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get in <em>touch</em></h2>
+      <form class="contact__form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name <span class="required">Required</span></label>
+            <input type="text" id="name" placeholder="Jane Smith">
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="required">Required</span></label>
+            <input type="email" id="email" placeholder="jane@company.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Company <span class="required">Required</span></label>
+            <input type="text" id="company" placeholder="Acme Corp">
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" id="role" placeholder="IT Manager">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us about your use case or ask a question..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg btn--full">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="header__logo-mark">H</span>
+        <span class="header__logo-text">HARMONIC <span class="header__logo-sub">insight</span></span>
+        <p class="footer__copy">AI-powered office productivity. Fully local. Fully private.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Changelog</a>
+          <a href="#">System Requirements</a>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Documentation</a>
+          <a href="#">API Reference</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 HARMONIC insight. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.header__mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.header__nav').classList.toggle('is-open');
+      this.classList.toggle('is-active');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      document.querySelector('.header').classList.toggle('header--scrolled', window.scrollY > 50);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item summary').forEach(summary => {
+      summary.addEventListener('click', function() {
+        const parent = this.parentElement;
+        document.querySelectorAll('.faq-item[open]').forEach(item => {
+          if (item !== parent) item.removeAttribute('open');
+        });
+      });
+    });
+
+    // Scroll animations (Intersection Observer)
+    const animTargets = document.querySelectorAll(
+      '.problem-card, .feature-row, .benefit-card, .usecase-card, .step-card, .pricing-card, .stat'
+    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    animTargets.forEach(el => {
+      el.classList.add('anim-fade-up');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
