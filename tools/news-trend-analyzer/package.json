@@ -1,0 +1,20 @@
+{
+  "name": "@harmonic/news-trend-analyzer",
+  "version": "1.0.0",
+  "description": "ニュース傾向分析ツール — 建設・不動産・製造業・AI・コンサル業界の傾向を時間軸で分析",
+  "type": "module",
+  "scripts": {
+    "analyze": "tsx src/cli.ts analyze",
+    "analyze:1w": "tsx src/cli.ts analyze --window 1w",
+    "analyze:2w": "tsx src/cli.ts analyze --window 2w",
+    "analyze:1m": "tsx src/cli.ts analyze --window 1m",
+    "analyze:2m": "tsx src/cli.ts analyze --window 2m",
+    "collect": "tsx src/cli.ts collect",
+    "stats": "tsx src/cli.ts stats",
+    "compare": "tsx src/cli.ts compare",
+    "report:md": "tsx src/cli.ts analyze --window 1m --format markdown --out ../../content/news/reports/latest.md"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0"
+  }
+}
