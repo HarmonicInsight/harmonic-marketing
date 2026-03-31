@@ -2,8 +2,8 @@
   "$schema": "./catalog-schema.json",
   "_meta": {
     "description": "YouTube動画カタログ - 本編・ショート動画の一元管理",
-    "last_updated": "2026-03-28",
-    "total_videos": 37,
+    "last_updated": "2026-03-31",
+    "total_videos": 38,
     "total_shorts": 15,
     "channel_url": "",
     "source_dir": "C:\\dev\\Demo\\動画集"
@@ -1894,6 +1894,40 @@
         "avg_watch_time": null
       },
       "memo": "業界分析の3視点（売上・原価・競合）を消費者目線で解説する講座動画",
+      "shorts": [],
+      "source_dir": null,
+      "pdf": null
+    },
+    {
+      "id": "VID-054",
+      "type": "main",
+      "title": "「AIは情弱ビジネス」の実態｜搾取の3層構造と本物のAI活用の見分け方【2026年最新】",
+      "series": "security",
+      "product": "IAOF",
+      "status": "script_done",
+      "duration": null,
+      "script": "scripts/VID-054_ai-jojaku-business.md",
+      "slide": null,
+      "thumbnail": null,
+      "youtube_url": null,
+      "publish_date": null,
+      "note_status": "draft",
+      "note_url": null,
+      "tags": [
+        "AI情弱ビジネス",
+        "AI詐欺",
+        "AIセミナー",
+        "生成AI",
+        "AIセキュリティ",
+        "AI Office"
+      ],
+      "performance": {
+        "views": null,
+        "likes": null,
+        "ctr": null,
+        "avg_watch_time": null
+      },
+      "memo": "ITmedia NEWS（2026/3/30）の情弱ビジネス特集を起点に、搾取の3層構造を分析。note記事の具体的事例も取り上げ、本物のAI活用との見分け方を5つのチェックポイントで整理。AI Officeへの導線あり。",
       "shorts": [],
       "source_dir": null,
       "pdf": null
