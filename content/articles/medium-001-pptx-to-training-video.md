@@ -138,11 +138,13 @@ If your company has PowerPoint files that should be training videos, give it 5 m
 
 That's usually all it takes.
 
+**[Download Insight Training Studio — Free](https://www.insight-office.com/en)**
+
 ---
 
-*Insight Training Studio is built by HARMONIC insight. We build AI-powered desktop tools that automate office workflows — all processed locally, with zero cloud dependency.*
+*Insight Training Studio is part of the Insight Business Suite — AI-powered desktop tools for Excel, Word, PowerPoint, and video production. All processed locally, with zero cloud dependency.*
 
-*Learn more at [HARMONIC insight]*
+*[See all products → insight-office.com/en](https://www.insight-office.com/en)*
 
 ---
 
