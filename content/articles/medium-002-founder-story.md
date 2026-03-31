@@ -1,14 +1,14 @@
-# I Spent 30 Years as a Consultant. Now I Build AI Software Alone. Here's Why.
+# I'm a Managing Director at a Consulting Firm. I Build Software Products Alone with AI. Here's Why.
 
 *Published in HARMONIC insight on Medium*
 
 ---
 
-For 30 years, I designed enterprise systems, led digital transformations, and consulted for over 100 companies. I worked at some of the biggest names in IT consulting — ISID (now dentsu SOKEN), PwC, FPT — and helped a construction company grow its revenue from ¥80M to ¥450M through system-driven business reform.
+By day, I'm a Managing Director at an IT consulting firm. I lead digital transformation projects, design enterprise architectures, and advise C-level executives on technology strategy. I've done this for 30 years, across over 100 companies, at firms like ISID (now dentsu SOKEN), PwC, and FPT. I once helped a construction company grow its revenue from ¥80M to ¥450M through system-driven business reform.
 
-Today, I build software products by myself. With AI.
+By night — and weekends, and early mornings — I build software products. By myself. With AI.
 
-No team of developers. No venture capital. No office. Just me, Claude, and 30 years of knowing exactly what businesses need.
+No development team. No venture capital. No startup office. Just me, Claude, and 30 years of knowing exactly what businesses actually need.
 
 This is the story of why I made that choice — and what I've learned.
 
@@ -159,7 +159,7 @@ You don't need to learn to code. You need to do what you've always done — unde
 
 ---
 
-*Follow HARMONIC insight on Medium for weekly articles on AI-powered business tools, enterprise productivity, and the journey of a solo founder with 30 years of consulting experience.*
+*Written by a Managing Director at an IT consulting firm who builds AI-powered software products solo. 30 years in enterprise consulting. 10 products. 50 books. 140+ GitHub repositories. Follow HARMONIC insight on Medium for weekly articles on AI-powered business tools, enterprise productivity, and building in public.*
 
 ---
 
