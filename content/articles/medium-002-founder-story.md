@@ -1,0 +1,166 @@
+# I'm a Managing Director at a Consulting Firm. I Build Software Products Alone with AI. Here's Why.
+
+*Published in HARMONIC insight on Medium*
+
+---
+
+By day, I'm a Managing Director at an IT consulting firm. I lead digital transformation projects, design enterprise architectures, and advise C-level executives on technology strategy. I've done this for 30 years, across over 100 companies, at firms like ISID (now dentsu SOKEN), PwC, and FPT. I once helped a construction company grow its revenue from ¥80M to ¥450M through system-driven business reform.
+
+By night — and weekends, and early mornings — I build software products. By myself. With AI.
+
+No development team. No venture capital. No startup office. Just me, Claude, and 30 years of knowing exactly what businesses actually need.
+
+This is the story of why I made that choice — and what I've learned.
+
+---
+
+## The Frustration That Started Everything
+
+In my consulting career, I saw the same pattern hundreds of times:
+
+1. **I design a solution** that would transform a client's operations
+2. **I write the requirements** — detailed, precise, based on deep business understanding
+3. **I hand it to a development team** — and wait 3 months
+4. **The result comes back wrong** — because developers didn't understand the business context
+5. **We iterate for another 3 months** — burning budget and trust
+
+The gap between "understanding the problem" and "building the solution" was always the bottleneck. I knew exactly what needed to be built. I just couldn't build it myself.
+
+For 30 years, that was the reality. Requirements people don't code. Coders don't understand requirements. And the gap between them costs companies millions.
+
+**Then AI changed everything.**
+
+---
+
+## The Day I Realized I Could Build It Myself
+
+In 2024, I started experimenting with AI coding assistants. Not as a toy. As a serious tool for someone who has spent three decades writing specifications.
+
+What I discovered shocked me: **the skills that make a great consultant are exactly the skills that make AI produce great code.**
+
+- Defining clear requirements? That's a prompt.
+- Understanding edge cases? That's context for the AI.
+- Knowing what the user actually needs vs. what they ask for? That's architecture.
+- Decomposing a complex business process into logical steps? That's system design.
+
+I wasn't learning to code. I was finally able to **translate 30 years of business knowledge directly into software** — without the 6-month development cycle, without the lost-in-translation moments, without the budget overruns.
+
+Within months, I had built not one product, but an entire suite.
+
+---
+
+## What I Built: The Insight Business Suite
+
+Every product in the suite solves a problem I've personally witnessed dozens of times in my consulting career.
+
+### Insight Training Studio
+**The problem:** Companies spend $3,000–$10,000 per training video, outsourcing to agencies. Every time a process changes, they pay again. Meanwhile, hundreds of PowerPoint files sit unused on shared drives.
+
+**My solution:** Drop a PPTX file in, get a narrated training video out. 3 minutes. 13 languages. 100% local processing — no sensitive data leaves your computer.
+
+**Why I built it:** At one client, I watched them spend ¥5M on 10 training videos. The same content already existed as PowerPoint slides. The waste was painful.
+
+### Insight AI Office
+**The problem:** After every meeting, someone spends 30 minutes writing minutes that nobody reads. Document editing is manual and repetitive. Teams use 5 different AI tools for basic office tasks.
+
+**My solution:** One integrated platform. AI meeting minutes, document editing, workflow automation. All offline-capable.
+
+**Why I built it:** In 30 years of meetings, I've seen thousands of hours wasted on meeting minutes. AI can do this in real-time — but existing tools require uploading sensitive meeting data to the cloud.
+
+### Insight Deck Quality Gate
+**The problem:** PowerPoint presentations in large organizations are inconsistent, full of errors, and take hours to review manually.
+
+**My solution:** Automated PPTX quality checking, slide comparison, and AI-assisted review.
+
+**Why I built it:** At consulting firms, I've reviewed thousands of decks. The same mistakes appear every time. A machine should catch these, not a senior consultant billing $300/hour.
+
+### Insight Performance Management
+**The problem:** Management KPIs live in Excel spreadsheets that are manually updated, error-prone, and disconnected from decision-making.
+
+**My solution:** AI-powered Excel analytics that connects numbers to business insight.
+
+**Why I built it:** I helped a construction company grow revenue 5.6x by fixing how they tracked and acted on their numbers. That methodology shouldn't require a consultant — it should be software.
+
+---
+
+## The Architecture: Why "Local-First" Matters
+
+Every product I build runs locally. No cloud. No subscription per user. No data leaving your machine.
+
+This isn't a technical preference. It's a business decision based on 30 years of watching enterprise software fail:
+
+**Problem 1: Security.**
+I've worked with construction companies, financial institutions, and government agencies. Their data cannot go to a third-party cloud. Period. Every SaaS AI tool that requires cloud upload is automatically disqualified from 40% of the enterprise market.
+
+**Problem 2: Cost at scale.**
+Per-user SaaS pricing kills enterprise adoption. A BPO company with 500 operators can't pay $20/user/month for a training video tool. That's $120,000/year. My tool costs $299. Once.
+
+**Problem 3: Vendor dependency.**
+I've seen companies build their entire workflow on a SaaS product, only to face a 3x price increase or a shutdown. Local software you own doesn't disappear.
+
+The AI models run through API calls to Claude, OpenAI, or Gemini — your choice. But the application, your data, and your workflow stay on your machine.
+
+---
+
+## What 30 Years Taught Me About Building Software
+
+### 1. The best software comes from people who understand the problem deeply.
+
+Most software is built by developers who have never done the job the software is supposed to support. I've done the job. For 30 years. Every feature in my products exists because I've personally felt the pain it solves.
+
+### 2. AI doesn't replace experience — it amplifies it.
+
+A 25-year-old developer with AI can write code fast. A 55-year-old consultant with AI can build products that actually solve real business problems. The bottleneck was never the coding — it was the thinking. AI removed the coding bottleneck, and now the thinking is what matters.
+
+### 3. One person can build what used to require a team of 20.
+
+I have over 140 GitHub repositories. I've published 40 books on Kindle. I run a product suite with 10 products. This isn't bragging — it's evidence of what AI makes possible when combined with deep domain expertise.
+
+### 4. The enterprise market is underserved by AI tools.
+
+Most AI products target consumers or developers. The back-office manager who needs to automate meeting minutes, the HR team that needs training videos, the operations lead who needs better Excel analytics — these people are ignored by Silicon Valley. They shouldn't be.
+
+---
+
+## Why I'm Going Global
+
+I built these products in Japan, and the Japanese market has been receptive. But the problems I solve aren't Japanese problems — they're universal.
+
+Every company in the world has:
+- PowerPoint files that should be training videos
+- Meetings that produce useless minutes
+- Excel spreadsheets that should drive better decisions
+- Sensitive data that can't go to the cloud
+
+The local-first, AI-powered approach works everywhere. The 30 years of consulting experience that shaped these products applies everywhere.
+
+So here I am, writing on Medium, building in public, and bringing these tools to a global audience.
+
+---
+
+## What's Next
+
+I'm sharing this journey openly. On this publication, you'll find:
+
+- **Product deep-dives** — how each tool works and what problems it solves
+- **Lessons from 30 years of consulting** — frameworks and patterns that apply to any business
+- **AI architecture decisions** — how I design software that runs locally with AI capabilities
+- **Building in public** — the real numbers, the real challenges, the real progress
+
+If you're a consultant, a business analyst, a project manager, or anyone who has spent years understanding business problems — know that AI has removed the barrier between your expertise and building software.
+
+You don't need to learn to code. You need to do what you've always done — understand the problem deeply, define the solution clearly, and now, let AI build it.
+
+**The age of the builder-consultant has arrived.**
+
+---
+
+**[Explore the Insight Business Suite → insight-office.com/en](https://www.insight-office.com/en)**
+
+---
+
+*Written by a Managing Director at an IT consulting firm who builds AI-powered software products solo. 30 years in enterprise consulting. 10 products. 50 books. 140+ GitHub repositories. Follow HARMONIC insight on Medium for weekly articles on AI-powered business tools, enterprise productivity, and building in public.*
+
+---
+
+**Tags:** #AI #SoloFounder #BuildingInPublic #Consulting #Productivity #IndieHacker
