@@ -23,21 +23,27 @@ I learned to compromise. Not because the team was bad — they were skilled. But
 I accepted it. For 10 years.
 
 
-50 Books and a Platform
+50 Novels and the 24-Hour AI Workforce
 
-In early 2025, I started writing fiction. Not business books — novels.
+It started with a simple realization: I'm paying a monthly subscription for AI, and it sits idle while I sleep. That's 8 hours of wasted capacity every night.
 
-Once I started, I couldn't stop. Story after story poured out. But I needed a place to publish them — a platform I could control, not someone else's marketplace with their rules and limitations.
+So I put it to work.
 
-So I decided to build one myself.
+In early 2025, I started an experiment. Every night before bed, I'd give the AI a task: research what genres are trending in the Japanese novel market, analyze what readers want, propose story concepts, and in some cases, write the draft. By morning, I'd have material to review, edit, and publish.
 
-It had been years since I'd written any code. But I sat down, opened an editor, and started programming again. Back then, AI coding tools were still limited. I was debugging manually, line by line, the old-fashioned way.
+This is how I wrote 50 novels.
 
-It was slow. It was painful. But it worked.
+But the more I did it, the more I learned something important about AI: it's fast, but it's shallow. The plots AI proposed were technically competent but lacked depth. The characters were functional but not interesting. AI doesn't have lived experience, so its stories feel generic.
 
-I built the novel platform. And I published 50 books on it — series, standalone novels, the works. That project was done.
+That's when I shifted. Instead of letting AI choose what to write, I started writing about things I actually cared about — architecture, the future of cities, construction, technology. Stories with substance that came from my own knowledge and curiosity. AI became the executor, not the thinker.
 
-But something had been reawakened. The urge to build.
+This same principle now drives how I build software. With Claude Code on the Max Plan, I run development cycles around the clock. During the day, I use the products myself and evaluate them. At night, AI builds. My role is simple: I define two things — features that sell, and features that make the product easy to use. Then I evaluate, give feedback, and loop. Evaluate, feedback, loop. Over and over.
+
+The AI never sleeps. And neither does the product development.
+
+I also needed a platform to publish the novels — something I could control, not someone else's marketplace. So I built that too. It had been years since I'd written code, and back then AI coding tools were limited. I was debugging manually, line by line. It was slow and painful, but it worked.
+
+And it reawakened something. The urge to build.
 
 
 Android Apps: The Next Challenge
