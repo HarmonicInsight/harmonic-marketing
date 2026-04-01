@@ -4,150 +4,147 @@
 
 ---
 
-By day, I'm a Managing Director at an IT consulting firm. I lead digital transformation projects, design enterprise architectures, and advise C-level executives on technology strategy. I've done this for 30 years, across over 100 companies, at firms like ISID (now dentsu SOKEN), PwC, and FPT. I once helped a construction company grow its revenue from ¥80M to ¥450M through system-driven business reform.
+By day, I'm a Managing Director at an IT consulting firm. I lead digital transformation projects, design enterprise architectures, and advise C-level executives on technology strategy. I've done this for 30 years, across over 100 companies, at firms like ISID (now dentsu SOKEN), PwC, and FPT. In 2022, I launched a new consulting practice from zero inside the firm — no clients, no team, no revenue. I personally won every deal. Three years later: 20 people, ¥450M ($3M) in annual revenue, and our first profitable year.
 
 By night — and weekends, and early mornings — I build software products. By myself. With AI.
 
 No development team. No venture capital. No startup office. Just me, Claude, and 30 years of knowing exactly what businesses actually need.
 
-This is the story of why I made that choice — and what I've learned.
+This is the story of how it happened — step by step.
 
 ---
 
-## The Frustration That Started Everything
+## 10 Years of Compromise
 
-In my consulting career, I saw the same pattern hundreds of times:
+For the first decade of my career, I led the planning and development of enterprise accounting packages. I designed the business logic, wrote the specifications, managed the roadmap. But everything after the basic design — the actual code — was in the hands of programmers.
 
-1. **I design a solution** that would transform a client's operations
-2. **I write the requirements** — detailed, precise, based on deep business understanding
-3. **I hand it to a development team** — and wait 3 months
-4. **The result comes back wrong** — because developers didn't understand the business context
-5. **We iterate for another 3 months** — burning budget and trust
+And programmers have their own sense of how things should work.
 
-The gap between "understanding the problem" and "building the solution" was always the bottleneck. I knew exactly what needed to be built. I just couldn't build it myself.
+The screen layout I envisioned? Slightly different. The workflow I designed? Implemented with shortcuts I didn't agree with. The small UI fixes I requested? "Too expensive to change."
 
-For 30 years, that was the reality. Requirements people don't code. Coders don't understand requirements. And the gap between them costs companies millions.
+I learned to compromise. Not because the team was bad — they were skilled. But there was always a gap between what I knew the business needed and what the development team delivered. That gap was the cost of not being able to build it myself.
 
-**Then AI changed everything.**
+I accepted it. For 10 years.
 
 ---
 
-## The Day I Realized I Could Build It Myself
+## 50 Books and a Platform
 
-In 2024, I started experimenting with AI coding assistants. Not as a toy. As a serious tool for someone who has spent three decades writing specifications.
+In early 2025, I started writing fiction. Not business books — novels.
 
-What I discovered shocked me: **the skills that make a great consultant are exactly the skills that make AI produce great code.**
+Once I started, I couldn't stop. Story after story poured out. But I needed a place to publish them — a platform I could control, not someone else's marketplace with their rules and limitations.
 
-- Defining clear requirements? That's a prompt.
-- Understanding edge cases? That's context for the AI.
-- Knowing what the user actually needs vs. what they ask for? That's architecture.
-- Decomposing a complex business process into logical steps? That's system design.
+So I decided to build one myself.
 
-I wasn't learning to code. I was finally able to **translate 30 years of business knowledge directly into software** — without the 6-month development cycle, without the lost-in-translation moments, without the budget overruns.
+It had been years since I'd written any code. But I sat down, opened an editor, and started programming again. Back then, AI coding tools were still limited. I was debugging manually, line by line, the old-fashioned way.
 
-Within months, I had built not one product, but an entire suite.
+It was slow. It was painful. But it worked.
+
+I built the novel platform. And I published 50 books on it — series, standalone novels, the works. That project was done.
+
+But something had been reawakened. The urge to build.
+
+---
+
+## Android Apps: The Next Challenge
+
+I use Android. And like most Android users, I was frustrated. Too many apps filled with ads. Too many apps that required payment for basic features. Too many apps that didn't quite do what I needed.
+
+So I thought: why not build my own?
+
+I started with Android Studio — copying code, pasting it in, building, debugging, iterating. It was clumsy, but it worked. App by app, I learned.
+
+Then I discovered something that changed everything: you could build apps directly on GitHub. The cloud handled the compilation. I didn't need a powerful local machine.
+
+Around the same time, Claude Code appeared — an AI that could write code for me. Not perfect code, not every time, but good enough to accelerate development by 10x.
+
+App development went from painful to fun.
+
+---
+
+## The Real Breakthrough: Claude Code CLI
+
+Then came the winter 2025 update. Claude Code CLI.
+
+For the first time, I could build full desktop applications locally. Combined with GitHub for CI/CD, I could create Windows applications — real, installable, production-quality software.
+
+That's when the realization hit me.
+
+15 years ago, I had designed accounting packages and logistics systems. I knew every business rule, every edge case, every workflow. But I couldn't build them myself — I needed a team of 20 developers.
+
+Now, with Claude Code CLI, C#, and WPF, I could build those same applications. Alone.
+
+The first time I saw a Python tool I had written — a simple automation script — reborn as a full C#/WPF desktop application with a professional UI, I felt something I hadn't felt in years.
+
+Not satisfaction. Not pride.
+
+**Awe.**
+
+This was possible now. One person. Complex enterprise software. Built in days, not months.
 
 ---
 
 ## What I Built: The Insight Business Suite
 
-Every product in the suite solves a problem I've personally witnessed dozens of times in my consulting career.
+Once I realized what was possible, I couldn't stop. Every product in the suite comes from a real problem I'd witnessed — and been unable to solve — during my consulting career.
 
 ### Insight Training Studio
-**The problem:** Companies spend $3,000–$10,000 per training video, outsourcing to agencies. Every time a process changes, they pay again. Meanwhile, hundreds of PowerPoint files sit unused on shared drives.
-
-**My solution:** Drop a PPTX file in, get a narrated training video out. 3 minutes. 13 languages. 100% local processing — no sensitive data leaves your computer.
-
-**Why I built it:** At one client, I watched them spend ¥5M on 10 training videos. The same content already existed as PowerPoint slides. The waste was painful.
+Companies spend $3,000–$10,000 per training video. I watched one client spend ¥5M on 10 videos when the same content already existed as PowerPoint slides. Now you drop a PPTX file in and get a narrated training video out. 3 minutes. 13 languages. 100% local.
 
 ### Insight AI Office
-**The problem:** After every meeting, someone spends 30 minutes writing minutes that nobody reads. Document editing is manual and repetitive. Teams use 5 different AI tools for basic office tasks.
-
-**My solution:** One integrated platform. AI meeting minutes, document editing, workflow automation. All offline-capable.
-
-**Why I built it:** In 30 years of meetings, I've seen thousands of hours wasted on meeting minutes. AI can do this in real-time — but existing tools require uploading sensitive meeting data to the cloud.
+After every meeting, someone spends 30 minutes writing minutes nobody reads. I've seen this thousands of times in 30 years. Now AI does it in real-time — without sending your meeting data to the cloud.
 
 ### Insight Deck Quality Gate
-**The problem:** PowerPoint presentations in large organizations are inconsistent, full of errors, and take hours to review manually.
-
-**My solution:** Automated PPTX quality checking, slide comparison, and AI-assisted review.
-
-**Why I built it:** At consulting firms, I've reviewed thousands of decks. The same mistakes appear every time. A machine should catch these, not a senior consultant billing $300/hour.
+At consulting firms, I've reviewed thousands of PowerPoint decks. The same mistakes, every time. A machine should catch these — not a senior consultant billing $300/hour.
 
 ### Insight Performance Management
-**The problem:** Management KPIs live in Excel spreadsheets that are manually updated, error-prone, and disconnected from decision-making.
+I helped a construction company grow revenue 5.6x by fixing how they tracked their numbers. That methodology shouldn't require a consultant. It should be software.
 
-**My solution:** AI-powered Excel analytics that connects numbers to business insight.
-
-**Why I built it:** I helped a construction company grow revenue 5.6x by fixing how they tracked and acted on their numbers. That methodology shouldn't require a consultant — it should be software.
+10 products in total. All desktop applications. All running locally. All built by one person.
 
 ---
 
-## The Architecture: Why "Local-First" Matters
+## Why Local-First?
 
-Every product I build runs locally. No cloud. No subscription per user. No data leaving your machine.
+Every product I build runs on your machine. No cloud. No per-user subscription. No data leaves your computer.
 
-This isn't a technical preference. It's a business decision based on 30 years of watching enterprise software fail:
+This isn't ideology. It's 30 years of watching enterprise software fail:
 
-**Problem 1: Security.**
-I've worked with construction companies, financial institutions, and government agencies. Their data cannot go to a third-party cloud. Period. Every SaaS AI tool that requires cloud upload is automatically disqualified from 40% of the enterprise market.
+**Security:** Construction companies, financial institutions, government agencies — their data cannot go to a third-party cloud. Every SaaS AI tool that requires cloud upload is disqualified from 40% of the enterprise market.
 
-**Problem 2: Cost at scale.**
-Per-user SaaS pricing kills enterprise adoption. A BPO company with 500 operators can't pay $20/user/month for a training video tool. That's $120,000/year. My tool costs $299. Once.
+**Cost:** Per-user SaaS pricing kills enterprise adoption. A BPO company with 500 people can't pay $20/user/month for a training video tool. That's $120,000/year. My tool costs $299. Once.
 
-**Problem 3: Vendor dependency.**
-I've seen companies build their entire workflow on a SaaS product, only to face a 3x price increase or a shutdown. Local software you own doesn't disappear.
-
-The AI models run through API calls to Claude, OpenAI, or Gemini — your choice. But the application, your data, and your workflow stay on your machine.
+**Dependency:** I've seen companies build their entire workflow on a SaaS product, only to face a 3x price increase. Local software you own doesn't disappear.
 
 ---
 
-## What 30 Years Taught Me About Building Software
+## What 30 Years Taught Me
 
-### 1. The best software comes from people who understand the problem deeply.
+### 1. The best software comes from people who understand the problem.
 
-Most software is built by developers who have never done the job the software is supposed to support. I've done the job. For 30 years. Every feature in my products exists because I've personally felt the pain it solves.
+Most software is built by developers who have never done the job. I've done the job. For 30 years.
 
 ### 2. AI doesn't replace experience — it amplifies it.
 
-A 25-year-old developer with AI can write code fast. A 55-year-old consultant with AI can build products that actually solve real business problems. The bottleneck was never the coding — it was the thinking. AI removed the coding bottleneck, and now the thinking is what matters.
+A 25-year-old developer with AI can write code fast. A 55-year-old consultant with AI can build products that solve real business problems. The bottleneck was never the coding — it was the thinking.
 
 ### 3. One person can build what used to require a team of 20.
 
-I have over 140 GitHub repositories. I've published 40 books on Kindle. I run a product suite with 10 products. This isn't bragging — it's evidence of what AI makes possible when combined with deep domain expertise.
+140 GitHub repositories. 50 books. 10 products. This isn't bragging — it's evidence of what's possible.
 
-### 4. The enterprise market is underserved by AI tools.
+### 4. The 10-year compromise is over.
 
-Most AI products target consumers or developers. The back-office manager who needs to automate meeting minutes, the HR team that needs training videos, the operations lead who needs better Excel analytics — these people are ignored by Silicon Valley. They shouldn't be.
+Remember those screen layouts I couldn't get right? Those UI details I had to accept? Those workflows that were "too expensive to change"? I fix them myself now. In minutes.
 
 ---
 
 ## Why I'm Going Global
 
-I built these products in Japan, and the Japanese market has been receptive. But the problems I solve aren't Japanese problems — they're universal.
+The problems I solve aren't Japanese problems. Every company in the world has PowerPoint files that should be training videos, meetings that produce useless minutes, and sensitive data that can't go to the cloud.
 
-Every company in the world has:
-- PowerPoint files that should be training videos
-- Meetings that produce useless minutes
-- Excel spreadsheets that should drive better decisions
-- Sensitive data that can't go to the cloud
+So here I am. Writing on Medium. Building in public. Bringing 30 years of enterprise consulting experience — and a suite of products I built myself — to a global audience.
 
-The local-first, AI-powered approach works everywhere. The 30 years of consulting experience that shaped these products applies everywhere.
-
-So here I am, writing on Medium, building in public, and bringing these tools to a global audience.
-
----
-
-## What's Next
-
-I'm sharing this journey openly. On this publication, you'll find:
-
-- **Product deep-dives** — how each tool works and what problems it solves
-- **Lessons from 30 years of consulting** — frameworks and patterns that apply to any business
-- **AI architecture decisions** — how I design software that runs locally with AI capabilities
-- **Building in public** — the real numbers, the real challenges, the real progress
-
-If you're a consultant, a business analyst, a project manager, or anyone who has spent years understanding business problems — know that AI has removed the barrier between your expertise and building software.
+If you're a consultant, a business analyst, or anyone who has spent years understanding business problems: AI has removed the barrier between your expertise and building software.
 
 You don't need to learn to code. You need to do what you've always done — understand the problem deeply, define the solution clearly, and now, let AI build it.
 
