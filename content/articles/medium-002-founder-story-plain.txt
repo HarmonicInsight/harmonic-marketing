@@ -84,7 +84,11 @@ Insight Training Studio
 Companies spend $3,000–$10,000 per training video. I watched one client spend ¥5M on 10 videos when the same content already existed as PowerPoint slides. Now you drop a PPTX file in and get a narrated training video out. 3 minutes. 13 languages. 100% local.
 
 Insight AI Office
-After every meeting, someone spends 30 minutes writing minutes nobody reads. I've seen this thousands of times in 30 years. Now AI does it in real-time — without sending your meeting data to the cloud.
+For years, I improved business operations using RPA and macros. Then the AI hype arrived — LLMs, RAG, chatbots. But honestly? Most of it is just glorified full-text search. And the promise of "ask AI to make a chart"? Most business users don't need that. What they need is to work with their Excel data, their Word documents, their PowerPoint decks — faster and smarter.
+
+That's what AI Office does. It opens and edits Excel, Word, PowerPoint, PDF, and Markdown — all in one tool. But unlike a regular office suite, you can embed AI prompts that operate directly on your data. Need to extract specific rows from 50 Excel files? Clean up 200 Word documents? Standardize formatting across a deck? Write a prompt, and it executes.
+
+I built this for companies where corporate security policies block generative AI tools. They can't use ChatGPT or Copilot — but they desperately need AI capabilities. AI Office gives them an API-based generative AI execution platform that runs within their security constraints.
 
 Insight Deck Quality Gate
 At consulting firms, I've reviewed thousands of PowerPoint decks. The same mistakes, every time. A machine should catch these — not a senior consultant billing $300/hour.
