@@ -34,6 +34,27 @@
 ./tools/video-manager/manage.sh export --format md
 ```
 
+## ニュース傾向分析
+
+**ニュース記事は `news/catalog.json` で管理しています。**
+建設・不動産・製造業・AI・コンサルの5業界ニュースを構造化して蓄積し、
+時間軸（1週間/半月/1ヶ月/2ヶ月）で傾向分析を実行します。
+
+```bash
+# 統計表示
+npx tsx tools/news-trend-analyzer/src/cli.ts stats
+
+# 傾向分析（1週間 / 半月 / 1ヶ月 / 2ヶ月）
+npx tsx tools/news-trend-analyzer/src/cli.ts analyze --window 1w
+npx tsx tools/news-trend-analyzer/src/cli.ts analyze --window 1m --format markdown
+
+# 複数期間比較
+npx tsx tools/news-trend-analyzer/src/cli.ts compare
+
+# 記事登録
+npx tsx tools/news-trend-analyzer/src/cli.ts collect
+```
+
 ## Twitter/X
 
 | # | ファイル | テーマ | 形式 | ステータス | 投稿日 |
