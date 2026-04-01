@@ -81,20 +81,21 @@ What I Built: The Insight Business Suite
 Once I realized what was possible, I couldn't stop. Every product in the suite comes from a real problem I'd witnessed — and been unable to solve — during my consulting career.
 
 Insight Training Studio
-Companies spend $3,000–$10,000 per training video. I watched one client spend ¥5M on 10 videos when the same content already existed as PowerPoint slides. Now you drop a PPTX file in and get a narrated training video out. 3 minutes. 13 languages. 100% local.
+When you do business process consulting for construction companies long enough, you always arrive at the same conclusion: it comes down to people. Japan's construction industry faces what's called the "five hardships" — labor shortages, aging workforce, long hours, dangerous conditions, and low wages. It's a labor-intensive industry, and at the end of every reform project, the answer is always education and training.
 
-Insight AI Office
-For years, I improved business operations using RPA and macros. Then the AI hype arrived — LLMs, RAG, chatbots. But honestly? Most of it is just glorified full-text search. And the promise of "ask AI to make a chart"? Most business users don't need that. What they need is to work with their Excel data, their Word documents, their PowerPoint decks — faster and smarter.
+But young site managers lack negotiation skills, sales experience, and field knowledge. And you can't train them fast enough with traditional methods. Today's generation learns from video, not manuals. So I built a tool that converts existing training materials — the PowerPoint decks every company already has — into narrated training videos automatically. 3 minutes. 13 languages. 100% local.
 
-That's what AI Office does. It opens and edits Excel, Word, PowerPoint, PDF, and Markdown — all in one tool. But unlike a regular office suite, you can embed AI prompts that operate directly on your data. Need to extract specific rows from 50 Excel files? Clean up 200 Word documents? Standardize formatting across a deck? Write a prompt, and it executes.
-
-I built this for companies where corporate security policies block generative AI tools. They can't use ChatGPT or Copilot — but they desperately need AI capabilities. AI Office gives them an API-based generative AI execution platform that runs within their security constraints.
+The other side of Training Studio is the interview tool. In the AI era, organizational knowledge lives as text. The real challenge isn't generating content — it's capturing the knowledge that experienced workers carry in their heads before they retire. Training Studio includes tools to collect, structure, and convert that knowledge into training content.
 
 Insight Deck Quality Gate
-At consulting firms, I've reviewed thousands of PowerPoint decks. The same mistakes, every time. A machine should catch these — not a senior consultant billing $300/hour.
+Consultants review hundreds of pages of deliverables. Every week. Senior consultants spend hours reviewing decks from junior team members — checking formatting, consistency, logical flow, brand compliance. I built Deck Quality Gate because this review process is mechanical enough to automate but important enough that you can't skip it. It compares slides, detects inconsistencies, and flags issues — so senior consultants can focus on the thinking, not the formatting.
 
 Insight Performance Management
-I helped a construction company grow revenue 5.6x by fixing how they tracked their numbers. That methodology shouldn't require a consultant. It should be software.
+This one is personal. Years ago, I built a consolidated accounting and Excel version management system for a client. The project cost ¥3.4 billion. It tracked change history across Excel files, highlighted exactly what changed and where, and handled consolidated financial reporting.
+
+That system is now sitting in my product suite — rebuilt by one person using AI. The same change tracking, the same consolidated accounting logic, implemented in C#/WPF.
+
+The product is finished but not yet launched. It's waiting for the right moment. But the fact that I rebuilt what cost ¥3.4 billion ($23M) as a solo developer — that still amazes me.
 
 10 products in total. All desktop applications. All running locally. All built by one person.
 
