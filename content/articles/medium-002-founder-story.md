@@ -160,21 +160,35 @@ I am not a programmer. I am an architect. A designer. An artist. The AI is my in
 
 ## What 30 Years Taught Me
 
-### 1. The best software comes from people who understand the problem.
+Recently, I realized something about myself that I'd never articulated before.
 
-Most software is built by developers who have never done the job. I've done the job. For 30 years.
+For 30 years, whenever a client described their requirements, I'd listen carefully — and then design something different. Not what they asked for. What I believed they actually needed. I'd think: "If I were the user, what would I want? What would feel right?"
 
-### 2. AI doesn't replace experience — it amplifies it.
+I designed systems as if I were going to use them myself. Every screen, every workflow, every button placement — I'd ask: "Would I be satisfied with this?"
+
+In Japan, this is unusual. The standard approach in IT consulting is to document exactly what the client says, hand it to developers, and build it to spec. Nobody asks, "But is this actually good?" They ask, "Does this match the requirements document?"
+
+I never worked that way. I always designed from empathy — from imagining myself as the end user. For decades, I thought this was just my personality. Now I realize it's the reason my products work.
+
+Because when you build software for yourself, you can't hide from bad design. You can't blame the requirements document. You can't say "the client approved it." You use it every day, and if it's bad, you feel it every day.
+
+This is why my products are different from most enterprise software. They're not built to match a specification. They're built to be used.
+
+### 1. AI doesn't replace experience — it amplifies it.
 
 A 25-year-old developer with AI can write code fast. A 55-year-old consultant with AI can build products that solve real business problems. The bottleneck was never the coding — it was the thinking.
 
-### 3. One person can build what used to require a team of 20.
+### 2. One person can build what used to require a team of 20.
 
-140 GitHub repositories. 50 books. 10 products. This isn't bragging — it's evidence of what's possible.
+150 GitHub repositories. 50 books. 10 products. This isn't bragging — it's evidence of what's possible.
 
-### 4. The 10-year compromise is over.
+### 3. The 10-year compromise is over.
 
 Remember those screen layouts I couldn't get right? Those UI details I had to accept? Those workflows that were "too expensive to change"? I fix them myself now. In minutes.
+
+### 4. Build for yourself first.
+
+If you wouldn't use your own product every day, why would anyone else?
 
 ---
 
