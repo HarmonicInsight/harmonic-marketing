@@ -136,6 +136,28 @@ This isn't ideology. It's 30 years of watching enterprise software fail:
 
 ---
 
+## 150 Repositories and Counting
+
+Today, I have over 150 GitHub repositories. Every day, I'm testing new ideas with AI, building prototypes, pushing boundaries.
+
+And the more I build, the more clearly I see the truth about AI-assisted development:
+
+**AI gets you to 80%. The last 20% is yours.**
+
+AI can write the code. It can generate the UI. It can implement the logic. But it cannot tell you whether the product feels right. It cannot judge whether the user experience is intuitive. It cannot sense whether the performance is acceptable for a real workflow.
+
+In Japan, there's a tradition called "maneki no me-ire" — painting the eyes on a daruma doll. The doll is complete in every way except the eyes. Without them, it's just a shape. The eyes bring it to life.
+
+That's what I do. AI builds the doll. I paint the eyes.
+
+In software terms: AI handles the functional requirements. But the non-functional requirements — usability, performance, design coherence, the feel of the product — that's the human's job. That's my job.
+
+This is what 30 years of business experience gives you. Not the ability to write code — AI does that now. The ability to know what "good" looks like. To feel when something is wrong before you can articulate why. To evaluate a product the way an end user would, not the way a developer would.
+
+I am not a programmer. I am an architect. A designer. An artist. The AI is my instrument.
+
+---
+
 ## What 30 Years Taught Me
 
 ### 1. The best software comes from people who understand the problem.
