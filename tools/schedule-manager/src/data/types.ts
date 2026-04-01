@@ -79,3 +79,58 @@ export const EVENT_CATEGORY_CONFIG: Record<EventCategory, { label: string; color
   campaign: { label: 'キャンペーン', color: '#4a7c59', icon: 'Campaign' },
   other: { label: 'その他', color: '#757575', icon: 'Event' },
 };
+
+// ─── リマインド・督促機能（コンプル風） ─────────────────────
+
+export type ReminderTiming = 'before_3d' | 'before_1d' | 'on_due' | 'after_1d' | 'after_3d' | 'after_7d';
+export type EscalationLevel = 0 | 1 | 2 | 3; // 0=未送信, 1=本人リマインド, 2=上位者通知, 3=最終警告
+export type ReminderChannel = 'app' | 'slack' | 'email';
+
+export interface ReminderRule {
+  timing: ReminderTiming;
+  channel: ReminderChannel;
+  enabled: boolean;
+}
+
+export interface ReminderLog {
+  id: string;
+  taskId: string;
+  sentAt: string;
+  timing: ReminderTiming;
+  escalationLevel: EscalationLevel;
+  channel: ReminderChannel;
+  acknowledged: boolean;
+  acknowledgedAt?: string;
+}
+
+export interface TaskReminderConfig {
+  taskId: string;
+  rules: ReminderRule[];
+  escalationEnabled: boolean;
+  maxEscalationLevel: EscalationLevel;
+}
+
+export const REMINDER_TIMING_CONFIG: Record<ReminderTiming, { label: string; days: number; color: string }> = {
+  before_3d: { label: '3日前', days: -3, color: '#4a7c59' },
+  before_1d: { label: '前日', days: -1, color: '#c17817' },
+  on_due: { label: '当日', days: 0, color: '#b5453a' },
+  after_1d: { label: '1日超過', days: 1, color: '#b5453a' },
+  after_3d: { label: '3日超過', days: 3, color: '#8b1a1a' },
+  after_7d: { label: '7日超過', days: 7, color: '#5c0000' },
+};
+
+export const ESCALATION_CONFIG: Record<EscalationLevel, { label: string; color: string; icon: string }> = {
+  0: { label: '未送信', color: '#9e9e9e', icon: 'Remove' },
+  1: { label: '本人リマインド', color: '#c17817', icon: 'NotificationsActive' },
+  2: { label: '上位者通知', color: '#b5453a', icon: 'PriorityHigh' },
+  3: { label: '最終警告', color: '#8b1a1a', icon: 'Report' },
+};
+
+export const DEFAULT_REMINDER_RULES: ReminderRule[] = [
+  { timing: 'before_3d', channel: 'app', enabled: true },
+  { timing: 'before_1d', channel: 'app', enabled: true },
+  { timing: 'on_due', channel: 'app', enabled: true },
+  { timing: 'after_1d', channel: 'app', enabled: true },
+  { timing: 'after_3d', channel: 'app', enabled: true },
+  { timing: 'after_7d', channel: 'app', enabled: true },
+];
