@@ -22,6 +22,10 @@ I learned to compromise. Not because the team was bad — they were skilled. But
 
 I accepted it. For 10 years.
 
+After that, I moved into consulting — ISID, PwC, FPT — spending the next 20 years designing enterprise systems, leading DX projects, and advising executives. The gap between my vision and the delivered product never went away. I just learned to manage it.
+
+Then, in 2025, everything changed.
+
 
 50 Novels and the 24-Hour AI Workforce
 
@@ -92,6 +96,13 @@ When you do business process consulting for construction companies long enough, 
 But young site managers lack negotiation skills, sales experience, and field knowledge. And you can't train them fast enough with traditional methods. Today's generation learns from video, not manuals. So I built a tool that converts existing training materials — the PowerPoint decks every company already has — into narrated training videos automatically. 3 minutes. 13 languages. 100% local.
 
 The other side of Training Studio is the interview tool. In the AI era, organizational knowledge lives as text. The real challenge isn't generating content — it's capturing the knowledge that experienced workers carry in their heads before they retire. Training Studio includes tools to collect, structure, and convert that knowledge into training content.
+
+Insight AI Office
+For years, I improved business operations using RPA and macros. Then the AI hype arrived — LLMs, RAG, chatbots. But honestly? Most of it is just glorified full-text search. And the promise of "ask AI to make a chart"? Most business users don't need that. What they need is to work with their Excel data, their Word documents, their PowerPoint decks — faster and smarter.
+
+AI Office opens and edits Excel, Word, PowerPoint, PDF, and Markdown — all in one tool. But unlike a regular office suite, you can embed AI prompts that operate directly on your data. Need to extract specific rows from 50 Excel files? Clean up 200 Word documents? Standardize formatting across a deck? Write a prompt, and it executes.
+
+I built this for companies where corporate security policies block generative AI tools. They can't use ChatGPT or Copilot — but they desperately need AI capabilities. AI Office gives them an API-based generative AI execution platform that runs within their security constraints.
 
 Insight Deck Quality Gate
 Consultants review hundreds of pages of deliverables. Every week. Senior consultants spend hours reviewing decks from junior team members — checking formatting, consistency, logical flow, brand compliance. I built Deck Quality Gate because this review process is mechanical enough to automate but important enough that you can't skip it. It compares slides, detects inconsistencies, and flags issues — so senior consultants can focus on the thinking, not the formatting.
