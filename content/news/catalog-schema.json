@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "news-catalog-schema",
+  "title": "ニュースカタログスキーマ",
+  "description": "建設・不動産・製造業・AI・コンサル業界のニュース記事を構造化して蓄積するスキーマ",
+  "type": "object",
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "last_updated": { "type": "string", "format": "date-time" },
+        "total_articles": { "type": "integer" }
+      },
+      "required": ["version", "last_updated", "total_articles"]
+    },
+    "industries": {
+      "type": "array",
+      "description": "対象業界マスタ",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name_ja": { "type": "string" },
+          "name_en": { "type": "string" },
+          "color": { "type": "string", "description": "表示用カラーコード" }
+        },
+        "required": ["id", "name_ja", "name_en"]
+      }
+    },
+    "theme_tags": {
+      "type": "array",
+      "description": "横断テーマタグ（業界をまたいで共通するテーマ）",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label_ja": { "type": "string" },
+          "label_en": { "type": "string" }
+        },
+        "required": ["id", "label_ja"]
+      }
+    },
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "pattern": "^NEWS-[0-9]{4}$" },
+          "title": { "type": "string" },
+          "source_name": { "type": "string", "description": "出典メディア名" },
+          "source_url": { "type": "string", "format": "uri" },
+          "published_at": { "type": "string", "format": "date", "description": "元記事の公開日" },
+          "collected_at": { "type": "string", "format": "date-time", "description": "収集日時" },
+          "industries": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "関連業界ID（複数可）"
+          },
+          "theme_tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "横断テーマタグID"
+          },
+          "summary": { "type": "string", "description": "3-5行の要約" },
+          "key_facts": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "数値・固有名詞などのキーファクト"
+          },
+          "business_insight": {
+            "type": "string",
+            "description": "このニュースから得られるビジネスの気づき（AI生成 or 手動）"
+          },
+          "sentiment": {
+            "type": "string",
+            "enum": ["positive", "negative", "neutral", "mixed"],
+            "description": "ニュースのセンチメント"
+          },
+          "impact_level": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "ビジネスインパクトの大きさ"
+          },
+          "related_articles": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "関連記事ID"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["raw", "analyzed", "insight_added", "used_in_content"],
+            "description": "処理ステータス"
+          }
+        },
+        "required": ["id", "title", "source_name", "published_at", "collected_at", "industries", "summary", "status"]
+      }
+    }
+  },
+  "required": ["_meta", "industries", "articles"]
+}

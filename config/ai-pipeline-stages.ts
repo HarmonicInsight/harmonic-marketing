@@ -25,7 +25,8 @@ export type PipelineType =
   | 'script_generation'      // INBT: Python スクリプト生成
   | 'document_generation'    // INAG: ドキュメント生成
   | 'data_analysis'          // INAG: データ分析レポート
-  | 'template_creation';     // IAOF: テンプレート・プロンプト作成
+  | 'template_creation'      // IAOF: テンプレート・プロンプト作成
+  | 'news_trend_analysis';   // ニュース傾向分析（業界横断トレンド）
 
 /** ステージ識別子 */
 export type StageId =
@@ -417,4 +418,91 @@ export const PIPELINE_REGISTRY: Record<PipelineType, PipelineDefinition> = {
     onFailure: 'stop',
     stages: [], // 後日定義
   },
+  news_trend_analysis: NEWS_TREND_ANALYSIS_PIPELINE,
+};
+
+// ---------------------------------------------------------------------------
+// パイプライン定義: ニュース傾向分析
+// ---------------------------------------------------------------------------
+// 建設・不動産・製造業・AI・コンサル業界のニュースを収集し、
+// 時間軸（1週間/半月/1ヶ月/2ヶ月）で傾向を分析する。
+// 2つの目的:
+//   1. クロスインダストリーのビジネスインサイト発見
+//   2. 時系列傾向分析で現代を読み解く
+// ---------------------------------------------------------------------------
+
+export const NEWS_TREND_ANALYSIS_PIPELINE: PipelineDefinition = {
+  type: 'news_trend_analysis',
+  nameJa: 'ニュース傾向分析パイプライン',
+  nameEn: 'News Trend Analysis Pipeline',
+  description: '業界ニュースを収集・構造化し、時間軸で傾向分析とインサイト抽出を実行する',
+  totalTimeoutSeconds: 900,
+  onFailure: 'stop',
+  stages: [
+    {
+      id: 'requirement_analysis',
+      nameJa: '収集・構造化',
+      nameEn: 'Collection & Structuring',
+      description: 'ニュース記事を収集し、業界タグ・テーマタグ・センチメント・キーファクトを付与して構造化する',
+      requiredInputs: [],
+      outputType: 'requirements',
+      promptTemplateKey: 'pipeline.news.collect',
+      sipoGateEnabled: true,
+      requiresUserApproval: false,
+      maxRetries: 2,
+      timeoutSeconds: 120,
+    },
+    {
+      id: 'design',
+      nameJa: '分析設計',
+      nameEn: 'Analysis Design',
+      description: '分析ウィンドウ（1w/2w/1m/2m）と重点業界・テーマを選定し、分析方針を決定する',
+      requiredInputs: ['requirements'],
+      outputType: 'design_doc',
+      promptTemplateKey: 'pipeline.news.design',
+      sipoGateEnabled: true,
+      requiresUserApproval: true,
+      maxRetries: 1,
+      timeoutSeconds: 30,
+    },
+    {
+      id: 'implementation',
+      nameJa: '傾向分析実行',
+      nameEn: 'Trend Analysis Execution',
+      description: '業界別集計・テーマランキング・前期比較・クロスインダストリー相関を算出する',
+      requiredInputs: ['requirements', 'design_doc'],
+      outputType: 'document',
+      promptTemplateKey: 'pipeline.news.analyze',
+      sipoGateEnabled: true,
+      requiresUserApproval: false,
+      maxRetries: 2,
+      timeoutSeconds: 120,
+    },
+    {
+      id: 'validation',
+      nameJa: 'インサイト抽出・検証',
+      nameEn: 'Insight Extraction & Validation',
+      description: '分析結果からビジネスインサイト候補を抽出し、根拠の妥当性を検証する',
+      requiredInputs: ['document', 'requirements'],
+      outputType: 'validation_report',
+      promptTemplateKey: 'pipeline.news.insight',
+      sipoGateEnabled: true,
+      requiresUserApproval: false,
+      maxRetries: 2,
+      timeoutSeconds: 60,
+    },
+    {
+      id: 'integration',
+      nameJa: 'レポート生成・コンテンツ連携',
+      nameEn: 'Report Generation & Content Linkage',
+      description: '傾向分析レポート（Markdown/JSON）を生成し、コンテンツ企画案との連携を提案する',
+      requiredInputs: ['document', 'validation_report'],
+      outputType: 'final_output',
+      promptTemplateKey: 'pipeline.news.report',
+      sipoGateEnabled: false,
+      requiresUserApproval: false,
+      maxRetries: 1,
+      timeoutSeconds: 60,
+    },
+  ],
 };

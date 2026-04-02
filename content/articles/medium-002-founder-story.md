@@ -1,0 +1,217 @@
+# I'm a Managing Director at a Consulting Firm. I Build Software Products Alone with AI. Here's Why.
+
+*Published in HARMONIC insight on Medium*
+
+---
+
+By day, I'm a Managing Director at an IT consulting firm. I lead digital transformation projects, design enterprise architectures, and advise C-level executives on technology strategy. I've done this for 30 years, across over 100 companies, at firms like ISID (now dentsu SOKEN), PwC, and FPT. In 2022, I launched a new consulting practice from zero inside the firm — no clients, no team, no revenue. I personally won every deal. Three years later: 20 people, ¥450M ($3M) in annual revenue, and our first profitable year.
+
+By night — and weekends, and early mornings — I build software products. By myself. With AI.
+
+No development team. No venture capital. No startup office. Just me, Claude, and 30 years of knowing exactly what businesses actually need.
+
+This is the story of how it happened — step by step.
+
+---
+
+## 10 Years of Compromise
+
+For the first decade of my career, I led the planning and development of enterprise accounting packages. I designed the business logic, wrote the specifications, managed the roadmap. But everything after the basic design — the actual code — was in the hands of programmers.
+
+And programmers have their own sense of how things should work.
+
+The screen layout I envisioned? Slightly different. The workflow I designed? Implemented with shortcuts I didn't agree with. The small UI fixes I requested? "Too expensive to change."
+
+I learned to compromise. Not because the team was bad — they were skilled. But there was always a gap between what I knew the business needed and what the development team delivered. That gap was the cost of not being able to build it myself.
+
+I accepted it. For 10 years.
+
+---
+
+## 50 Novels and the 24-Hour AI Workforce
+
+It started with a simple realization: I'm paying a monthly subscription for AI, and it sits idle while I sleep. That's 8 hours of wasted capacity every night.
+
+So I put it to work.
+
+In early 2025, I started an experiment. Every night before bed, I'd give the AI a task: research what genres are trending in the Japanese novel market, analyze what readers want, propose story concepts, and in some cases, write the draft. By morning, I'd have material to review, edit, and publish.
+
+This is how I wrote 50 novels.
+
+But the more I did it, the more I learned something important about AI: it's fast, but it's shallow. The plots AI proposed were technically competent but lacked depth. The characters were functional but not interesting. AI doesn't have lived experience, so its stories feel generic.
+
+That's when I shifted. Instead of letting AI choose what to write, I started writing about things I actually cared about — architecture, the future of cities, construction, technology. Stories with substance that came from my own knowledge and curiosity. AI became the executor, not the thinker.
+
+This same principle now drives how I build software. With Claude Code on the Max Plan, I run development cycles around the clock. During the day, I use the products myself and evaluate them. At night, AI builds. My role is simple: I define two things — features that sell, and features that make the product easy to use. Then I evaluate, give feedback, and loop. Evaluate, feedback, loop. Over and over.
+
+The AI never sleeps. And neither does the product development.
+
+I also needed a platform to publish the novels — something I could control, not someone else's marketplace. So I built that too. It had been years since I'd written code, and back then AI coding tools were limited. I was debugging manually, line by line. It was slow and painful, but it worked.
+
+And it reawakened something. The urge to build.
+
+---
+
+## Android Apps: The Next Challenge
+
+I use Android. And like most Android users, I was frustrated. Too many apps filled with ads. Too many apps that required payment for basic features. Too many apps that didn't quite do what I needed.
+
+So I thought: why not build my own?
+
+I started with Android Studio — copying code, pasting it in, building, debugging, iterating. It was clumsy, but it worked. App by app, I learned.
+
+Then I discovered something that changed everything: you could build apps directly on GitHub. The cloud handled the compilation. I didn't need a powerful local machine.
+
+Around the same time, Claude Code appeared — an AI that could write code for me. Not perfect code, not every time, but good enough to accelerate development by 10x.
+
+App development went from painful to fun.
+
+---
+
+## The Real Breakthrough: Claude Code CLI
+
+Then came the winter 2025 update. Claude Code CLI.
+
+For the first time, I could build full desktop applications locally. Combined with GitHub for CI/CD, I could create Windows applications — real, installable, production-quality software.
+
+That's when the realization hit me.
+
+15 years ago, I had designed accounting packages and logistics systems. I knew every business rule, every edge case, every workflow. But I couldn't build them myself — I needed a team of 20 developers.
+
+Now, with Claude Code CLI, C#, and WPF, I could build those same applications. Alone.
+
+The first time I saw a Python tool I had written — a simple automation script — reborn as a full C#/WPF desktop application with a professional UI, I felt something I hadn't felt in years.
+
+Not satisfaction. Not pride.
+
+**Awe.**
+
+This was possible now. One person. Complex enterprise software. Built in days, not months.
+
+---
+
+## What I Built: The Insight Business Suite
+
+Once I realized what was possible, I couldn't stop. Every product in the suite comes from a real problem I'd witnessed — and been unable to solve — during my consulting career.
+
+### Insight Training Studio
+When you do business process consulting for construction companies long enough, you always arrive at the same conclusion: it comes down to people. Japan's construction industry faces what's called the "five hardships" — labor shortages, aging workforce, long hours, dangerous conditions, and low wages. It's a labor-intensive industry, and at the end of every reform project, the answer is always education and training.
+
+But young site managers lack negotiation skills, sales experience, and field knowledge. And you can't train them fast enough with traditional methods. Today's generation learns from video, not manuals. So I built a tool that converts existing training materials — the PowerPoint decks every company already has — into narrated training videos automatically. 3 minutes. 13 languages. 100% local.
+
+The other side of Training Studio is the interview tool. In the AI era, organizational knowledge lives as text. The real challenge isn't generating content — it's capturing the knowledge that experienced workers carry in their heads before they retire. Training Studio includes tools to collect, structure, and convert that knowledge into training content.
+
+### Insight AI Office
+For years, I improved business operations using RPA and macros. Then the AI hype arrived — LLMs, RAG, chatbots. But honestly? Most of it is just glorified full-text search. And the promise of "ask AI to make a chart"? Most business users don't need that. What they need is to work with their Excel data, their Word documents, their PowerPoint decks — faster and smarter.
+
+That's what AI Office does. It opens and edits Excel, Word, PowerPoint, PDF, and Markdown — all in one tool. But unlike a regular office suite, you can embed AI prompts that operate directly on your data. Need to extract specific rows from 50 Excel files? Clean up 200 Word documents? Standardize formatting across a deck? Write a prompt, and it executes.
+
+I built this for companies where corporate security policies block generative AI tools. They can't use ChatGPT or Copilot — but they desperately need AI capabilities. AI Office gives them an API-based generative AI execution platform that runs within their security constraints.
+
+### Insight Deck Quality Gate
+Consultants review hundreds of pages of deliverables. Every week. Senior consultants spend hours reviewing decks from junior team members — checking formatting, consistency, logical flow, brand compliance. I built Deck Quality Gate because this review process is mechanical enough to automate but important enough that you can't skip it. It compares slides, detects inconsistencies, and flags issues — so senior consultants can focus on the thinking, not the formatting.
+
+### Insight Performance Management
+This one is personal. Years ago, I built a consolidated accounting and Excel version management system for a client. The project cost ¥3.4 billion. It tracked change history across Excel files, highlighted exactly what changed and where, and handled consolidated financial reporting.
+
+That system is now sitting in my product suite — rebuilt by one person using AI. The same change tracking, the same consolidated accounting logic, implemented in C#/WPF.
+
+The product is finished but not yet launched. It's waiting for the right moment. But the fact that I rebuilt what cost ¥3.4 billion ($23M) as a solo developer — that still amazes me.
+
+10 products in total. All desktop applications. All running locally. All built by one person.
+
+---
+
+## Why Local-First?
+
+Every product I build runs on your machine. No cloud. No per-user subscription. No data leaves your computer.
+
+This isn't ideology. It's 30 years of watching enterprise software fail:
+
+**Security:** Construction companies, financial institutions, government agencies — their data cannot go to a third-party cloud. Every SaaS AI tool that requires cloud upload is disqualified from 40% of the enterprise market.
+
+**Cost:** Per-user SaaS pricing kills enterprise adoption. A BPO company with 500 people can't pay $20/user/month for a training video tool. That's $120,000/year. My tool costs $299. Once.
+
+**Dependency:** I've seen companies build their entire workflow on a SaaS product, only to face a 3x price increase. Local software you own doesn't disappear.
+
+---
+
+## 150 Repositories and Counting
+
+Today, I have over 150 GitHub repositories. Every day, I'm testing new ideas with AI, building prototypes, pushing boundaries.
+
+And the more I build, the more clearly I see the truth about AI-assisted development:
+
+**AI gets you to 80%. The last 20% is yours.**
+
+AI can write the code. It can generate the UI. It can implement the logic. But it cannot tell you whether the product feels right. It cannot judge whether the user experience is intuitive. It cannot sense whether the performance is acceptable for a real workflow.
+
+In Japan, there's a tradition called "maneki no me-ire" — painting the eyes on a daruma doll. The doll is complete in every way except the eyes. Without them, it's just a shape. The eyes bring it to life.
+
+That's what I do. AI builds the doll. I paint the eyes.
+
+In software terms: AI handles the functional requirements. But the non-functional requirements — usability, performance, design coherence, the feel of the product — that's the human's job. That's my job.
+
+This is what 30 years of business experience gives you. Not the ability to write code — AI does that now. The ability to know what "good" looks like. To feel when something is wrong before you can articulate why. To evaluate a product the way an end user would, not the way a developer would.
+
+I am not a programmer. I am an architect. A designer. An artist. The AI is my instrument.
+
+---
+
+## What 30 Years Taught Me
+
+Recently, I realized something about myself that I'd never articulated before.
+
+For 30 years, whenever a client described their requirements, I'd listen carefully — and then design something different. Not what they asked for. What I believed they actually needed. I'd think: "If I were the user, what would I want? What would feel right?"
+
+I designed systems as if I were going to use them myself. Every screen, every workflow, every button placement — I'd ask: "Would I be satisfied with this?"
+
+In Japan, this is unusual. The standard approach in IT consulting is to document exactly what the client says, hand it to developers, and build it to spec. Nobody asks, "But is this actually good?" They ask, "Does this match the requirements document?"
+
+I never worked that way. I always designed from empathy — from imagining myself as the end user. For decades, I thought this was just my personality. Now I realize it's the reason my products work.
+
+Because when you build software for yourself, you can't hide from bad design. You can't blame the requirements document. You can't say "the client approved it." You use it every day, and if it's bad, you feel it every day.
+
+This is why my products are different from most enterprise software. They're not built to match a specification. They're built to be used.
+
+### 1. AI doesn't replace experience — it amplifies it.
+
+A 25-year-old developer with AI can write code fast. A 55-year-old consultant with AI can build products that solve real business problems. The bottleneck was never the coding — it was the thinking.
+
+### 2. One person can build what used to require a team of 20.
+
+150 GitHub repositories. 50 books. 10 products. This isn't bragging — it's evidence of what's possible.
+
+### 3. The 10-year compromise is over.
+
+Remember those screen layouts I couldn't get right? Those UI details I had to accept? Those workflows that were "too expensive to change"? I fix them myself now. In minutes.
+
+### 4. Build for yourself first.
+
+If you wouldn't use your own product every day, why would anyone else?
+
+---
+
+## Why I'm Going Global
+
+The problems I solve aren't Japanese problems. Every company in the world has PowerPoint files that should be training videos, meetings that produce useless minutes, and sensitive data that can't go to the cloud.
+
+So here I am. Writing on Medium. Building in public. Bringing 30 years of enterprise consulting experience — and a suite of products I built myself — to a global audience.
+
+If you're a consultant, a business analyst, or anyone who has spent years understanding business problems: AI has removed the barrier between your expertise and building software.
+
+You don't need to learn to code. You need to do what you've always done — understand the problem deeply, define the solution clearly, and now, let AI build it.
+
+**The age of the builder-consultant has arrived.**
+
+---
+
+**[Explore the Insight Business Suite → insight-office.com/en](https://www.insight-office.com/en)**
+
+---
+
+*Written by a Managing Director at an IT consulting firm who builds AI-powered software products solo. 30 years in enterprise consulting. 10 products. 50 books. 140+ GitHub repositories. Follow HARMONIC insight on Medium for weekly articles on AI-powered business tools, enterprise productivity, and building in public.*
+
+---
+
+**Tags:** #AI #SoloFounder #BuildingInPublic #Consulting #Productivity #IndieHacker

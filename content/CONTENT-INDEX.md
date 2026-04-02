@@ -11,9 +11,10 @@
 | 1 | `note/articles/sipo-backoffice-reform-construction.md` | 建設業・ハウジング業のバックオフィスが重い本当の理由 | コンサル論 | draft | - |
 | 2 | `note/articles/note_08_personal_story.md` | 劣等感を抱えたまま30年走り続けたら、マネージングダイレクターになっていた | パーソナル | draft | - |
 | 3 | `note/articles/construction-reconciliation-dx.md` | 建設業の「消し込み」が回らない本当の理由 — DXの前に整えるべき3つのこと | コンサル論 | draft | - |
-| 4 | `note/articles/rpa-lessons-for-ai-era.md` | RPAの失敗から学べ｜AI時代でも変わらない自動化の鉄則 | コンサル論 / AI実務活用 | draft | - |
-| 5 | `note/articles/agile-myth-construction-industry.md` | 建設業に「アジャイル」は本当に必要か｜RPAもDXも同じ轍を踏んでいる | コンサル論 | draft | - |
-| 6 | `note/articles/is-your-dev-really-agile.md` | あなたのその開発、アジャイルですか？｜よくある5つの誤解と原典が語る本当の意味 | コンサル論 | draft | - |
+| 4 | `note/articles/rpa-vs-ai-backoffice.md` | RPAとAIの本質的な違い──バックオフィスで「AIは使えない」と言われる本当の理由 | コンサル論 | draft | - |
+| 5 | `note/articles/rpa-lessons-for-ai-era.md` | RPAの失敗から学べ｜AI時代でも変わらない自動化の鉄則 | コンサル論 / AI実務活用 | draft | - |
+| 6 | `note/articles/agile-myth-construction-industry.md` | 建設業に「アジャイル」は本当に必要か｜RPAもDXも同じ轍を踏んでいる | コンサル論 | draft | - |
+| 7 | `note/articles/is-your-dev-really-agile.md` | あなたのその開発、アジャイルですか？｜よくある5つの誤解と原典が語る本当の意味 | コンサル論 | draft | - |
 
 ## YouTube 動画
 
@@ -34,6 +35,27 @@
 
 # エクスポート（Markdown/CSV）
 ./tools/video-manager/manage.sh export --format md
+```
+
+## ニュース傾向分析
+
+**ニュース記事は `news/catalog.json` で管理しています。**
+建設・不動産・製造業・AI・コンサルの5業界ニュースを構造化して蓄積し、
+時間軸（1週間/半月/1ヶ月/2ヶ月）で傾向分析を実行します。
+
+```bash
+# 統計表示
+npx tsx tools/news-trend-analyzer/src/cli.ts stats
+
+# 傾向分析（1週間 / 半月 / 1ヶ月 / 2ヶ月）
+npx tsx tools/news-trend-analyzer/src/cli.ts analyze --window 1w
+npx tsx tools/news-trend-analyzer/src/cli.ts analyze --window 1m --format markdown
+
+# 複数期間比較
+npx tsx tools/news-trend-analyzer/src/cli.ts compare
+
+# 記事登録
+npx tsx tools/news-trend-analyzer/src/cli.ts collect
 ```
 
 ## Twitter/X
