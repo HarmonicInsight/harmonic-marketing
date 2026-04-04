@@ -1,6 +1,6 @@
 # Agile Didn't Fail. Your System Did. Here's What's Missing.
 
-*Published in HARMONIC insight on Medium*
+*SFAD is not a product. It's a way of thinking about how systems are actually built.*
 
 ---
 
@@ -133,11 +133,14 @@ They are construction problems.
 
 ---
 
-## SFAD: A Methodology for How to Build
+## SFAD: A Way to Think About Building
 
-SFAD (Screen First AI Development) is a methodology that addresses this gap.
+SFAD (Screen First AI Development) is one way to approach this gap.
 
-The core idea: start with what the client can see, not with what they have to imagine.
+Not a framework.
+Not a tool.
+
+A **way to think about construction**.
 
 ---
 
@@ -202,8 +205,6 @@ But it's important to be clear:
 
 That second question has been left open.
 
-SFAD is one answer — a methodology built through real-world system implementations and refined with AI-assisted development.
-
 ---
 
 ## A Thought to Leave You With
@@ -222,4 +223,10 @@ It may be that no one ever defined how the system should be built in the first p
 
 ---
 
-*SFAD captures the "how to build" in a reproducible 10-step process. We're sharing the methodology, tools, and starter kit at [insight-office.com](https://www.insight-office.com).*
+*SFAD (Screen First AI Development) is an approach developed through real-world system implementations.
+We continue to explore and refine it through practice.*
+
+---
+
+*This topic is also explored in video form:*
+https://youtu.be/OLRtdI9Y8to
