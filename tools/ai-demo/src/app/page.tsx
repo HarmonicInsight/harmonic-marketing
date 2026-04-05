@@ -19,6 +19,14 @@ const demos = [
     icon: "📝",
     tags: ["建設", "製造業", "モバイル対応"],
   },
+  {
+    id: "ai-announcements",
+    title: "最新AI動向",
+    subtitle: "AI Vendor Announcements",
+    description: "Anthropic・OpenAI・Google・Microsoftなど主要AIベンダーの公式発表をいち早くキャッチアップ。ビジネスに影響する最新情報を網羅します。",
+    icon: "⚡",
+    tags: ["Anthropic", "OpenAI", "Google", "Microsoft"],
+  },
 ];
 
 export default function HomePage() {
@@ -37,6 +45,23 @@ export default function HomePage() {
           <span style={{ fontSize: 24, fontWeight: 900, color: "#1B3A5C" }}>AI</span>
           <span style={{ fontSize: 16, fontWeight: 700, color: "#1B3A5C" }}>業務自動化デモ</span>
           <span style={{ fontSize: 12, color: "#6B7280", marginLeft: 8 }}>by HARMONIC insight</span>
+          <nav style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
+            <Link href="/ai-announcements" style={{
+              fontSize: 13,
+              fontWeight: 600,
+              color: "#fff",
+              background: "#1B3A5C",
+              padding: "6px 16px",
+              borderRadius: 20,
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              transition: "background 0.2s",
+            }}>
+              ⚡ 最新AI動向
+            </Link>
+          </nav>
         </div>
       </header>
 
