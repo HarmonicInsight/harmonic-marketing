@@ -19,6 +19,14 @@ const demos = [
     icon: "📝",
     tags: ["建設", "製造業", "モバイル対応"],
   },
+  {
+    id: "ai-announcements",
+    title: "最新AI動向",
+    subtitle: "AI Vendor Announcements",
+    description: "Anthropic・OpenAI・Google・Microsoftなど主要AIベンダーの公式発表をいち早くキャッチアップ。ビジネスに影響する最新情報を網羅します。",
+    icon: "⚡",
+    tags: ["Anthropic", "OpenAI", "Google", "Microsoft"],
+  },
 ];
 
 export default function HomePage() {
